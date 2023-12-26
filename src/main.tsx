@@ -1,10 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "@src/App.tsx";
+import { Providers } from "@src/providers/Providers.tsx";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+import "@src/sass/global.scss";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <Providers>
+      <App />
+    </Providers>
+  </React.StrictMode>
+);
