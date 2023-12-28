@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 interface TGlobalContext {
-  count: Number;
+  count: number;
   setCount: React.Dispatch<React.SetStateAction<number>>;
 }
 

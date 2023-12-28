@@ -7,7 +7,7 @@ const Products = lazy(() => import("./views/Products"));
 
 function App() {
   return (
-    <div className="o">
+    <div>
       <Suspense fallback={<div>Loading</div>}>
         <Routes>
           <Route element={<PublicLayout />}>
