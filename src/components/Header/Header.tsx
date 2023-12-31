@@ -44,11 +44,22 @@ export function Header() {
             <img src={searchicon} alt="Search Icon" />
           </button>
         </div>
-        <div>
+        <div className="amazon-tools">
           <div className="change-language">
             <img src={usaFlag} alt="US Flag" />
             <h3>EN</h3>
             <img className="dropdown" src={dropDownIcon} alt="Dropdown Icon" />
+          </div>
+          <div className="sign-in">
+            <div className="sign-in-spacing">
+              <h4>Hello,sign in</h4>
+              <h3>Account & Lists</h3>
+            </div>
+            <img
+              className="sign-in-dropdown"
+              src={dropDownIcon}
+              alt="sign in dropdown icon"
+            />
           </div>
         </div>
       </div>

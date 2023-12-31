@@ -113,26 +113,58 @@
   }
 }
 
-.change-language {
-  height: 50px;
+.amazon-tools {
   display: flex;
-  align-items: center;
-  padding: 10px 2px 0px 9px;
-  color: #ffffff;
-  font-size: $font-size-12px;
-  font-weight: bold;
-  cursor: pointer;
 
-  img {
-    width: 19px;
-    height: 14px;
-    margin-right: 4px;
+  .change-language {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 10px 2px 0px 9px;
+    color: #ffffff;
+    font-size: $font-size-12px;
+    font-weight: bold;
+    cursor: pointer;
+
+    img {
+      width: 19px;
+      height: 14px;
+      margin-right: 4px;
+    }
+
+    .dropdown {
+      width: 15px;
+      height: 10px;
+      margin-top: 6px;
+    }
+  }
+  .sign-in {
+    height: 50px;
+    display: flex;
+    padding: 0px 9px 10px;
+    color: #ffffff;
+    cursor: pointer;
+
+    .sign-in-spacing {
+      padding-top: 10px;
+    }
   }
 
-  .dropdown {
+  .sign-in h4 {
+    font-size: $font-size-12px;
+  }
+  .sign-in h3 {
+    font-size: $font-size-14px;
+  }
+
+  .sign-in-dropdown {
     width: 15px;
     height: 10px;
-    margin-top: 6px;
+    margin: 29px 0 0 2px;
+  }
+
+  .sign-in:hover {
+    outline: 1px solid #ffffff;
   }
 }
 
