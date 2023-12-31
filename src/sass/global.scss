@@ -46,15 +46,16 @@
       background-color: $secondary-background-color;
       color: #ffffff;
 
-      h5 {
+      .deliver-to {
         display: flex;
         font-size: 11px;
         color: #cccccc;
         cursor: pointer;
       }
 
-      h4 {
+      .uk {
         font-size: $font-size-14px;
+        font-weight: bold;
         cursor: pointer;
       }
     }
@@ -146,15 +147,16 @@
     cursor: pointer;
 
     .sign-in-spacing {
-      padding-top: 10px;
+      padding-top: 5px;
     }
-  }
 
-  .sign-in h4 {
-    font-size: $font-size-12px;
-  }
-  .sign-in h3 {
-    font-size: $font-size-14px;
+    .sign-in-text {
+      font-size: $font-size-12px;
+    }
+
+    .account-lists {
+      font-size: $font-size-14px;
+    }
   }
 
   .sign-in-dropdown {

@@ -18,10 +18,8 @@ export function Header() {
           />
           <button className="deliver">
             <div>
-              <h5>Deliver to</h5>
-              <h4>
-                <b>United Kingdom</b>
-              </h4>
+              <span className="deliver-to">Deliver to</span>
+              <span className="uk">United Kingdom</span>
             </div>
           </button>
         </div>
@@ -47,13 +45,15 @@ export function Header() {
         <div className="amazon-tools">
           <div className="change-language">
             <img src={usaFlag} alt="US Flag" />
-            <h3>EN</h3>
+            <span>EN</span>
             <img className="dropdown" src={dropDownIcon} alt="Dropdown Icon" />
           </div>
           <div className="sign-in">
             <div className="sign-in-spacing">
-              <h4>Hello,sign in</h4>
-              <h3>Account & Lists</h3>
+              <span className="sign-in-text">Hello,sign in</span>
+              <p className="account-list">
+                <b>Account & Lists</b>
+              </p>
             </div>
             <img
               className="sign-in-dropdown"
@@ -61,6 +61,7 @@ export function Header() {
               alt="sign in dropdown icon"
             />
           </div>
+          <div></div>
         </div>
       </div>
       <nav className="nav-bar">
