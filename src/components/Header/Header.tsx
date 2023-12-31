@@ -1,10 +1,11 @@
 import navIcon from "@src/assets/nav-icon.png";
 import amazonLogo from "@src/assets/amazon-logo.png";
 import locationLogo from "@src/assets/location-logo.png";
+import searchicon from "@src/assets/search-icon.png";
 
 export function Header() {
   return (
-    <header>
+    <header className="header">
       <div className="header-input">
         <img className="amazon-logo" src={amazonLogo} alt="Amazon logo" />
         <div className="deliver-spacing">
@@ -20,6 +21,25 @@ export function Header() {
                 <b>United Kingdom</b>
               </h4>
             </div>
+          </button>
+        </div>
+        <div className="search-bar">
+          <select name="all" className="select-niche">
+            all
+            <option value="/">All</option>
+            <option value="/">Computers</option>
+            <option value="/">Kitchen</option>
+            <option value="/">Books</option>
+          </select>
+          <form>
+            <input
+              type="text"
+              placeholder="Search Amazon"
+              className="search-amazon"
+            />
+          </form>
+          <button className="search-button">
+            <img src={searchicon} alt="Search Icon" />
           </button>
         </div>
       </div>
