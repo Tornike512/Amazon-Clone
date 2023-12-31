@@ -33,6 +33,7 @@
     align-items: center;
     padding: 0 9px 0 9px;
     margin: 0px 2px 5px 5px;
+    cursor: pointer;
 
     .location-logo {
       width: 19px;
@@ -49,10 +50,12 @@
         display: flex;
         font-size: 11px;
         color: #cccccc;
+        cursor: pointer;
       }
 
       h4 {
         font-size: $font-size-14px;
+        cursor: pointer;
       }
     }
   }
