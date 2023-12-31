@@ -48,7 +48,7 @@ export function Header() {
           <div className="change-language">
             <img src={usaFlag} alt="US Flag" />
             <h3>EN</h3>
-            <img src={dropDownIcon} alt="Dropdown Icon" />
+            <img className="dropdown" src={dropDownIcon} alt="Dropdown Icon" />
           </div>
         </div>
       </div>
