@@ -11,8 +11,56 @@
 .header-input {
   width: 100%;
   height: 60px;
-  padding: 20px 9px;
+  display: flex;
+  padding: 5px 9px;
   background-color: $secondary-background-color;
+
+  .amazon-logo {
+    width: 113px;
+    height: 50px;
+    padding: 13px 8px 0px 6px;
+    cursor: pointer;
+  }
+
+  .amazon-logo:hover {
+    outline: 1px solid #ffffff;
+    border-radius: 2px;
+  }
+
+  .deliver-spacing {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 9px 0 9px;
+    margin: 0px 2px 5px 5px;
+
+    .location-logo {
+      width: 19px;
+      height: 22px;
+      margin-top: 5px;
+    }
+
+    .deliver {
+      border: none;
+      background-color: $secondary-background-color;
+      color: #ffffff;
+
+      h5 {
+        display: flex;
+        font-size: 11px;
+        color: #cccccc;
+      }
+
+      h4 {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .deliver-spacing:hover {
+    outline: 1px solid #ffffff;
+    border-radius: 2px;
+  }
 }
 
 .nav-bar {
