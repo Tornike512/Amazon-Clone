@@ -2,6 +2,8 @@ import navIcon from "@src/assets/nav-icon.png";
 import amazonLogo from "@src/assets/amazon-logo.png";
 import locationLogo from "@src/assets/location-logo.png";
 import searchicon from "@src/assets/search-icon.png";
+import usaFlag from "@src/assets/usa-flag.webp";
+import dropDownIcon from "src/assets/dropdown-icon.png";
 
 export function Header() {
   return (
@@ -41,6 +43,13 @@ export function Header() {
           <button className="search-button">
             <img src={searchicon} alt="Search Icon" />
           </button>
+        </div>
+        <div>
+          <div className="change-language">
+            <img src={usaFlag} alt="US Flag" />
+            <h3>EN</h3>
+            <img src={dropDownIcon} alt="Dropdown Icon" />
+          </div>
         </div>
       </div>
       <nav className="nav-bar">
