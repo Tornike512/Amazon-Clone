@@ -4,6 +4,7 @@ import locationLogo from "@src/assets/location-logo.png";
 import searchicon from "@src/assets/search-icon.png";
 import usaFlag from "@src/assets/usa-flag.webp";
 import dropDownIcon from "src/assets/dropdown-icon.png";
+import cartLogo from "src/assets/cart-logo.png";
 
 export function Header() {
   return (
@@ -64,6 +65,13 @@ export function Header() {
           <div className="returns-orders">
             <span>Returns</span>
             <p>& Orders</p>
+          </div>
+          <div className="cart">
+            <div className="cart-count">
+              <span>0</span>
+              <img src={cartLogo} alt="Cart Logo" />
+            </div>
+            <span className="cart-text">Cart</span>
           </div>
         </div>
       </div>

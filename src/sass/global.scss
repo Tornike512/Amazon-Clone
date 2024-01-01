@@ -191,6 +191,32 @@
     @include outline(1px solid #ffffff);
     @include border-radius(2px);
   }
+
+  .cart {
+    display: flex;
+    padding: 5px 9px 11px;
+    cursor: pointer;
+
+    .cart-count span {
+      position: absolute;
+      right: 83px;
+      top: 13px;
+      font-weight: bold;
+      color: #f08804;
+    }
+
+    .cart-text {
+      padding-top: 18px;
+      font-size: $font-size-14px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+  }
+
+  .cart:hover {
+    @include outline(1px solid #ffffff);
+    @include border-radius(2px);
+  }
 }
 
 .change-language:hover {
