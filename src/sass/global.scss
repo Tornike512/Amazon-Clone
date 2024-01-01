@@ -8,6 +8,17 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Amazon Ember";
+  src: url("/src/fonts/Amazon\ Ember.ttf"),
+    url("/src/fonts/Amazon\ Ember\ Bold.ttf");
+}
+
+body {
+  font-family: "Amazon Ember";
+  font-weight: 400;
+}
+
 .header-input {
   width: 100%;
   height: 60px;
