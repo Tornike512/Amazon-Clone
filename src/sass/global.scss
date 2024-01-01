@@ -242,6 +242,29 @@ body {
   align-items: center;
   background-color: $tertiary-background-color;
 
+  .open-sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 9px;
+    margin-left: 5px;
+    font-size: $font-size-14px;
+    font-weight: bold;
+    background-color: $tertiary-background-color;
+    color: $primary-text-color;
+    border: none;
+    cursor: pointer;
+
+    img {
+      margin-right: 2px;
+    }
+  }
+
+  .open-sidebar:hover {
+    @include outline(1px solid #ffffff);
+    @include border-radius(2px);
+  }
+
   a:first-child img {
     width: 14px;
     height: 17px;

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import navIcon from "@src/assets/nav-icon.png";
 import amazonLogo from "@src/assets/amazon-logo.png";
 import locationLogo from "@src/assets/location-logo.png";
@@ -8,6 +10,8 @@ import cartLogo from "@src/assets/cart-logo.png";
 import personLogo from "@src/assets/person-logo.png";
 
 export function Header() {
+  const [sideBar, setSideBar] = useState<boolean>(false);
+
   return (
     <header className="header">
       <div className="header-input">
@@ -77,9 +81,9 @@ export function Header() {
         </div>
       </div>
       <nav className="nav-bar">
-        <a href="#">
+        <button className="open-sidebar" onClick={() => setSideBar(true)}>
           <img src={navIcon} alt="nav icon" /> All
-        </a>
+        </button>
 
         <a href="#">Today's Deals</a>
         <a href="#">Registry</a>
@@ -87,17 +91,19 @@ export function Header() {
         <a href="#">Gift Cards</a>
         <a href="#">Sell</a>
       </nav>
-      <aside className="sidebar">
-        <button className="sidebar-sign-in">
-          <div className="sign-in-text">
-            <img src={personLogo} alt="Person logo" />
-            <h2>Hello, sign in</h2>
-          </div>
-        </button>
-        <section>
-          <nav></nav>
-        </section>
-      </aside>
+      {sideBar && (
+        <aside className="sidebar">
+          <button className="sidebar-sign-in">
+            <div className="sign-in-text">
+              <img src={personLogo} alt="Person logo" />
+              <h2>Hello, sign in</h2>
+            </div>
+          </button>
+          <section>
+            <nav></nav>
+          </section>
+        </aside>
+      )}
     </header>
   );
 }
