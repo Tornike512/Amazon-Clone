@@ -4,7 +4,8 @@ import locationLogo from "@src/assets/location-logo.png";
 import searchicon from "@src/assets/search-icon.png";
 import usaFlag from "@src/assets/usa-flag.webp";
 import dropDownIcon from "src/assets/dropdown-icon.png";
-import cartLogo from "src/assets/cart-logo.png";
+import cartLogo from "@src/assets/cart-logo.png";
+import personLogo from "@src/assets/person-logo.png";
 
 export function Header() {
   return (
@@ -86,6 +87,17 @@ export function Header() {
         <a href="#">Gift Cards</a>
         <a href="#">Sell</a>
       </nav>
+      <aside className="sidebar">
+        <button className="sidebar-sign-in">
+          <div className="sign-in-text">
+            <img src={personLogo} alt="Person logo" />
+            <h2>Hello, sign in</h2>
+          </div>
+        </button>
+        <section>
+          <nav></nav>
+        </section>
+      </aside>
     </header>
   );
 }

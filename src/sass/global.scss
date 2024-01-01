@@ -240,7 +240,7 @@ body {
   height: 40px;
   display: flex;
   align-items: center;
-  background-color: #232f3e;
+  background-color: $tertiary-background-color;
 
   a:first-child img {
     width: 14px;
@@ -263,5 +263,38 @@ body {
   a:hover {
     @include outline(1px solid #ffffff);
     @include border-radius(2px);
+  }
+}
+
+.sidebar {
+  width: 365px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $primary-background-color;
+
+  .sidebar-sign-in {
+    width: 365px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: $tertiary-background-color;
+    cursor: pointer;
+
+    .sign-in-text {
+      display: flex;
+      align-items: center;
+      margin: 0 10px 0 36px;
+      font-size: $font-size-12px;
+      color: $primary-text-color;
+
+      img {
+        width: 33px;
+        height: 33px;
+        margin-right: 10px;
+      }
+    }
   }
 }
