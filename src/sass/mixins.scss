@@ -4,11 +4,10 @@
   -moz-border-radius: $radius;
 }
 
-@mixin border($border) {
-  border: $border;
-  -webkit-border: $border;
-  -moz-border-image: $border;
+@mixin outline($outline) {
+  outline: $outline;
 }
+
 // .element {
 //   @include border-radius((12px));
 // }

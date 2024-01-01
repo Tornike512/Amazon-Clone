@@ -23,8 +23,8 @@
   }
 
   .amazon-logo:hover {
-    outline: 1px solid #ffffff;
-    border-radius: 2px;
+    @include outline(1px solid #ffffff);
+    @include border-radius(2px);
   }
 
   .deliver-spacing {
@@ -62,8 +62,8 @@
   }
 
   .deliver-spacing:hover {
-    outline: 1px solid #ffffff;
-    border-radius: 2px;
+    @include outline(1px solid #ffffff);
+    @include border-radius(2px);
   }
 }
 
@@ -166,8 +166,8 @@
   }
 
   .sign-in:hover {
-    outline: 1px solid #ffffff;
-    border-radius: 2px;
+    @include outline(1px solid #ffffff);
+    @include border-radius(2px);
   }
 
   .returns-orders {
@@ -188,14 +188,14 @@
   }
 
   .returns-orders:hover {
-    outline: 1px solid #ffffff;
-    border-radius: 2px;
+    @include outline(1px solid #ffffff);
+    @include border-radius(2px);
   }
 }
 
 .change-language:hover {
-  outline: 1px solid #ffffff;
-  border-radius: 2px;
+  @include outline(1px solid #ffffff);
+  @include border-radius(2px);
 }
 
 .nav-bar {
@@ -224,7 +224,7 @@
   }
 
   a:hover {
-    outline: 1px solid #ffffff;
-    border-radius: 2px;
+    @include outline(1px solid #ffffff);
+    @include border-radius(2px);
   }
 }
