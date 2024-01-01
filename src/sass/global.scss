@@ -44,7 +44,7 @@
     .deliver {
       border: none;
       background-color: $secondary-background-color;
-      color: #ffffff;
+      color: $primary-text-color;
 
       .deliver-to {
         display: flex;
@@ -122,7 +122,7 @@
     display: flex;
     align-items: center;
     padding: 10px 2px 0px 9px;
-    color: #ffffff;
+    color: $primary-text-color;
     font-size: $font-size-12px;
     font-weight: bold;
     cursor: pointer;
@@ -143,7 +143,7 @@
     height: 50px;
     display: flex;
     padding: 0px 9px 10px;
-    color: #ffffff;
+    color: $primary-text-color;
     cursor: pointer;
 
     .sign-in-spacing {
@@ -178,13 +178,13 @@
 
   .returns-orders span {
     font-size: $font-size-12px;
-    color: #ffffff;
+    color: $primary-text-color;
   }
 
   .returns-orders p {
     font-size: $font-size-14px;
     font-weight: bold;
-    color: #ffffff;
+    color: $primary-text-color;
   }
 
   .returns-orders:hover {
@@ -209,7 +209,7 @@
       padding-top: 18px;
       font-size: $font-size-14px;
       font-weight: bold;
-      color: #ffffff;
+      color: $primary-text-color;
     }
   }
 
