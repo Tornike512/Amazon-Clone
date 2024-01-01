@@ -61,7 +61,10 @@ export function Header() {
               alt="sign in dropdown icon"
             />
           </div>
-          <div></div>
+          <div className="returns-orders">
+            <span>Returns</span>
+            <p>& Orders</p>
+          </div>
         </div>
       </div>
       <nav className="nav-bar">
