@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { PublicLayout } from "./layouts/PublicLayout";
 import { Sidebar } from "./components/Navigation";
+import { SignInModal } from "./components/SignInModal";
 
 const Home = lazy(() => import("./views/Home"));
 const Products = lazy(() => import("./views/Products"));
@@ -18,6 +19,7 @@ function App() {
         </Routes>
       </Suspense>
       <Sidebar />
+      <SignInModal />
     </div>
   );
 }

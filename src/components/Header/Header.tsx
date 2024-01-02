@@ -50,13 +50,13 @@ export function Header() {
             <img src={searchicon} alt="Search Icon" />
           </button>
         </div>
-        <div className="amazon-tools">
+        <nav className="amazon-tools">
           <div className="change-language">
             <img src={usaFlag} alt="US Flag" />
             <span>EN</span>
             <img className="dropdown" src={dropDownIcon} alt="Dropdown Icon" />
           </div>
-          <div className="sign-in">
+          <a className="sign-in">
             <div className="sign-in-spacing">
               <span className="sign-in-text">Hello,sign in</span>
               <p className="account-list">
@@ -68,7 +68,7 @@ export function Header() {
               src={dropDownIcon}
               alt="sign in dropdown icon"
             />
-          </div>
+          </a>
           <div className="returns-orders">
             <span>Returns</span>
             <p>& Orders</p>
@@ -80,7 +80,7 @@ export function Header() {
             </div>
             <span className="cart-text">Cart</span>
           </div>
-        </div>
+        </nav>
       </div>
       <nav className="nav-bar">
         <button

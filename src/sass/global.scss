@@ -436,3 +436,23 @@ body {
     opacity: 0;
   }
 }
+
+.sign-in-triangle {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 44px;
+  right: 188px;
+}
+
+.sign-in-bar {
+  width: 500px;
+  height: 386px;
+  padding: 14px 14px 7px;
+  position: absolute;
+  top: 52px;
+  right: 60px;
+  border: 1px solid #bbbbbb;
+  border-radius: 3px;
+  background-color: #ffffff;
+}
