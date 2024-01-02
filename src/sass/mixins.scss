@@ -8,6 +8,19 @@
   outline: $outline;
 }
 
+@mixin fullscreen-modal($opacity) {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: $opacity;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: modal-open;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+}
+
 // .element {
 //   @include border-radius((12px));
 // }
