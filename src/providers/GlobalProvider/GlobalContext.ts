@@ -1,11 +1,11 @@
 import { createContext } from "react";
 
 interface TGlobalContext {
-  count: number;
-  setCount: React.Dispatch<React.SetStateAction<number>>;
+  sideBar: boolean;
+  setSideBar: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
-  count: 0,
-  setCount: () => {},
+  sideBar: false,
+  setSideBar: () => {},
 });

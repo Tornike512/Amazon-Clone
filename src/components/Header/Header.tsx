@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import navIcon from "@src/assets/nav-icon.png";
 import amazonLogo from "@src/assets/amazon-logo.png";
@@ -7,10 +8,9 @@ import searchicon from "@src/assets/search-icon.png";
 import usaFlag from "@src/assets/usa-flag.webp";
 import dropDownIcon from "src/assets/dropdown-icon.png";
 import cartLogo from "@src/assets/cart-logo.png";
-import personLogo from "@src/assets/person-logo.png";
 
 export function Header() {
-  const [sideBar, setSideBar] = useState<boolean>(false);
+  const { setSideBar } = useContext(GlobalContext);
 
   return (
     <header className="header">
@@ -91,19 +91,6 @@ export function Header() {
         <a href="#">Gift Cards</a>
         <a href="#">Sell</a>
       </nav>
-      {sideBar && (
-        <aside className="sidebar">
-          <button className="sidebar-sign-in">
-            <div className="sign-in-text">
-              <img src={personLogo} alt="Person logo" />
-              <h2>Hello, sign in</h2>
-            </div>
-          </button>
-          <section>
-            <nav></nav>
-          </section>
-        </aside>
-      )}
     </header>
   );
 }
