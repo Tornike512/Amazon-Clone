@@ -15,35 +15,37 @@ export function Header() {
   return (
     <header className="header">
       <div className="header-input">
-        <img className="amazon-logo" src={amazonLogo} alt="Amazon logo" />
-        <div className="deliver-spacing">
-          <img
-            className="location-logo"
-            src={locationLogo}
-            alt="Location logo"
-          />
-          <button className="deliver">
-            <div>
-              <span className="deliver-to">Deliver to</span>
-              <span className="uk">United Kingdom</span>
-            </div>
-          </button>
+        <div className="logo-spacing">
+          <img className="amazon-logo" src={amazonLogo} alt="Amazon logo" />
+          <div className="deliver-spacing">
+            <img
+              className="location-logo"
+              src={locationLogo}
+              alt="Location logo"
+            />
+            <button className="deliver">
+              <div>
+                <span className="deliver-to">Deliver to</span>
+                <span className="uk">United Kingdom</span>
+              </div>
+            </button>
+          </div>
         </div>
         <div className="search-bar">
-          <select name="all" className="select-niche">
-            all
-            <option value="/">All</option>
-            <option value="/">Computers</option>
-            <option value="/">Kitchen</option>
-            <option value="/">Books</option>
-          </select>
-          <form>
+          <div className="input-spacing">
+            <select name="all" className="select-niche">
+              all
+              <option value="/">All</option>
+              <option value="/">Computers</option>
+              <option value="/">Kitchen</option>
+              <option value="/">Books</option>
+            </select>
             <input
               type="text"
               placeholder="Search Amazon"
               className="search-amazon"
             />
-          </form>
+          </div>
           <button className="search-button">
             <img src={searchicon} alt="Search Icon" />
           </button>
