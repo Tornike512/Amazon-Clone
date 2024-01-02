@@ -301,9 +301,13 @@ body {
   width: 365px;
   height: 100%;
   position: absolute;
+  z-index: 1;
   top: 0;
-  left: 0;
+  left: -365px;
   background-color: $primary-background-color;
+  animation: example;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
 
   .sidebar-sign-in {
     width: 365px;
@@ -327,6 +331,15 @@ body {
         margin-right: 10px;
       }
     }
+  }
+}
+
+@keyframes example {
+  from {
+    left: -365;
+  }
+  to {
+    left: 0;
   }
 }
 

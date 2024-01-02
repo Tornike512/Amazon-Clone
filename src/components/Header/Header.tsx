@@ -5,7 +5,7 @@ import navIcon from "@src/assets/nav-icon.png";
 import amazonLogo from "@src/assets/amazon-logo.png";
 import locationLogo from "@src/assets/location-logo.png";
 import searchicon from "@src/assets/search-icon.png";
-import usaFlag from "@src/assets/usa-flag.webp";
+import usaFlag from "@src/assets/usa-flag.jpg";
 import dropDownIcon from "src/assets/dropdown-icon.png";
 import cartLogo from "@src/assets/cart-logo.png";
 
