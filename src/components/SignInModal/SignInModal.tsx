@@ -4,7 +4,12 @@ export function SignInModal() {
   return (
     <>
       <div className="sign-in-bar">
-        <button className="sign-in-button">Sign in</button>
+        <span className="button-space">
+          <button className="sign-in-button">Sign in</button>
+        </span>
+        <p className="sign-in-bar-register">
+          New customer? <a href="#"> Start here</a>
+        </p>
       </div>
       <img
         className="sign-in-triangle"

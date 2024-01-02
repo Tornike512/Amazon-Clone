@@ -456,6 +456,12 @@ body {
   border-radius: 3px;
   background-color: #ffffff;
 
+  .button-space {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   .sign-in-button {
     width: 218px;
     height: 33px;
@@ -473,5 +479,24 @@ body {
 
   .sign-in-button:hover {
     text-decoration: underline;
+  }
+
+  .sign-in-bar-register {
+    display: flex;
+    justify-content: center;
+    margin: 7px 0 9px 0;
+    font-size: 11px;
+    color: #333333;
+
+    a {
+      margin-left: 2px;
+      text-decoration: none;
+      color: #0055aa;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #e47911;
+    }
   }
 }
