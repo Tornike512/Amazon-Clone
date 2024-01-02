@@ -10,7 +10,7 @@ import dropDownIcon from "src/assets/dropdown-icon.png";
 import cartLogo from "@src/assets/cart-logo.png";
 
 export function Header() {
-  const { setSideBar } = useContext(GlobalContext);
+  const { setSideBar, setModal } = useContext(GlobalContext);
 
   return (
     <header className="header">
@@ -81,7 +81,13 @@ export function Header() {
         </div>
       </div>
       <nav className="nav-bar">
-        <button className="open-sidebar" onClick={() => setSideBar(true)}>
+        <button
+          className="open-sidebar"
+          onClick={() => {
+            setSideBar(true);
+            setModal(true);
+          }}
+        >
           <img src={navIcon} alt="nav icon" /> All
         </button>
 
