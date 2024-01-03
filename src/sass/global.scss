@@ -559,15 +559,7 @@ body {
 // Sign In Modal Background Effect
 
 .sign-in-modal-mouseover {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 100px;
-  left: 0;
-  z-index: -1;
-  opacity: 0;
-  background-color: #000000;
-  animation: sign-in-modal-mouseover 0.2s forwards;
+  @include exceptheader-modal(0);
 }
 
 @keyframes sign-in-modal-mouseover {
@@ -580,14 +572,7 @@ body {
 }
 
 .sign-in-modal-mouseout {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 100px;
-  left: 0;
-  z-index: -1;
-  opacity: 0.8;
-  background-color: #000000;
+  @include exceptheader-modal(0.8);
   animation: sign-in-modal-mouseout 0.2s forwards;
 }
 
