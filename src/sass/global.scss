@@ -524,9 +524,8 @@ body {
         color: $secondary-text-color;
       }
 
-      a:hover {
-        text-decoration: underline;
-        color: #e47911;
+      a {
+        @include hoverEffect;
       }
     }
 
@@ -550,9 +549,8 @@ body {
         color: $secondary-text-color;
       }
 
-      a:hover {
-        text-decoration: underline;
-        color: #e47911;
+      a {
+        @include hoverEffect;
       }
     }
   }

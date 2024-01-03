@@ -21,6 +21,13 @@
   animation-fill-mode: forwards;
 }
 
+@mixin hoverEffect {
+  &:hover {
+    text-decoration: underline;
+    color: #e47911;
+  }
+}
+
 // .element {
 //   @include border-radius((12px));
 // }
