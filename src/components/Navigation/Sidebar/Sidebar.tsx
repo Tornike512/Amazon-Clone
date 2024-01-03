@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import "./Sidebar.scss";
 import personLogo from "@src/assets/person-logo.png";
 
 export function Sidebar() {

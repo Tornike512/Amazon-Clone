@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import "./Header.scss";
 
 import navIcon from "@src/assets/nav-icon.png";
 import amazonLogo from "@src/assets/amazon-logo.png";

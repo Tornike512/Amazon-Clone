@@ -1,0 +1,122 @@
+@import "/src/sass/mixins.scss";
+@import "/src/sass/variables.scss";
+@import "/src/sass/colors.scss";
+
+.sidebar {
+  width: 365px;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: -365px;
+  background-color: $primary-background-color;
+  animation: sidebar;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+
+  .sidebar-sign-in {
+    width: 365px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: $tertiary-background-color;
+    cursor: pointer;
+
+    .sign-in-text {
+      display: flex;
+      align-items: center;
+      margin: 0 10px 0 36px;
+      font-size: $font-size-12px;
+      color: $primary-text-color;
+
+      img {
+        width: 33px;
+        height: 33px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@keyframes sidebar {
+  from {
+    left: -365px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.sidebar-close {
+  width: 365px;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: -365px;
+  background-color: $primary-background-color;
+  animation: sidebar-close;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+
+  .sidebar-sign-in {
+    width: 365px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: $tertiary-background-color;
+    cursor: pointer;
+
+    .sign-in-text {
+      display: flex;
+      align-items: center;
+      margin: 0 10px 0 36px;
+      font-size: $font-size-12px;
+      color: $primary-text-color;
+
+      img {
+        width: 33px;
+        height: 33px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@keyframes sidebar-close {
+  from {
+    left: 0;
+  }
+  to {
+    left: -365px;
+  }
+}
+
+@keyframes modal-open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+
+.sidebar-modal {
+  @include fullscreen-modal(0);
+}
+
+.sidebar-modal-close {
+  @include fullscreen-modal(0.8);
+  animation: modal-close 0.4s forwards;
+}
+
+@keyframes modal-close {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+  }
+}
