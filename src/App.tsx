@@ -5,22 +5,22 @@ import { Sidebar } from "./components/Navigation/Sidebar/Sidebar";
 import { SignInModal } from "./components/Navigation/SignInModal/SignInModal";
 
 const Home = lazy(() => import("./views/Home"));
-const Products = lazy(() => import("./views/Products"));
+const SignInPage = lazy(() => import("./views/SignInPage"));
 
 function App() {
   return (
-    <div>
+    <>
       <Suspense fallback={<div>Loading</div>}>
         <Routes>
           <Route element={<PublicLayout />}>
             <Route element={<Home />} path="/" />
-            <Route element={<Products />} path="/products" />
           </Route>
+          <Route element={<SignInPage />} path="/sign-in" />
         </Routes>
       </Suspense>
       <Sidebar />
       <SignInModal />
-    </div>
+    </>
   );
 }
 
