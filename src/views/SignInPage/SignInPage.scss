@@ -1,9 +1,47 @@
+@import "/src/sass/mixins.scss";
+@import "/src/sass/variables.scss";
+@import "/src/sass/colors.scss";
+
 .sign-in-page {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: 12px 18px;
-  img {
-    width: 103px;
-    height: 31px;
+
+  .image-spacing {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 103px;
+      height: 31px;
+    }
+  }
+
+  .sign-in-spacing {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .sign-in-box {
+      width: 348px;
+      height: 358px;
+      padding: 20px 26px;
+      margin-top: 20px;
+      border: 2px solid #eeeeee;
+      border-radius: 8px;
+
+      h1 {
+        margin-bottom: 10px;
+        font-size: 28px;
+        font-weight: normal;
+      }
+
+      .enter-info-text {
+        font-size: $font-size-13px;
+        font-weight: bold;
+      }
+    }
   }
 }
