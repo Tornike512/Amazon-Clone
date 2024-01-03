@@ -112,6 +112,8 @@ export function Header() {
         <a href="#">Gift Cards</a>
         <a href="#">Sell</a>
       </nav>
+      {signInHover && <div className="sign-in-modal-mouseover"></div>}
+      {!signInHover && <div className="sign-in-modal-mouseout"></div>}
     </header>
   );
 }
