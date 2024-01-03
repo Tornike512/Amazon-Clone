@@ -5,9 +5,6 @@ import { Sidebar } from "../Sidebar/Sidebar";
 export function SignInModal() {
   const { signInHover, setSignInHover } = useContext(GlobalContext);
 
-  const modalOn = signInHover;
-  console.log(modalOn);
-
   return (
     <>
       {signInHover && (
