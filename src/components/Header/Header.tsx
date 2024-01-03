@@ -8,12 +8,21 @@ import searchicon from "@src/assets/search-icon.png";
 import usaFlag from "@src/assets/usa-flag.jpg";
 import dropDownIcon from "src/assets/dropdown-icon.png";
 import cartLogo from "@src/assets/cart-logo.png";
+import triangle from "@src/assets/triangle.png";
 
 export function Header() {
-  const { setSideBar, setModal } = useContext(GlobalContext);
+  const { setSideBar, setModal, setSignInHover, signInHover } =
+    useContext(GlobalContext);
 
   return (
     <header className="header">
+      {signInHover && (
+        <img
+          className="sign-in-triangle"
+          src={triangle}
+          alt="Small White Triangle"
+        />
+      )}
       <div className="header-input">
         <div className="logo-spacing">
           <img className="amazon-logo" src={amazonLogo} alt="Amazon logo" />
@@ -56,7 +65,11 @@ export function Header() {
             <span>EN</span>
             <img className="dropdown" src={dropDownIcon} alt="Dropdown Icon" />
           </div>
-          <a className="sign-in">
+          <a
+            onMouseOver={() => setSignInHover(true)}
+            onMouseLeave={() => setSignInHover(false)}
+            className="sign-in"
+          >
             <div className="sign-in-spacing">
               <span className="sign-in-text">Hello,sign in</span>
               <p className="account-list">

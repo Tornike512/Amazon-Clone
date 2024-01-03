@@ -5,6 +5,8 @@ interface TGlobalContext {
   setSideBar: React.Dispatch<React.SetStateAction<boolean>>;
   modal: boolean;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  signInHover: boolean;
+  setSignInHover: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -12,4 +14,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setSideBar: () => {},
   modal: false,
   setModal: () => {},
+  signInHover: false,
+  setSignInHover: () => {},
 });

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import personLogo from "@src/assets/person-logo.png";
 
