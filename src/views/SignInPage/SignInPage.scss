@@ -50,7 +50,7 @@
         input {
           padding: 6px 7px;
           margin: 2px 0 12px;
-          border: 1px solid #a6a6a6;
+          border: $primary-border-color;
           border-radius: 4px;
         }
 
@@ -90,7 +90,7 @@
           display: flex;
           align-items: center;
           font-size: $font-size-13px;
-          border-bottom: 1px solid #a6a6a6;
+          border-bottom: $primary-border-color;
           color: $link-text-color;
           text-decoration: none;
         }
