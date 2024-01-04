@@ -18,7 +18,7 @@ export function SignInPage() {
             <input type="email" />
             <button>Continue</button>
           </div>
-          <p className="Condition-of-use">
+          <p className="conditions-of-use">
             By continuing, you agree to Amazon's{" "}
             <a href="#">Conditions of Use </a>
             and <a href="#">Privacy Notice.</a>

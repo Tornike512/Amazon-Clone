@@ -70,7 +70,7 @@
         }
       }
 
-      p {
+      .conditions-of-use {
         margin-top: 18px;
         font-size: $font-size-12px;
         color: #000000;
@@ -78,6 +78,7 @@
         a {
           color: $link-text-color;
           @include linkHoverEffect;
+          text-decoration: none;
         }
       }
 
@@ -162,13 +163,15 @@
 
   .sign-in-footer-divider {
     width: 50%;
-    height: 44px;
+    height: 30px;
     margin-top: 24px;
     background: linear-gradient(#d5d9d980, #fff, #fff);
   }
 
   .sign-in-footer-text {
     display: flex;
+    justify-content: center;
+    padding-left: 28px;
 
     a {
       margin: 0 30px 10px 0;
@@ -180,5 +183,11 @@
     a:hover {
       @include linkHoverEffect;
     }
+  }
+
+  .copyright-notice {
+    margin-bottom: 25px;
+    font-size: 11px;
+    color: #555555;
   }
 }
