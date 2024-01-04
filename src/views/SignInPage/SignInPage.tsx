@@ -15,7 +15,7 @@ export function SignInPage() {
             Email or mobile phone number
           </label>
           <div className="enter-email">
-            <input type="text" />
+            <input type="email" />
             <button>Continue</button>
           </div>
           <p>
