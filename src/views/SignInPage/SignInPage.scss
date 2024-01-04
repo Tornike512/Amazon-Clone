@@ -76,7 +76,7 @@
         color: #000000;
 
         a {
-          color: #0066c0;
+          color: $link-text-color;
           @include linkHoverEffect;
         }
       }
