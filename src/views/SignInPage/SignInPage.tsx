@@ -34,6 +34,10 @@ export function SignInPage() {
           </div>
         </div>
       </div>
+      <div className="divider-spacing">
+        <div className="new-to-amazon">New to Amazon?</div>
+        <div className="divider"></div>
+      </div>
     </div>
   );
 }

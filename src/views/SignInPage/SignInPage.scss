@@ -28,7 +28,7 @@
       width: 348px;
       height: 358px;
       padding: 20px 26px;
-      margin-top: 20px;
+      margin: 20px 0 14px;
       border: 2px solid #eeeeee;
       border-radius: 8px;
 
@@ -116,6 +116,31 @@
           @include linkHoverEffect;
         }
       }
+    }
+  }
+  .divider-spacing {
+    width: 348px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    .new-to-amazon {
+      width: 116px;
+      display: flex;
+      justify-content: center;
+      font-size: $font-size-12px;
+      background-color: #ffffff;
+      color: #767676;
+    }
+
+    .divider {
+      height: 1px;
+      width: 350px;
+      position: absolute;
+      top: 8px;
+      right: 0px;
+      z-index: -1;
+      border-top: 1px solid #e7e7e7;
     }
   }
 }
