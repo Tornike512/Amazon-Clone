@@ -23,9 +23,13 @@ export function SignInPage() {
             <a href="#">Conditions of Use </a>
             and <a href="#">Privacy Notice.</a>
           </p>
-          <a href="#">Forgot your password?</a>
-          <span>Buying for work?</span>
-          <a href="#">Shop on Amazon Business</a>
+          <div className="help">
+            <a className="forgot-password" href="#">
+              Forgot your password?
+            </a>
+            <span>Buying for work?</span>
+            <a href="#">Shop on Amazon Business</a>
+          </div>
         </div>
       </div>
     </div>

@@ -80,6 +80,25 @@
           @include linkHoverEffect;
         }
       }
+
+      .help {
+        display: flex;
+        flex-direction: column;
+
+        .forgot-password {
+          height: 66px;
+          display: flex;
+          align-items: center;
+          font-size: $font-size-13px;
+          border-bottom: 1px solid #a6a6a6;
+          color: $link-text-color;
+          text-decoration: none;
+        }
+
+        .forgot-password:hover {
+          @include linkHoverEffect;
+        }
+      }
     }
   }
 }
