@@ -55,7 +55,8 @@
         }
 
         button {
-          background-color: $secondary-button-color;
+          border: none;
+          background-color: $primary-button-color;
         }
       }
     }
