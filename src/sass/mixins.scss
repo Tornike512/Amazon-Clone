@@ -40,6 +40,12 @@
   }
 }
 
+@mixin whiteButtonHover {
+  &:hover {
+    background-color: #f4f5f5;
+  }
+}
+
 // .element {
 //   @include border-radius((12px));
 // }

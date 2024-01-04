@@ -157,6 +157,6 @@
   }
 
   .create-account:hover {
-    background-color: #eff3f3;
+    @include whiteButtonHover;
   }
 }
