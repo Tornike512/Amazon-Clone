@@ -70,6 +70,7 @@ export function Header() {
             onMouseOver={() => setSignInHover(true)}
             onMouseLeave={() => setSignInHover(false)}
             className="sign-in"
+            href="/sign-in"
           >
             <div className="sign-in-spacing">
               <span className="sign-in-text">Hello,sign in</span>
