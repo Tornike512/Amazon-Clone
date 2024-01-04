@@ -11,9 +11,13 @@ export function SignInPage() {
       <div className="sign-in-spacing">
         <div className="sign-in-box">
           <h1>Sign in</h1>
-          <span className="enter-info-text">Email or mobile phone number</span>
-          <input type="text" />
-          <button>Continue</button>
+          <label className="enter-info-text">
+            Email or mobile phone number
+          </label>
+          <div className="enter-email">
+            <input type="text" />
+            <button>Continue</button>
+          </div>
           <p>
             By continuing, you agree to Amazon's{" "}
             <a href="#">Conditions of Use</a>
