@@ -143,4 +143,20 @@
       border-top: 1px solid #e7e7e7;
     }
   }
+
+  .create-account {
+    margin-top: 14px;
+    padding: 7px 86px 7px 86px;
+    font-size: $font-size-13px;
+    border-radius: 7px;
+    border: 1px solid #e7e7e7;
+    background-color: transparent;
+    color: #0f1111;
+    box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
+    cursor: pointer;
+  }
+
+  .create-account:hover {
+    background-color: #eff3f3;
+  }
 }

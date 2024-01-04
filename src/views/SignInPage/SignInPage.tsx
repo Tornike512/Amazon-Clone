@@ -38,6 +38,7 @@ export function SignInPage() {
         <div className="new-to-amazon">New to Amazon?</div>
         <div className="divider"></div>
       </div>
+      <button className="create-account">Create your Amazon account</button>
     </div>
   );
 }
