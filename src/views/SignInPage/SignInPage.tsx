@@ -39,7 +39,15 @@ export function SignInPage() {
         <div className="divider"></div>
       </div>
       <button className="create-account">Create your Amazon account</button>
-      <div className="sign-in-footer"></div>
+      <div className="sign-in-footer-divider"></div>
+      <span className="sign-in-footer-text">
+        <a href="#">Conditions of Use</a>
+        <a href="#">Privacy Notice</a>
+        <a href="#">Help</a>
+      </span>
+      <span className="copyright-notice">
+        © 1996-2024, Amazon.com, Inc. or its affiliates
+      </span>
     </div>
   );
 }

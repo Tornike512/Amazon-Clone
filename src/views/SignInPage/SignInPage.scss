@@ -160,10 +160,25 @@
     @include whiteButtonHover;
   }
 
-  .sign-in-footer {
+  .sign-in-footer-divider {
     width: 50%;
     height: 44px;
     margin-top: 24px;
     background: linear-gradient(#d5d9d980, #fff, #fff);
+  }
+
+  .sign-in-footer-text {
+    display: flex;
+
+    a {
+      margin: 0 30px 10px 0;
+      font-size: 11px;
+      color: $link-text-color;
+      text-decoration: none;
+    }
+
+    a:hover {
+      @include linkHoverEffect;
+    }
   }
 }
