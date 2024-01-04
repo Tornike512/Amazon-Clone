@@ -152,11 +152,18 @@
     border: 1px solid #e7e7e7;
     background-color: transparent;
     color: #0f1111;
-    box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
+    box-shadow: 0 2px 5px 0 #d5d9d980;
     cursor: pointer;
   }
 
   .create-account:hover {
     @include whiteButtonHover;
+  }
+
+  .sign-in-footer {
+    width: 50%;
+    height: 44px;
+    margin-top: 24px;
+    background: linear-gradient(#d5d9d980, #fff, #fff);
   }
 }
