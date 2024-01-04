@@ -86,16 +86,33 @@
         flex-direction: column;
 
         .forgot-password {
-          height: 66px;
           display: flex;
           align-items: center;
+          margin-top: 25px;
           font-size: $font-size-13px;
-          border-bottom: $primary-border-color;
           color: $link-text-color;
           text-decoration: none;
         }
 
         .forgot-password:hover {
+          @include linkHoverEffect;
+        }
+
+        .buying-for-work {
+          margin: 28px 0 10px;
+          font-size: $font-size-13px;
+          font-weight: bold;
+          border-top: $primary-border-color;
+          padding-top: 14px;
+        }
+
+        .amazon-business {
+          font-size: $font-size-13px;
+          color: $link-text-color;
+          text-decoration: none;
+        }
+
+        .amazon-business:hover {
           @include linkHoverEffect;
         }
       }

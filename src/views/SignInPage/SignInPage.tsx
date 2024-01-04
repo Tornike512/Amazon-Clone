@@ -27,8 +27,10 @@ export function SignInPage() {
             <a className="forgot-password" href="#">
               Forgot your password?
             </a>
-            <span>Buying for work?</span>
-            <a href="#">Shop on Amazon Business</a>
+            <span className="buying-for-work">Buying for work?</span>
+            <a className="amazon-business" href="#">
+              Shop on Amazon Business
+            </a>
           </div>
         </div>
       </div>
