@@ -33,7 +33,7 @@
   animation: sign-in-modal-mouseover 0.2s forwards;
 }
 
-@mixin hoverEffect {
+@mixin linkHoverEffect {
   &:hover {
     text-decoration: underline;
     color: #e47911;
