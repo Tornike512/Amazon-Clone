@@ -1,12 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import "@src/views/SignInPage/SignInPage.scss";
 
 import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
 
 export function SignInPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="sign-in-page">
       <div className="image-spacing">
-        <img src={amazonLogoBlack} alt="Black Amazon Logo" />
+        <img
+          onClick={() => navigate("/")}
+          src={amazonLogoBlack}
+          alt="Black Amazon Logo"
+        />
       </div>
       <div className="sign-in-spacing">
         <div className="sign-in-box">

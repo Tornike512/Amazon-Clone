@@ -90,7 +90,7 @@ export function Header() {
               alt="sign in dropdown icon"
             />
           </a>
-          <div className="returns-orders">
+          <div onClick={() => navigate("/sign-in")} className="returns-orders">
             <span>Returns</span>
             <p>& Orders</p>
           </div>
