@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import { useNavigate } from "react-router-dom";
 import "./Header.scss";
 
 import navIcon from "@src/assets/nav-icon.png";
@@ -12,6 +13,8 @@ import cartLogo from "@src/assets/cart-logo.png";
 import triangle from "@src/assets/triangle.png";
 
 export function Header() {
+  const navigate = useNavigate();
+
   const { setSideBar, setModal, setSignInHover, signInHover } =
     useContext(GlobalContext);
 
@@ -67,10 +70,13 @@ export function Header() {
             <img className="dropdown" src={dropDownIcon} alt="Dropdown Icon" />
           </div>
           <a
+            onClick={() => {
+              navigate("/sign-in");
+              setSignInHover(false);
+            }}
             onMouseOver={() => setSignInHover(true)}
             onMouseLeave={() => setSignInHover(false)}
             className="sign-in"
-            href="/sign-in"
           >
             <div className="sign-in-spacing">
               <span className="sign-in-text">Hello,sign in</span>

@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
-import { Sidebar } from "../Sidebar/Sidebar";
+import { useNavigate } from "react-router-dom";
 
 export function SignInModal() {
+  const navigate = useNavigate();
+
   const { signInHover, setSignInHover } = useContext(GlobalContext);
 
   return (
@@ -15,7 +17,15 @@ export function SignInModal() {
             className="sign-in-bar"
           >
             <span className="button-space">
-              <button className="sign-in-button">Sign in</button>
+              <button
+                onClick={() => {
+                  navigate("/sign-in");
+                  setSignInHover(false);
+                }}
+                className="sign-in-button"
+              >
+                Sign in
+              </button>
             </span>
             <p className="sign-in-bar-register">
               New customer? <a href="#"> Start here</a>

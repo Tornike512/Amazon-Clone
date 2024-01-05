@@ -1,11 +1,9 @@
-import { PropsWithChildren, ProviderProps } from "react";
+import { PropsWithChildren } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { GlobalProvider } from "./GlobalProvider/GlobalProvider";
 import "@src/sass/global.scss";
 
-interface Providersprops {}
-
-export function Providers({ children }: PropsWithChildren<ProviderProps>) {
+export function Providers({ children }: PropsWithChildren) {
   return (
     <BrowserRouter>
       <GlobalProvider>{children}</GlobalProvider>
