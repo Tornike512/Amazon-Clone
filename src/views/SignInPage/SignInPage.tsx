@@ -1,10 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import "@src/views/SignInPage/SignInPage.scss";
+import { useState } from "react";
 
 import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
+import exclamationIcon from "@src/assets/exclamation-point-logo.png";
 
+import "@src/views/SignInPage/SignInPage.scss";
 export function SignInPage() {
   const navigate = useNavigate();
+
+  const [warning, setWarning] = useState<boolean>(false);
+  const [signInInput, setSignInInput] = useState<string>("");
 
   return (
     <div className="sign-in-page">
@@ -22,9 +27,28 @@ export function SignInPage() {
             Email or mobile phone number
           </label>
           <div className="enter-email">
-            <input type="email" />
-            <button>Continue</button>
+            <input
+              onChange={(e) => {
+                setWarning(false);
+                setSignInInput(e.target.value);
+              }}
+              className={
+                warning && signInInput === ""
+                  ? "input-warning-border"
+                  : "enter-text"
+              }
+              type="email"
+            />
+
+            {warning && signInInput === "" && (
+              <span className="sign-in-input-warning">
+                <img src={exclamationIcon} alt="Exclamation Point Icon" />
+                <p>Enter your email or mobile phone number</p>
+              </span>
+            )}
+            <button onClick={() => setWarning(true)}>Continue</button>
           </div>
+
           <p className="conditions-of-use">
             By continuing, you agree to Amazon's{" "}
             <a href="#">Conditions of Use </a>
