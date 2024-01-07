@@ -1,0 +1,13 @@
+@import "/src/sass/colors.scss";
+@import "/src/sass/mixins.scss";
+@import "/src//sass/variables.scss";
+
+.language-change {
+  width: 240px;
+  height: auto;
+  padding: 14px;
+  position: absolute;
+  top: 53px;
+  right: 139px;
+  background-color: blue;
+}

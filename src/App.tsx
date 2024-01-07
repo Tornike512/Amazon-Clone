@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { PublicLayout } from "./layouts/PublicLayout";
 import { Sidebar } from "./components/Navigation/Sidebar/Sidebar";
 import { SignInModal } from "./components/Navigation/SignInModal/SignInModal";
+import { LanguageChange } from "./features/LanguageChange";
 
 const Home = lazy(() => import("./views/Home"));
 const SignInPage = lazy(() => import("./views/SignInPage"));
@@ -20,6 +21,7 @@ function App() {
       </Suspense>
       <Sidebar />
       <SignInModal />
+      <LanguageChange />
     </>
   );
 }

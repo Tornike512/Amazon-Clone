@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
+import { LocaleContext } from "@src/providers/LocaleProvider";
+import { FormattedMessage } from "react-intl";
 import "./Header.scss";
 
 import navIcon from "@src/assets/nav-icon.png";
@@ -17,6 +19,8 @@ export function Header() {
 
   const { setSideBar, setModal, setSignInHover, signInHover } =
     useContext(GlobalContext);
+
+  const { toggleLocale } = useContext(LocaleContext);
 
   return (
     <header className="header">
@@ -64,9 +68,11 @@ export function Header() {
           </button>
         </div>
         <nav className="amazon-tools">
-          <div className="change-language">
+          <div onClick={() => toggleLocale()} className="change-language">
             <img src={usaFlag} alt="US Flag" />
-            <span>EN</span>
+            <span>
+              <FormattedMessage id="hello" />
+            </span>
             <img className="dropdown" src={dropDownIcon} alt="Dropdown Icon" />
           </div>
           <a
