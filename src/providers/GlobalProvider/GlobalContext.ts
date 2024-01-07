@@ -7,6 +7,8 @@ interface TGlobalContext {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   signInHover: boolean;
   setSignInHover: React.Dispatch<React.SetStateAction<boolean>>;
+  languageHover: boolean;
+  setLanguageHover: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -16,4 +18,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setModal: () => {},
   signInHover: false,
   setSignInHover: () => {},
+  languageHover: false,
+  setLanguageHover: () => {},
 });

@@ -17,8 +17,14 @@ import triangle from "@src/assets/triangle.png";
 export function Header() {
   const navigate = useNavigate();
 
-  const { setSideBar, setModal, setSignInHover, signInHover } =
-    useContext(GlobalContext);
+  const {
+    setSideBar,
+    setModal,
+    setSignInHover,
+    signInHover,
+    setLanguageHover,
+    languageHover,
+  } = useContext(GlobalContext);
 
   const { toggleLocale } = useContext(LocaleContext);
 
@@ -68,11 +74,15 @@ export function Header() {
           </button>
         </div>
         <nav className="amazon-tools">
-          <div onClick={() => toggleLocale()} className="change-language">
+          <div
+            onMouseOver={() => {
+              setLanguageHover(true);
+            }}
+            onMouseLeave={() => setLanguageHover(false)}
+            className="change-language"
+          >
             <img src={usaFlag} alt="US Flag" />
-            <span>
-              <FormattedMessage id="hello" />
-            </span>
+            <span>EN</span>
             <img className="dropdown" src={dropDownIcon} alt="Dropdown Icon" />
           </div>
           <a
