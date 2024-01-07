@@ -18,5 +18,24 @@
   top: 53px;
   right: 139px;
   border-radius: 3px;
+  border: 1px solid #bbbbbb;
   background-color: $primary-background-color;
+
+  .language-change-text {
+    display: flex;
+    align-items: center;
+    font-size: $font-size-13px;
+    color: #444444;
+
+    a {
+      margin-left: 5px;
+      font-size: 11px;
+      color: $link-text-color;
+      text-decoration: none;
+    }
+
+    a:hover {
+      @include linkHoverEffect;
+    }
+  }
 }

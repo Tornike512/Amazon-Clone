@@ -5,17 +5,17 @@ export function LanguageChange() {
     <>
       <img className="triangle" src={triangle} alt="White Triangle" />
       <div className="language-change">
-        <span>
+        <span className="language-change-text">
           Change language <a href="#">Learn more</a>
         </span>
-        <span>
+        <div>
           <input type="checkbox" />
           <span>English - EN</span>
-        </span>
-        <span>
+        </div>
+        <div>
           <input type="checkbox" />
           <span>Deutsch - DE</span>
-        </span>
+        </div>
       </div>
     </>
   );
