@@ -1,11 +1,16 @@
 import { useContext, useState } from "react";
-import { GlobalContext, GlobalProvider } from "@src/providers/GlobalProvider";
+import { GlobalContext } from "@src/providers/GlobalProvider";
 import triangle from "@src/assets/triangle.png";
+
+export enum Modal_Enum {
+  ON = "on",
+  OFF = "off",
+}
 
 export function LanguageChange() {
   const [enCheckBox, setEnCheckBox] = useState<boolean>(true);
   const [deCheckBox, setDeCheckBox] = useState<boolean>(false);
-
+  const [modal, setModal] = useState<Modal_Enum>(Modal_Enum.OFF);
   const { setLanguageHover, languageHover } = useContext(GlobalContext);
 
   return (
@@ -14,8 +19,14 @@ export function LanguageChange() {
         <div>
           <img className="triangle" src={triangle} alt="White Triangle" />
           <div
-            onMouseOver={() => setLanguageHover(true)}
-            onMouseLeave={() => setLanguageHover(false)}
+            onMouseOver={() => {
+              setModal(Modal_Enum.ON);
+              setLanguageHover(true);
+            }}
+            onMouseLeave={() => {
+              setModal(Modal_Enum.OFF);
+              setLanguageHover(false);
+            }}
             className="language-change"
           >
             <span className="language-change-text">
@@ -54,6 +65,21 @@ export function LanguageChange() {
               <span className="de-language">Deutsch - DE</span>
             </div>
           </div>
+          <div
+            className={
+              modal === Modal_Enum.ON
+                ? "language-modal-on"
+                : "language-modal-off"
+            }
+          ></div>
+
+          <div
+            className={
+              modal === Modal_Enum.ON
+                ? "change-language-modal-on"
+                : "change-language-modal-off"
+            }
+          ></div>
         </div>
       )}
     </>
