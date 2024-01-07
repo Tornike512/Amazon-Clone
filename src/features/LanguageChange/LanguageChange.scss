@@ -2,6 +2,14 @@
 @import "/src/sass/mixins.scss";
 @import "/src//sass/variables.scss";
 
+.triangle {
+  width: 15px;
+  height: 10px;
+  position: absolute;
+  top: 44px;
+  right: 314px;
+}
+
 .language-change {
   width: 240px;
   height: auto;
@@ -9,5 +17,6 @@
   position: absolute;
   top: 53px;
   right: 139px;
-  background-color: blue;
+  border-radius: 3px;
+  background-color: $primary-background-color;
 }
