@@ -19,11 +19,12 @@
   right: 139px;
   border-radius: 3px;
   border: 1px solid #bbbbbb;
-  background-color: $primary-background-color;
+  background-color: #ffffff;
 
   .language-change-text {
     display: flex;
     align-items: center;
+    margin-bottom: 7px;
     font-size: $font-size-13px;
     color: #444444;
 
@@ -37,5 +38,65 @@
     a:hover {
       @include linkHoverEffect;
     }
+  }
+
+  .en-language-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+
+    .en-checkbox-border {
+      width: 17px;
+      height: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 7px;
+      border: 1px solid #968888;
+      border-radius: 100%;
+      cursor: pointer;
+
+      .en-checkbox {
+        width: 7px;
+        height: 7px;
+        border-radius: 100%;
+        background-color: #ff7e00;
+      }
+    }
+
+    .en-language {
+      font-size: $font-size-13px;
+      color: #444444;
+    }
+  }
+}
+
+.de-language-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+
+  .de-checkbox-border {
+    width: 17px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 7px;
+    border: 1px solid #968888;
+    border-radius: 100%;
+    cursor: pointer;
+
+    .de-checkbox {
+      width: 7px;
+      height: 7px;
+      border-radius: 100%;
+      background-color: #ff7e00;
+    }
+  }
+
+  .de-language {
+    font-size: $font-size-13px;
+    color: #444444;
   }
 }
