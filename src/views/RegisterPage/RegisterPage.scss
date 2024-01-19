@@ -7,4 +7,154 @@
   flex-direction: column;
   align-items: center;
   padding: 12px 18px;
+
+  .image-spacing {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 103px;
+      height: 31px;
+      cursor: pointer;
+    }
+  }
+
+  .register-spacing {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .register-box {
+      width: 348px;
+      height: auto;
+      padding: 20px 26px;
+      margin: 20px 0 14px;
+      border: 2px solid #eeeeee;
+      border-radius: 8px;
+
+      h1 {
+        margin-bottom: 10px;
+        font-size: 28px;
+        font-weight: normal;
+      }
+
+      .enter-info-text {
+        font-size: $font-size-13px;
+        font-weight: bold;
+      }
+
+      .enter-name {
+        display: flex;
+        flex-direction: column;
+
+        .enter-text {
+          padding: 6px 7px;
+          margin: 2px 0 12px;
+          border: $primary-border-color;
+          border-radius: 4px;
+        }
+
+        .enter-text:focus {
+          background-color: #f7feff;
+          border-color: #007185;
+          box-shadow: 0 0 0 3px #c8f3fa, 0 1px 2px rgba(15, 17, 17, 0.15) inset;
+          outline: none;
+        }
+
+        button {
+          padding: 8px 7px;
+          border: none;
+          border-radius: 8px;
+          font-size: $font-size-13px;
+          color: #000000;
+          background-color: $primary-button-color;
+          box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
+          cursor: pointer;
+        }
+
+        button:hover {
+          background-color: $primary-button-hover-color;
+        }
+      }
+
+      .conditions-of-use {
+        margin-top: 18px;
+        font-size: $font-size-12px;
+        color: #000000;
+
+        a {
+          color: $link-text-color;
+          @include linkHoverEffect;
+          text-decoration: none;
+        }
+      }
+
+      .help {
+        display: flex;
+        flex-direction: column;
+
+        .forgot-password {
+          display: flex;
+          align-items: center;
+          margin-top: 25px;
+          font-size: $font-size-13px;
+          color: $link-text-color;
+          text-decoration: none;
+        }
+
+        .forgot-password:hover {
+          @include linkHoverEffect;
+        }
+
+        .buying-for-work {
+          margin: 28px 0 10px;
+          font-size: $font-size-13px;
+          font-weight: bold;
+          border-top: $primary-border-color;
+          padding-top: 14px;
+        }
+
+        .amazon-business {
+          font-size: $font-size-13px;
+          color: $link-text-color;
+          text-decoration: none;
+        }
+
+        .amazon-business:hover {
+          @include linkHoverEffect;
+        }
+      }
+    }
+  }
+
+  .register-footer-divider {
+    width: 50%;
+    height: 30px;
+    margin-top: 24px;
+    background: linear-gradient(#d5d9d980, #fff, #fff);
+  }
+
+  .register-footer-text {
+    display: flex;
+    justify-content: center;
+    padding-left: 28px;
+
+    a {
+      margin: 0 30px 10px 0;
+      font-size: 11px;
+      color: $link-text-color;
+      text-decoration: none;
+    }
+
+    a:hover {
+      @include linkHoverEffect;
+    }
+  }
+
+  .copyright-notice {
+    margin-bottom: 25px;
+    font-size: 11px;
+    color: #555555;
+  }
 }
