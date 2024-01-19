@@ -37,11 +37,19 @@ export function RegisterPage() {
             <label className="enter-info-text">Your name</label>
             <div className="register-input-value">
               <input
-                className="enter-text"
+                onChange={(e) => {
+                  setNameWarning(false);
+                  setNameInput(e.target.value);
+                }}
+                className={
+                  nameWarning && nameInput === ""
+                    ? "name-warning-border"
+                    : "enter-text"
+                }
                 type="text"
                 placeholder="First and last name"
               />
-              {nameWarning && (
+              {nameWarning && nameInput === "" && (
                 <span className="name-input-warning">
                   <img src={exclamationIcon} alt="Exclamation Point Icon" />
                   <p>Enter your name</p>
@@ -51,8 +59,19 @@ export function RegisterPage() {
             <div>
               <label className="enter-info-text">Mobile number or email</label>
               <div className="register-mobile-email">
-                <input className="mobile-email-text" type="text" />
-                {mobileEmailWarning && (
+                <input
+                  onChange={(e) => {
+                    setMobileEmailWarning(false);
+                    setMobileEmailInput(e.target.value);
+                  }}
+                  className={
+                    mobileEmailWarning && mobileEmailInput === ""
+                      ? "mobile-email-warning-border"
+                      : "mobile-email-text"
+                  }
+                  type="text"
+                />
+                {mobileEmailWarning && mobileEmailInput === "" && (
                   <span className="mobile-email-input-warning">
                     <img src={exclamationIcon} alt="Exclamation Point Icon" />
                     <p>Enter your email or mobile phone number</p>
@@ -64,14 +83,24 @@ export function RegisterPage() {
               <label className="enter-info-text">Password</label>
               <div className="password-input-value">
                 <input
-                  className="password-text"
+                  onChange={(e) => {
+                    setPasswordWarning(false);
+                    setPasswordInput(e.target.value);
+                  }}
+                  className={
+                    (passwordWarning && passwordInput === "") ||
+                    (againPasswordWarning === true && passwordInput.length <= 6)
+                      ? "password-warning-border"
+                      : "password-text"
+                  }
                   type="password"
                   placeholder="At least 6 characters"
                 />
-                {passwordWarning ? (
+                {(passwordWarning && passwordInput === "") ||
+                (againPasswordWarning === true && passwordInput.length <= 6) ? (
                   <span className="password-input-warning">
                     <img src={exclamationIcon} alt="Exclamation Point Icon" />
-                    <p>Enter your email or mobile phone number</p>
+                    <p>Minimum 6 characters required</p>
                   </span>
                 ) : (
                   <span className="password-require">
@@ -87,12 +116,34 @@ export function RegisterPage() {
             <div>
               <label className="enter-info-text">Re-enter password</label>
               <div className="password-again-input-value">
-                <input className="password-again-text" type="password" />
+                <input
+                  onChange={(e) => {
+                    setAgainPasswordWarning(false);
+                    setAgainPasswordInput(e.target.value);
+                  }}
+                  className={
+                    !againPasswordWarning
+                      ? "password-again-text"
+                      : "password-again-warning-border"
+                  }
+                  type="password"
+                />
+                {againPasswordWarning && (
+                  <span className="password-again-warning-text">
+                    <img src={exclamationIcon} alt="Exclamation Point Icon" />
+                    <p>Passwords must match</p>
+                  </span>
+                )}
                 <button
                   onClick={() => {
                     setNameWarning(true);
                     setMobileEmailWarning(true);
                     setPasswordWarning(true);
+                    if (passwordInput !== againPasswordInput) {
+                      setAgainPasswordWarning(true);
+                    } else {
+                      setAgainPasswordWarning(false);
+                    }
                   }}
                 >
                   Continue
