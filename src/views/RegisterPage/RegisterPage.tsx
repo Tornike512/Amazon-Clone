@@ -23,16 +23,39 @@ export function RegisterPage() {
       </div>
       <div className="register-spacing">
         <div className="register-box">
-          <h1>Create account</h1>
-          <label className="enter-info-text">Your name</label>
-          <div className="enter-name">
-            <input
-              className="enter-text"
-              type="text"
-              placeholder="First and last name"
-            />
-
-            <button>Continue</button>
+          <div>
+            <h1>Create account</h1>
+            <label className="enter-info-text">Your name</label>
+            <div className="register-input-value">
+              <input
+                className="enter-text"
+                type="text"
+                placeholder="First and last name"
+              />
+            </div>
+            <div>
+              <label className="enter-info-text">Mobile number or email</label>
+              <div className="register-input-value">
+                <input className="enter-text" type="text" />
+              </div>
+            </div>
+            <div>
+              <label className="enter-info-text">Password</label>
+              <div className="register-input-value">
+                <input
+                  className="enter-text"
+                  type="password"
+                  placeholder="At least 6 characters"
+                />
+              </div>
+            </div>
+            <div>
+              <label className="enter-info-text">Re-enter password</label>
+              <div className="register-input-value">
+                <input className="enter-text" type="password" />
+                <button>Continue</button>
+              </div>
+            </div>
           </div>
 
           <p className="conditions-of-use">
