@@ -72,6 +72,10 @@ export function RegisterPage() {
               Shop on Amazon Business
             </a>
           </div>
+          <div className="already-account">
+            <p>Already have an account?</p>
+            <a onClick={() => navigate("/sign-in")}>Sign in ▸</a>
+          </div>
         </div>
       </div>
       <div className="register-footer-divider"></div>

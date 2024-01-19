@@ -116,12 +116,35 @@
         }
 
         .amazon-business {
+          padding-bottom: 10px;
           font-size: $font-size-13px;
           color: $link-text-color;
+          border-bottom: $primary-border-color;
           text-decoration: none;
         }
 
         .amazon-business:hover {
+          @include linkHoverEffect;
+        }
+      }
+
+      .already-account {
+        height: 44px;
+        display: flex;
+        align-items: flex-end;
+
+        p {
+          margin-right: 3px;
+          font-size: $font-size-13px;
+        }
+
+        a {
+          font-size: $font-size-13px;
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+        a:hover {
           @include linkHoverEffect;
         }
       }

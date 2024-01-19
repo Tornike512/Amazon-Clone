@@ -28,7 +28,16 @@ export function SignInModal() {
               </button>
             </span>
             <p className="sign-in-bar-register">
-              New customer? <a href="#"> Start here</a>
+              New customer?{" "}
+              <a
+                onClick={() => {
+                  navigate("/register");
+                  setSignInHover(false);
+                }}
+              >
+                {" "}
+                Start here
+              </a>
             </p>
             <div className="lists-account">
               <span className="lists">
