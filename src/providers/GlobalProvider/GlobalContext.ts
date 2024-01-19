@@ -9,6 +9,8 @@ interface TGlobalContext {
   setSignInHover: React.Dispatch<React.SetStateAction<boolean>>;
   languageHover: boolean;
   setLanguageHover: React.Dispatch<React.SetStateAction<boolean>>;
+  registerPage: boolean;
+  setRegisterPage: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -20,4 +22,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setSignInHover: () => {},
   languageHover: false,
   setLanguageHover: () => {},
+  registerPage: false,
+  setRegisterPage: () => {},
 });
