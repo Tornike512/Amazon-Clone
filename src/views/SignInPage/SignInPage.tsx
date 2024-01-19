@@ -69,7 +69,14 @@ export function SignInPage() {
         <div className="new-to-amazon">New to Amazon?</div>
         <div className="divider"></div>
       </div>
-      <button className="create-account">Create your Amazon account</button>
+      <button
+        onClick={() => {
+          navigate("/register");
+        }}
+        className="create-account"
+      >
+        Create your Amazon account
+      </button>
       <div className="sign-in-footer-divider"></div>
       <span className="sign-in-footer-text">
         <a href="#">Conditions of Use</a>

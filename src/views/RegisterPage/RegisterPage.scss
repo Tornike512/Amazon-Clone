@@ -1,3 +1,10 @@
 @import "/src/sass/mixins.scss";
 @import "/src/sass/variables.scss";
 @import "/src/sass/colors.scss";
+
+.register-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 18px;
+}
