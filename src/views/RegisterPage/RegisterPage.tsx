@@ -1,10 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+
 import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
+import exclamationIcon from "@src/assets/exclamation-point-logo.png";
+import exclamationBlue from "@src/assets/exclamation-blue.png";
+
 import "src/views/RegisterPage/RegisterPage.scss";
 
 export function RegisterPage() {
   const navigate = useNavigate();
+
+  const [nameInput, setNameInput] = useState<string>("");
+  const [mobileEmailInput, setMobileEmailInput] = useState<string>("");
+  const [passwordInput, setPasswordInput] = useState<string>("");
+  const [againPasswordInput, setAgainPasswordInput] = useState<string>("");
 
   const [nameWarning, setNameWarning] = useState<boolean>(false);
   const [mobileEmailWarning, setMobileEmailWarning] = useState<boolean>(false);
@@ -32,28 +41,62 @@ export function RegisterPage() {
                 type="text"
                 placeholder="First and last name"
               />
+              {nameWarning && (
+                <span className="name-input-warning">
+                  <img src={exclamationIcon} alt="Exclamation Point Icon" />
+                  <p>Enter your name</p>
+                </span>
+              )}
             </div>
             <div>
               <label className="enter-info-text">Mobile number or email</label>
-              <div className="register-input-value">
-                <input className="enter-text" type="text" />
+              <div className="register-mobile-email">
+                <input className="mobile-email-text" type="text" />
+                {mobileEmailWarning && (
+                  <span className="mobile-email-input-warning">
+                    <img src={exclamationIcon} alt="Exclamation Point Icon" />
+                    <p>Enter your email or mobile phone number</p>
+                  </span>
+                )}
               </div>
             </div>
             <div>
               <label className="enter-info-text">Password</label>
-              <div className="register-input-value">
+              <div className="password-input-value">
                 <input
-                  className="enter-text"
+                  className="password-text"
                   type="password"
                   placeholder="At least 6 characters"
                 />
+                {passwordWarning ? (
+                  <span className="password-input-warning">
+                    <img src={exclamationIcon} alt="Exclamation Point Icon" />
+                    <p>Enter your email or mobile phone number</p>
+                  </span>
+                ) : (
+                  <span className="password-require">
+                    <img
+                      src={exclamationBlue}
+                      alt="Exclamation Point Blue Icon"
+                    />
+                    <p>Passwords must be at least 6 characters.</p>
+                  </span>
+                )}
               </div>
             </div>
             <div>
               <label className="enter-info-text">Re-enter password</label>
-              <div className="register-input-value">
-                <input className="enter-text" type="password" />
-                <button>Continue</button>
+              <div className="password-again-input-value">
+                <input className="password-again-text" type="password" />
+                <button
+                  onClick={() => {
+                    setNameWarning(true);
+                    setMobileEmailWarning(true);
+                    setPasswordWarning(true);
+                  }}
+                >
+                  Continue
+                </button>
               </div>
             </div>
           </div>
