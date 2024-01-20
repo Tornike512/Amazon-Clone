@@ -21,6 +21,30 @@ export function RegisterPage() {
   const [againPasswordWarning, setAgainPasswordWarning] =
     useState<boolean>(false);
 
+  const continueButton = () => {
+    setNameWarning(true);
+    setMobileEmailWarning(true);
+
+    if (
+      passwordInput !== againPasswordInput &&
+      passwordInput !== "" &&
+      againPasswordInput !== ""
+    ) {
+      setAgainPasswordWarning(true);
+      setPasswordWarning(true);
+    } else if (passwordInput.length < 6) {
+      setPasswordWarning(true);
+    } else if (
+      passwordInput.length > 6 &&
+      passwordInput !== againPasswordInput
+    ) {
+      setPasswordWarning(true);
+      setAgainPasswordWarning(true);
+    } else {
+      setAgainPasswordWarning(false);
+    }
+  };
+
   return (
     <div className="register-page">
       <div className="image-spacing">
@@ -89,12 +113,7 @@ export function RegisterPage() {
                   }}
                   className={
                     (passwordWarning && passwordInput === "") ||
-                    (againPasswordWarning === true &&
-                      passwordInput.length <= 5) ||
-                    (passwordInput !== "" &&
-                      againPasswordInput !== "" &&
-                      passwordInput === againPasswordInput &&
-                      passwordInput.length <= 5)
+                    (againPasswordWarning && passwordInput.length < 6)
                       ? "password-warning-border"
                       : "password-text"
                   }
@@ -102,19 +121,21 @@ export function RegisterPage() {
                   placeholder="At least 6 characters"
                 />
                 {(passwordWarning && passwordInput === "") ||
-                (againPasswordWarning === true && passwordInput.length <= 5) ? (
+                (againPasswordWarning && passwordInput.length < 6) ? (
                   <span className="password-input-warning">
                     <img src={exclamationIcon} alt="Exclamation Point Icon" />
                     <p>Minimum 6 characters required</p>
                   </span>
                 ) : (
-                  <span className="password-require">
-                    <img
-                      src={exclamationBlue}
-                      alt="Exclamation Point Blue Icon"
-                    />
-                    <p>Passwords must be at least 6 characters.</p>
-                  </span>
+                  passwordInput.length < 6 && (
+                    <span className="password-require">
+                      <img
+                        src={exclamationBlue}
+                        alt="Exclamation Point Blue Icon"
+                      />
+                      <p>Passwords must be at least 6 characters.</p>
+                    </span>
+                  )
                 )}
               </div>
             </div>
@@ -139,20 +160,7 @@ export function RegisterPage() {
                     <p>Passwords must match</p>
                   </span>
                 )}
-                <button
-                  onClick={() => {
-                    setNameWarning(true);
-                    setMobileEmailWarning(true);
-                    setPasswordWarning(true);
-                    if (passwordInput !== againPasswordInput) {
-                      setAgainPasswordWarning(true);
-                    } else {
-                      setAgainPasswordWarning(false);
-                    }
-                  }}
-                >
-                  Continue
-                </button>
+                <button onClick={continueButton}>Continue</button>
               </div>
             </div>
           </div>
