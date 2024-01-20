@@ -89,7 +89,12 @@ export function RegisterPage() {
                   }}
                   className={
                     (passwordWarning && passwordInput === "") ||
-                    (againPasswordWarning === true && passwordInput.length <= 6)
+                    (againPasswordWarning === true &&
+                      passwordInput.length <= 5) ||
+                    (passwordInput !== "" &&
+                      againPasswordInput !== "" &&
+                      passwordInput === againPasswordInput &&
+                      passwordInput.length <= 5)
                       ? "password-warning-border"
                       : "password-text"
                   }
@@ -97,7 +102,7 @@ export function RegisterPage() {
                   placeholder="At least 6 characters"
                 />
                 {(passwordWarning && passwordInput === "") ||
-                (againPasswordWarning === true && passwordInput.length <= 6) ? (
+                (againPasswordWarning === true && passwordInput.length <= 5) ? (
                   <span className="password-input-warning">
                     <img src={exclamationIcon} alt="Exclamation Point Icon" />
                     <p>Minimum 6 characters required</p>
