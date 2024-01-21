@@ -69,6 +69,7 @@ export function SignInPage() {
               <div>
                 <input className="password-input" type="password" />
               </div>
+              <button className="sign-in-button">Sign in</button>
             </>
           )}
 
