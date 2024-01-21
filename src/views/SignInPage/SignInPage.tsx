@@ -90,7 +90,13 @@ export function SignInPage() {
           ) : (
             <>
               <div className="email-or-number">
-                asfas <a className="change-account">Change</a>
+                asfas{" "}
+                <a
+                  onClick={() => setEnterPassword(false)}
+                  className="change-account"
+                >
+                  Change
+                </a>
               </div>
               <label className="password-text">Password</label>
               <div>
