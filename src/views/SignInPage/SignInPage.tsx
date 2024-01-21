@@ -61,7 +61,15 @@ export function SignInPage() {
               </div>
             </>
           ) : (
-            <span className="email-or-number">asfas</span>
+            <>
+              <div className="email-or-number">
+                asfas <a className="change-account">Change</a>
+              </div>
+              <label className="password-text">Password</label>
+              <div>
+                <input className="password-input" type="password" />
+              </div>
+            </>
           )}
 
           <p className="conditions-of-use">
