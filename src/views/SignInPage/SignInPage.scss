@@ -192,6 +192,7 @@
       .sign-in-button {
         width: 100%;
         padding: 8px 7px;
+        margin-bottom: 18px;
         border: none;
         border-radius: 8px;
         font-size: $font-size-13px;
@@ -203,6 +204,17 @@
 
       .sign-in-button:hover {
         background-color: $primary-button-hover-color;
+      }
+
+      .keep-signed-in {
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        font-size: $font-size-13px;
+
+        input {
+          margin-right: 5px;
+        }
       }
     }
   }

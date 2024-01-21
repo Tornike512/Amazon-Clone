@@ -5,12 +5,13 @@ import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
 import exclamationIcon from "@src/assets/exclamation-point-logo.png";
 
 import "@src/views/SignInPage/SignInPage.scss";
+
 export function SignInPage() {
   const navigate = useNavigate();
 
   const [warning, setWarning] = useState<boolean>(false);
   const [signInInput, setSignInInput] = useState<string>("");
-  const [enterPassword, setEnterPassword] = useState<boolean>("");
+  const [enterPassword, setEnterPassword] = useState<boolean>(false);
 
   return (
     <div className="sign-in-page">
@@ -59,6 +60,32 @@ export function SignInPage() {
                   Continue
                 </button>
               </div>
+              <p className="conditions-of-use">
+                By continuing, you agree to Amazon's{" "}
+                <a href="#">Conditions of Use </a>
+                and <a href="#">Privacy Notice.</a>
+              </p>
+              <div className="help">
+                <a className="forgot-password" href="#">
+                  Forgot your password?
+                </a>
+                <span className="buying-for-work">Buying for work?</span>
+                <a className="amazon-business" href="#">
+                  Shop on Amazon Business
+                </a>
+              </div>
+              <div className="divider-spacing">
+                <div className="new-to-amazon">New to Amazon?</div>
+                <div className="divider"></div>
+              </div>
+              <button
+                onClick={() => {
+                  navigate("/register");
+                }}
+                className="create-account"
+              >
+                Create your Amazon account
+              </button>
             </>
           ) : (
             <>
@@ -70,38 +97,15 @@ export function SignInPage() {
                 <input className="password-input" type="password" />
               </div>
               <button className="sign-in-button">Sign in</button>
+              <div className="keep-signed-in">
+                <input type="checkbox" />
+                <p>Keep me signed in.</p>
+              </div>
             </>
           )}
-
-          <p className="conditions-of-use">
-            By continuing, you agree to Amazon's{" "}
-            <a href="#">Conditions of Use </a>
-            and <a href="#">Privacy Notice.</a>
-          </p>
-          <div className="help">
-            <a className="forgot-password" href="#">
-              Forgot your password?
-            </a>
-            <span className="buying-for-work">Buying for work?</span>
-            <a className="amazon-business" href="#">
-              Shop on Amazon Business
-            </a>
-          </div>
         </div>
       </div>
 
-      <div className="divider-spacing">
-        <div className="new-to-amazon">New to Amazon?</div>
-        <div className="divider"></div>
-      </div>
-      <button
-        onClick={() => {
-          navigate("/register");
-        }}
-        className="create-account"
-      >
-        Create your Amazon account
-      </button>
       <div className="sign-in-footer-divider"></div>
       <span className="sign-in-footer-text">
         <a href="#">Conditions of Use</a>
