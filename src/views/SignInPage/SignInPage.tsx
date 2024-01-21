@@ -10,6 +10,7 @@ export function SignInPage() {
 
   const [warning, setWarning] = useState<boolean>(false);
   const [signInInput, setSignInInput] = useState<string>("");
+  const [enterPassword, setEnterPassword] = useState<boolean>("");
 
   return (
     <div className="sign-in-page">
@@ -20,34 +21,48 @@ export function SignInPage() {
           alt="Black Amazon Logo"
         />
       </div>
+
       <div className="sign-in-spacing">
         <div className="sign-in-box">
           <h1>Sign in</h1>
-          <label className="enter-info-text">
-            Email or mobile phone number
-          </label>
-          <div className="enter-email">
-            <input
-              onChange={(e) => {
-                setWarning(false);
-                setSignInInput(e.target.value);
-              }}
-              className={
-                warning && signInInput === ""
-                  ? "input-warning-border"
-                  : "enter-text"
-              }
-              type="email"
-            />
+          {!enterPassword ? (
+            <>
+              <label className="enter-info-text">
+                Email or mobile phone number
+              </label>
+              <div className="enter-email">
+                <input
+                  onChange={(e) => {
+                    setWarning(false);
+                    setSignInInput(e.target.value);
+                  }}
+                  className={
+                    warning && signInInput === ""
+                      ? "input-warning-border"
+                      : "enter-text"
+                  }
+                  type="email"
+                />
 
-            {warning && signInInput === "" && (
-              <span className="sign-in-input-warning">
-                <img src={exclamationIcon} alt="Exclamation Point Icon" />
-                <p>Enter your email or mobile phone number</p>
-              </span>
-            )}
-            <button onClick={() => setWarning(true)}>Continue</button>
-          </div>
+                {warning && signInInput === "" && (
+                  <span className="sign-in-input-warning">
+                    <img src={exclamationIcon} alt="Exclamation Point Icon" />
+                    <p>Enter your email or mobile phone number</p>
+                  </span>
+                )}
+                <button
+                  onClick={() => {
+                    setWarning(true);
+                    setEnterPassword(true);
+                  }}
+                >
+                  Continue
+                </button>
+              </div>
+            </>
+          ) : (
+            <span className="email-or-number">asfas</span>
+          )}
 
           <p className="conditions-of-use">
             By continuing, you agree to Amazon's{" "}
@@ -65,6 +80,7 @@ export function SignInPage() {
           </div>
         </div>
       </div>
+
       <div className="divider-spacing">
         <div className="new-to-amazon">New to Amazon?</div>
         <div className="divider"></div>
