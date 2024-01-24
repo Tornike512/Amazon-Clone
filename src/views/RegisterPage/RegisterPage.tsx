@@ -9,9 +9,10 @@ import "src/views/RegisterPage/RegisterPage.scss";
 
 interface TRegisterValue {
   first_name: string;
-  last_name: string;
-  phone_number: string;
-  email: string;
+  last_name?: string;
+  email_number?: string;
+  email?: string;
+  password: string;
   again_password: string;
 }
 
@@ -52,6 +53,16 @@ export function RegisterPage() {
       setAgainPasswordWarning(false);
     }
   };
+
+  function register(): void {
+    const newUser: TRegisterValue = {
+      first_name: nameInput,
+      email_number: mobileEmailInput,
+      password: passwordInput,
+      again_password: againPasswordInput,
+    };
+    console.log(newUser);
+  }
 
   return (
     <div className="register-page">
@@ -168,7 +179,14 @@ export function RegisterPage() {
                     <p>Passwords must match</p>
                   </span>
                 )}
-                <button onClick={continueButton}>Continue</button>
+                <button
+                  onClick={() => {
+                    continueButton();
+                    register();
+                  }}
+                >
+                  Continue
+                </button>
               </div>
             </div>
           </div>
