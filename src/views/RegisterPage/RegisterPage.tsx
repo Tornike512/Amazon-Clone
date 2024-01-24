@@ -7,6 +7,14 @@ import exclamationBlue from "@src/assets/exclamation-blue.png";
 
 import "src/views/RegisterPage/RegisterPage.scss";
 
+interface TRegisterValue {
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  email: string;
+  again_password: string;
+}
+
 export function RegisterPage() {
   const navigate = useNavigate();
 
