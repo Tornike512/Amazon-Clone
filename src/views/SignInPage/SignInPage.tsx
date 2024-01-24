@@ -74,18 +74,6 @@ export function SignInPage() {
                   Shop on Amazon Business
                 </a>
               </div>
-              <div className="divider-spacing">
-                <div className="new-to-amazon">New to Amazon?</div>
-                <div className="divider"></div>
-              </div>
-              <button
-                onClick={() => {
-                  navigate("/register");
-                }}
-                className="create-account"
-              >
-                Create your Amazon account
-              </button>
             </>
           ) : (
             <>
@@ -98,6 +86,7 @@ export function SignInPage() {
                   Change
                 </a>
               </div>
+
               <label className="password-text">Password</label>
               <div>
                 <input className="password-input" type="password" />
@@ -111,7 +100,18 @@ export function SignInPage() {
           )}
         </div>
       </div>
-
+      <div className="divider-spacing">
+        <div className="new-to-amazon">New to Amazon?</div>
+        <div className="divider"></div>
+      </div>
+      <button
+        onClick={() => {
+          navigate("/register");
+        }}
+        className="create-account"
+      >
+        Create your Amazon account
+      </button>
       <div className="sign-in-footer-divider"></div>
       <span className="sign-in-footer-text">
         <a href="#">Conditions of Use</a>
