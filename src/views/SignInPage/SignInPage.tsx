@@ -54,7 +54,9 @@ export function SignInPage() {
                 <button
                   onClick={() => {
                     setWarning(true);
-                    setEnterPassword(true);
+                    if (signInInput !== "") {
+                      setEnterPassword(true);
+                    }
                   }}
                 >
                   Continue
