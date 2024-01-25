@@ -78,9 +78,12 @@ export function SignInPage() {
           ) : (
             <>
               <div className="email-or-number">
-                asfas{" "}
+                {signInInput}
                 <a
-                  onClick={() => setEnterPassword(false)}
+                  onClick={() => {
+                    setEnterPassword(false);
+                    setSignInInput("");
+                  }}
                   className="change-account"
                 >
                   Change
