@@ -1,17 +1,28 @@
 import { useContext } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
-import "./Sidebar.scss";
+import { useNavigate } from "react-router-dom";
+
 import personLogo from "@src/assets/person-logo.png";
+
+import "./Sidebar.scss";
 
 export function Sidebar() {
   const { sideBar, setSideBar, modal, setModal } = useContext(GlobalContext);
+
+  const navigate = useNavigate();
 
   return (
     <>
       {sideBar && (
         <div>
           <aside className={modal ? "sidebar" : "sidebar-close"}>
-            <button className="sidebar-sign-in">
+            <button
+              onClick={() => {
+                navigate("/sign-in");
+                setSideBar(false);
+              }}
+              className="sidebar-sign-in"
+            >
               <div className="sign-in-text">
                 <img src={personLogo} alt="Person logo" />
                 <h2>Hello, sign in</h2>
