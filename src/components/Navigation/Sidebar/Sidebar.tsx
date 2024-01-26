@@ -3,6 +3,7 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
 
 import personLogo from "@src/assets/person-logo.png";
+import closeSidebar from "@src/assets/sidebar-close-button.png";
 
 import "./Sidebar.scss";
 
@@ -43,6 +44,11 @@ export function Sidebar() {
               }, 400);
             }}
           ></div>
+          <img
+            className="sidebar-close-button"
+            src={closeSidebar}
+            alt="Sidebar Close Button"
+          />
         </div>
       )}
     </>
