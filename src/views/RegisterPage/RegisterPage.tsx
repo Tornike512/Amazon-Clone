@@ -66,16 +66,20 @@ export function RegisterPage() {
   };
 
   async function register() {
-    const newUser: TRegisterValue = {
-      first_name: nameInput,
-      last_name: lastNameInput,
-      phone_number: mobileNumberInput,
-      email: emailInput,
-      password: passwordInput,
-      "again-password": againPasswordInput,
-    };
-
-    await registerUser(newUser);
+    try {
+      const newUser: TRegisterValue = {
+        first_name: nameInput,
+        last_name: lastNameInput,
+        phone_number: mobileNumberInput,
+        email: emailInput,
+        password: passwordInput,
+        "again-password": againPasswordInput,
+      };
+      const response = await PublicAxios.post("auth/register", newUser);
+      console.log(response.data);
+    } catch (error) {
+      console.log("Registration failed:", error);
+    }
   }
 
   return (
