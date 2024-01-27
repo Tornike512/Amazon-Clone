@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { PublicAxios } from "@src/utils/PublicAxios";
+import { useRegister } from "./Hooks/useRegister";
 
 import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
 import exclamationIcon from "@src/assets/exclamation-point-logo.png";
@@ -8,17 +9,20 @@ import exclamationBlue from "@src/assets/exclamation-blue.png";
 
 import "src/views/RegisterPage/RegisterPage.scss";
 
-interface TRegisterValue {
+export interface TRegisterValue {
   first_name: string;
   last_name?: string;
   email_number?: string;
+  phone_number?: string;
   email?: string;
   password: string;
-  again_password: string;
+  "again-password": string;
 }
 
 export function RegisterPage() {
   const navigate = useNavigate();
+
+  const { registerUser } = useRegister();
 
   const [nameInput, setNameInput] = useState<string>("");
   const [mobileEmailInput, setMobileEmailInput] = useState<string>("");
@@ -55,14 +59,32 @@ export function RegisterPage() {
     }
   };
 
-  function register(): void {
+  // function register(): void {
+  //   const newUser: TRegisterValue = {
+  //     first_name: nameInput,
+  //     email_number: mobileEmailInput,
+  //     password: passwordInput,
+  //     "again-password": againPasswordInput,
+  //   };
+  //   console.log(newUser);
+  // }
+
+  // async function register(values: TRegisterValue) {
+  //   await registerUser(values);
+  // }
+
+  async function register() {
     const newUser: TRegisterValue = {
       first_name: nameInput,
+      last_name: "tsagareishvili",
+      phone_number: "599312203",
+      email: "tornike@gmail.com",
       email_number: mobileEmailInput,
       password: passwordInput,
-      again_password: againPasswordInput,
+      "again-password": againPasswordInput,
     };
-    console.log(newUser);
+
+    await registerUser(newUser);
   }
 
   return (
