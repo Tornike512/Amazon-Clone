@@ -26,13 +26,16 @@ export function RegisterPage() {
 
   const [nameInput, setNameInput] = useState<string>("");
   const [lastNameInput, setLastNameInput] = useState<string>("");
-  const [mobileEmailInput, setMobileEmailInput] = useState<string>("");
+  const [emailInput, setEmailInput] = useState<string>("");
+  const [mobileNumberInput, setMobileNumberInput] = useState<string>("");
   const [passwordInput, setPasswordInput] = useState<string>("");
   const [againPasswordInput, setAgainPasswordInput] = useState<string>("");
 
   const [nameWarning, setNameWarning] = useState<boolean>(false);
   const [lastNameWarning, setLastNameWarning] = useState<boolean>(false);
-  const [mobileEmailWarning, setMobileEmailWarning] = useState<boolean>(false);
+  const [emailWarning, setEmailWarning] = useState<boolean>(false);
+  const [mobileNumberWarning, setMobileNumberWarning] =
+    useState<boolean>(false);
   const [passwordWarning, setPasswordWarning] = useState<boolean>(false);
   const [againPasswordWarning, setAgainPasswordWarning] =
     useState<boolean>(false);
@@ -40,7 +43,8 @@ export function RegisterPage() {
   const continueButton = () => {
     setNameWarning(true);
     setLastNameWarning(true);
-    setMobileEmailWarning(true);
+    setEmailWarning(true);
+    setMobileNumberWarning(true);
 
     if (
       passwordInput !== againPasswordInput &&
@@ -62,27 +66,13 @@ export function RegisterPage() {
     }
   };
 
-  // function register(): void {
-  //   const newUser: TRegisterValue = {
-  //     first_name: nameInput,
-  //     email_number: mobileEmailInput,
-  //     password: passwordInput,
-  //     "again-password": againPasswordInput,
-  //   };
-  //   console.log(newUser);
-  // }
-
-  // async function register(values: TRegisterValue) {
-  //   await registerUser(values);
-  // }
-
   async function register() {
     const newUser: TRegisterValue = {
       first_name: nameInput,
       last_name: "tsagareishvili",
       phone_number: "599312203",
       email: "tornike@gmail.com",
-      email_number: mobileEmailInput,
+      email_number: emailInput,
       password: passwordInput,
       "again-password": againPasswordInput,
     };
@@ -149,23 +139,46 @@ export function RegisterPage() {
             </div>
             <div>
               <label className="enter-info-text">Email</label>
-              <div className="register-mobile-email">
+              <div className="register-email">
                 <input
                   onChange={(e) => {
-                    setMobileEmailWarning(false);
-                    setMobileEmailInput(e.target.value);
+                    setEmailWarning(false);
+                    setEmailInput(e.target.value);
                   }}
                   className={
-                    mobileEmailWarning && mobileEmailInput === ""
-                      ? "mobile-email-warning-border"
-                      : "mobile-email-text"
+                    emailWarning && emailInput === ""
+                      ? "email-warning-border"
+                      : "email-text"
                   }
                   type="text"
                 />
-                {mobileEmailWarning && mobileEmailInput === "" && (
-                  <span className="mobile-email-input-warning">
+                {emailWarning && emailInput === "" && (
+                  <span className="email-input-warning">
                     <img src={exclamationIcon} alt="Exclamation Point Icon" />
                     <p>Enter your email or mobile phone number</p>
+                  </span>
+                )}
+              </div>
+            </div>
+            <div>
+              <label className="enter-info-text">Phone number</label>
+              <div className="register-mobile-number">
+                <input
+                  onChange={(e) => {
+                    setMobileNumberWarning(false);
+                    setMobileNumberInput(e.target.value);
+                  }}
+                  className={
+                    mobileNumberWarning && mobileNumberInput === ""
+                      ? "mobile-number-warning-border"
+                      : "mobile-number-text"
+                  }
+                  type="text"
+                />
+                {mobileNumberWarning && mobileNumberInput === "" && (
+                  <span className="mobile-number-input-warning">
+                    <img src={exclamationIcon} alt="Exclamation Point Icon" />
+                    <p>Enter your mobile phone number</p>
                   </span>
                 )}
               </div>
