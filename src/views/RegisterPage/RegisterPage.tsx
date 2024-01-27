@@ -148,7 +148,7 @@ export function RegisterPage() {
               )}
             </div>
             <div>
-              <label className="enter-info-text">Mobile number or email</label>
+              <label className="enter-info-text">Email</label>
               <div className="register-mobile-email">
                 <input
                   onChange={(e) => {
