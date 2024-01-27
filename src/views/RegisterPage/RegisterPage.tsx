@@ -113,7 +113,7 @@ export function RegisterPage() {
                 className={
                   nameWarning && nameInput === ""
                     ? "first-name-warning-border"
-                    : "enter-text"
+                    : "enter-first-name"
                 }
                 type="text"
                 placeholder="First name"
@@ -135,7 +135,7 @@ export function RegisterPage() {
                 className={
                   lastNameWarning && lastNameInput === ""
                     ? "last-name-warning-border"
-                    : "enter-text"
+                    : "enter-last-name"
                 }
                 type="text"
                 placeholder="Last name"
