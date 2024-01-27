@@ -100,7 +100,7 @@ export function RegisterPage() {
         <div className="register-box">
           <div>
             <h1>Create account</h1>
-            <label className="enter-info-text">Your name</label>
+            <label className="enter-info-text">First name</label>
             <div className="register-input-value">
               <input
                 onChange={(e) => {
