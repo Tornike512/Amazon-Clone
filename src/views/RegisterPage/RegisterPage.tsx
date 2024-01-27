@@ -25,11 +25,13 @@ export function RegisterPage() {
   const { registerUser } = useRegister();
 
   const [nameInput, setNameInput] = useState<string>("");
+  const [lastNameInput, setLastNameInput] = useState<string>("");
   const [mobileEmailInput, setMobileEmailInput] = useState<string>("");
   const [passwordInput, setPasswordInput] = useState<string>("");
   const [againPasswordInput, setAgainPasswordInput] = useState<string>("");
 
   const [nameWarning, setNameWarning] = useState<boolean>(false);
+  const [lastNameWarning, setLastNameWarning] = useState<boolean>(false);
   const [mobileEmailWarning, setMobileEmailWarning] = useState<boolean>(false);
   const [passwordWarning, setPasswordWarning] = useState<boolean>(false);
   const [againPasswordWarning, setAgainPasswordWarning] =
@@ -37,6 +39,7 @@ export function RegisterPage() {
 
   const continueButton = () => {
     setNameWarning(true);
+    setLastNameWarning(true);
     setMobileEmailWarning(true);
 
     if (
@@ -101,7 +104,7 @@ export function RegisterPage() {
           <div>
             <h1>Create account</h1>
             <label className="enter-info-text">First name</label>
-            <div className="register-input-value">
+            <div className="first-name-input-value">
               <input
                 onChange={(e) => {
                   setNameWarning(false);
@@ -109,16 +112,38 @@ export function RegisterPage() {
                 }}
                 className={
                   nameWarning && nameInput === ""
-                    ? "name-warning-border"
+                    ? "first-name-warning-border"
                     : "enter-text"
                 }
                 type="text"
-                placeholder="First and last name"
+                placeholder="First name"
               />
               {nameWarning && nameInput === "" && (
-                <span className="name-input-warning">
+                <span className="first-name-input-warning">
                   <img src={exclamationIcon} alt="Exclamation Point Icon" />
-                  <p>Enter your name</p>
+                  <p>Enter your first name</p>
+                </span>
+              )}
+            </div>
+            <label className="enter-info-text">Last name</label>
+            <div className="last-name-input-value">
+              <input
+                onChange={(e) => {
+                  setLastNameWarning(false);
+                  setLastNameInput(e.target.value);
+                }}
+                className={
+                  lastNameWarning && lastNameInput === ""
+                    ? "last-name-warning-border"
+                    : "enter-text"
+                }
+                type="text"
+                placeholder="Last name"
+              />
+              {lastNameWarning && lastNameInput === "" && (
+                <span className="last-name-input-warning">
+                  <img src={exclamationIcon} alt="Exclamation Point Icon" />
+                  <p>Enter your last name</p>
                 </span>
               )}
             </div>
