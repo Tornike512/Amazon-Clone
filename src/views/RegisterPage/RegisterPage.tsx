@@ -11,10 +11,9 @@ import "src/views/RegisterPage/RegisterPage.scss";
 
 export interface TRegisterValue {
   first_name: string;
-  last_name?: string;
-  email_number?: string;
-  phone_number?: string;
-  email?: string;
+  last_name: string;
+  phone_number: string;
+  email: string;
   password: string;
   "again-password": string;
 }
@@ -69,10 +68,9 @@ export function RegisterPage() {
   async function register() {
     const newUser: TRegisterValue = {
       first_name: nameInput,
-      last_name: "tsagareishvili",
-      phone_number: "599312203",
-      email: "tornike@gmail.com",
-      email_number: emailInput,
+      last_name: lastNameInput,
+      phone_number: mobileNumberInput,
+      email: emailInput,
       password: passwordInput,
       "again-password": againPasswordInput,
     };
@@ -151,6 +149,7 @@ export function RegisterPage() {
                       : "email-text"
                   }
                   type="text"
+                  placeholder="Email address"
                 />
                 {emailWarning && emailInput === "" && (
                   <span className="email-input-warning">
@@ -174,6 +173,7 @@ export function RegisterPage() {
                       : "mobile-number-text"
                   }
                   type="text"
+                  placeholder="Mobile number"
                 />
                 {mobileNumberWarning && mobileNumberInput === "" && (
                   <span className="mobile-number-input-warning">
