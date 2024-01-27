@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { PublicAxios } from "@src/utils/PublicAxios";
 
 import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
 import exclamationIcon from "@src/assets/exclamation-point-logo.png";
