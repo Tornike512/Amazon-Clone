@@ -6,12 +6,30 @@ import exclamationIcon from "@src/assets/exclamation-point-logo.png";
 
 import "@src/views/SignInPage/SignInPage.scss";
 
+export interface TSignInFormValue {
+  email: string;
+  password: string;
+}
+
 export function SignInPage() {
   const navigate = useNavigate();
 
   const [warning, setWarning] = useState<boolean>(false);
   const [signInInput, setSignInInput] = useState<string>("");
   const [enterPassword, setEnterPassword] = useState<boolean>(false);
+
+  async function register() {
+    try {
+      const user: TSignInFormValue = {
+        email: emailInput,
+        password: passwordInput,
+      };
+      const response = await PublicAxios.post("auth/register", user);
+      setAuthData(response.data as TAuthRequest);
+    } catch (error) {
+      console.log("Registration failed:", error);
+    }
+  }
 
   return (
     <div className="sign-in-page">

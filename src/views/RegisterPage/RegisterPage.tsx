@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { PublicAxios } from "@src/utils/PublicAxios";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 
@@ -9,6 +9,7 @@ import exclamationBlue from "@src/assets/exclamation-blue.png";
 
 import "src/views/RegisterPage/RegisterPage.scss";
 import { TAuthRequest } from "@src/@types/RequestTypes";
+import { GlobalContext } from "@src/providers/GlobalProvider";
 
 export interface TRegisterValue {
   first_name: string;
@@ -23,12 +24,12 @@ export function RegisterPage() {
   const navigate = useNavigate();
 
   const { setAuthData } = useAuthProvider();
+  const { emailInput, setEmailInput, passwordInput, setPasswordInput } =
+    useContext(GlobalContext);
 
   const [nameInput, setNameInput] = useState<string>("");
   const [lastNameInput, setLastNameInput] = useState<string>("");
-  const [emailInput, setEmailInput] = useState<string>("");
   const [mobileNumberInput, setMobileNumberInput] = useState<string>("");
-  const [passwordInput, setPasswordInput] = useState<string>("");
   const [againPasswordInput, setAgainPasswordInput] = useState<string>("");
 
   const [nameWarning, setNameWarning] = useState<boolean>(false);
