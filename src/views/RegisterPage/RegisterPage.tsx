@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { PublicAxios } from "@src/utils/PublicAxios";
-import { useRegister } from "./Hooks/useRegister";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 
 import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
@@ -23,7 +22,6 @@ export interface TRegisterValue {
 export function RegisterPage() {
   const navigate = useNavigate();
 
-  const { registerUser } = useRegister();
   const { setAuthData } = useAuthProvider();
 
   const [nameInput, setNameInput] = useState<string>("");
