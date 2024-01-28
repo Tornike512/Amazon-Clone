@@ -2,12 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { PublicAxios } from "@src/utils/PublicAxios";
 import { useRegister } from "./Hooks/useRegister";
+import { useAuthProvider } from "@src/providers/AuthProvider";
 
 import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
 import exclamationIcon from "@src/assets/exclamation-point-logo.png";
 import exclamationBlue from "@src/assets/exclamation-blue.png";
 
 import "src/views/RegisterPage/RegisterPage.scss";
+import { TAuthRequest } from "@src/@types/RequestTypes";
 
 export interface TRegisterValue {
   first_name: string;
@@ -22,6 +24,7 @@ export function RegisterPage() {
   const navigate = useNavigate();
 
   const { registerUser } = useRegister();
+  const { setAuthData } = useAuthProvider();
 
   const [nameInput, setNameInput] = useState<string>("");
   const [lastNameInput, setLastNameInput] = useState<string>("");
@@ -76,7 +79,7 @@ export function RegisterPage() {
         "again-password": againPasswordInput,
       };
       const response = await PublicAxios.post("auth/register", newUser);
-      console.log(response.data);
+      setAuthData(response.data as TAuthRequest);
     } catch (error) {
       console.log("Registration failed:", error);
     }
