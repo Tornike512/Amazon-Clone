@@ -173,6 +173,10 @@
 
       .sign-in-text {
         font-size: $font-size-12px;
+
+        span {
+          margin-left: 3px;
+        }
       }
 
       .account-list {

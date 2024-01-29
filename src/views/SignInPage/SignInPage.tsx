@@ -1,5 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { GlobalContext } from "@src/providers/GlobalProvider";
+import { useAuthProvider } from "@src/providers/AuthProvider";
+import { PublicAxios } from "@src/utils/PublicAxios";
+import { TAuthRequest } from "@src/@types/RequestTypes";
 
 import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
 import exclamationIcon from "@src/assets/exclamation-point-logo.png";
@@ -14,18 +18,22 @@ export interface TSignInFormValue {
 export function SignInPage() {
   const navigate = useNavigate();
 
+  const { setAuthData } = useAuthProvider();
+  const { emailInput, passwordInput } = useContext(GlobalContext);
+
   const [warning, setWarning] = useState<boolean>(false);
   const [signInInput, setSignInInput] = useState<string>("");
   const [enterPassword, setEnterPassword] = useState<boolean>(false);
 
-  async function register() {
+  async function signIn() {
     try {
       const user: TSignInFormValue = {
         email: emailInput,
         password: passwordInput,
       };
-      const response = await PublicAxios.post("auth/register", user);
+      const response = await PublicAxios.post("auth/login", user);
       setAuthData(response.data as TAuthRequest);
+      navigate("/");
     } catch (error) {
       console.log("Registration failed:", error);
     }
@@ -46,9 +54,7 @@ export function SignInPage() {
           <h1>Sign in</h1>
           {!enterPassword ? (
             <>
-              <label className="enter-info-text">
-                Email or mobile phone number
-              </label>
+              <label className="enter-info-text">Email address</label>
               <div className="enter-email">
                 <input
                   onChange={(e) => {
@@ -65,7 +71,7 @@ export function SignInPage() {
 
                 {warning && signInInput === "" && (
                   <span className="sign-in-input-warning">
-                    <img src={exclamationIcon} alt="Exclamation Point Icon" />
+                    <img src={exclamationIcon} alt="Exclafmation Point Icon" />
                     <p>Enter your email or mobile phone number</p>
                   </span>
                 )}
@@ -114,7 +120,9 @@ export function SignInPage() {
               <div>
                 <input className="password-input" type="password" />
               </div>
-              <button className="sign-in-button">Sign in</button>
+              <button className="sign-in-button" onClick={() => signIn()}>
+                Sign in
+              </button>
               <div className="keep-signed-in">
                 <input type="checkbox" />
                 <p>Keep me signed in.</p>

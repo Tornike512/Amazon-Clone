@@ -95,7 +95,9 @@ export function Header() {
             className="sign-in"
           >
             <div className="sign-in-spacing">
-              <span className="sign-in-text">Hello,sign in</span>
+              <span className="sign-in-text">
+                Hello,<span>sign in</span>
+              </span>
               <p className="account-list">
                 <b>Account & Lists</b>
               </p>
