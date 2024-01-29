@@ -10,6 +10,7 @@ import exclamationBlue from "@src/assets/exclamation-blue.png";
 import "src/views/RegisterPage/RegisterPage.scss";
 import { TAuthRequest } from "@src/@types/RequestTypes";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import { ACCESS_TOKEN } from "@src/config/LocalStorageKeys";
 
 export interface TRegisterValue {
   first_name: string;
@@ -24,10 +25,16 @@ export function RegisterPage() {
   const navigate = useNavigate();
 
   const { setAuthData } = useAuthProvider();
-  const { emailInput, setEmailInput, passwordInput, setPasswordInput } =
-    useContext(GlobalContext);
 
-  const [nameInput, setNameInput] = useState<string>("");
+  const {
+    emailInput,
+    setEmailInput,
+    passwordInput,
+    setPasswordInput,
+    nameInput,
+    setNameInput,
+  } = useContext(GlobalContext);
+
   const [lastNameInput, setLastNameInput] = useState<string>("");
   const [mobileNumberInput, setMobileNumberInput] = useState<string>("");
   const [againPasswordInput, setAgainPasswordInput] = useState<string>("");
@@ -78,7 +85,11 @@ export function RegisterPage() {
         "again-password": againPasswordInput,
       };
       const response = await PublicAxios.post("auth/register", newUser);
+
+      localStorage.setItem("firstName", nameInput);
+
       setAuthData(response.data as TAuthRequest);
+      navigate("/");
     } catch (error) {
       console.log("Registration failed:", error);
     }

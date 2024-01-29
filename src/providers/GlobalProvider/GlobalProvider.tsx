@@ -9,6 +9,7 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   const [registerPage, setRegisterPage] = useState<boolean>(false);
   const [emailInput, setEmailInput] = useState<string>("");
   const [passwordInput, setPasswordInput] = useState<string>("");
+  const [nameInput, setNameInput] = useState<string>("");
 
   return (
     <GlobalContext.Provider
@@ -27,6 +28,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setEmailInput,
         passwordInput,
         setPasswordInput,
+        nameInput,
+        setNameInput,
       }}
     >
       {children}

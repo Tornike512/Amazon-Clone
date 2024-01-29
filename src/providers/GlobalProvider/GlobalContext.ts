@@ -15,6 +15,8 @@ interface TGlobalContext {
   setEmailInput: React.Dispatch<React.SetStateAction<string>>;
   passwordInput: string;
   setPasswordInput: React.Dispatch<React.SetStateAction<string>>;
+  nameInput: string;
+  setNameInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -32,4 +34,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setEmailInput: () => {},
   passwordInput: "",
   setPasswordInput: () => {},
+  nameInput: "",
+  setNameInput: () => {},
 });

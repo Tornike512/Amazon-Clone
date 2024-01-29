@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
 import { LocaleContext } from "@src/providers/LocaleProvider";
 import { FormattedMessage } from "react-intl";
-import "./Header.scss";
+import { useAuthProvider } from "@src/providers/AuthProvider";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "@src/config/LocalStorageKeys";
 
 import navIcon from "@src/assets/nav-icon.png";
 import amazonLogo from "@src/assets/amazon-logo.png";
@@ -13,6 +14,8 @@ import usaFlag from "@src/assets/usa-flag.jpg";
 import dropDownIcon from "src/assets/dropdown-icon.png";
 import cartLogo from "@src/assets/cart-logo.png";
 import triangle from "@src/assets/triangle.png";
+
+import "./Header.scss";
 
 export function Header() {
   const navigate = useNavigate();
@@ -27,6 +30,17 @@ export function Header() {
   } = useContext(GlobalContext);
 
   const { toggleLocale } = useContext(LocaleContext);
+
+  const [firstName, setFirstName] = useState<string>("");
+
+  useEffect(() => {
+    const fetchData = () => {
+      const storedFirstName = localStorage.getItem("firstName");
+      setFirstName(storedFirstName);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <header className="header">
@@ -96,7 +110,8 @@ export function Header() {
           >
             <div className="sign-in-spacing">
               <span className="sign-in-text">
-                Hello,<span>sign in</span>
+                Hello,
+                {ACCESS_TOKEN ? <span>{firstName}</span> : <span>Sign in</span>}
               </span>
               <p className="account-list">
                 <b>Account & Lists</b>
