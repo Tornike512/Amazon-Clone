@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { LocaleContext } from "@src/providers/LocaleProvider";
 import { FormattedMessage } from "react-intl";
 import { useAuthProvider } from "@src/providers/AuthProvider";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "@src/config/LocalStorageKeys";
+import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
 import navIcon from "@src/assets/nav-icon.png";
 import amazonLogo from "@src/assets/amazon-logo.png";
@@ -30,6 +30,8 @@ export function Header() {
   } = useContext(GlobalContext);
 
   const { toggleLocale } = useContext(LocaleContext);
+
+  const { authStatus } = useAuthProvider();
 
   const [firstName, setFirstName] = useState<string>("");
 
@@ -111,7 +113,7 @@ export function Header() {
             <div className="sign-in-spacing">
               <span className="sign-in-text">
                 Hello,
-                {ACCESS_TOKEN ? <span>{firstName}</span> : <span>Sign in</span>}
+                {firstName ? <span>{firstName}</span> : <span>Sign in</span>}
               </span>
               <p className="account-list">
                 <b>Account & Lists</b>
