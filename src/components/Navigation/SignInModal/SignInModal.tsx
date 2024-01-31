@@ -47,6 +47,15 @@ export function SignInModal() {
               <span className="account">
                 <span>Your Account</span>
                 <a href="#">Account</a>
+                <a
+                  onClick={() => {
+                    navigate("/sign-in");
+                    setSignInHover(false);
+                  }}
+                  href="#"
+                >
+                  Sign out
+                </a>
               </span>
             </div>
           </div>
