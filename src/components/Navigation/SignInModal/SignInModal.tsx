@@ -51,6 +51,7 @@ export function SignInModal() {
                   onClick={() => {
                     navigate("/sign-in");
                     setSignInHover(false);
+                    localStorage.clear();
                   }}
                   href="#"
                 >
