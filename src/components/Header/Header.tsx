@@ -35,7 +35,7 @@ export function Header() {
 
   useEffect(() => {
     const fetchData = () => {
-      const storedFirstName = localStorage.getItem("firstName");
+      const storedFirstName = localStorage.getItem("firstName") || "";
       setFirstName(storedFirstName);
     };
 
