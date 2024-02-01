@@ -173,7 +173,7 @@ export function RegisterPage() {
                 {emailWarning && emailInput === "" && (
                   <span className="email-input-warning">
                     <img src={exclamationIcon} alt="Exclamation Point Icon" />
-                    <p>Enter your email or mobile phone number</p>
+                    <p>Enter your email</p>
                   </span>
                 )}
               </div>
