@@ -35,9 +35,10 @@ export function Header() {
 
   const [firstName, setFirstName] = useState<string>("");
 
+  const storedFirstName = localStorage.getItem("firstName") || "";
+
   useEffect(() => {
     const fetchData = () => {
-      const storedFirstName = localStorage.getItem("firstName") || "";
       setFirstName(storedFirstName);
     };
 
@@ -113,7 +114,11 @@ export function Header() {
             <div className="sign-in-spacing">
               <span className="sign-in-text">
                 Hello,
-                {firstName ? <span>{firstName}</span> : <span>Sign in</span>}
+                {storedFirstName ? (
+                  <span>{firstName}</span>
+                ) : (
+                  <span>Sign in</span>
+                )}
               </span>
               <p className="account-list">
                 <b>Account & Lists</b>

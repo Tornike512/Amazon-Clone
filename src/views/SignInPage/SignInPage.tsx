@@ -4,6 +4,7 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import { PublicAxios } from "@src/utils/PublicAxios";
 import { TAuthRequest } from "@src/@types/RequestTypes";
+import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
 import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
 import exclamationIcon from "@src/assets/exclamation-point-logo.png";
@@ -18,7 +19,7 @@ export interface TSignInFormValue {
 export function SignInPage() {
   const navigate = useNavigate();
 
-  const { setAuthData } = useAuthProvider();
+  const { setAuthData, authStatus, setAuthStatus } = useAuthProvider();
   const { emailInput, passwordInput } = useContext(GlobalContext);
 
   const [warning, setWarning] = useState<boolean>(false);
@@ -80,6 +81,9 @@ export function SignInPage() {
                     setWarning(true);
                     if (signInInput !== "") {
                       setEnterPassword(true);
+                    }
+                    if (enterPassword) {
+                      signIn();
                     }
                   }}
                 >
