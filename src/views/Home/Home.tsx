@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useAuthProvider } from "@src/providers/AuthProvider";
 
 interface TCategories {
   id: string;

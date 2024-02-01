@@ -1,4 +1,4 @@
-import { TAuthRequest } from "@src/@types/RequestTypes";
+import { TAuthRequest, TUserRequest } from "@src/@types/RequestTypes";
 import { createContext } from "react";
 
 export enum TAuthorizationStatus_Enum {
@@ -12,10 +12,12 @@ interface AuthContextValue {
     React.SetStateAction<TAuthorizationStatus_Enum>
   >;
   setAuthData: (e: TAuthRequest) => void;
+  userData?: TUserRequest | undefined;
 }
 
 export const AuthContext = createContext<AuthContextValue>({
   authStatus: TAuthorizationStatus_Enum.UNAUTHORIZED,
   setAuthStatus: () => {},
   setAuthData: () => {},
+  userData: undefined,
 });
