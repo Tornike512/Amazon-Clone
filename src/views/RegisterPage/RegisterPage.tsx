@@ -95,6 +95,8 @@ export function RegisterPage() {
     }
   }
 
+  console.log(mobileNumberWarning);
+
   return (
     <div className="register-page">
       <div className="image-spacing">
@@ -185,8 +187,7 @@ export function RegisterPage() {
                     setMobileNumberInput(e.target.value);
                   }}
                   className={
-                    (mobileNumberWarning && mobileNumberInput === "") ||
-                    (mobileNumberInput.length < 9 && mobileNumberInput !== "")
+                    mobileNumberWarning && mobileNumberInput.length <= 9
                       ? "mobile-number-warning-border"
                       : "mobile-number-text"
                   }
@@ -194,7 +195,7 @@ export function RegisterPage() {
                   placeholder="Mobile number"
                 />
 
-                {mobileNumberWarning && mobileNumberInput === "" && (
+                {mobileNumberWarning && mobileNumberInput.length <= 9 && (
                   <span className="mobile-number-input-warning">
                     {mobileNumberInput.length < 9 &&
                       mobileNumberInput !== "" && (
@@ -280,6 +281,12 @@ export function RegisterPage() {
                 )}
                 <button
                   onClick={() => {
+                    if (
+                      mobileNumberInput.length < 9 &&
+                      mobileNumberInput.length > 0
+                    ) {
+                      setMobileNumberWarning(true);
+                    }
                     continueButton();
                     register();
                   }}
