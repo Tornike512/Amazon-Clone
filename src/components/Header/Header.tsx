@@ -5,6 +5,7 @@ import { LocaleContext } from "@src/providers/LocaleProvider";
 import { FormattedMessage } from "react-intl";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "@src/config/LocalStorageKeys";
 
 import navIcon from "@src/assets/nav-icon.png";
 import amazonLogo from "@src/assets/amazon-logo.png";
@@ -36,6 +37,9 @@ export function Header() {
   const [firstName, setFirstName] = useState<string>("");
 
   const storedFirstName = localStorage.getItem("firstName") || "";
+
+  const accessToken = localStorage.getItem("access_token");
+  const refreshToken = localStorage.getItem("refresh_token");
 
   useEffect(() => {
     const fetchData = () => {
@@ -114,11 +118,7 @@ export function Header() {
             <div className="sign-in-spacing">
               <span className="sign-in-text">
                 Hello,
-                {storedFirstName ? (
-                  <span>{firstName}</span>
-                ) : (
-                  <span>Sign in</span>
-                )}
+                {accessToken ? <span>{firstName}</span> : <span>Sign in</span>}
               </span>
               <p className="account-list">
                 <b>Account & Lists</b>
