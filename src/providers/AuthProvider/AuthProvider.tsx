@@ -29,7 +29,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
       );
       setAuthData(response.data);
       console.log(response);
-    } catch (erro) {
+    } catch (error) {
       signOut();
     }
   }
@@ -39,6 +39,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
     localStorage.removeItem(REFRESH_TOKEN);
     setUserData(undefined);
     setAuthStatus(TAuthorizationStatus_Enum.UNAUTHORIZED);
+    setPrivateAccessToken("");
   }
 
   useEffect(() => {
@@ -51,7 +52,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
   return (
     <AuthContext.Provider
-      value={{ authStatus, setAuthStatus, setAuthData, userData }}
+      value={{ authStatus, setAuthStatus, setAuthData, userData, signOut }}
     >
       {children}
     </AuthContext.Provider>

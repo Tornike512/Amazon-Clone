@@ -13,6 +13,7 @@ interface AuthContextValue {
   >;
   setAuthData: (e: TAuthRequest) => void;
   userData?: TUserRequest | undefined;
+  signOut(): void;
 }
 
 export const AuthContext = createContext<AuthContextValue>({
@@ -20,4 +21,5 @@ export const AuthContext = createContext<AuthContextValue>({
   setAuthStatus: () => {},
   setAuthData: () => {},
   userData: undefined,
+  signOut: () => {},
 });
