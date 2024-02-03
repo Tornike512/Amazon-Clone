@@ -185,7 +185,7 @@ export function RegisterPage() {
                     setMobileNumberInput(e.target.value);
                   }}
                   className={
-                    mobileNumberWarning && mobileNumberInput.length >= 9
+                    mobileNumberWarning && mobileNumberInput.length !== 9
                       ? "mobile-number-warning-border"
                       : "mobile-number-text"
                   }
@@ -193,19 +193,16 @@ export function RegisterPage() {
                   placeholder="Mobile number"
                 />
 
-                {mobileNumberWarning && mobileNumberInput.length >= 9 && (
+                {mobileNumberWarning && mobileNumberInput.length !== 9 && (
                   <span className="mobile-number-input-warning">
-                    {mobileNumberInput.length >= 9 &&
+                    {mobileNumberInput.length !== 9 &&
                       mobileNumberInput !== "" && (
                         <>
                           <img
                             src={exclamationIcon}
                             alt="Exclamation Point Icon"
                           />
-                          <p>
-                            Mobile number must be shorter than or equal to 9
-                            characters
-                          </p>
+                          <p>Mobile number must be equal to 9 characters</p>
                         </>
                       )}
                     {mobileNumberInput === "" && (
