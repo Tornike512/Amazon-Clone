@@ -40,8 +40,15 @@ export function AuthProvider({ children }: PropsWithChildren) {
       );
       console.log(response);
     } catch (erro) {
-      console.log(erro);
+      signOut();
     }
+  }
+
+  function signOut() {
+    localStorage.removeItem(ACCESS_TOKEN);
+    localStorage.removeItem(REFRESH_TOKEN);
+    setUserData(undefined);
+    setAuthStatus(TAuthorizationStatus_Enum.UNAUTHORIZED);
   }
 
   return (
