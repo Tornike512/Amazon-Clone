@@ -12,17 +12,6 @@ export function AuthProvider({ children }: PropsWithChildren) {
   );
   const [userData, setUserData] = useState<TUserRequest>();
 
-  useEffect(() => {
-    const accessToken = localStorage.getItem(ACCESS_TOKEN);
-    const refreshToken = localStorage.getItem(REFRESH_TOKEN);
-
-    if (refreshToken) {
-      getNewAccessToken(refreshToken);
-    }
-  }, []);
-
-  console.log(userData);
-
   function setAuthData(tokens: TAuthRequest) {
     const tokenData: TUserRequest = jwtDecode(tokens.access_token);
     setUserData(tokenData);
@@ -38,6 +27,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
         "/auth/update-tokens",
         { refresh_token: refreshToken }
       );
+      setAuthData(response.data);
       console.log(response);
     } catch (erro) {
       signOut();
@@ -50,6 +40,14 @@ export function AuthProvider({ children }: PropsWithChildren) {
     setUserData(undefined);
     setAuthStatus(TAuthorizationStatus_Enum.UNAUTHORIZED);
   }
+
+  useEffect(() => {
+    const refreshToken = localStorage.getItem(REFRESH_TOKEN);
+
+    if (refreshToken) {
+      getNewAccessToken(refreshToken);
+    }
+  }, []);
 
   return (
     <AuthContext.Provider
