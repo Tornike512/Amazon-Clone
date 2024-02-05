@@ -28,11 +28,13 @@ export function Header() {
     signInHover,
     setLanguageHover,
     languageHover,
+    nameInput,
   } = useContext(GlobalContext);
 
   const { toggleLocale } = useContext(LocaleContext);
 
   const { authStatus } = useAuthProvider();
+  console.log(nameInput);
 
   const [firstName, setFirstName] = useState<string>("");
 
@@ -40,14 +42,6 @@ export function Header() {
 
   const accessToken = localStorage.getItem("access_token");
   const refreshToken = localStorage.getItem("refresh_token");
-
-  useEffect(() => {
-    const fetchData = () => {
-      setFirstName(storedFirstName);
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <header className="header">
@@ -118,7 +112,11 @@ export function Header() {
             <div className="sign-in-spacing">
               <span className="sign-in-text">
                 Hello,
-                {accessToken ? <span>{firstName}</span> : <span>Sign in</span>}
+                {authStatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
+                  <span>{nameInput}</span>
+                ) : (
+                  <span>Sign in</span>
+                )}
               </span>
               <p className="account-list">
                 <b>Account & Lists</b>

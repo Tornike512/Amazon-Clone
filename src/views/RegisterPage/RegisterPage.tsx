@@ -89,7 +89,7 @@ export function RegisterPage() {
       localStorage.setItem("firstName", nameInput);
 
       setAuthData(response.data as TAuthRequest);
-      navigate("/");
+      navigate("/sign-in");
     } catch (error) {
       console.log("Registration failed:", error);
     }
