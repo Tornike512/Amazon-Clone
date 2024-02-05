@@ -9,6 +9,7 @@ import { GlobalContext } from "./providers/GlobalProvider";
 const Home = lazy(() => import("./views/Home"));
 const SignInPage = lazy(() => import("./views/SignInPage"));
 const RegisterPage = lazy(() => import("./views/RegisterPage"));
+const wishList = lazy(() => import("./views/WishList"));
 
 function App() {
   const { registerPage } = useContext(GlobalContext);

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useAuthProvider } from "@src/providers/AuthProvider";
 
 interface TCategories {
   id: string;
@@ -15,7 +14,7 @@ export function Home() {
   async function getCategories() {
     try {
       const response = await axios.get(
-        "http://localhost:3000/product-category"
+        "http://localhost:3000/product-category/many"
       );
       setCategories(response.data);
     } catch (error) {
