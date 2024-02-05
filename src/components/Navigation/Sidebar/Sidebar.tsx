@@ -16,34 +16,36 @@ export function Sidebar() {
     <>
       {sideBar && (
         <div>
-          <aside className={modal ? "sidebar" : "sidebar-close"}>
-            <button
+          <>
+            <aside className={modal ? "sidebar" : "sidebar-close"}>
+              <button
+                onClick={() => {
+                  navigate("/sign-in");
+                  setSideBar(false);
+                }}
+                className="sidebar-sign-in"
+              >
+                <div className="sign-in-text">
+                  <img src={personLogo} alt="Person logo" />
+                  <h2>Hello, sign in</h2>
+                </div>
+              </button>
+              <section>
+                <nav></nav>
+              </section>
+            </aside>
+
+            <div
+              className={modal ? "sidebar-modal" : "sidebar-modal-close"}
               onClick={() => {
-                navigate("/sign-in");
-                setSideBar(false);
+                setModal(false);
+
+                setTimeout(() => {
+                  setSideBar(false);
+                }, 400);
               }}
-              className="sidebar-sign-in"
-            >
-              <div className="sign-in-text">
-                <img src={personLogo} alt="Person logo" />
-                <h2>Hello, sign in</h2>
-              </div>
-            </button>
-            <section>
-              <nav></nav>
-            </section>
-          </aside>
-
-          <div
-            className={modal ? "sidebar-modal" : "sidebar-modal-close"}
-            onClick={() => {
-              setModal(false);
-
-              setTimeout(() => {
-                setSideBar(false);
-              }, 400);
-            }}
-          ></div>
+            ></div>
+          </>
           <img
             className="sidebar-close-button"
             src={closeSidebar}

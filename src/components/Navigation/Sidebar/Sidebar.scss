@@ -37,14 +37,15 @@
       }
     }
   }
+}
 
-  .sidebar-close-button {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+.sidebar-close-button {
+  width: 21px;
+  height: 24px;
+  position: absolute;
+  top: 20px;
+  left: 380px;
+  cursor: pointer;
 }
 
 @keyframes sidebar {
