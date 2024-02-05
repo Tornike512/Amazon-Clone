@@ -47,6 +47,12 @@ export function Sidebar() {
             ></div>
           </>
           <img
+            onClick={() => {
+              setModal(false);
+              setTimeout(() => {
+                setSideBar(false);
+              }, 400);
+            }}
             className="sidebar-close-button"
             src={closeSidebar}
             alt="Sidebar Close Button"
