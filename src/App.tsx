@@ -18,8 +18,6 @@ const RegisterPage = lazy(() => import("./views/RegisterPage"));
 const wishList = lazy(() => import("./views/WishList"));
 const profilePage = lazy(() => import("./views/ProfilePage"));
 
-const { authStatus } = useAuthProvider();
-
 function App() {
   return (
     <>
@@ -31,10 +29,7 @@ function App() {
               path="/profile"
               element={<PrivateRoute children={<ProfilePage />} />}
             ></Route>
-            <Route
-              path="/wishlist"
-              element={<PrivateRoute children={<WishList />} />}
-            ></Route>
+            <Route path="/wishlist" element={<WishList />}></Route>
           </Route>
           <Route element={<SignInPage />} path="/sign-in" />
           <Route element={<RegisterPage />} path="/register" />

@@ -36,12 +36,7 @@ export function Header() {
   const { authStatus } = useAuthProvider();
   console.log(nameInput);
 
-  const [firstName, setFirstName] = useState<string>("");
-
-  const storedFirstName = localStorage.getItem("firstName") || "";
-
-  const accessToken = localStorage.getItem("access_token");
-  const refreshToken = localStorage.getItem("refresh_token");
+  const storedFirstName = localStorage.getItem("firstName");
 
   return (
     <header className="header">
@@ -113,7 +108,7 @@ export function Header() {
               <span className="sign-in-text">
                 Hello,
                 {authStatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
-                  <span>{nameInput}</span>
+                  <span>{storedFirstName}</span>
                 ) : (
                   <span>Sign in</span>
                 )}
