@@ -5,6 +5,7 @@ import { Sidebar } from "./components/Navigation/Sidebar/Sidebar";
 import { SignInModal } from "./components/Navigation/SignInModal/SignInModal";
 import { LanguageChange } from "./features/LanguageChange";
 import { PrivateRoute } from "./components/Navigation/PrivateRoute/PrivateRoute";
+import { PublicSignIn } from "./components/PublicSignIn";
 
 import { useAuthProvider } from "./providers/AuthProvider";
 
@@ -19,6 +20,8 @@ const wishList = lazy(() => import("./views/WishList"));
 const profilePage = lazy(() => import("./views/ProfilePage"));
 
 function App() {
+  const { authstatus } = useAuthProvider();
+
   return (
     <>
       <Suspense fallback={<div>Loading</div>}>
@@ -31,7 +34,12 @@ function App() {
             ></Route>
             <Route path="/wishlist" element={<WishList />}></Route>
           </Route>
-          <Route element={<SignInPage />} path="/sign-in" />
+          {authstatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
+            <Navigate to="/" />
+          ) : (
+            <Route path="/sign-in" element={<SignInPage />}></Route>
+          )}
+
           <Route element={<RegisterPage />} path="/register" />
         </Routes>
       </Suspense>
