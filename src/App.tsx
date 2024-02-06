@@ -36,7 +36,9 @@ function App() {
           {authstatus === TAuthorizationStatus_Enum.UNAUTHORIZED && (
             <Route path="/sign-in" element={<SignInPage />} />
           )}
-          <Route element={<RegisterPage />} path="/register" />
+          {authstatus === TAuthorizationStatus_Enum.UNAUTHORIZED && (
+            <Route element={<RegisterPage />} path="/register" />
+          )}
         </Routes>
       </Suspense>
       <Sidebar />
