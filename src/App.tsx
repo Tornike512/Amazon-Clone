@@ -10,6 +10,7 @@ import { useAuthProvider } from "./providers/AuthProvider";
 
 import { TAuthorizationStatus_Enum } from "./providers/AuthProvider/AuthContext";
 import ProfilePage from "./views/ProfilePage";
+import WishList from "./views/WishList";
 
 const Home = lazy(() => import("./views/Home"));
 const SignInPage = lazy(() => import("./views/SignInPage"));
@@ -27,13 +28,12 @@ function App() {
           <Route element={<PublicLayout />}>
             <Route element={<Home />} path="/" />
             <Route
-              element={
-                authStatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
-                  <ProfilePage />
-                ) : (
-                  <Navigate to="/" />
-                )
-              }
+              path="/profile"
+              element={<PrivateRoute children={<ProfilePage />} />}
+            ></Route>
+            <Route
+              path="/wishlist"
+              element={<PrivateRoute children={<WishList />} />}
             ></Route>
           </Route>
           <Route element={<SignInPage />} path="/sign-in" />
