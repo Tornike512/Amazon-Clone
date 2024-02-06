@@ -1,11 +1,10 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
 import { LocaleContext } from "@src/providers/LocaleProvider";
 import { FormattedMessage } from "react-intl";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "@src/config/LocalStorageKeys";
 
 import navIcon from "@src/assets/nav-icon.png";
 import amazonLogo from "@src/assets/amazon-logo.png";
@@ -97,7 +96,9 @@ export function Header() {
           </div>
           <a
             onClick={() => {
-              navigate("/sign-in");
+              if (authStatus === TAuthorizationStatus_Enum.UNAUTHORIZED) {
+                navigate("/sign-in");
+              }
               setSignInHover(false);
             }}
             onMouseOver={() => setSignInHover(true)}
