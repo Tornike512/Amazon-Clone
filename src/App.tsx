@@ -5,7 +5,6 @@ import { Sidebar } from "./components/Navigation/Sidebar/Sidebar";
 import { SignInModal } from "./components/Navigation/SignInModal/SignInModal";
 import { LanguageChange } from "./features/LanguageChange";
 import { PrivateRoute } from "./components/Navigation/PrivateRoute/PrivateRoute";
-import { PublicSignIn } from "./components/PublicSignIn";
 
 import { useAuthProvider } from "./providers/AuthProvider";
 
@@ -32,14 +31,11 @@ function App() {
               path="/profile"
               element={<PrivateRoute children={<ProfilePage />} />}
             ></Route>
-            <Route path="/wishlist" element={<WishList />}></Route>
+            <Route path="/wishlist" element={<WishList />} />
           </Route>
-          {authstatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
-            <Navigate to="/" />
-          ) : (
-            <Route path="/sign-in" element={<SignInPage />}></Route>
+          {authstatus === TAuthorizationStatus_Enum.UNAUTHORIZED && (
+            <Route path="/sign-in" element={<SignInPage />} />
           )}
-
           <Route element={<RegisterPage />} path="/register" />
         </Routes>
       </Suspense>
