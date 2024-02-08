@@ -91,11 +91,14 @@ export function Header() {
         <div className="search-bar">
           <div className="input-spacing">
             <select name="all" className="select-niche">
-              ყველა
-              <option value="/">All</option>
-              <option value="/">Computers</option>
-              <option value="/">Kitchen</option>
-              <option value="/">Books</option>
+              <option value="/">ყველა</option>
+              {categories.map((category) => {
+                return (
+                  <option value="/" id={category.id}>
+                    {category.name}
+                  </option>
+                );
+              })}
             </select>
             <input
               type="text"
