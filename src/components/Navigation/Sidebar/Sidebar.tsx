@@ -77,7 +77,15 @@ export function Sidebar() {
                   <img src={usaFlag} alt="USA Flag" />
                   <span>United States</span>
                 </span>
-                <nav className="sidebar-second-sign-in">Sign in</nav>
+                <nav
+                  onClick={() => {
+                    navigate("sign-in");
+                    setSideBar(false);
+                  }}
+                  className="sidebar-second-sign-in"
+                >
+                  Sign in
+                </nav>
               </section>
             </aside>
 
