@@ -9,10 +9,6 @@ import { LanguageChange } from "./features/LanguageChange";
 import { PrivateRoute } from "./components/Navigation/PrivateRoute";
 import { PublicRoute } from "./components/Navigation/PublicRoute";
 
-import { useAuthProvider } from "./providers/AuthProvider";
-
-import { TAuthorizationStatus_Enum } from "./providers/AuthProvider/AuthContext";
-
 const Home = lazy(() => import("./views/Home"));
 const SignInPage = lazy(() => import("./views/SignInPage"));
 const RegisterPage = lazy(() => import("./views/RegisterPage"));
@@ -20,8 +16,6 @@ const WishList = lazy(() => import("./views/WishList"));
 const ProfilePage = lazy(() => import("./views/ProfilePage"));
 
 function App() {
-  const { authStatus } = useAuthProvider();
-
   return (
     <>
       <Suspense fallback={<div>Loading</div>}>

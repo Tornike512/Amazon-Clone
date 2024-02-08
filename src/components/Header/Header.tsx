@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
 import { LocaleContext } from "@src/providers/LocaleProvider";
@@ -17,8 +18,32 @@ import triangle from "@src/assets/triangle.png";
 
 import "./Header.scss";
 
+interface TCategories {
+  id: string;
+  created_at?: string;
+  updated_at: string;
+  name: string;
+}
+
 export function Header() {
+  const [categories, setCategories] = useState<TCategories[]>([]);
+
   const navigate = useNavigate();
+
+  async function getCategories() {
+    try {
+      const response = await axios.get(
+        "http://localhost:3000/product-category"
+      );
+      setCategories(response.data);
+    } catch (error) {
+      console.log("Error", error);
+    }
+  }
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   const {
     setSideBar,
@@ -66,7 +91,7 @@ export function Header() {
         <div className="search-bar">
           <div className="input-spacing">
             <select name="all" className="select-niche">
-              all
+              ყველა
               <option value="/">All</option>
               <option value="/">Computers</option>
               <option value="/">Kitchen</option>
