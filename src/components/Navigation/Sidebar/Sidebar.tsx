@@ -67,7 +67,7 @@ export function Sidebar() {
                     </div>
                   );
                 })}
-                <span className="help-settings">Help & Settings</span>
+                <div className="help-settings">Help & Settings</div>
                 <nav className="your-account">Your Account</nav>
                 <span className="sidebar-language">
                   <img src={webLogo} alt="Web Logo" />
