@@ -1,25 +1,26 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { PublicLayout } from "./layouts/PublicLayout";
+
 import { Sidebar } from "./components/Navigation/Sidebar/Sidebar";
 import { SignInModal } from "./components/Navigation/SignInModal/SignInModal";
 import { LanguageChange } from "./features/LanguageChange";
-import { PrivateRoute } from "./components/Navigation/PrivateRoute/PrivateRoute";
+
+import { PrivateRoute } from "./components/Navigation/PrivateRoute";
+import { PublicRoute } from "./components/Navigation/PublicRoute";
 
 import { useAuthProvider } from "./providers/AuthProvider";
 
 import { TAuthorizationStatus_Enum } from "./providers/AuthProvider/AuthContext";
-import ProfilePage from "./views/ProfilePage";
-import WishList from "./views/WishList";
 
 const Home = lazy(() => import("./views/Home"));
 const SignInPage = lazy(() => import("./views/SignInPage"));
 const RegisterPage = lazy(() => import("./views/RegisterPage"));
-const wishList = lazy(() => import("./views/WishList"));
-const profilePage = lazy(() => import("./views/ProfilePage"));
+const WishList = lazy(() => import("./views/WishList"));
+const ProfilePage = lazy(() => import("./views/ProfilePage"));
 
 function App() {
-  const { authstatus } = useAuthProvider();
+  const { authStatus } = useAuthProvider();
 
   return (
     <>
@@ -33,12 +34,22 @@ function App() {
             ></Route>
             <Route path="/wishlist" element={<WishList />} />
           </Route>
-          {authstatus === TAuthorizationStatus_Enum.UNAUTHORIZED && (
-            <Route path="/sign-in" element={<SignInPage />} />
-          )}
-          {authstatus === TAuthorizationStatus_Enum.UNAUTHORIZED && (
-            <Route element={<RegisterPage />} path="/register" />
-          )}
+          <Route
+            path="/sign-in"
+            element={
+              <PublicRoute>
+                <SignInPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
         </Routes>
       </Suspense>
       <Sidebar />
