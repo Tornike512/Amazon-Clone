@@ -83,7 +83,7 @@ export function Header() {
             <button className="deliver">
               <div>
                 <span className="deliver-to">Deliver to</span>
-                <span className="uk">United Kingdom</span>
+                <span className="usa">United States</span>
               </div>
             </button>
           </div>
