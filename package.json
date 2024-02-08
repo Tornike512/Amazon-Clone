@@ -16,6 +16,7 @@
     "react-dom": "^18.2.0",
     "react-intl": "^6.5.5",
     "react-router-dom": "^6.21.1",
+    "react-spring": "^9.7.3",
     "sas": "^3.0.4",
     "sass": "^1.69.5",
     "vite-tsconfig-paths": "^4.2.2"
