@@ -94,7 +94,7 @@ export function Header() {
               <option value="/">ყველა</option>
               {categories.map((category) => {
                 return (
-                  <option value="/" id={category.id}>
+                  <option value="/" key={category.id}>
                     {category.name}
                   </option>
                 );
