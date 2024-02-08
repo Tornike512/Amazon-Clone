@@ -37,6 +37,28 @@
       }
     }
   }
+
+  .categories {
+    padding-top: 7px 0 30px;
+
+    .sidebar-categories {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 28px 13px 36px;
+      font-size: $font-size-14px;
+      cursor: pointer;
+
+      img {
+        width: 17px;
+        height: 17px;
+      }
+    }
+
+    .sidebar-categories:hover {
+      background-color: #eaeded;
+    }
+  }
 }
 
 .sidebar-close-button {
