@@ -1,16 +1,42 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+import axios from "axios";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
 
 import personLogo from "@src/assets/person-logo.png";
 import closeSidebar from "@src/assets/sidebar-close-button.png";
+import sidebarArrow from "@src/assets/sidebar-arrow.png";
 
 import "./Sidebar.scss";
+
+interface TCategories {
+  id: string;
+  created_at?: string;
+  updated_at: string;
+  name: string;
+}
 
 export function Sidebar() {
   const { sideBar, setSideBar, modal, setModal } = useContext(GlobalContext);
 
   const navigate = useNavigate();
+
+  const [categories, setCategories] = useState<TCategories[]>([]);
+
+  async function getCategories() {
+    try {
+      const response = await axios.get(
+        "http://localhost:3000/product-category"
+      );
+      setCategories(response.data);
+    } catch (error) {
+      console.log("Error", error);
+    }
+  }
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   return (
     <>
@@ -30,8 +56,15 @@ export function Sidebar() {
                   <h2>Hello, sign in</h2>
                 </div>
               </button>
-              <section>
-                <nav></nav>
+              <section className="categories">
+                {categories.map((category) => {
+                  return (
+                    <div className="sidebar-categories">
+                      <nav key={category.id}>{category.name}</nav>
+                      <img src={sidebarArrow} alt="Sidebar Arrow" />
+                    </div>
+                  );
+                })}
               </section>
             </aside>
 
