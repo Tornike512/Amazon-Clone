@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import personLogo from "@src/assets/person-logo.png";
 import closeSidebar from "@src/assets/sidebar-close-button.png";
 import sidebarArrow from "@src/assets/sidebar-arrow.png";
+import usaFlag from "@src/assets/usa-flag.jpg";
+import webLogo from "@src/assets/web-logo.png";
 
 import "./Sidebar.scss";
 
@@ -65,6 +67,17 @@ export function Sidebar() {
                     </div>
                   );
                 })}
+                <span className="help-settings">Help & Settings</span>
+                <nav className="your-account">Your Account</nav>
+                <span className="sidebar-language">
+                  <img src={webLogo} alt="Web Logo" />
+                  <span>English</span>
+                </span>
+                <span className="sidebar-country">
+                  <img src={usaFlag} alt="USA Flag" />
+                  <span>United States</span>
+                </span>
+                <nav className="sidebar-second-sign-in">Sign in</nav>
               </section>
             </aside>
 

@@ -59,6 +59,74 @@
       background-color: #eaeded;
     }
   }
+
+  .help-settings {
+    padding: 13px 28px 13px 36px;
+    font-size: $font-size-18px;
+    font-weight: bold;
+    border-top: 1px solid #d5dbdb;
+    color: #111111;
+  }
+
+  .your-account {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 28px 13px 36px;
+    font-size: $font-size-14px;
+    cursor: pointer;
+  }
+
+  .your-account:hover {
+    background-color: #eaeded;
+  }
+
+  .sidebar-language {
+    display: flex;
+    align-items: center;
+    padding: 13px 28px 13px 36px;
+    font-size: $font-size-14px;
+    cursor: pointer;
+
+    img {
+      width: 13px;
+      height: 13px;
+      margin-right: 10px;
+    }
+  }
+  .sidebar-language:hover {
+    background-color: #eaeded;
+  }
+
+  .sidebar-country {
+    display: flex;
+    align-items: center;
+    padding: 13px 28px 13px 36px;
+    font-size: $font-size-14px;
+    cursor: pointer;
+
+    img {
+      width: 18px;
+      height: 12px;
+      margin-right: 10px;
+    }
+  }
+
+  .sidebar-country:hover {
+    background-color: #eaeded;
+  }
+
+  .sidebar-second-sign-in {
+    display: flex;
+    align-items: center;
+    padding: 13px 28px 13px 36px;
+    font-size: $font-size-14px;
+    cursor: pointer;
+  }
+
+  .sidebar-second-sign-in:hover {
+    background-color: #eaeded;
+  }
 }
 
 .sidebar-close-button {
