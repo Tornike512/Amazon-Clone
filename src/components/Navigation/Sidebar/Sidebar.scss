@@ -8,7 +8,7 @@
   position: absolute;
   z-index: 1;
   top: 0;
-  left: -365px;
+  left: 20px;
   background-color: $primary-background-color;
   animation: sidebar;
   animation-duration: 0.4s;
@@ -38,21 +38,17 @@
     }
   }
 
-  .categories {
-    padding-top: 7px 0 30px;
+  .sidebar-categories {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 28px 13px 36px;
+    font-size: $font-size-14px;
+    cursor: pointer;
 
-    .sidebar-categories {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 13px 28px 13px 36px;
-      font-size: $font-size-14px;
-      cursor: pointer;
-
-      img {
-        width: 17px;
-        height: 17px;
-      }
+    img {
+      width: 17px;
+      height: 17px;
     }
 
     .sidebar-categories:hover {
@@ -89,12 +85,13 @@
     font-size: $font-size-14px;
     cursor: pointer;
 
-    img {
+    .web-logo {
       width: 13px;
       height: 13px;
       margin-right: 10px;
     }
   }
+
   .sidebar-language:hover {
     background-color: #eaeded;
   }
@@ -106,7 +103,7 @@
     font-size: $font-size-14px;
     cursor: pointer;
 
-    img {
+    .sidebar-usa-flag {
       width: 18px;
       height: 12px;
       margin-right: 10px;
@@ -182,6 +179,20 @@
         margin-right: 10px;
       }
     }
+  }
+  .sidebar-sign-in img,
+  .sidebar-categories img,
+  .sidebar-language .web-logo,
+  .sidebar-country .sidebar-usa-flag {
+    width: 33px;
+    height: 33px;
+  }
+
+  .categories .sidebar-categories img,
+  .sidebar-language .web-logo,
+  .sidebar-country .sidebar-usa-flag {
+    width: 17px;
+    height: 17px;
   }
 }
 

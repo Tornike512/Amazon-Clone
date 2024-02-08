@@ -58,7 +58,7 @@ export function Sidebar() {
                   <h2>Hello, sign in</h2>
                 </div>
               </button>
-              <section className="categories">
+              <>
                 {categories.map((category) => {
                   return (
                     <div className="sidebar-categories">
@@ -70,11 +70,15 @@ export function Sidebar() {
                 <div className="help-settings">Help & Settings</div>
                 <nav className="your-account">Your Account</nav>
                 <span className="sidebar-language">
-                  <img src={webLogo} alt="Web Logo" />
+                  <img className="web-logo" src={webLogo} alt="Web Logo" />
                   <span>English</span>
                 </span>
                 <span className="sidebar-country">
-                  <img src={usaFlag} alt="USA Flag" />
+                  <img
+                    className="sidebar-usa-flag"
+                    src={usaFlag}
+                    alt="USA Flag"
+                  />
                   <span>United States</span>
                 </span>
                 <nav
@@ -86,7 +90,7 @@ export function Sidebar() {
                 >
                   Sign in
                 </nav>
-              </section>
+              </>
             </aside>
 
             <div
