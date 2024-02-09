@@ -48,16 +48,20 @@
       }
 
       .wish-list-sign-in {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 10px 11px 0 11px;
-        font-size: $font-size-13px;
+        position: absolute;
+        top: 34%;
+        left: 48%;
+        padding: 8px 11px 8px;
+        font-size: 13px;
         border-radius: 7px;
         border: none;
-        background-color: $primary-button-color;
+        background-color: #ffd814;
+        box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
         cursor: pointer;
+      }
+
+      .wish-list-sign-in:hover {
+        background-color: $primary-button-hover-color;
       }
     }
   }

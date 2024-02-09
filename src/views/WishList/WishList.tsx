@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import wishListBackground from "@src/assets/wish-list-background.png";
 
 import "@src/views/WishList/WishList.scss";
 
 export function WishList() {
+  const navigate = useNavigate();
+
   return (
     <div className="wish-list-spacing">
       <div className="wish-list-page">
@@ -11,7 +14,12 @@ export function WishList() {
           <img src={wishListBackground} alt="Wish List Background" />
           <span className="lists">Lists</span>
           <span className="shopping-needs">for all your shopping needs</span>
-          <button className="wish-list-sign-in">Sign In</button>
+          <button
+            onClick={() => navigate("/sign-in")}
+            className="wish-list-sign-in"
+          >
+            Sign In
+          </button>
           <div className="wish-list-info">
             <div className="add-items">
               <div>
