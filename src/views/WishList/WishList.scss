@@ -2,45 +2,50 @@
 @import "/src/sass/variables.scss";
 @import "/src/sass/colors.scss";
 
-.wish-list-page {
-  padding: 14px 18px 18px;
+.wish-list-spacing {
+  display: flex;
+  justify-content: center;
 
-  .your-lists {
-    display: inline-flex;
-    padding: 15px 17px 15px 18px;
-    font-size: 24px;
-    border-bottom: 2px solid #007185;
-    color: #007185;
-    cursor: pointer;
-  }
+  .wish-list-page {
+    padding: 14px 18px 18px;
 
-  .your-lists:hover {
-    text-decoration: underline;
-  }
-
-  .wish-list {
-    position: relative;
-    padding: 5px 0 0;
-    border: 1px solid #dddddd;
-
-    img {
-      padding: 14px;
+    .your-lists {
+      display: inline-flex;
+      padding: 15px 17px 15px 18px;
+      font-size: 24px;
+      border-bottom: 2px solid #007185;
+      color: #007185;
+      cursor: pointer;
     }
 
-    .lists {
-      position: absolute;
-      top: 7%;
-      left: 45%;
-      color: #ffffff;
-      font-size: 70px;
+    .your-lists:hover {
+      text-decoration: underline;
     }
 
-    .shopping-needs {
-      position: absolute;
-      top: 20%;
-      left: 32%;
-      color: #ffffff;
-      font-size: 40px;
+    .wish-list {
+      position: relative;
+      padding: 5px 0 0;
+      border: 1px solid #dddddd;
+
+      img {
+        padding: 14px;
+      }
+
+      .lists {
+        position: absolute;
+        top: 7%;
+        left: 45%;
+        color: #ffffff;
+        font-size: 70px;
+      }
+
+      .shopping-needs {
+        position: absolute;
+        top: 20%;
+        left: 32%;
+        color: #ffffff;
+        font-size: 40px;
+      }
     }
   }
 }
