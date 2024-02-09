@@ -63,6 +63,65 @@
       .wish-list-sign-in:hover {
         background-color: $primary-button-hover-color;
       }
+
+      .wish-list-info {
+        width: 780px;
+        padding: 10px 14px;
+        position: absolute;
+        top: 65%;
+        left: 20%;
+        background-color: #f3f3f3;
+
+        .add-items {
+          display: flex;
+          justify-content: space-between;
+
+          .book-image {
+            width: 75px;
+            height: 75px;
+            border-right: 1px #b3b3b3 solid;
+          }
+
+          .shopping-list {
+            display: flex;
+            align-items: center;
+
+            .shopping-list-spacing {
+              margin-right: 130px;
+            }
+
+            span {
+              font-size: 28px;
+            }
+
+            p {
+              font-size: 12px;
+            }
+          }
+        }
+
+        .let-people-know {
+          display: flex;
+          align-items: center;
+
+          .let-people-know-spacing {
+            margin-right: 79px;
+          }
+
+          .gift-image {
+            width: 75px;
+            height: 75px;
+          }
+
+          span {
+            font-size: 28px;
+          }
+
+          p {
+            font-size: 12px;
+          }
+        }
+      }
     }
   }
 }

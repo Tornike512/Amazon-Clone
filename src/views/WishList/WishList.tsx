@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
+
 import wishListBackground from "@src/assets/wish-list-background.png";
+import wishListBook from "@src/assets/wishlist-book-image.png";
+import giftImage from "@src/assets/gift-image.png";
 
 import "@src/views/WishList/WishList.scss";
 
@@ -22,18 +25,24 @@ export function WishList() {
           </button>
           <div className="wish-list-info">
             <div className="add-items">
-              <div>
-                <span>Shoppin List</span>
-                <p>Add items you want to shop for.</p>
+              <div className="shopping-list">
+                <div className="shopping-list-spacing">
+                  <span>Shoppin List</span>
+                  <p>Add items you want to shop for.</p>
+                </div>
+                <img
+                  className="book-image"
+                  src={wishListBook}
+                  alt="Book Page Image"
+                />
               </div>
-              <img src="" alt="Book Page Image" />
 
               <div className="let-people-know">
-                <div>
+                <div className="let-people-know-spacing">
                   <span>Wish List</span>
                   <p>Let people know what gifts you'd like.</p>
                 </div>
-                <img src="" alt="Gift Image" />
+                <img className="gift-image" src={giftImage} alt="Gift Image" />
               </div>
             </div>
           </div>
