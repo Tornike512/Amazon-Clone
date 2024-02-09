@@ -29,6 +29,7 @@
 
       img {
         padding: 14px;
+        margin-bottom: 22px;
       }
 
       .lists {
@@ -41,7 +42,7 @@
 
       .shopping-needs {
         position: absolute;
-        top: 16%;
+        top: 15%;
         left: 32%;
         color: #ffffff;
         font-size: 37px;
@@ -49,7 +50,7 @@
 
       .wish-list-sign-in {
         position: absolute;
-        top: 25%;
+        top: 23%;
         left: 48%;
         padding: 8px 11px 8px;
         font-size: 13px;
@@ -66,9 +67,10 @@
 
       .wish-list-info {
         width: 780px;
+        height: 100px;
         padding: 10px 14px;
         position: absolute;
-        top: 33%;
+        top: 31%;
         left: 20%;
         background-color: #f3f3f3;
 
@@ -84,10 +86,10 @@
 
           .shopping-list {
             display: flex;
-            align-items: center;
 
             .shopping-list-spacing {
               margin-right: 130px;
+              margin-top: 8px;
             }
 
             span {
@@ -102,10 +104,10 @@
 
         .let-people-know {
           display: flex;
-          align-items: center;
 
           .let-people-know-spacing {
             margin-right: 79px;
+            margin-top: 8px;
           }
 
           .gift-image {
