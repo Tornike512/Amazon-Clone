@@ -9,7 +9,7 @@ export function WishList() {
       <div className="wish-list">
         <img src={wishListBackground} alt="Wish List Background" />
         <span className="lists">Lists</span>
-        <span>for all your shopping needs</span>
+        <span className="shopping-needs">for all your shopping needs</span>
         <button>Sign in</button>
         <div className="wish-list-info">
           <div className="add-items">
