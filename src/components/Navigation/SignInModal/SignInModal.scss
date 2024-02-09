@@ -123,8 +123,6 @@
   }
 }
 
-// Sign In Modal Background Effect
-
 .sign-in-modal-mouseover {
   @include exceptheader-modal(0);
 }
@@ -141,6 +139,7 @@
 .sign-in-modal-mouseout {
   @include exceptheader-modal(0.8);
   animation: sign-in-modal-mouseout 0.2s forwards;
+  z-index: -2;
 }
 
 @keyframes sign-in-modal-mouseout {

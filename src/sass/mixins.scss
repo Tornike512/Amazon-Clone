@@ -24,11 +24,12 @@
 @mixin exceptheader-modal($opacity) {
   width: 100%;
   height: 100%;
+  display: block;
   position: absolute;
   top: 100px;
   left: 0;
-  z-index: 2;
   opacity: 0;
+  z-index: 2;
   background-color: #000000;
   animation: sign-in-modal-mouseover 0.2s forwards;
 }
