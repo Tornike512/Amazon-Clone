@@ -73,7 +73,12 @@ export function Header() {
       )}
       <div className="header-input">
         <div className="logo-spacing">
-          <img className="amazon-logo" src={amazonLogo} alt="Amazon logo" />
+          <img
+            onClick={() => navigate("/")}
+            className="amazon-logo"
+            src={amazonLogo}
+            alt="Amazon logo"
+          />
           <div className="deliver-spacing">
             <img
               className="location-logo"

@@ -51,7 +51,7 @@ export function SignInModal() {
             <div className="lists-account">
               <span className="lists">
                 <span>Your Lists</span>
-                <a href="#">Create a List</a>
+                <a onClick={() => navigate("/wishlist")}>Create a List</a>
               </span>
               <span className="account">
                 <span>Your Account</span>

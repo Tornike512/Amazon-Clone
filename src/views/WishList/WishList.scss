@@ -27,7 +27,7 @@
       padding: 5px 0 0;
       border: 1px solid #dddddd;
 
-      img {
+      .wish-list-background {
         padding: 14px;
         margin-bottom: 22px;
       }
@@ -42,7 +42,7 @@
 
       .shopping-needs {
         position: absolute;
-        top: 15%;
+        top: 17%;
         left: 32%;
         color: #ffffff;
         font-size: 37px;
@@ -50,7 +50,7 @@
 
       .wish-list-sign-in {
         position: absolute;
-        top: 23%;
+        top: 27%;
         left: 48%;
         padding: 8px 11px 8px;
         font-size: 13px;
@@ -67,29 +67,29 @@
 
       .wish-list-info {
         width: 780px;
-        height: 100px;
+        height: 90px;
         padding: 10px 14px;
         position: absolute;
-        top: 31%;
+        top: 36%;
         left: 20%;
         background-color: #f3f3f3;
 
         .add-items {
           display: flex;
-          justify-content: space-between;
 
           .book-image {
-            width: 75px;
-            height: 75px;
-            border-right: 1px #b3b3b3 solid;
+            width: 45px;
+            height: 45px;
           }
 
           .shopping-list {
+            width: 375px;
             display: flex;
+            align-items: center;
+            border-right: 1px #b3b3b3 solid;
 
             .shopping-list-spacing {
-              margin-right: 130px;
-              margin-top: 8px;
+              margin: 8px 130px 0 0;
             }
 
             span {
@@ -104,15 +104,15 @@
 
         .let-people-know {
           display: flex;
+          align-items: center;
 
           .let-people-know-spacing {
-            margin-right: 79px;
-            margin-top: 8px;
+            margin: 5px 94px 0px 14px;
           }
 
           .gift-image {
-            width: 75px;
-            height: 75px;
+            width: 45px;
+            height: 45px;
           }
 
           span {
@@ -127,10 +127,28 @@
 
       .wish-list-benefits {
         display: grid;
+        justify-content: center;
         grid-template-columns: auto auto;
 
-        .save-time {
+        .benefit {
           display: flex;
+          margin: 40px 36px;
+
+          h2 {
+            margin-bottom: 9px;
+            font-size: $font-size-18px;
+          }
+
+          p {
+            padding-bottom: 4px;
+            font-size: $font-size-12px;
+          }
+
+          img {
+            width: 75px;
+            height: 75px;
+            margin-right: 10px;
+          }
         }
       }
     }
