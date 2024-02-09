@@ -5,10 +5,10 @@ import "@src/views/WishList/WishList.scss";
 export function WishList() {
   return (
     <div className="wish-list-page">
-      <h1>Your Lists</h1>
+      <h1 className="your-lists">Your Lists</h1>
       <div className="wish-list">
         <img src={wishListBackground} alt="Wish List Background" />
-        <span>Lists</span>
+        <span className="lists">Lists</span>
         <span>for all your shopping needs</span>
         <button>Sign in</button>
         <div className="wish-list-info">
