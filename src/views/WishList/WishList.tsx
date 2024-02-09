@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import wishListBackground from "@src/assets/wish-list-background.png";
 import wishListBook from "@src/assets/wishlist-book-image.png";
 import giftImage from "@src/assets/gift-image.png";
+import wishListGift from "@src/assets/wish-list-gift.png";
+import wishListNote from "@src/assets/wish-list-note.png";
+import wishListGraph from "@src/assets/wish-list-graph.png";
+import wishListBell from "@src/assets/wish-list-bell.png";
 
 import "@src/views/WishList/WishList.scss";
 
@@ -46,32 +50,30 @@ export function WishList() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="wish-list-benefits">
-          <>
+          <div className="wish-list-benefits">
             <div className="save-time">
-              <img src="" alt="Checklist Image" />
-              <h2>Save time</h2>
-              <p>Add your items and ideas in one convenient location</p>
+              <img src={wishListNote} alt="Checklist Image" />
+              <div>
+                <h2>Save time</h2>
+                <p>Add your items and ideas in one convenient location</p>
+              </div>
             </div>
             <div className="give-gifts">
-              <img src="" alt="Gift Image" />
+              <img src={wishListGift} alt="Gift Image" />
               <h2>Give great gifts</h2>
               <p>Remember your friends' lists and share yours</p>
             </div>
-          </>
-          <>
             <div className="check-price-changes">
-              <img src="" alt="Graph Image" />
+              <img src={wishListGraph} alt="Graph Image" />
               <h2>Check price changes</h2>
               <p>Check when items from your lists drop in price</p>
             </div>
             <div className="get-notified">
-              <img src="" alt="Bell Image" />
+              <img src={wishListBell} alt="Bell Image" />
               <h2>Get notified about deals</h2>
               <p>Get push notifications for deals when using the mobile app</p>
             </div>
-          </>
+          </div>
         </div>
       </div>
     </div>

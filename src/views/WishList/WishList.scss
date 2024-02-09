@@ -33,7 +33,7 @@
 
       .lists {
         position: absolute;
-        top: 7%;
+        top: 6%;
         left: 45%;
         color: #ffffff;
         font-size: 70px;
@@ -41,7 +41,7 @@
 
       .shopping-needs {
         position: absolute;
-        top: 31%;
+        top: 16%;
         left: 32%;
         color: #ffffff;
         font-size: 37px;
@@ -49,7 +49,7 @@
 
       .wish-list-sign-in {
         position: absolute;
-        top: 49%;
+        top: 25%;
         left: 48%;
         padding: 8px 11px 8px;
         font-size: 13px;
@@ -68,7 +68,7 @@
         width: 780px;
         padding: 10px 14px;
         position: absolute;
-        top: 65%;
+        top: 33%;
         left: 20%;
         background-color: #f3f3f3;
 
@@ -120,6 +120,15 @@
           p {
             font-size: 12px;
           }
+        }
+      }
+
+      .wish-list-benefits {
+        display: grid;
+        grid-template-columns: auto auto;
+
+        .save-time {
+          display: flex;
         }
       }
     }
