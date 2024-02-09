@@ -58,7 +58,6 @@ export function Header() {
   const { toggleLocale } = useContext(LocaleContext);
 
   const { authStatus } = useAuthProvider();
-  console.log(nameInput);
 
   const storedFirstName = localStorage.getItem("firstName");
 

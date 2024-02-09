@@ -20,7 +20,8 @@ export function SignInPage() {
   const navigate = useNavigate();
 
   const { setAuthData, authStatus, setAuthStatus } = useAuthProvider();
-  const { emailInput, passwordInput } = useContext(GlobalContext);
+  const { emailInput, passwordInput, setEmailInput, setPasswordInput } =
+    useContext(GlobalContext);
 
   const [warning, setWarning] = useState<boolean>(false);
   const [signInInput, setSignInInput] = useState<string>("");
@@ -35,6 +36,7 @@ export function SignInPage() {
       const response = await PublicAxios.post("auth/login", user);
       setAuthData(response.data as TAuthRequest);
       navigate("/");
+      console.log(user);
     } catch (error) {
       console.log("Registration failed:", error);
     }
@@ -60,17 +62,17 @@ export function SignInPage() {
                 <input
                   onChange={(e) => {
                     setWarning(false);
-                    setSignInInput(e.target.value);
+                    setEmailInput(e.target.value);
                   }}
                   className={
-                    warning && signInInput === ""
+                    warning && emailInput === ""
                       ? "input-warning-border"
                       : "enter-text"
                   }
                   type="email"
                 />
 
-                {warning && signInInput === "" && (
+                {warning && emailInput === "" && (
                   <span className="sign-in-input-warning">
                     <img src={exclamationIcon} alt="Exclafmation Point Icon" />
                     <p>Enter your email or mobile phone number</p>
@@ -79,7 +81,7 @@ export function SignInPage() {
                 <button
                   onClick={() => {
                     setWarning(true);
-                    if (signInInput !== "") {
+                    if (emailInput !== "") {
                       setEnterPassword(true);
                     }
                     if (enterPassword) {
@@ -108,7 +110,7 @@ export function SignInPage() {
           ) : (
             <>
               <div className="email-or-number">
-                {signInInput}
+                {emailInput}
                 <a
                   onClick={() => {
                     setEnterPassword(false);
@@ -122,7 +124,11 @@ export function SignInPage() {
 
               <label className="password-text">Password</label>
               <div>
-                <input className="password-input" type="password" />
+                <input
+                  onChange={(e) => setPasswordInput(e.target.value)}
+                  className="password-input"
+                  type="password"
+                />
               </div>
               <button className="sign-in-button" onClick={() => signIn()}>
                 Sign in

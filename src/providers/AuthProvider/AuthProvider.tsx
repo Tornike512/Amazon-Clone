@@ -13,6 +13,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const [userData, setUserData] = useState<TUserRequest>();
 
   function setAuthData(tokens: TAuthRequest) {
+    console.log(tokens);
     const tokenData: TUserRequest = jwtDecode(tokens.access_token);
     setUserData(tokenData);
     localStorage.setItem(ACCESS_TOKEN, tokens.access_token);
@@ -28,7 +29,6 @@ export function AuthProvider({ children }: PropsWithChildren) {
         { refresh_token: refreshToken }
       );
       setAuthData(response.data);
-      console.log(response);
     } catch (error) {
       signOut();
     }
