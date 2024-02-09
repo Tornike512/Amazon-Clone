@@ -11,7 +11,7 @@ export function WishList() {
           <img src={wishListBackground} alt="Wish List Background" />
           <span className="lists">Lists</span>
           <span className="shopping-needs">for all your shopping needs</span>
-          <button>Sign in</button>
+          <button className="wish-list-sign-in">Sign In</button>
           <div className="wish-list-info">
             <div className="add-items">
               <div>
