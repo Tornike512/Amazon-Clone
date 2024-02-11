@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import "@src/views/Home/Home.scss";
 
 import beautyProducts from "@src/assets/beauty-products.jpg";
 import essentialsForGamers from "@src/assets/essentials-for-gamers.jpg";
@@ -8,47 +9,47 @@ import shopBooks from "@src/assets/shop-books.jpg";
 import leftArrow from "@src/assets/left-arrow.png";
 import rightArrow from "@src/assets/right-arrow.png";
 
-import "@src/views/Home/Home.scss";
-
 export function Home() {
-  const [backgroundChange, setBackgroundChange] = useState<number>(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const [swipeLeft, setSwipeLeft] = useState<boolean>(false);
+  const [swipeRight, setSwipeRight] = useState<boolean>(false);
+
+  const images = [
+    essentialsForGamers,
+    newArrivals,
+    beautyProducts,
+    kitchenFavorites,
+    shopBooks,
+  ];
 
   function changeBackgroundImage(direction: string) {
     if (direction === "left") {
-      setBackgroundChange((prev) => (prev === 0 ? 4 : prev - 1));
+      setCurrentImageIndex((prev) =>
+        prev === 0 ? images.length - 1 : prev - 1
+      );
     } else {
-      setBackgroundChange((prev) => (prev === 4 ? 0 : prev + 1));
-    }
-  }
-
-  function renderBackgroundImage() {
-    switch (backgroundChange) {
-      case 0:
-        return essentialsForGamers;
-      case 1:
-        return newArrivals;
-      case 2:
-        return beautyProducts;
-      case 3:
-        return kitchenFavorites;
-      case 4:
-        return shopBooks;
-      default:
-        return essentialsForGamers;
+      setCurrentImageIndex((prev) =>
+        prev === images.length - 1 ? 0 : prev + 1
+      );
     }
   }
 
   return (
     <div className="home">
-      <div className="background-spacing">
+      <a className="background-spacing">
         <img
-          className="home-background-image"
-          src={renderBackgroundImage()}
+          className={swipeLeft ? "home-background-left" : "home-background"}
+          src={images[currentImageIndex]}
           alt="Home Background Image"
         />
         <button
           className="left-button"
-          onClick={() => changeBackgroundImage("left")}
+          onClick={() => {
+            setSwipeLeft(true);
+            if (swipeLeft) {
+              changeBackgroundImage("left");
+            }
+          }}
         >
           <img src={leftArrow} alt="Left Arrow" />
         </button>
@@ -58,7 +59,7 @@ export function Home() {
         >
           <img src={rightArrow} alt="Right Arrow" />
         </button>
-      </div>
+      </a>
     </div>
   );
 }

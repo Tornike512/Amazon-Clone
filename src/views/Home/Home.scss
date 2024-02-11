@@ -9,11 +9,26 @@
   background-color: #e3e6e6;
 
   .background-spacing {
+    width: 1500px;
     position: relative;
+    overflow: hidden;
 
-    .home-background-image {
-      width: 1500px;
+    .home-background {
       height: 600px;
+    }
+
+    .home-background-left {
+      height: 600px;
+      animation: example 0.5s forwards;
+    }
+
+    @keyframes example {
+      from {
+        margin-left: 0;
+      }
+      to {
+        margin-left: 1500px;
+      }
     }
 
     .left-button {
@@ -32,10 +47,6 @@
       }
     }
 
-    .left-button:focus {
-      box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 4px #008296;
-    }
-
     .right-button {
       width: 80px;
       height: 250px;
@@ -52,6 +63,7 @@
       }
     }
 
+    .left-button:focus,
     .right-button:focus {
       box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 4px #008296;
     }
