@@ -5,8 +5,10 @@ import essentialsForGamers from "@src/assets/essentials-for-gamers.jpg";
 import kitchenFavorites from "@src/assets/kitchen-favorites.jpg";
 import newArrivals from "@src/assets/new-arrivals.jpg";
 import shopBooks from "@src/assets/shop-books.jpg";
+import leftArrow from "@src/assets/left-arrow.png";
+import rightArrow from "@src/assets/right-arrow.png";
 
-import "Home.scss";
+import "@src/views/Home/Home.scss";
 
 export function Home() {
   const [backgroundChange, setBackgroundChange] = useState<number>(0);
@@ -38,13 +40,25 @@ export function Home() {
 
   return (
     <div className="home">
-      <img
-        className="home-background-image"
-        src={renderBackgroundImage()}
-        alt="Home Background Image"
-      />
-      <button onClick={() => changeBackgroundImage("left")}>left</button>
-      <button onClick={() => changeBackgroundImage("right")}>right</button>
+      <div className="background-spacing">
+        <img
+          className="home-background-image"
+          src={renderBackgroundImage()}
+          alt="Home Background Image"
+        />
+        <button
+          className="left-button"
+          onClick={() => changeBackgroundImage("left")}
+        >
+          <img src={leftArrow} alt="Left Arrow" />
+        </button>
+        <button
+          className="right-button"
+          onClick={() => changeBackgroundImage("right")}
+        >
+          <img src={rightArrow} alt="Right Arrow" />
+        </button>
+      </div>
     </div>
   );
 }
