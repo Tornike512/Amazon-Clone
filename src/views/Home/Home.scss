@@ -19,15 +19,29 @@
 
     .home-background-left {
       height: 600px;
-      animation: example 0.5s forwards;
+      animation: left 0.5s forwards;
     }
 
-    @keyframes example {
+    @keyframes left {
       from {
         margin-left: 0;
       }
       to {
         margin-left: 1500px;
+      }
+    }
+
+    .home-background-right {
+      height: 600px;
+      animation: right 0.5s forwards;
+    }
+
+    @keyframes right {
+      from {
+        margin-left: 0;
+      }
+      to {
+        margin-left: -1500px;
       }
     }
 

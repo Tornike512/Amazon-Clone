@@ -39,7 +39,13 @@ export function Home() {
     <div className="home">
       <a className="background-spacing">
         <img
-          className={swipeLeft ? "home-background-left" : "home-background"}
+          className={
+            swipeLeft
+              ? "home-background-left"
+              : swipeRight
+              ? "home-background-right"
+              : "home-background"
+          }
           src={images[currentImageIndex]}
           alt="Home Background Image"
         />
