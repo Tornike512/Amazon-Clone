@@ -49,6 +49,11 @@ export function Home() {
           src={images[currentImageIndex]}
           alt="Home Background Image"
         />
+        <img
+          className={swipeLeft ? "home-background-left-switch" : ""}
+          src={images[currentImageIndex - 1]}
+          alt="Home Background Image"
+        />
         <button
           className="left-button"
           onClick={() => {

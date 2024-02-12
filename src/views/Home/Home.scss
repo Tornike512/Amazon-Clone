@@ -45,6 +45,23 @@
       }
     }
 
+    .home-background-left-switch {
+      height: 600px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: left-switch 0.5s forwards;
+    }
+
+    @keyframes left-switch {
+      from {
+        left: -1500px;
+      }
+      to {
+        left: 0;
+      }
+    }
+
     .left-button {
       width: 80px;
       height: 250px;
