@@ -12,6 +12,7 @@ import rightArrow from "@src/assets/right-arrow.png";
 export function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [swipeLeft, setSwipeLeft] = useState<boolean>(false);
+  const [swipeLeftImage, setSwipeLeftImage] = useState<boolean>(false);
   const [swipeRight, setSwipeRight] = useState<boolean>(false);
 
   const images = [
@@ -34,20 +35,25 @@ export function Home() {
     }
   }
 
+  console.log(swipeLeft, "swipe left");
+
   return (
     <div className="home">
       <a className="background-spacing">
         <img
           className={swipeLeft ? "home-background-left" : "home-background"}
-          src={images[currentImageIndex]}
+          src={swipeLeft ? images[currentImageIndex] : ""}
           alt="Home Background Image"
         />
         <button
           className="left-button"
           onClick={() => {
-            setSwipeLeft(true);
-            if (swipeLeft) {
+            if (!swipeLeft) {
               changeBackgroundImage("left");
+              setSwipeLeft(true);
+              setTimeout(() => {
+                setSwipeLeft(false);
+              }, 500);
             }
           }}
         >
