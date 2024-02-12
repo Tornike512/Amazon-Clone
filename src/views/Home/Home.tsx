@@ -35,23 +35,21 @@ export function Home() {
     }
   }
 
-  console.log(swipeLeft, "swipe left");
-
   return (
     <div className="home">
       <a className="background-spacing">
         <img
           className={swipeLeft ? "home-background-left" : "home-background"}
-          src={swipeLeft ? images[currentImageIndex] : ""}
+          src={images[currentImageIndex]}
           alt="Home Background Image"
         />
         <button
           className="left-button"
           onClick={() => {
             if (!swipeLeft) {
-              changeBackgroundImage("left");
               setSwipeLeft(true);
               setTimeout(() => {
+                changeBackgroundImage("left");
                 setSwipeLeft(false);
               }, 500);
             }
@@ -61,7 +59,15 @@ export function Home() {
         </button>
         <button
           className="right-button"
-          onClick={() => changeBackgroundImage("right")}
+          onClick={() => {
+            if (!swipeRight) {
+              setSwipeRight(true);
+              setTimeout(() => {
+                changeBackgroundImage("right");
+                setSwipeRight(false);
+              }, 500);
+            }
+          }}
         >
           <img src={rightArrow} alt="Right Arrow" />
         </button>
