@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import "@src/views/Home/Home.scss";
+import { useState } from "react";
 
 import beautyProducts from "@src/assets/beauty-products.jpg";
 import essentialsForGamers from "@src/assets/essentials-for-gamers.jpg";
@@ -9,10 +8,13 @@ import shopBooks from "@src/assets/shop-books.jpg";
 import leftArrow from "@src/assets/left-arrow.png";
 import rightArrow from "@src/assets/right-arrow.png";
 
+import "@src/views/Home/Home.scss";
+
 export function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [swipeLeft, setSwipeLeft] = useState<boolean>(false);
-  const [swipeLeftImage, setSwipeLeftImage] = useState<boolean>(false);
+  const [swipeRightTransition, setSwipeRightTransition] =
+    useState<boolean>(false);
   const [swipeRight, setSwipeRight] = useState<boolean>(false);
 
   const images = [
@@ -52,14 +54,22 @@ export function Home() {
         {swipeLeft && (
           <img
             className={swipeLeft ? "home-background-left-switch" : ""}
-            src={images[currentImageIndex - 1]}
+            src={
+              currentImageIndex - 1 === -1
+                ? images[4]
+                : images[currentImageIndex - 1]
+            }
             alt="Home Background Image"
           />
         )}
         {swipeRight && (
           <img
             className={swipeRight ? "home-background-right-switch" : ""}
-            src={images[currentImageIndex + 1]}
+            src={
+              currentImageIndex + 1 === 5
+                ? images[0]
+                : images[currentImageIndex + 1]
+            }
             alt="Home Background Image"
           />
         )}
