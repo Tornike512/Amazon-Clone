@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import beautyProducts from "@src/assets/beauty-products.jpg";
 import essentialsForGamers from "@src/assets/essentials-for-gamers.jpg";
@@ -36,6 +36,16 @@ export function Home() {
       );
     }
   }
+
+  useEffect(() => {
+    const swipeRightInterval = setInterval(() => {
+      setSwipeRight(true);
+      setTimeout(() => {
+        setSwipeRight(false);
+        changeBackgroundImage("right");
+      }, 500);
+    }, 5000);
+  }, []);
 
   return (
     <div className="home">
