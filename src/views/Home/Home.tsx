@@ -13,8 +13,7 @@ import "@src/views/Home/Home.scss";
 export function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [swipeLeft, setSwipeLeft] = useState<boolean>(false);
-  const [swipeRightTransition, setSwipeRightTransition] =
-    useState<boolean>(false);
+  const [stopAutoSwipe, setStopAutoSwipe] = useState<boolean>(false);
   const [swipeRight, setSwipeRight] = useState<boolean>(false);
 
   const images = [
@@ -38,14 +37,20 @@ export function Home() {
   }
 
   useEffect(() => {
-    const swipeRightInterval = setInterval(() => {
-      setSwipeRight(true);
-      setTimeout(() => {
-        setSwipeRight(false);
-        changeBackgroundImage("right");
-      }, 500);
-    }, 5000);
-  }, []);
+    let swipeRightInterval: NodeJS.Timeout;
+
+    if (!stopAutoSwipe) {
+      swipeRightInterval = setInterval(() => {
+        setSwipeRight(true);
+        setTimeout(() => {
+          setSwipeRight(false);
+          changeBackgroundImage("right");
+        }, 500);
+      }, 5000);
+    }
+
+    return () => clearInterval(swipeRightInterval);
+  }, [stopAutoSwipe, changeBackgroundImage]);
 
   return (
     <div className="home">
@@ -93,6 +98,7 @@ export function Home() {
                 setSwipeLeft(false);
               }, 500);
             }
+            setStopAutoSwipe(true);
           }}
         >
           <img src={leftArrow} alt="Left Arrow" />
@@ -107,6 +113,7 @@ export function Home() {
                 setSwipeRight(false);
               }, 500);
             }
+            setStopAutoSwipe(true);
           }}
         >
           <img src={rightArrow} alt="Right Arrow" />
