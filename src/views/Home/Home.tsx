@@ -118,6 +118,16 @@ export function Home() {
         >
           <img src={rightArrow} alt="Right Arrow" />
         </button>
+        <div className="category-grid">
+          <div className="home-page-category">Gaming Accessories</div>
+          <div className="home-page-category">Deals in PCs</div>
+          <div className="home-page-category">Refresh your page</div>
+          <div className="home-page-category">Toys under $25</div>
+          <div className="home-page-category">Amazon Gadget Store</div>
+          <div className="home-page-category">Shop deals in Fashion</div>
+          <div className="home-page-category">Fashion trends you like</div>
+          <div className="home-page-category">Handpicked music & audio</div>
+        </div>
       </a>
     </div>
   );
