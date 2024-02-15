@@ -23,11 +23,13 @@ export function OrderPage() {
       </nav>
       <div className="search-orders">
         <h1>Your Orders</h1>
-        <span>
-          <img src="" alt="Search Icon" />
-          <input type="text" placeholder="Search all orders" />
-        </span>
-        <button>Search Orders</button>
+        <div>
+          <span>
+            <img src="" alt="Search Icon" />
+            <input type="text" placeholder="Search all orders" />
+          </span>
+          <button>Search Orders</button>
+        </div>
       </div>
       <ul className="order-infos">
         {orderInfos.map((orderInfo) => {

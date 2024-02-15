@@ -4,13 +4,15 @@
 
 .orders {
   width: 920px;
-  margin: 5px auto;
+  margin: 7px auto;
+  color: $tertiary-text-color;
 
   .orders-nav {
     font-size: $font-size-14px;
 
     .your-account {
       margin-right: 5px;
+      color: #007185;
       text-decoration: none;
     }
 
@@ -26,6 +28,18 @@
       margin: 0;
       color: #c45500;
       text-decoration: none;
+    }
+  }
+
+  .search-orders {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+
+    h1 {
+      font-size: 28px;
+      font-weight: normal;
     }
   }
 }
