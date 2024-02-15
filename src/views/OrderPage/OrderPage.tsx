@@ -39,11 +39,11 @@ export function OrderPage() {
       </div>
       <ul className="order-infos">
         {orderInfos.map((orderInfo) => {
-          return <li>{orderInfo}</li>;
+          return <li className="order-infos-list">{orderInfo}</li>;
         })}
       </ul>
-      <span className="divider"></span>
-      <div>
+      <div className="divider"></div>
+      <div className="order-history">
         <label>
           <span>0 Orders</span> placed in
         </label>

@@ -84,4 +84,41 @@
       background-color: #0f1111;
     }
   }
+
+  .order-infos {
+    display: flex;
+    margin-left: 18px;
+    list-style-type: none;
+
+    .order-infos-list:first-child {
+      font-weight: bold;
+      border-bottom: 2px solid #e47911;
+      color: #000000;
+    }
+
+    .order-infos-list {
+      padding: 5px 17px;
+      font-size: $font-size-14px;
+      color: #007185;
+      cursor: pointer;
+    }
+
+    .order-infos-list:hover {
+      @include linkHoverEffect;
+    }
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 16px;
+    background-color: #dddddd;
+  }
+
+  .order-history {
+    label {
+      font-size: $font-size-14px;
+      font-weight: bold;
+    }
+  }
 }
