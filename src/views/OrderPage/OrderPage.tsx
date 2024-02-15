@@ -34,7 +34,7 @@ export function OrderPage() {
               placeholder="Search all orders"
             />
           </span>
-          <button>Search Orders</button>
+          <button className="order-search-button">Search Orders</button>
         </div>
       </div>
       <ul className="order-infos">

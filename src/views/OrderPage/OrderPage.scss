@@ -57,6 +57,7 @@
         width: 330px;
         height: 31px;
         padding: 7px 30px 7px;
+        margin-right: 10px;
         border: 1px solid #888c8c;
         border-radius: 4px;
         outline: 1px solid #000808;
@@ -68,6 +69,19 @@
         border: #007185;
         box-shadow: 0 0 0 4px #c8f3fa, 0 1px 2px rgba(15, 17, 17, 0.15) inset;
       }
+    }
+
+    .order-search-button {
+      padding: 6px 8px;
+      font-weight: bold;
+      border-radius: 15px;
+      background-color: #303333;
+      color: $primary-text-color;
+      cursor: pointer;
+    }
+
+    .order-search-button:hover {
+      background-color: #0f1111;
     }
   }
 }
