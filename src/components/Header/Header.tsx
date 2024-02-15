@@ -156,7 +156,16 @@ export function Header() {
               alt="sign in dropdown icon"
             />
           </a>
-          <div onClick={() => navigate("/sign-in")} className="returns-orders">
+          <div
+            onClick={() => {
+              if (authStatus === TAuthorizationStatus_Enum.UNAUTHORIZED) {
+                navigate("/sign-in");
+              } else {
+                navigate("/orders");
+              }
+            }}
+            className="returns-orders"
+          >
             <span>Returns</span>
             <p>& Orders</p>
           </div>

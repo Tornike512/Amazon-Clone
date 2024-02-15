@@ -14,6 +14,7 @@ const SignInPage = lazy(() => import("./views/SignInPage"));
 const RegisterPage = lazy(() => import("./views/RegisterPage"));
 const WishList = lazy(() => import("./views/WishList"));
 const ProfilePage = lazy(() => import("./views/ProfilePage"));
+const OrderPage = lazy(() => import("./views/OrderPage"));
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               element={<PrivateRoute children={<ProfilePage />} />}
             ></Route>
             <Route path="/wishlist" element={<WishList />} />
+            <Route path="/orders" element={<OrderPage />} />
           </Route>
           <Route
             path="/sign-in"
