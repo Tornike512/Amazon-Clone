@@ -1,3 +1,31 @@
 @import "/src/sass/mixins.scss";
 @import "/src/sass/variables.scss";
 @import "/src/sass/colors.scss";
+
+.orders {
+  width: 920px;
+  margin: 5px auto;
+
+  .orders-nav {
+    font-size: $font-size-14px;
+
+    .your-account {
+      margin-right: 5px;
+      text-decoration: none;
+    }
+
+    a:hover {
+      @include linkHoverEffect;
+    }
+
+    span {
+      margin-right: 5px;
+    }
+
+    .your-orders {
+      margin: 0;
+      color: #c45500;
+      text-decoration: none;
+    }
+  }
+}

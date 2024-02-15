@@ -13,8 +13,13 @@ export function OrderPage() {
   return (
     <div className="orders">
       <nav className="orders-nav">
-        <a href="#">Your Account</a>
-        <a href="#">Your Orders</a>
+        <a href="#" className="your-account">
+          Your Account
+        </a>
+        <span>›</span>
+        <a href="#" className="your-orders">
+          Your Orders
+        </a>
       </nav>
       <div className="search-orders">
         <h1>Your Orders</h1>
