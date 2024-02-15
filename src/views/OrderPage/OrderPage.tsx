@@ -1,3 +1,5 @@
+import searchIcon from "@src/assets/search-icon.png";
+
 import "@src/views/OrderPage/OrderPage.scss";
 
 export function OrderPage() {
@@ -24,9 +26,13 @@ export function OrderPage() {
       <div className="search-orders">
         <h1>Your Orders</h1>
         <div>
-          <span>
-            <img src="" alt="Search Icon" />
-            <input type="text" placeholder="Search all orders" />
+          <span className="order-search-spacing">
+            <img src={searchIcon} alt="Search Icon" />
+            <input
+              className="order-search-bar"
+              type="text"
+              placeholder="Search all orders"
+            />
           </span>
           <button>Search Orders</button>
         </div>
