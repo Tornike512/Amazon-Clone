@@ -53,6 +53,7 @@ export function Header() {
     setLanguageHover,
     languageHover,
     nameInput,
+    setCurrentInfo,
   } = useContext(GlobalContext);
 
   const { toggleLocale } = useContext(LocaleContext);
@@ -162,6 +163,7 @@ export function Header() {
                 navigate("/sign-in");
               } else {
                 navigate("/orders");
+                setCurrentInfo("Orders");
               }
             }}
             className="returns-orders"
