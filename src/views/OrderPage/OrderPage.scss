@@ -185,4 +185,17 @@
       @include linkHoverEffect;
     }
   }
+
+  .cancelled-orders {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 32px 0;
+    font-size: $font-size-14px;
+
+    a {
+      color: $secondary-link-text-color;
+      text-decoration: none;
+      @include linkHoverEffect;
+    }
+  }
 }

@@ -146,6 +146,15 @@ export function OrderPage() {
           </p>
         </>
       )}
+      {currentInfo === "Cancelled Orders" && (
+        <p className="cancelled-orders">
+          We aren't finding any cancelled orders (for orders placed in the last
+          6 months).
+          <a onClick={() => setCurrentInfo("Orders")} href="#">
+            View all orders
+          </a>
+        </p>
+      )}
     </div>
   );
 }
