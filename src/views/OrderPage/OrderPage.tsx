@@ -104,6 +104,27 @@ export function OrderPage() {
           </a>
         </p>
       )}
+      {currentInfo === "Digital Orders" && (
+        <>
+          <div className="order-history">
+            <label>
+              <span>0 Orders</span> placed in
+            </label>
+            <select name="orders-date" id="orders">
+              <option value="last-30-days">last 30 days</option>
+              <option value="past-3-months">past 3 months</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+            </select>
+          </div>
+          <p className="past-orders">
+            You have not placed any orders in past 3 months.
+            <a href="#"> View orders in 2024</a>
+          </p>
+        </>
+      )}
     </div>
   );
 }
