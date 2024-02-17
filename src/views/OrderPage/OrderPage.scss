@@ -140,4 +140,21 @@
       box-shadow: 0 0 0 4px #c8f3fa, 0 1px 2px rgba(15, 17, 17, 0.15) inset;
     }
   }
+
+  .past-orders {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 32px 0;
+    font-size: $font-size-14px;
+
+    a {
+      color: #007185;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    a:hover {
+      @include linkHoverEffect;
+    }
+  }
 }
