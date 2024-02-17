@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import searchIcon from "@src/assets/search-icon.png";
@@ -21,6 +21,10 @@ export function OrderPage() {
     { id: "5", name: "Local Store Orders" },
     { id: "6", name: "Cancelled Orders" },
   ];
+
+  useEffect(() => {
+    setCurrentInfo("Orders");
+  }, []);
 
   return (
     <div className="orders">
