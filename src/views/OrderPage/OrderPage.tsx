@@ -13,6 +13,8 @@ interface TOrderInfo {
 export function OrderPage() {
   const { currentInfo, setCurrentInfo } = useContext(GlobalContext);
 
+  const [select, setSelect] = useState<string>("");
+
   const orderInfos: TOrderInfo[] = [
     { id: "orders-id", name: "Orders" },
     { id: "buy-again-id", name: "Buy Again" },
@@ -24,6 +26,7 @@ export function OrderPage() {
 
   useEffect(() => {
     setCurrentInfo("Orders");
+    setSelect("last 30 days");
   }, []);
 
   return (
@@ -75,9 +78,13 @@ export function OrderPage() {
             <label>
               <span>0 Orders</span> placed in
             </label>
-            <select name="orders-date" id="orders">
-              <option value="last-30-days">last 30 days</option>
-              <option value="past-3-months">past 3 months</option>
+            <select
+              onChange={(e) => setSelect(e.target.value)}
+              name="orders-date"
+              id="orders-select"
+            >
+              <option value="last 30 days">last 30 days</option>
+              <option value="past 3 months">past 3 months</option>
               <option value="2024">2024</option>
               <option value="2023">2023</option>
               <option value="2022">2022</option>
@@ -85,8 +92,25 @@ export function OrderPage() {
             </select>
           </div>
           <p className="past-orders">
-            You have not placed any orders in past 3 months.
-            <a href="#"> View orders in 2024</a>
+            {select !== "2021" ? (
+              <>
+                You have not placed any orders in {`${select}.`}
+                <a onClick={() => setSelect(select)} href="#">
+                  View orders in{" "}
+                  {select === "last 30 days"
+                    ? "past 3 months"
+                    : select === "past 3 months"
+                    ? "2024"
+                    : select === "2024"
+                    ? "2023"
+                    : parseInt(select) - 1 || "N/A"}
+                </a>
+              </>
+            ) : (
+              <p className="past-orders">
+                You have not placed any orders in 2021.
+              </p>
+            )}
           </p>
         </>
       )}
