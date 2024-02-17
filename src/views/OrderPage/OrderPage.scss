@@ -86,15 +86,11 @@
   }
 
   .order-infos {
+    height: 29px;
     display: flex;
+    align-items: center;
     margin-left: 18px;
     list-style-type: none;
-
-    .order-infos-list:first-child {
-      font-weight: bold;
-      border-bottom: 2px solid #e47911;
-      color: #000000;
-    }
 
     .order-infos-list {
       padding: 5px 17px;
@@ -105,6 +101,17 @@
 
     .order-infos-list:hover {
       @include linkHoverEffect;
+    }
+
+    .orders-id,
+    .buy-again-id,
+    .not-yet-shipped-id,
+    .digital-orders-id,
+    .local-store-orders-id,
+    .cancelled-orders-id {
+      font-weight: bold;
+      border-bottom: 2px solid #e47911;
+      color: #000000;
     }
   }
 
@@ -132,6 +139,7 @@
       border: 1px solid #d5d9d9;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(15, 17, 17, 0.15);
+      cursor: pointer;
     }
 
     select:focus {
@@ -156,5 +164,12 @@
     a:hover {
       @include linkHoverEffect;
     }
+  }
+
+  .buy-again {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 32px 0;
+    font-size: $font-size-14px;
   }
 }

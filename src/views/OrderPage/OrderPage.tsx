@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import searchIcon from "@src/assets/search-icon.png";
@@ -14,12 +14,12 @@ export function OrderPage() {
   const { currentInfo, setCurrentInfo } = useContext(GlobalContext);
 
   const orderInfos: TOrderInfo[] = [
-    { id: "1", name: "Orders" },
-    { id: "2", name: "Buy Again" },
-    { id: "3", name: "Not Yet Shipped" },
-    { id: "4", name: "Digital Orders" },
-    { id: "5", name: "Local Store Orders" },
-    { id: "6", name: "Cancelled Orders" },
+    { id: "orders-id", name: "Orders" },
+    { id: "buy-again-id", name: "Buy Again" },
+    { id: "not-yet-shipped-id", name: "Not Yet Shipped" },
+    { id: "digital-orders-id", name: "Digital Orders" },
+    { id: "local-store-orders-id", name: "Local Store Orders" },
+    { id: "cancelled-orders-id", name: "Cancelled Orders" },
   ];
 
   useEffect(() => {
@@ -57,7 +57,11 @@ export function OrderPage() {
             <li
               onClick={() => setCurrentInfo(orderInfo.name)}
               key={orderInfo.id}
-              className="order-infos-list"
+              className={
+                currentInfo === orderInfo.name
+                  ? `order-infos-list ${orderInfo.id}`
+                  : "order-infos-list"
+              }
             >
               {orderInfo.name}
             </li>
@@ -85,6 +89,12 @@ export function OrderPage() {
             <a href="#"> View orders in 2024</a>
           </p>
         </>
+      )}
+      {currentInfo === "Buy Again" && (
+        <p className="buy-again">
+          There are no recommended items for you to buy again at this time.
+          Check Your Orders for items you previously purchased.
+        </p>
       )}
     </div>
   );
