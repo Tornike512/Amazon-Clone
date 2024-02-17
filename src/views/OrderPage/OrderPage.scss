@@ -12,7 +12,7 @@
 
     .your-account {
       margin-right: 5px;
-      color: #007185;
+      color: $secondary-link-text-color;
       text-decoration: none;
     }
 
@@ -95,7 +95,7 @@
     .order-infos-list {
       padding: 5px 17px;
       font-size: $font-size-14px;
-      color: #007185;
+      color: $secondary-link-text-color;
       cursor: pointer;
     }
 
@@ -156,7 +156,7 @@
     font-size: $font-size-14px;
 
     a {
-      color: #007185;
+      color: $secondary-link-text-color;
       text-decoration: none;
       cursor: pointer;
     }
@@ -180,7 +180,7 @@
     font-size: $font-size-14px;
 
     a {
-      color: $link-text-color;
+      color: $secondary-link-text-color;
       text-decoration: none;
       @include linkHoverEffect;
     }
