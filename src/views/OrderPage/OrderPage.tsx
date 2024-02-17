@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import searchIcon from "@src/assets/search-icon.png";
 
 import "@src/views/OrderPage/OrderPage.scss";
@@ -11,6 +13,8 @@ export function OrderPage() {
     "Local Store Orders",
     "Cancelled Orders",
   ];
+
+  const navigate = useNavigate();
 
   return (
     <div className="orders">
@@ -39,7 +43,14 @@ export function OrderPage() {
       </div>
       <ul className="order-infos">
         {orderInfos.map((orderInfo) => {
-          return <li className="order-infos-list">{orderInfo}</li>;
+          return (
+            <li
+              onClick={() => navigate(`./orders/${orderInfo}`)}
+              className="order-infos-list"
+            >
+              {orderInfo}
+            </li>
+          );
         })}
       </ul>
       <div className="divider"></div>
