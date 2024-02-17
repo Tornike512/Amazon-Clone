@@ -96,6 +96,14 @@ export function OrderPage() {
           Check Your Orders for items you previously purchased.
         </p>
       )}
+      {currentInfo === "Not Yet Shipped" && (
+        <p className="not-yet-shipped">
+          Looking for an order? All of your orders have shipped.{" "}
+          <a onClick={() => setCurrentInfo("Orders")} href="#">
+            View all orders
+          </a>
+        </p>
+      )}
     </div>
   );
 }

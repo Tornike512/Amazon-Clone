@@ -172,4 +172,17 @@
     margin: 24px 0 32px 0;
     font-size: $font-size-14px;
   }
+
+  .not-yet-shipped {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 32px 0;
+    font-size: $font-size-14px;
+
+    a {
+      color: $link-text-color;
+      text-decoration: none;
+      @include linkHoverEffect;
+    }
+  }
 }
