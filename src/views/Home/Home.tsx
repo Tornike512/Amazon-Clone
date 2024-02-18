@@ -10,6 +10,11 @@ import rightArrow from "@src/assets/right-arrow.png";
 
 import "@src/views/Home/Home.scss";
 
+interface TCategory {
+  id: string;
+  name: string;
+}
+
 export function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [swipeLeft, setSwipeLeft] = useState<boolean>(false);
@@ -22,6 +27,17 @@ export function Home() {
     beautyProducts,
     kitchenFavorites,
     shopBooks,
+  ];
+
+  const homePageCategories: TCategory[] = [
+    { id: "gaming-accessories-id", name: "Gaming Accessories" },
+    { id: "deals-in-pcs-id", name: "Deals in PCs" },
+    { id: "refresh-page-id", name: "Refresh your page" },
+    { id: "toys-under-25-id", name: "Toys under $25" },
+    { id: "amazon-gadget-store-id", name: "Amazon Gadget Store" },
+    { id: "deals-in-fashion-id", name: "Shop deals in Fashion" },
+    { id: "fashion-trends-id", name: "Fashion trends you like" },
+    { id: "music-audio-id", name: "Handpicked music & audio" },
   ];
 
   function changeBackgroundImage(direction: string) {
@@ -119,14 +135,13 @@ export function Home() {
           <img src={rightArrow} alt="Right Arrow" />
         </button>
         <div className="category-grid">
-          <div className="home-page-category">Gaming Accessories</div>
-          <div className="home-page-category">Deals in PCs</div>
-          <div className="home-page-category">Refresh your page</div>
-          <div className="home-page-category">Toys under $25</div>
-          <div className="home-page-category">Amazon Gadget Store</div>
-          <div className="home-page-category">Shop deals in Fashion</div>
-          <div className="home-page-category">Fashion trends you like</div>
-          <div className="home-page-category">Handpicked music & audio</div>
+          {homePageCategories.map((homePageCategory) => {
+            return (
+              <div className="home-page-category" key={homePageCategory.id}>
+                {homePageCategory.name}
+              </div>
+            );
+          })}
         </div>
       </a>
     </div>
