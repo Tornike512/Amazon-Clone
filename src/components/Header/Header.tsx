@@ -37,7 +37,7 @@ export function Header() {
       );
       setCategories(response.data);
     } catch (error) {
-      console.log("Error", error);
+      console.log("Error Loading Categories", error);
     }
   }
 

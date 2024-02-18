@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 import beautyProducts from "@src/assets/beauty-products.jpg";
 import essentialsForGamers from "@src/assets/essentials-for-gamers.jpg";
@@ -15,11 +16,22 @@ interface TCategory {
   name: string;
 }
 
+interface TGetProducts {
+  title: string;
+  description: string;
+  image: string;
+  price: number;
+  salePrice: null;
+  category_name: string;
+  id: string;
+}
+
 export function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [swipeLeft, setSwipeLeft] = useState<boolean>(false);
   const [stopAutoSwipe, setStopAutoSwipe] = useState<boolean>(false);
   const [swipeRight, setSwipeRight] = useState<boolean>(false);
+  const [products, setProducts] = useState<TGetProducts[]>([]);
 
   const images = [
     essentialsForGamers,
@@ -39,6 +51,15 @@ export function Home() {
     { id: "fashion-trends-id", name: "Fashion trends you like" },
     { id: "music-audio-id", name: "Handpicked music & audio" },
   ];
+
+  async function getProducts() {
+    try {
+      const response = await axios.get("http://localhost:3000/product");
+      setProducts(response.data.products);
+    } catch (error) {
+      console.log("Error Loading Products", error);
+    }
+  }
 
   function changeBackgroundImage(direction: string) {
     if (direction === "left") {
@@ -63,10 +84,12 @@ export function Home() {
           changeBackgroundImage("right");
         }, 500);
       }, 5000);
+
+      getProducts();
     }
 
     return () => clearInterval(swipeRightInterval);
-  }, [stopAutoSwipe, changeBackgroundImage]);
+  }, [stopAutoSwipe]);
 
   return (
     <div className="home">
@@ -144,6 +167,14 @@ export function Home() {
           })}
         </div>
       </a>
+      {products.map((product) => {
+        return (
+          <div key={product.id}>
+            {product.title}
+            <img src={product.image} alt="" />
+          </div>
+        );
+      })}
     </div>
   );
 }
