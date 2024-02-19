@@ -72,7 +72,7 @@ export function Home() {
     setStopAutoSwipe(true);
   }
 
-  function stopAutoSwipeRight() {
+  function stopAutoSwipeRight(): void {
     if (!swipeRight) {
       setSwipeRight(true);
       setTimeout(() => {
@@ -148,16 +148,16 @@ export function Home() {
         >
           <img src={rightArrow} alt="Right Arrow" />
         </button>
-        <div className="category-grid">
-          {homePageCategories.map((homePageCategory) => {
-            return (
-              <div className="home-page-category" key={homePageCategory.id}>
-                {homePageCategory.name}
-              </div>
-            );
-          })}
-        </div>
       </a>
+      <div className="category-grid">
+        {homePageCategories.map((homePageCategory) => {
+          return (
+            <div className="home-page-category" key={homePageCategory.id}>
+              {homePageCategory.name}
+            </div>
+          );
+        })}
+      </div>
       {products.map((product) => {
         return (
           <div key={product.id}>
