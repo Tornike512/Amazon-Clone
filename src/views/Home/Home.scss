@@ -131,7 +131,12 @@
 
     .home-page-category {
       height: 420px;
+      padding: 20px;
       background-color: #ffffff;
+
+      h2 {
+        font-size: 21px;
+      }
     }
   }
 }

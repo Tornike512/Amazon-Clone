@@ -29,17 +29,6 @@ export function Home() {
     shopBooks,
   ];
 
-  const homePageCategories: TCategory[] = [
-    { id: "gaming-accessories-id", name: "Gaming Accessories" },
-    { id: "deals-in-pcs-id", name: "Deals in PCs" },
-    { id: "refresh-page-id", name: "Refresh your page" },
-    { id: "toys-under-25-id", name: "Toys under $25" },
-    { id: "amazon-gadget-store-id", name: "Amazon Gadget Store" },
-    { id: "deals-in-fashion-id", name: "Shop deals in Fashion" },
-    { id: "fashion-trends-id", name: "Fashion trends you like" },
-    { id: "music-audio-id", name: "Handpicked music & audio" },
-  ];
-
   async function getProducts() {
     try {
       const response = await axios.get("http://localhost:3000/product");
@@ -150,13 +139,14 @@ export function Home() {
         </button>
       </a>
       <div className="category-grid">
-        {homePageCategories.map((homePageCategory) => {
-          return (
-            <div className="home-page-category" key={homePageCategory.id}>
-              {homePageCategory.name}
-            </div>
-          );
-        })}
+        <div className="home-page-category"></div>
+        <div className="home-page-category"></div>
+        <div className="home-page-category"></div>
+        <div className="home-page-category"></div>
+        <div className="home-page-category"></div>
+        <div className="home-page-category"></div>
+        <div className="home-page-category"></div>
+        <div className="home-page-category"></div>
       </div>
       {products.map((product) => {
         return (
