@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import { TGetProducts } from "@src/@types/RequestTypes";
+import { TCategory } from "@src/@types/RequestTypes";
+
 import beautyProducts from "@src/assets/beauty-products.jpg";
 import essentialsForGamers from "@src/assets/essentials-for-gamers.jpg";
 import kitchenFavorites from "@src/assets/kitchen-favorites.jpg";
@@ -10,21 +13,6 @@ import leftArrow from "@src/assets/left-arrow.png";
 import rightArrow from "@src/assets/right-arrow.png";
 
 import "@src/views/Home/Home.scss";
-
-interface TCategory {
-  id: string;
-  name: string;
-}
-
-interface TGetProducts {
-  title: string;
-  description: string;
-  image: string;
-  price: number;
-  salePrice: null;
-  category_name: string;
-  id: string;
-}
 
 export function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
@@ -71,6 +59,28 @@ export function Home() {
         prev === images.length - 1 ? 0 : prev + 1
       );
     }
+  }
+
+  function stopAutoSwipeLeft(): void {
+    if (!swipeLeft) {
+      setSwipeLeft(true);
+      setTimeout(() => {
+        changeBackgroundImage("left");
+        setSwipeLeft(false);
+      }, 500);
+    }
+    setStopAutoSwipe(true);
+  }
+
+  function stopAutoSwipeRight() {
+    if (!swipeRight) {
+      setSwipeRight(true);
+      setTimeout(() => {
+        changeBackgroundImage("right");
+        setSwipeRight(false);
+      }, 500);
+    }
+    setStopAutoSwipe(true);
   }
 
   useEffect(() => {
@@ -127,32 +137,13 @@ export function Home() {
             alt="Home Background Image"
           />
         )}
-        <button
-          className="left-button"
-          onClick={() => {
-            if (!swipeLeft) {
-              setSwipeLeft(true);
-              setTimeout(() => {
-                changeBackgroundImage("left");
-                setSwipeLeft(false);
-              }, 500);
-            }
-            setStopAutoSwipe(true);
-          }}
-        >
+        <button className="left-button" onClick={() => stopAutoSwipeLeft()}>
           <img src={leftArrow} alt="Left Arrow" />
         </button>
         <button
           className="right-button"
           onClick={() => {
-            if (!swipeRight) {
-              setSwipeRight(true);
-              setTimeout(() => {
-                changeBackgroundImage("right");
-                setSwipeRight(false);
-              }, 500);
-            }
-            setStopAutoSwipe(true);
+            stopAutoSwipeRight();
           }}
         >
           <img src={rightArrow} alt="Right Arrow" />

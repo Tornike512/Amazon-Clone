@@ -10,3 +10,18 @@ export interface TUserRequest {
   last_name: string;
   phone_number: null | string;
 }
+
+export interface TCategory {
+  id: string;
+  name: string;
+}
+
+export interface TGetProducts {
+  title: string;
+  description: string;
+  image: string;
+  price: number;
+  salePrice: null;
+  category_name: string;
+  id: string;
+}
