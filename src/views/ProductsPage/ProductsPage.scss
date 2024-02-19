@@ -3,6 +3,7 @@
 @import "/src/sass/colors.scss";
 
 .products-page {
+  display: flex;
   padding: 14px 18px 18px;
   font-size: $font-size-14px;
   color: #0f1111;
@@ -36,6 +37,35 @@
       a:hover {
         text-decoration: none;
         @include linkHoverEffect;
+      }
+    }
+  }
+
+  .products {
+    h1 {
+      padding: 0 0 4px 12px;
+      font-size: 28px;
+    }
+
+    .products-description {
+      padding-left: 12px;
+    }
+
+    h2 {
+      padding-left: 12px;
+      margin-top: 54px;
+      font-size: 28px;
+    }
+
+    .top-rated-grid {
+      height: 250px;
+      display: grid;
+      grid-template-columns: 240px 240px 240px 240px;
+      column-gap: 5px;
+      margin-top: 10px;
+
+      .top-rated-item {
+        background-color: #e1e1e1;
       }
     }
   }

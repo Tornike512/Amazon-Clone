@@ -23,7 +23,7 @@ export function ProductsPage() {
       </div>
       <div className="products">
         <h1>Computers, Tablets and IT Accessories</h1>
-        <p>
+        <p className="products-description">
           Shop laptops, desktops, monitors, tablets, PC gaming, hard drives and
           storage, accessories and more
         </p>
