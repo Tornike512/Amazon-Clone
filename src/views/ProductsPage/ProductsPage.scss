@@ -68,5 +68,17 @@
         background-color: #e1e1e1;
       }
     }
+
+    .under-25-grid {
+      height: 250px;
+      display: grid;
+      grid-template-columns: 240px 240px 240px 240px;
+      column-gap: 5px;
+      margin-top: 10px;
+
+      .under-25-item {
+        background-color: #e1e1e1;
+      }
+    }
   }
 }
