@@ -132,10 +132,26 @@
     .home-page-category {
       height: 420px;
       padding: 20px;
+      overflow: hidden;
       background-color: #ffffff;
+      cursor: pointer;
 
       h2 {
+        margin-bottom: 10px;
         font-size: 21px;
+      }
+
+      img {
+        width: 310px;
+        height: 305px;
+        margin-bottom: 15px;
+      }
+
+      a {
+        @include linkHoverEffect;
+        font-size: $font-size-13px;
+        color: $secondary-link-text-color;
+        text-decoration: none;
       }
     }
   }

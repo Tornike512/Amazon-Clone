@@ -11,6 +11,7 @@ import newArrivals from "@src/assets/new-arrivals.jpg";
 import shopBooks from "@src/assets/shop-books.jpg";
 import leftArrow from "@src/assets/left-arrow.png";
 import rightArrow from "@src/assets/right-arrow.png";
+import computerImage from "@src/assets/computer.jpg";
 
 import "@src/views/Home/Home.scss";
 
@@ -139,7 +140,11 @@ export function Home() {
         </button>
       </a>
       <div className="category-grid">
-        <div className="home-page-category"></div>
+        <div className="home-page-category">
+          <h2>Deals in PCs</h2>
+          <img src={computerImage} alt="Computer Image" />
+          <a href="#">Shop now</a>
+        </div>
         <div className="home-page-category"></div>
         <div className="home-page-category"></div>
         <div className="home-page-category"></div>
