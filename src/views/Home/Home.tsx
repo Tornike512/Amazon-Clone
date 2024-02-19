@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
-import { TCategory } from "@src/@types/RequestTypes";
 
 import beautyProducts from "@src/assets/beauty-products.jpg";
 import essentialsForGamers from "@src/assets/essentials-for-gamers.jpg";
@@ -13,6 +12,7 @@ import leftArrow from "@src/assets/left-arrow.png";
 import rightArrow from "@src/assets/right-arrow.png";
 import computerImage from "@src/assets/computer.jpg";
 
+import axios from "axios";
 import "@src/views/Home/Home.scss";
 
 export function Home() {
@@ -21,6 +21,8 @@ export function Home() {
   const [stopAutoSwipe, setStopAutoSwipe] = useState<boolean>(false);
   const [swipeRight, setSwipeRight] = useState<boolean>(false);
   const [products, setProducts] = useState<TGetProducts[]>([]);
+
+  const navigate = useNavigate();
 
   const images = [
     essentialsForGamers,
@@ -140,7 +142,10 @@ export function Home() {
         </button>
       </a>
       <div className="category-grid">
-        <div className="home-page-category">
+        <div
+          onClick={() => navigate("/products")}
+          className="home-page-category"
+        >
           <h2>Deals in PCs</h2>
           <img src={computerImage} alt="Computer Image" />
           <a href="#">Shop now</a>
@@ -157,7 +162,7 @@ export function Home() {
         return (
           <div key={product.id}>
             {product.title}
-            <img src={product.image} alt="" />
+            <img src={product.image} alt="Products" />
           </div>
         );
       })}
