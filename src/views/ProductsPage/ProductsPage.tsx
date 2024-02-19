@@ -21,7 +21,43 @@ export function ProductsPage() {
           <a href="#">Tablet Replacement Parts</a>
         </div>
       </div>
-      <div className="products"></div>
+      <div className="products">
+        <h1>Computers, Tablets and IT Accessories</h1>
+        <p>
+          Shop laptops, desktops, monitors, tablets, PC gaming, hard drives and
+          storage, accessories and more
+        </p>
+        <h2>Top rated</h2>
+        <div className="top-rated-grid">
+          <div className="top-rated-item"></div>
+          <div className="top-rated-item"></div>
+          <div className="top-rated-item"></div>
+          <div className="top-rated-item"></div>
+        </div>
+
+        <h2>Under $25</h2>
+        <div className="under-25-grid">
+          <div className="under-25-item"></div>
+          <div className="under-25-item"></div>
+          <div className="under-25-item"></div>
+          <div className="under-25-item"></div>
+        </div>
+
+        <div className="product-grid">
+          <div className="product-item"></div>
+          <div className="product-item"></div>
+          <div className="product-item"></div>
+          <div className="product-item"></div>
+          <div className="product-item"></div>
+          <div className="product-item"></div>
+          <div className="product-item"></div>
+          <div className="product-item"></div>
+          <div className="product-item"></div>
+          <div className="product-item"></div>
+          <div className="product-item"></div>
+          <div className="product-item"></div>
+        </div>
+      </div>
     </div>
   );
 }
