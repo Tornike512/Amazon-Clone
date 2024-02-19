@@ -15,6 +15,7 @@ const RegisterPage = lazy(() => import("./views/RegisterPage"));
 const WishList = lazy(() => import("./views/WishList"));
 const ProfilePage = lazy(() => import("./views/ProfilePage"));
 const OrderPage = lazy(() => import("./views/OrderPage"));
+const ProductsPage = lazy(() => import("./views/ProductsPage"));
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             ></Route>
             <Route path="/wishlist" element={<WishList />} />
             <Route path="/orders" element={<OrderPage />} />
+            <Route path="/products" element={<ProductsPage />}></Route>
           </Route>
           <Route
             path="/sign-in"

@@ -96,7 +96,7 @@ export function Header() {
         <div className="search-bar">
           <div className="input-spacing">
             <select name="all" className="select-niche">
-              <option value="/">ყველა</option>
+              <option value="/">All</option>
               {categories.map((category) => {
                 return (
                   <option value="/" key={category.id}>
