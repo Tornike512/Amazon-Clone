@@ -58,19 +58,38 @@
     }
 
     .top-rated-grid {
-      height: 540px;
       display: grid;
       grid-template-columns: 240px 240px 240px 240px;
       column-gap: 5px;
-      margin-top: 10px;
+      margin: 10px 0 0 12px;
 
       .top-rated-item {
-        height: 400px;
-        background-color: #fafafa;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #f7f4f4;
 
-        .top-rated-info {
-          height: 270px;
-          background-color: #e1e1e1;
+        img {
+          width: 180px;
+          max-height: 230px;
+        }
+      }
+
+      .top-rated-info {
+        height: 116px;
+        width: 100%;
+        padding: 10px 20px 0 20px;
+        background-color: #fcfafa;
+
+        h3 {
+          font-size: 21px;
+          font-weight: normal;
+        }
+
+        h6 {
+          text-decoration: overline;
         }
       }
     }

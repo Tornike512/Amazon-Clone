@@ -11,7 +11,7 @@ export function ProductsPage() {
   async function getProducts() {
     try {
       const response = await axios.get("http://localhost:3000/product");
-      setProducts(response.data);
+      setProducts(response.data.products);
     } catch (error) {
       console.log("Error Loading Products", error);
     }
@@ -49,17 +49,29 @@ export function ProductsPage() {
         </p>
         <h2>Top rated</h2>
         <div className="top-rated-grid">
-          <div className="top-rated-item">
-            <div className="top-rated-info">
-              <img src="" alt="" />
-              <h3>/lkij;lk</h3>
-              <p></p>
-              <span>
-                <img src="" alt="" />
-                <span></span>
-              </span>
-            </div>
+          <div>
+            {products.map((product) => {
+              return (
+                <div key={product.id}>
+                  <div className="top-rated-item">
+                    <img src={product.image} alt="Product Image" />
+                  </div>
+                  <>
+                    <div className="top-rated-info">
+                      <h3>{`$${product.price}`}</h3>
+                      <h6>{product.salePrice}</h6>
+                      <p></p>
+                      <span>
+                        <img src="" alt="" />
+                        <span></span>
+                      </span>
+                    </div>
+                  </>
+                </div>
+              );
+            })}
           </div>
+
           <div className="top-rated-item">
             <div className="top-rated-info"></div>
           </div>
