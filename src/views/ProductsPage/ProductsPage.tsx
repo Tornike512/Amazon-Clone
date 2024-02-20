@@ -66,7 +66,11 @@ export function ProductsPage() {
                     )}
                     <img src={product.image} alt="Product Image" />
                   </div>
-                  <div className="top-rated-info">
+                  <div
+                    onMouseOver={() => setQuickLook(index)}
+                    onMouseLeave={() => setQuickLook(null)}
+                    className="top-rated-info"
+                  >
                     <h3>{`$${product.salePrice}.99`}</h3>
                     <h6>{`$${product.price}.99`}</h6>
                     <p>{product.title}</p>
@@ -87,10 +91,49 @@ export function ProductsPage() {
 
         <h2>Under $25</h2>
         <div className="under-25-grid">
-          <div className="under-25-item"></div>
-          <div className="under-25-item"></div>
-          <div className="under-25-item"></div>
-          <div className="under-25-item"></div>
+          <div className="under-25-spacing">
+            {products.map((product, index) => {
+              return (
+                <div>
+                  {product.price <= 25 && (
+                    <>
+                      return (
+                      <div key={product.id}>
+                        <div
+                          onMouseOver={() => setQuickLook(index)}
+                          onMouseLeave={() => setQuickLook(null)}
+                          className="under-25-item"
+                        >
+                          {quickLook === index && (
+                            <button className="quick-look">Quick look</button>
+                          )}
+                          <img src={product.image} alt="Product Image" />
+                        </div>
+                        <div
+                          onMouseOver={() => setQuickLook(index)}
+                          onMouseLeave={() => setQuickLook(null)}
+                          className="under-25-info"
+                        >
+                          <h3>{`$${product.salePrice}.99`}</h3>
+                          <h6>{`$${product.price}.99`}</h6>
+                          <p>{product.title}</p>
+                          <span className="review-spacing">
+                            <img
+                              className="review-stars"
+                              src={fourHalfStar}
+                              alt="Four And Half Star Review"
+                            />
+                            <span>77.229</span>
+                          </span>
+                        </div>
+                      </div>
+                      );
+                    </>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <div className="product-grid">
