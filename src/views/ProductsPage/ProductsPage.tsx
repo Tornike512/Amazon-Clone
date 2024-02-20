@@ -35,9 +35,16 @@ export function ProductsPage() {
   const under25Products = products
     .slice()
     .sort((a: any, b: any) => {
-      return b - 1;
+      return b - a;
     })
     .slice(4, 9);
+
+  const computerProducts = products
+    .slice()
+    .sort((a: any, b: any) => {
+      return b - a;
+    })
+    .slice(9, products.length);
 
   return (
     <div className="products-page">
@@ -149,8 +156,23 @@ export function ProductsPage() {
           </div>
         </div>
 
+        <h2>Computer Results</h2>
         <div className="products-grid">
-          <div className="products-item"></div>
+          {computerProducts.map((product) => {
+            return (
+              <div key={product.id} className="products-item">
+                <div className="products-image">
+                  <img src={fourHalfStar} alt="Product Image" />
+                </div>
+                <div className="description">
+                  <p></p>
+                  <img src="" alt="" />
+                  <span>No featured offers available</span>
+                  <h3></h3>
+                </div>
+              </div>
+            );
+          })}
           <div className="products-item"></div>
           <div className="products-item"></div>
           <div className="products-item"></div>

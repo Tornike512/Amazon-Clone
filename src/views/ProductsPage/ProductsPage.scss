@@ -98,9 +98,10 @@
 
         .top-rated-info {
           height: 116px;
-          width: 100%;
+          width: 98%;
           padding: 10px 20px 0 20px;
-          background-color: #fcfafa;
+          border: 1px solid #f5f5f5;
+          background-color: #ffffff;
           cursor: pointer;
 
           h3 {
@@ -181,9 +182,10 @@
 
         .under-25-info {
           height: 116px;
-          width: 100%;
+          width: 98%;
           padding: 10px 20px 0 20px;
-          background-color: #fcfafa;
+          border: 1px solid #f5f5f5;
+          background-color: #ffffff;
           cursor: pointer;
 
           h3 {
@@ -226,8 +228,17 @@
     .products-grid {
       display: grid;
       grid-template-columns: auto auto auto;
+      column-gap: 5px;
+      row-gap: 5px;
 
       .products-item {
+        height: 280px;
+        background-color: $primary-products-background;
+      }
+
+      .description {
+        height: 400px;
+        background-color: #cfcfcf;
       }
     }
   }
