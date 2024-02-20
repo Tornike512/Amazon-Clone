@@ -1,6 +1,8 @@
 import { useEffect, useContext } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
+import fourHalfStar from "@src/assets/four-half-star.png";
+
 import axios from "axios";
 
 import "./ProductsPage.scss";
@@ -58,12 +60,16 @@ export function ProductsPage() {
                   </div>
                   <>
                     <div className="top-rated-info">
-                      <h3>{`$${product.price}`}</h3>
-                      <h6>{product.salePrice}</h6>
-                      <p></p>
-                      <span>
-                        <img src="" alt="" />
-                        <span></span>
+                      <h3>{`$${product.price}.99`}</h3>
+                      <h6>{`$${product.salePrice}.99`}</h6>
+                      <p>{product.title}</p>
+                      <span className="review-spacing">
+                        <img
+                          className="review-stars"
+                          src={fourHalfStar}
+                          alt="Four And Half Star Review"
+                        />
+                        <span>77.229</span>
                       </span>
                     </div>
                   </>
