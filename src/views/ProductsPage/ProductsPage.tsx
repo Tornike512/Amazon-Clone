@@ -149,19 +149,19 @@ export function ProductsPage() {
           </div>
         </div>
 
-        <div className="product-grid">
-          <div className="product-item"></div>
-          <div className="product-item"></div>
-          <div className="product-item"></div>
-          <div className="product-item"></div>
-          <div className="product-item"></div>
-          <div className="product-item"></div>
-          <div className="product-item"></div>
-          <div className="product-item"></div>
-          <div className="product-item"></div>
-          <div className="product-item"></div>
-          <div className="product-item"></div>
-          <div className="product-item"></div>
+        <div className="products-grid">
+          <div className="products-item"></div>
+          <div className="products-item"></div>
+          <div className="products-item"></div>
+          <div className="products-item"></div>
+          <div className="products-item"></div>
+          <div className="products-item"></div>
+          <div className="products-item"></div>
+          <div className="products-item"></div>
+          <div className="products-item"></div>
+          <div className="products-item"></div>
+          <div className="products-item"></div>
+          <div className="products-item"></div>
         </div>
       </div>
     </div>

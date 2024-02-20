@@ -71,7 +71,7 @@
           flex-direction: column;
           margin-right: 4px;
           position: relative;
-          background-color: #f7f4f4;
+          background-color: $primary-products-background;
           cursor: pointer;
 
           .quick-look {
@@ -154,7 +154,7 @@
           flex-direction: column;
           margin-right: 4px;
           position: relative;
-          background-color: #f7f4f4;
+          background-color: $primary-background-color;
           cursor: pointer;
 
           .quick-look {
@@ -220,6 +220,14 @@
             }
           }
         }
+      }
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: auto auto auto;
+
+      .products-item {
       }
     }
   }
