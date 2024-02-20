@@ -6,6 +6,7 @@ import fourHalfStar from "@src/assets/four-half-star.png";
 import axios from "axios";
 
 import "./ProductsPage.scss";
+import { Any } from "react-spring";
 
 export function ProductsPage() {
   const [quickLook, setQuickLook] = useState<number | null>(null);
@@ -23,6 +24,13 @@ export function ProductsPage() {
   useEffect(() => {
     getProducts();
   }, []);
+
+  const topRatedProducts = products
+    .slice()
+    .sort((a: any, b: any) => {
+      return b - a;
+    })
+    .slice(0, 4);
 
   return (
     <div className="products-page">
@@ -53,7 +61,7 @@ export function ProductsPage() {
         <h2>Top rated</h2>
         <div className="top-rated">
           <div className="top-rated-spacing">
-            {products.map((product, index) => {
+            {topRatedProducts.map((product, index) => {
               return (
                 <div key={product.id}>
                   <div
