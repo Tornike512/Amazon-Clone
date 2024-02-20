@@ -58,13 +58,19 @@
     }
 
     .top-rated-grid {
-      height: 250px;
+      height: 540px;
       display: grid;
       grid-template-columns: 240px 240px 240px 240px;
       column-gap: 5px;
       margin-top: 10px;
 
       .top-rated-item {
+        height: 400px;
+        background-color: #fafafa;
+      }
+
+      .top-rated-info {
+        height: 270px;
         background-color: #e1e1e1;
       }
     }

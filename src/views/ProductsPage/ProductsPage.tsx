@@ -29,10 +29,18 @@ export function ProductsPage() {
         </p>
         <h2>Top rated</h2>
         <div className="top-rated-grid">
-          <div className="top-rated-item"></div>
-          <div className="top-rated-item"></div>
-          <div className="top-rated-item"></div>
-          <div className="top-rated-item"></div>
+          <div className="top-rated-item">
+            <div className="top-rated-info"></div>
+          </div>
+          <div className="top-rated-item">
+            <div className="top-rated-info"></div>
+          </div>
+          <div className="top-rated-item">
+            <div className="top-rated-info"></div>
+          </div>
+          <div className="top-rated-item">
+            <div className="top-rated-info"></div>
+          </div>
         </div>
 
         <h2>Under $25</h2>
