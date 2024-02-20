@@ -109,10 +109,10 @@ export function ProductsPage() {
           <div className="under-25-spacing">
             {under25Products.map((product, index) => {
               return (
-                <div>
+                <div key={product.id}>
                   {product.price <= 25 && (
                     <>
-                      <div key={product.id}>
+                      <div>
                         <div
                           onMouseOver={() => setQuickLook(index)}
                           onMouseLeave={() => setQuickLook(null)}
