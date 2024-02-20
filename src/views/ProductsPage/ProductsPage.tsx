@@ -32,6 +32,13 @@ export function ProductsPage() {
     })
     .slice(0, 4);
 
+  const under25Products = products
+    .slice()
+    .sort((a: any, b: any) => {
+      return b - 1;
+    })
+    .slice(4, 9);
+
   return (
     <div className="products-page">
       <div className="filter-products">
@@ -100,12 +107,11 @@ export function ProductsPage() {
         <h2>Under $25</h2>
         <div className="under-25">
           <div className="under-25-spacing">
-            {products.map((product, index) => {
+            {under25Products.map((product, index) => {
               return (
                 <div>
                   {product.price <= 25 && (
                     <>
-                      return (
                       <div key={product.id}>
                         <div
                           onMouseOver={() => setQuickLook(index)}
@@ -135,7 +141,6 @@ export function ProductsPage() {
                           </span>
                         </div>
                       </div>
-                      );
                     </>
                   )}
                 </div>
