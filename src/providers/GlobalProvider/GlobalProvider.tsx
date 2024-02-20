@@ -1,6 +1,8 @@
 import { PropsWithChildren, useState } from "react";
-import { TGetProducts } from "@src/@types/RequestTypes";
 import { GlobalContext } from "./GlobalContext";
+
+import { TGetProducts } from "@src/@types/RequestTypes";
+import { TDeliveryTo_enum } from "@src/@types/Enums";
 
 export function GlobalProvider({ children }: PropsWithChildren) {
   const [sideBar, setSideBar] = useState(false);
@@ -13,6 +15,9 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   const [nameInput, setNameInput] = useState<string>("");
   const [currentInfo, setCurrentInfo] = useState<string>("");
   const [products, setProducts] = useState<TGetProducts[]>([]);
+  const [deliverTo, setDeliverTo] = useState<TDeliveryTo_enum>(
+    TDeliveryTo_enum.UNITED_KINGDOM
+  );
 
   return (
     <GlobalContext.Provider
@@ -37,6 +42,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setCurrentInfo,
         products,
         setProducts,
+        deliverTo,
+        setDeliverTo,
       }}
     >
       {children}

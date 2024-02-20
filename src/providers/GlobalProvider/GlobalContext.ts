@@ -1,5 +1,7 @@
 import { createContext } from "react";
+
 import { TGetProducts } from "@src/@types/RequestTypes";
+import { TDeliveryTo_enum } from "@src/@types/Enums";
 
 interface TGlobalContext {
   sideBar: boolean;
@@ -22,6 +24,8 @@ interface TGlobalContext {
   setCurrentInfo: React.Dispatch<React.SetStateAction<string>>;
   products: TGetProducts[];
   setProducts: React.Dispatch<React.SetStateAction<TGetProducts[]>>;
+  deliverTo: TDeliveryTo_enum;
+  setDeliverTo: React.Dispatch<React.SetStateAction<TDeliveryTo_enum>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -45,4 +49,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setCurrentInfo: () => {},
   products: [],
   setProducts: () => {},
+  deliverTo: TDeliveryTo_enum.UNITED_KINGDOM,
+  setDeliverTo: () => {},
 });

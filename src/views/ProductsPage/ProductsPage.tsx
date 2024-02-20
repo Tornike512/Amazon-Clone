@@ -1,7 +1,8 @@
 import { useEffect, useContext, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
-import fourHalfStar from "@src/assets/four-half-star.png";
+import fourHalfStars from "@src/assets/four-half-stars.png";
+import fiveStars from "@src/assets/five-stars.png";
 
 import axios from "axios";
 
@@ -10,7 +11,7 @@ import { Any } from "react-spring";
 
 export function ProductsPage() {
   const [quickLook, setQuickLook] = useState<number | null>(null);
-  const { products, setProducts } = useContext(GlobalContext);
+  const { products, setProducts, deliverTo } = useContext(GlobalContext);
 
   async function getProducts() {
     try {
@@ -44,7 +45,7 @@ export function ProductsPage() {
     .sort((a: any, b: any) => {
       return b - a;
     })
-    .slice(9, products.length);
+    .slice(8);
 
   return (
     <div className="products-page">
@@ -99,7 +100,7 @@ export function ProductsPage() {
                     <span className="review-spacing">
                       <img
                         className="review-stars"
-                        src={fourHalfStar}
+                        src={fourHalfStars}
                         alt="Four And Half Star Review"
                       />
                       <span>77.229</span>
@@ -141,7 +142,7 @@ export function ProductsPage() {
                           <span className="review-spacing">
                             <img
                               className="review-stars"
-                              src={fourHalfStar}
+                              src={fourHalfStars}
                               alt="Four And Half Star Review"
                             />
                             <span>77.229</span>
@@ -162,28 +163,21 @@ export function ProductsPage() {
             return (
               <div key={product.id} className="products-item">
                 <div className="products-image">
-                  <img src={fourHalfStar} alt="Product Image" />
+                  <img src={product.image} alt="Product Image" />
                 </div>
                 <div className="description">
-                  <p></p>
-                  <img src="" alt="" />
-                  <span>No featured offers available</span>
-                  <h3></h3>
+                  <p>{product.title}</p>
+                  <div className="star-spacing">
+                    <img src={fiveStars} alt="Five Star Review" />
+                    <span>2724</span>
+                  </div>
+
+                  <h3>{`$${product.price}.90`}</h3>
+                  <span className="deliver-to">{`Ships to ${deliverTo}`}</span>
                 </div>
               </div>
             );
           })}
-          <div className="products-item"></div>
-          <div className="products-item"></div>
-          <div className="products-item"></div>
-          <div className="products-item"></div>
-          <div className="products-item"></div>
-          <div className="products-item"></div>
-          <div className="products-item"></div>
-          <div className="products-item"></div>
-          <div className="products-item"></div>
-          <div className="products-item"></div>
-          <div className="products-item"></div>
         </div>
       </div>
     </div>
