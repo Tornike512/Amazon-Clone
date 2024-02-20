@@ -8,8 +8,7 @@ import axios from "axios";
 import "./ProductsPage.scss";
 
 export function ProductsPage() {
-  const [quickLook, setQuickLook] = useState<boolean>(false);
-
+  const [quickLook, setQuickLook] = useState<number | null>(null);
   const { products, setProducts } = useContext(GlobalContext);
 
   async function getProducts() {
@@ -54,38 +53,32 @@ export function ProductsPage() {
         <h2>Top rated</h2>
         <div className="top-rated-grid">
           <div className="top-rated-spacing">
-            {products.map((product) => {
+            {products.map((product, index) => {
               return (
                 <div key={product.id}>
                   <div
-                    onMouseOver={() => setQuickLook(true)}
-                    onMouseLeave={() => setQuickLook(false)}
+                    onMouseOver={() => setQuickLook(index)}
+                    onMouseLeave={() => setQuickLook(null)}
                     className="top-rated-item"
                   >
-                    {quickLook && (
+                    {quickLook === index && (
                       <button className="quick-look">Quick look</button>
                     )}
                     <img src={product.image} alt="Product Image" />
                   </div>
-                  <>
-                    <div
-                      onMouseOver={() => setQuickLook(true)}
-                      onMouseLeave={() => setQuickLook(false)}
-                      className="top-rated-info"
-                    >
-                      <h3>{`$${product.salePrice}.99`}</h3>
-                      <h6>{`$${product.price}.99`}</h6>
-                      <p>{product.title}</p>
-                      <span className="review-spacing">
-                        <img
-                          className="review-stars"
-                          src={fourHalfStar}
-                          alt="Four And Half Star Review"
-                        />
-                        <span>77.229</span>
-                      </span>
-                    </div>
-                  </>
+                  <div className="top-rated-info">
+                    <h3>{`$${product.salePrice}.99`}</h3>
+                    <h6>{`$${product.price}.99`}</h6>
+                    <p>{product.title}</p>
+                    <span className="review-spacing">
+                      <img
+                        className="review-stars"
+                        src={fourHalfStar}
+                        alt="Four And Half Star Review"
+                      />
+                      <span>77.229</span>
+                    </span>
+                  </div>
                 </div>
               );
             })}
