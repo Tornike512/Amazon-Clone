@@ -53,7 +53,7 @@ export function ProductsPage() {
         </p>
         <h2>Top rated</h2>
         <div className="top-rated-grid">
-          <div>
+          <div className="top-rated-spacing">
             {products.map((product) => {
               return (
                 <div key={product.id}>
@@ -73,8 +73,8 @@ export function ProductsPage() {
                       onMouseLeave={() => setQuickLook(false)}
                       className="top-rated-info"
                     >
-                      <h3>{`$${product.price}.99`}</h3>
-                      <h6>{`$${product.salePrice}.99`}</h6>
+                      <h3>{`$${product.salePrice}.99`}</h3>
+                      <h6>{`$${product.price}.99`}</h6>
                       <p>{product.title}</p>
                       <span className="review-spacing">
                         <img
@@ -89,16 +89,6 @@ export function ProductsPage() {
                 </div>
               );
             })}
-          </div>
-
-          <div className="top-rated-item">
-            <div className="top-rated-info"></div>
-          </div>
-          <div className="top-rated-item">
-            <div className="top-rated-info"></div>
-          </div>
-          <div className="top-rated-item">
-            <div className="top-rated-info"></div>
           </div>
         </div>
 
