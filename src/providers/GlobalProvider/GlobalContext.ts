@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import { TGetProducts } from "@src/@types/RequestTypes";
 
 interface TGlobalContext {
   sideBar: boolean;
@@ -19,6 +20,8 @@ interface TGlobalContext {
   setNameInput: React.Dispatch<React.SetStateAction<string>>;
   currentInfo: string;
   setCurrentInfo: React.Dispatch<React.SetStateAction<string>>;
+  products: TGetProducts[];
+  setProducts: React.Dispatch<React.SetStateAction<TGetProducts[]>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -40,4 +43,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setNameInput: () => {},
   currentInfo: "",
   setCurrentInfo: () => {},
+  products: [],
+  setProducts: () => {},
 });

@@ -1,4 +1,5 @@
 import { PropsWithChildren, useState } from "react";
+import { TGetProducts } from "@src/@types/RequestTypes";
 import { GlobalContext } from "./GlobalContext";
 
 export function GlobalProvider({ children }: PropsWithChildren) {
@@ -11,6 +12,7 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   const [passwordInput, setPasswordInput] = useState<string>("");
   const [nameInput, setNameInput] = useState<string>("");
   const [currentInfo, setCurrentInfo] = useState<string>("");
+  const [products, setProducts] = useState<TGetProducts[]>([]);
 
   return (
     <GlobalContext.Provider
@@ -33,6 +35,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setNameInput,
         currentInfo,
         setCurrentInfo,
+        products,
+        setProducts,
       }}
     >
       {children}

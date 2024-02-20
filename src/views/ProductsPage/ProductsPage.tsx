@@ -1,6 +1,26 @@
+import { useEffect, useContext } from "react";
+import { GlobalContext } from "@src/providers/GlobalProvider";
+
+import axios from "axios";
+
 import "./ProductsPage.scss";
 
 export function ProductsPage() {
+  const { products, setProducts } = useContext(GlobalContext);
+
+  async function getProducts() {
+    try {
+      const response = await axios.get("http://localhost:3000/product");
+      setProducts(response.data);
+    } catch (error) {
+      console.log("Error Loading Products", error);
+    }
+  }
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <div className="products-page">
       <div className="filter-products">
@@ -30,7 +50,15 @@ export function ProductsPage() {
         <h2>Top rated</h2>
         <div className="top-rated-grid">
           <div className="top-rated-item">
-            <div className="top-rated-info"></div>
+            <div className="top-rated-info">
+              <img src="" alt="" />
+              <h3>/lkij;lk</h3>
+              <p></p>
+              <span>
+                <img src="" alt="" />
+                <span></span>
+              </span>
+            </div>
           </div>
           <div className="top-rated-item">
             <div className="top-rated-info"></div>
