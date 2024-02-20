@@ -57,10 +57,7 @@
       font-size: 28px;
     }
 
-    .top-rated-grid {
-      display: grid;
-      grid-template-columns: 240px 240px 240px 240px;
-      column-gap: 5px;
+    .top-rated {
       margin: 10px 0 0 12px;
 
       .top-rated-spacing {
@@ -143,10 +140,7 @@
       }
     }
 
-    .under-25-grid {
-      display: grid;
-      grid-template-columns: 240px 240px 240px 240px;
-      column-gap: 5px;
+    .under-25 {
       margin: 10px 0 0 12px;
 
       .under-25-spacing {

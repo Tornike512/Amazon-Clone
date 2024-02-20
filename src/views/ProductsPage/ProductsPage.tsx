@@ -51,7 +51,7 @@ export function ProductsPage() {
           storage, accessories and more
         </p>
         <h2>Top rated</h2>
-        <div className="top-rated-grid">
+        <div className="top-rated">
           <div className="top-rated-spacing">
             {products.map((product, index) => {
               return (
@@ -90,7 +90,7 @@ export function ProductsPage() {
         </div>
 
         <h2>Under $25</h2>
-        <div className="under-25-grid">
+        <div className="under-25">
           <div className="under-25-spacing">
             {products.map((product, index) => {
               return (
