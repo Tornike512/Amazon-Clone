@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import fourHalfStar from "@src/assets/four-half-star.png";
@@ -8,6 +8,8 @@ import axios from "axios";
 import "./ProductsPage.scss";
 
 export function ProductsPage() {
+  const [quickLook, setQuickLook] = useState<boolean>(false);
+
   const { products, setProducts } = useContext(GlobalContext);
 
   async function getProducts() {
@@ -55,11 +57,22 @@ export function ProductsPage() {
             {products.map((product) => {
               return (
                 <div key={product.id}>
-                  <div className="top-rated-item">
+                  <div
+                    onMouseOver={() => setQuickLook(true)}
+                    onMouseLeave={() => setQuickLook(false)}
+                    className="top-rated-item"
+                  >
+                    {quickLook && (
+                      <button className="quick-look">Quick look</button>
+                    )}
                     <img src={product.image} alt="Product Image" />
                   </div>
                   <>
-                    <div className="top-rated-info">
+                    <div
+                      onMouseOver={() => setQuickLook(true)}
+                      onMouseLeave={() => setQuickLook(false)}
+                      className="top-rated-info"
+                    >
                       <h3>{`$${product.price}.99`}</h3>
                       <h6>{`$${product.salePrice}.99`}</h6>
                       <p>{product.title}</p>

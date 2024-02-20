@@ -69,8 +69,25 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        position: relative;
         background-color: #f7f4f4;
         cursor: pointer;
+
+        .quick-look {
+          width: 201px;
+          height: 29px;
+          position: absolute;
+          bottom: 9px;
+          text-align: center;
+          border-radius: 7px;
+          border: 1px solid #cfcfcf;
+          background-color: #ffffff;
+          cursor: pointer;
+        }
+
+        .quick-look:hover {
+          background-color: #f1f6fa;
+        }
 
         img {
           width: 180px;
