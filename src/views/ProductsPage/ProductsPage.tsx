@@ -7,7 +7,6 @@ import fiveStars from "@src/assets/five-stars.png";
 import axios from "axios";
 
 import "./ProductsPage.scss";
-import { Any } from "react-spring";
 
 export function ProductsPage() {
   const [quickLook, setQuickLook] = useState<number | null>(null);
@@ -15,7 +14,9 @@ export function ProductsPage() {
 
   async function getProducts() {
     try {
-      const response = await axios.get("http://localhost:3000/product");
+      const response = await axios.get(
+        "http://localhost:3000/product?pageSize=25"
+      );
       setProducts(response.data.products);
     } catch (error) {
       console.log("Error Loading Products", error);
@@ -46,6 +47,8 @@ export function ProductsPage() {
       return b - a;
     })
     .slice(8);
+
+  console.log(products);
 
   return (
     <div className="products-page">
