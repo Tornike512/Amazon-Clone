@@ -20,7 +20,7 @@ export function OneProductPage() {
   async function getOneProduct() {
     try {
       const response = await axios.get(
-        `http://localhost:3000/product?pageSize=${id}`
+        `http://localhost:3000/product?pageSize=25`
       );
       const product = response.data.products.find(
         (product: TGetProducts) => product.id === id

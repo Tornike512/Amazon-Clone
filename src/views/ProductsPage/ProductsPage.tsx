@@ -88,7 +88,7 @@ export function ProductsPage() {
                   key={product.id}
                   onClick={() => {
                     setProductId(product.id);
-                    navigate(`/products/${index}`);
+                    navigate(`/products/${product.id}`);
                   }}
                 >
                   <div
@@ -133,7 +133,7 @@ export function ProductsPage() {
                   key={product.id}
                   onClick={() => {
                     setProductId(product.id);
-                    navigate(`/products/${index}`);
+                    navigate(`/products/${product.id}`);
                   }}
                 >
                   {product.price <= 25 && (
@@ -177,12 +177,12 @@ export function ProductsPage() {
 
         <h2>Computer Results</h2>
         <div className="products-grid">
-          {computerProducts.map((product, index) => {
+          {computerProducts.map((product) => {
             return (
               <div
                 onClick={() => {
                   setProductId(product.id);
-                  navigate(`/products/${index}`);
+                  navigate(`/products/${product.id}`);
                 }}
                 key={product.id}
                 className="products-item"
