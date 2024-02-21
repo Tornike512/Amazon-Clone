@@ -20,6 +20,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   );
   const [productId, setProductId] = useState<string>("");
 
+  console.log(products);
+
   return (
     <GlobalContext.Provider
       value={{

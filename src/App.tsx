@@ -31,8 +31,8 @@ function App() {
             ></Route>
             <Route path="/wishlist" element={<WishList />} />
             <Route path="/orders" element={<OrderPage />} />
-            <Route path="/products" element={<ProductsPage />}></Route>
-            <Route path="/one-product" element={<OneProductPage />}></Route>
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/products/:id" element={<OneProductPage />} />
           </Route>
           <Route
             path="/sign-in"

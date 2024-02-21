@@ -1,5 +1,5 @@
 import { useEffect, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import fourHalfStars from "@src/assets/four-half-stars.png";
@@ -88,7 +88,7 @@ export function ProductsPage() {
                   key={product.id}
                   onClick={() => {
                     setProductId(product.id);
-                    navigate("/one-product");
+                    navigate(`/products/${index}`);
                   }}
                 >
                   <div
@@ -129,7 +129,13 @@ export function ProductsPage() {
           <div className="under-25-spacing">
             {under25Products.map((product, index) => {
               return (
-                <div key={product.id} onClick={() => setProductId(product.id)}>
+                <div
+                  key={product.id}
+                  onClick={() => {
+                    setProductId(product.id);
+                    navigate(`/products/${index}`);
+                  }}
+                >
                   {product.price <= 25 && (
                     <>
                       <div>
@@ -171,9 +177,16 @@ export function ProductsPage() {
 
         <h2>Computer Results</h2>
         <div className="products-grid">
-          {computerProducts.map((product) => {
+          {computerProducts.map((product, index) => {
             return (
-              <div key={product.id} className="products-item">
+              <div
+                onClick={() => {
+                  setProductId(product.id);
+                  navigate(`/products/${index}`);
+                }}
+                key={product.id}
+                className="products-item"
+              >
                 <div className="products-image">
                   <img src={product.image} alt="Product Image" />
                 </div>
