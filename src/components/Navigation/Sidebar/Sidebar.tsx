@@ -62,6 +62,7 @@ export function Sidebar() {
                 {categories.map((category) => {
                   return (
                     <div
+                      key={category.id}
                       onClick={() => {
                         if (category.name === "Computers") {
                           navigate("/products");
@@ -70,7 +71,7 @@ export function Sidebar() {
                       }}
                       className="sidebar-categories"
                     >
-                      <nav key={category.id}>{category.name}</nav>
+                      <nav>{category.name}</nav>
                       <img src={sidebarArrow} alt="Sidebar Arrow" />
                     </div>
                   );
