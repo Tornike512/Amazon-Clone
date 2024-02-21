@@ -26,6 +26,8 @@ interface TGlobalContext {
   setProducts: React.Dispatch<React.SetStateAction<TGetProducts[]>>;
   deliverTo: TDeliveryTo_enum;
   setDeliverTo: React.Dispatch<React.SetStateAction<TDeliveryTo_enum>>;
+  productId: string;
+  setProductId: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -51,4 +53,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setProducts: () => {},
   deliverTo: TDeliveryTo_enum.UNITED_KINGDOM,
   setDeliverTo: () => {},
+  productId: "",
+  setProductId: () => {},
 });

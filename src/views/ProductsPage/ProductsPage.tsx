@@ -1,4 +1,5 @@
 import { useEffect, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import fourHalfStars from "@src/assets/four-half-stars.png";
@@ -9,8 +10,12 @@ import axios from "axios";
 import "./ProductsPage.scss";
 
 export function ProductsPage() {
+  const { products, setProducts, deliverTo, setProductId } =
+    useContext(GlobalContext);
+
   const [quickLook, setQuickLook] = useState<number | null>(null);
-  const { products, setProducts, deliverTo } = useContext(GlobalContext);
+
+  const navigate = useNavigate();
 
   async function getProducts() {
     try {
@@ -48,8 +53,6 @@ export function ProductsPage() {
     })
     .slice(8);
 
-  console.log(products);
-
   return (
     <div className="products-page">
       <div className="filter-products">
@@ -81,7 +84,13 @@ export function ProductsPage() {
           <div className="top-rated-spacing">
             {topRatedProducts.map((product, index) => {
               return (
-                <div key={product.id}>
+                <div
+                  key={product.id}
+                  onClick={() => {
+                    setProductId(product.id);
+                    navigate("/one-product");
+                  }}
+                >
                   <div
                     onMouseOver={() => setQuickLook(index)}
                     onMouseLeave={() => setQuickLook(null)}
@@ -120,7 +129,7 @@ export function ProductsPage() {
           <div className="under-25-spacing">
             {under25Products.map((product, index) => {
               return (
-                <div key={product.id}>
+                <div key={product.id} onClick={() => setProductId(product.id)}>
                   {product.price <= 25 && (
                     <>
                       <div>

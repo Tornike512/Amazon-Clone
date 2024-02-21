@@ -18,6 +18,7 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   const [deliverTo, setDeliverTo] = useState<TDeliveryTo_enum>(
     TDeliveryTo_enum.UNITED_KINGDOM
   );
+  const [productId, setProductId] = useState<string>("");
 
   return (
     <GlobalContext.Provider
@@ -44,6 +45,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setProducts,
         deliverTo,
         setDeliverTo,
+        productId,
+        setProductId,
       }}
     >
       {children}
