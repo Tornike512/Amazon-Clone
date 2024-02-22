@@ -3,6 +3,8 @@
 @import "/src/sass/colors.scss";
 
 .one-product-page {
+  display: flex;
+  justify-content: center;
   color: $tertiary-text-color;
 
   .one-product-spacing {
@@ -49,7 +51,7 @@
     }
 
     .product-title {
-      max-width: 670px;
+      max-width: 555px;
 
       h1 {
         font-size: 24px;
@@ -122,6 +124,46 @@
       .description {
         margin-left: 18px;
         font-size: $font-size-14px;
+      }
+    }
+
+    .buy {
+      display: inline-flex;
+      flex-direction: column;
+      padding: 14px 18px;
+      border: 1px solid #d9d9d9;
+      border-radius: 8px;
+
+      .buy-price {
+        margin-bottom: 10px;
+        font-size: 28px;
+        font-weight: normal;
+      }
+
+      .delivery-time {
+        font-size: $font-size-14px;
+      }
+    }
+
+    .deliver-to {
+      display: flex;
+      align-items: center;
+      margin: 10px 0 20px 0;
+
+      img {
+        width: 13px;
+        height: 13px;
+        margin-right: 5px;
+      }
+
+      a {
+        font-size: $font-size-12px;
+        text-decoration: none;
+        color: #007185;
+      }
+
+      a:hover {
+        @include linkHoverEffect;
       }
     }
   }

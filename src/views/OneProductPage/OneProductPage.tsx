@@ -7,6 +7,7 @@ import { TGetProducts } from "@src/@types/RequestTypes";
 import fourAndHalf from "@src/assets/four-half-stars.png";
 import leftArrow from "@src/assets/left-arrow.png";
 import alertIcon from "@src/assets/alert-icon.png";
+import locationLogoBlack from "@src/assets/location-logo-black.png";
 
 import axios from "axios";
 
@@ -97,11 +98,11 @@ export function OneProductPage() {
             </ul>
           </div>
           <div className="buy">
-            <h2>{oneProduct?.salePrice}</h2>
-            <p>Delivery order within 6 hrs 8 min</p>
-            <span>
-              <img src="" alt="" />
-              <a href="#">{deliverTo}</a>
+            <h2 className="buy-price">{`$${oneProduct?.salePrice}.99`}</h2>
+            <p className="delivery-time">Delivery order within 6 hrs 8 min</p>
+            <span className="deliver-to">
+              <img src={locationLogoBlack} alt="Location Logo" />
+              <a href="#">{`Deliver to ${deliverTo}`}</a>
             </span>
             <h2>In Stock</h2>
             <select name="quantity" id="quantity">
