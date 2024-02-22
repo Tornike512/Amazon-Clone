@@ -6,6 +6,7 @@ import { TGetProducts } from "@src/@types/RequestTypes";
 
 import fourAndHalf from "@src/assets/four-half-stars.png";
 import leftArrow from "@src/assets/left-arrow.png";
+import alertIcon from "@src/assets/alert-icon.png";
 
 import axios from "axios";
 
@@ -45,6 +46,10 @@ export function OneProductPage() {
   //   return <div>Loading...</div>;
   // }
 
+  const percentage =
+    100 -
+    Math.round(((oneProduct?.salePrice || 0) * 100) / (oneProduct?.price || 1));
+
   return (
     <div className="one-product-page">
       <div className="one-product-spacing" key={oneProduct?.id}>
@@ -70,11 +75,19 @@ export function OneProductPage() {
               <img src={fourAndHalf} alt="Four And Half Stars" />
               <span>72,274 ratings</span>
             </span>
-            <h2>{oneProduct?.salePrice}</h2>
-            <span>Typical price {oneProduct?.price}</span>
-            <p>
+            <h2 className="price">
+              <span className="sale">{`-${percentage}%`}</span>
+              {`$${oneProduct?.salePrice}.99`}
+            </h2>
+            <span className="typical-price">
+              Typical price <span>{`$${oneProduct?.price}.99`}</span>
+            </span>
+            <p className="one-product-alert">
+              <img src={alertIcon} alt="Alert Icon" />
               Use Amazon Currency Converter at checkout to pay for this item in
-              your local currency. Terms & Conditions apply. Learn More
+              your local currency. Terms & Conditions apply.
+            </p>
+            <p className="one-product-note">
               Available at a lower price from other sellers that may not offer
               free Prime shipping.
             </p>
