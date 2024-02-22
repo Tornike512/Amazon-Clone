@@ -37,8 +37,9 @@
       padding: 14px 18px 18px;
 
       .product-image {
-        width: 364px;
-        height: 364px;
+        display: flex;
+        align-items: center;
+        padding: 20px;
 
         img {
           width: 364px;
