@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -18,6 +18,8 @@ export function OneProductPage() {
   const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
 
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   async function getOneProduct() {
     try {
@@ -48,10 +50,19 @@ export function OneProductPage() {
       <div className="one-product-spacing" key={oneProduct?.id}>
         <span className="back-to-results">
           <img src={leftArrow} alt="Left Arrow" />
-          <span>Back to results</span>
+          <a
+            onClick={() => {
+              navigate("/products");
+              setLoading(true);
+            }}
+          >
+            Back to results
+          </a>
         </span>
-        <div>
-          <img src={oneProduct?.image} alt="Product Image" />
+        <div className="one-product-info">
+          <div className="product-image">
+            <img src={oneProduct?.image} alt="Product Image" />
+          </div>
           <div>
             <h1>{oneProduct?.title}</h1>
             <span>
