@@ -181,5 +181,19 @@
     .select-quantity:focus {
       @include selectStyleFocus;
     }
+
+    .add-to-cart {
+      padding: 8px 6px;
+      margin-bottom: 10px;
+      border-radius: 14px;
+      border: none;
+      background-color: $primary-button-color;
+      box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
+      cursor: pointer;
+    }
+
+    .add-to-cart:hover {
+      background-color: $primary-button-hover-color;
+    }
   }
 }
