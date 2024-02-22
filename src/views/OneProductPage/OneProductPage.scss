@@ -209,5 +209,29 @@
     .buy-now:hover {
       background-color: $secondary-button-hover-color;
     }
+
+    .ships-from {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: $font-size-12px;
+    }
+
+    .sold-by {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      margin-bottom: 19px;
+      font-size: $font-size-12px;
+      border-bottom: $primary-border-color;
+    }
+
+    .add-to-list {
+      @include selectStyle;
+    }
+
+    .add-to-list:hover {
+      background-color: #e3e3e3;
+    }
   }
 }

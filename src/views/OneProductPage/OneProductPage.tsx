@@ -114,15 +114,15 @@ export function OneProductPage() {
             </select>
             <button className="add-to-cart">Add to Cart</button>
             <button className="buy-now">Buy Now</button>
-            <span>
+            <span className="ships-from">
               <span>Ships from</span>
               <span>Amazon.com</span>
             </span>
-            <span>
-              <span>sold by</span>
+            <span className="sold-by">
+              <span>Sold by</span>
               <span>Amazon.com</span>
             </span>
-            <button>Add to List</button>
+            <button className="add-to-list">Add to List</button>
           </div>
         </div>
       </div>
