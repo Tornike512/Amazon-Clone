@@ -19,7 +19,8 @@ interface TCategories {
 }
 
 export function Sidebar() {
-  const { sideBar, setSideBar, modal, setModal } = useContext(GlobalContext);
+  const { sideBar, setSideBar, modal, setModal, setLoading } =
+    useContext(GlobalContext);
 
   const navigate = useNavigate();
 
@@ -67,6 +68,7 @@ export function Sidebar() {
                         if (category.name === "Computers") {
                           navigate("/products");
                           setSideBar(false);
+                          setLoading(true);
                         }
                       }}
                       className="sidebar-categories"

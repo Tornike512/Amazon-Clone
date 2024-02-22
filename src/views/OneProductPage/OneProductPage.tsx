@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { TGetProducts } from "@src/@types/RequestTypes";
 
 import fourAndHalf from "@src/assets/four-half-stars.png";
+import leftArrow from "@src/assets/left-arrow.png";
 
 import axios from "axios";
 
@@ -41,11 +42,12 @@ export function OneProductPage() {
   if (loading) {
     return <div>Loading...</div>;
   }
+
   return (
-    <div>
-      <div key={oneProduct?.id}>
-        <span>
-          <img src="" alt="Left Arrow" />
+    <div className="one-product-page">
+      <div className="one-product-spacing" key={oneProduct?.id}>
+        <span className="back-to-results">
+          <img src={leftArrow} alt="Left Arrow" />
           <span>Back to results</span>
         </span>
         <div>

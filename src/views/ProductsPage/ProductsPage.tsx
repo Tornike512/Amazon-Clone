@@ -10,8 +10,14 @@ import axios from "axios";
 import "./ProductsPage.scss";
 
 export function ProductsPage() {
-  const { products, setProducts, deliverTo, setProductId } =
-    useContext(GlobalContext);
+  const {
+    products,
+    setProducts,
+    deliverTo,
+    setProductId,
+    loading,
+    setLoading,
+  } = useContext(GlobalContext);
 
   const [quickLook, setQuickLook] = useState<number | null>(null);
 
@@ -25,6 +31,8 @@ export function ProductsPage() {
       setProducts(response.data.products);
     } catch (error) {
       console.log("Error Loading Products", error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -52,6 +60,10 @@ export function ProductsPage() {
       return b - a;
     })
     .slice(8);
+
+  if (loading) {
+    return <div className="loading">Loading</div>;
+  }
 
   return (
     <div className="products-page">
@@ -89,6 +101,7 @@ export function ProductsPage() {
                   onClick={() => {
                     setProductId(product.id);
                     navigate(`/products/${product.id}`);
+                    setLoading(true);
                   }}
                 >
                   <div
