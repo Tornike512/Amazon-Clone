@@ -148,7 +148,7 @@
     .deliver-to {
       display: flex;
       align-items: center;
-      margin: 10px 0 20px 0;
+      margin: 10px 0 10px 0;
 
       img {
         width: 13px;
@@ -165,6 +165,13 @@
       a:hover {
         @include linkHoverEffect;
       }
+    }
+
+    .in-stock {
+      margin-bottom: 10px;
+      font-size: $font-size-18px;
+      font-weight: normal;
+      color: #007600;
     }
   }
 }

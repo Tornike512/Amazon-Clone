@@ -104,7 +104,7 @@ export function OneProductPage() {
               <img src={locationLogoBlack} alt="Location Logo" />
               <a href="#">{`Deliver to ${deliverTo}`}</a>
             </span>
-            <h2>In Stock</h2>
+            <h2 className="in-stock">In Stock</h2>
             <select name="quantity" id="quantity">
               <option value="1">1</option>
               <option value="2">2</option>
