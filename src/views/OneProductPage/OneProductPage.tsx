@@ -105,12 +105,12 @@ export function OneProductPage() {
               <a href="#">{`Deliver to ${deliverTo}`}</a>
             </span>
             <h2 className="in-stock">In Stock</h2>
-            <select name="quantity" id="quantity">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+            <select className="select-quantity" name="quantity" id="quantity">
+              <option value="1">Quantity: 1</option>
+              <option value="2">Quantity: 2</option>
+              <option value="3">Quantity: 3</option>
+              <option value="4">Quantity: 4</option>
+              <option value="5">Quantity: 5</option>
             </select>
             <button>Add to Cart</button>
             <button>Buy Now</button>
