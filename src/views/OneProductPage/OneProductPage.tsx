@@ -113,7 +113,7 @@ export function OneProductPage() {
               <option value="5">Quantity: 5</option>
             </select>
             <button className="add-to-cart">Add to Cart</button>
-            <button>Buy Now</button>
+            <button className="buy-now">Buy Now</button>
             <span>
               <span>Ships from</span>
               <span>Amazon.com</span>

@@ -195,5 +195,19 @@
     .add-to-cart:hover {
       background-color: $primary-button-hover-color;
     }
+
+    .buy-now {
+      padding: 8px 6px;
+      margin-bottom: 10px;
+      border-radius: 14px;
+      border: none;
+      background-color: $secondary-button-color;
+      box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
+      cursor: pointer;
+    }
+
+    .buy-now:hover {
+      background-color: $secondary-button-hover-color;
+    }
   }
 }
