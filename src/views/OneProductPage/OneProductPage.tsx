@@ -63,9 +63,9 @@ export function OneProductPage() {
           <div className="product-image">
             <img src={oneProduct?.image} alt="Product Image" />
           </div>
-          <div>
+          <div className="product-title">
             <h1>{oneProduct?.title}</h1>
-            <span>
+            <span className="one-product-rating">
               <span>4.5</span>
               <img src={fourAndHalf} alt="Four And Half Stars" />
               <span>72,274 ratings</span>
