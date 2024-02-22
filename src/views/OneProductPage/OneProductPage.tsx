@@ -11,7 +11,8 @@ import axios from "axios";
 import "./OneProductPage.scss";
 
 export function OneProductPage() {
-  const { productId, deliverTo } = useContext(GlobalContext);
+  const { productId, deliverTo, loading, setLoading } =
+    useContext(GlobalContext);
 
   const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
 
@@ -28,6 +29,8 @@ export function OneProductPage() {
       setOneProduct(product);
     } catch (error) {
       console.log("Error Loading Product", error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -35,8 +38,9 @@ export function OneProductPage() {
     getOneProduct();
   }, []);
 
-  console.log(oneProduct);
-
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <div key={oneProduct?.id}>

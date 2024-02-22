@@ -19,8 +19,7 @@ export function GlobalProvider({ children }: PropsWithChildren) {
     TDeliveryTo_enum.UNITED_KINGDOM
   );
   const [productId, setProductId] = useState<string>("");
-
-  console.log(products);
+  const [loading, setLoading] = useState<boolean>(true);
 
   return (
     <GlobalContext.Provider
@@ -49,6 +48,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setDeliverTo,
         productId,
         setProductId,
+        loading,
+        setLoading,
       }}
     >
       {children}

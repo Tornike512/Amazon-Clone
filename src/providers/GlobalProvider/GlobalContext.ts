@@ -28,6 +28,8 @@ interface TGlobalContext {
   setDeliverTo: React.Dispatch<React.SetStateAction<TDeliveryTo_enum>>;
   productId: string;
   setProductId: React.Dispatch<React.SetStateAction<string>>;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -55,4 +57,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setDeliverTo: () => {},
   productId: "",
   setProductId: () => {},
+  loading: false,
+  setLoading: () => {},
 });
