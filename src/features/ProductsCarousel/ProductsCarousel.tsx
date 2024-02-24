@@ -34,11 +34,9 @@ export function ProductsCarousel() {
       {carouselProducts?.map((carouselProduct) => {
         return (
           <div key={carouselProduct.id} className="carousel-item">
-            <img
-              className="carousel-image"
-              src={carouselProduct.image}
-              alt="Carousel Product Image"
-            />
+            <div className="carousel-image">
+              <img src={carouselProduct.image} alt="Carousel Product Image" />
+            </div>
             <p className="carousel-product-title">{carouselProduct.title}</p>
             <span>
               <img src={fourAndFiveStart} alt="Carousel Product Rating" />

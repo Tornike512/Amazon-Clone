@@ -3,23 +3,36 @@
 @import "/src//sass/variables.scss";
 
 .carousel {
-  height: 330px;
+  height: 220px;
   display: flex;
+  justify-content: center;
   position: relative;
 
   .carousel-item {
     width: 160px;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    cursor: pointer;
 
     .carousel-image {
-      max-width: 100%;
-      padding: 10px 0;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-width: 105px;
+        padding: 10px 0;
+      }
     }
 
     .carousel-product-title {
+      width: 160px;
+      height: 19px;
       text-align: start;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
   }
 
