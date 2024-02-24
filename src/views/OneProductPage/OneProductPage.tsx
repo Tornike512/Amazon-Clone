@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useParams, useNavigate } from "react-router-dom";
+import { useRandomProduct } from "@src/hooks/useRandomProduct";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -14,7 +15,7 @@ import axios from "axios";
 import "./OneProductPage.scss";
 
 export function OneProductPage() {
-  const { productId, deliverTo, loading, setLoading } =
+  const { productId, deliverTo, loading, setLoading, products } =
     useContext(GlobalContext);
 
   const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
@@ -23,10 +24,12 @@ export function OneProductPage() {
 
   const navigate = useNavigate();
 
+  useRandomProduct();
+
   async function getOneProduct() {
     try {
       const response = await axios.get(
-        `http://localhost:3000/product?pageSize=25`
+        `http://localhost:3000/product?pageSize=40`
       );
       const product = response.data.products.find(
         (product: TGetProducts) => product.id === id
@@ -141,22 +144,6 @@ export function OneProductPage() {
                     <span>72,274</span>
                   </span>
                   <h6>{`$${oneProduct?.salePrice}.99`}</h6>
-                </span>
-              </span>
-            </span>
-          </div>
-          <div className="sponsored-item-spacing">
-            <span className="sponsored-item">
-              <img
-                className="sponsored-item-image"
-                src={oneProduct?.image}
-                alt="Product Image"
-              />
-              <span>
-                <p>{oneProduct?.title}</p>
-                <span>
-                  <img alt="Rating Stars Image" />
-                  <h6>price</h6>
                 </span>
               </span>
             </span>
