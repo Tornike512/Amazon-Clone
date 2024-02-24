@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
 import axios from "axios";
 
-export function useRandomProduct() {
-  const [randomProduct, setRandomProduct] = useState<TGetProducts[]>([]);
+export function useRandomProduct(): TGetProducts | null {
+  const [randomProduct, setRandomProduct] = useState<TGetProducts | null>(null);
+
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchRandomProduct = async () => {
@@ -20,19 +23,23 @@ export function useRandomProduct() {
           const generateRandom = Math.floor(
             Math.random() * response.data.products.length
           );
-          const randomProduct = products[generateRandom];
-
-          setRandomProduct(randomProduct);
+          products.map((product: TGetProducts) => {
+            if (id === product.id) {
+              const randomProduct = products[generateRandom + 1];
+              setRandomProduct(randomProduct);
+            } else {
+              const randomProduct = products[generateRandom];
+              setRandomProduct(randomProduct);
+            }
+          });
         }
       } catch (error) {
         console.log("Error Loading Products", error);
       }
-
-      console.log(randomProduct, "random product");
     };
 
     fetchRandomProduct();
   }, []);
 
-  return randomProduct;
+  return randomProduct || null;
 }

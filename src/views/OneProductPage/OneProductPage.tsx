@@ -24,7 +24,9 @@ export function OneProductPage() {
 
   const navigate = useNavigate();
 
-  useRandomProduct();
+  const randomProduct = useRandomProduct();
+
+  const secondRandomProduct = useRandomProduct();
 
   async function getOneProduct() {
     try {
@@ -128,27 +130,48 @@ export function OneProductPage() {
             <button className="add-to-list">Add to List</button>
           </div>
         </div>
-        <div className="sponsored-ad">
-          <div className="sponsored-item-spacing">
-            <span className="sponsored-item">
-              <img
-                className="sponsored-item-image"
-                src={oneProduct?.image}
-                alt="Product Image"
-              />
-              <span>
-                <p>{oneProduct?.title}</p>
-                <span className="rating-price-spacing">
-                  <span className="rating-spacing">
-                    <img src={fourAndHalf} alt="Rating Stars Image" />
-                    <span>72,274</span>
+        {randomProduct && (
+          <div className="sponsored-ad">
+            <div className="sponsored-item-spacing">
+              <span className="sponsored-item">
+                <img
+                  className="sponsored-item-image"
+                  src={randomProduct?.image}
+                  alt="Product Image"
+                />
+                <span>
+                  <p>{randomProduct?.title}</p>
+                  <span className="rating-price-spacing">
+                    <span className="rating-spacing">
+                      <img src={fourAndHalf} alt="Rating Stars Image" />
+                      <span>72,274</span>
+                    </span>
+                    <h6>{`$${randomProduct?.salePrice}.99`}</h6>
                   </span>
-                  <h6>{`$${oneProduct?.salePrice}.99`}</h6>
                 </span>
               </span>
-            </span>
+            </div>
+            <div className="sponsored-item-spacing">
+              <span className="sponsored-item">
+                <img
+                  className="sponsored-item-image"
+                  src={secondRandomProduct?.image}
+                  alt="Product Image"
+                />
+                <span>
+                  <p>{secondRandomProduct?.title}</p>
+                  <span className="rating-price-spacing">
+                    <span className="rating-spacing">
+                      <img src={fourAndHalf} alt="Rating Stars Image" />
+                      <span>72,274</span>
+                    </span>
+                    <h6>{`$${secondRandomProduct?.salePrice}.99`}</h6>
+                  </span>
+                </span>
+              </span>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

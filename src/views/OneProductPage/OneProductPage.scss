@@ -243,6 +243,7 @@
 
       .sponsored-item-spacing {
         max-width: 600px;
+        max-height: 170px;
         display: flex;
         padding: 14px 18px;
         border: $tertiary-border-color;
@@ -254,7 +255,7 @@
           justify-content: space-between;
 
           .sponsored-item-image {
-            width: 140px;
+            max-width: 300px;
             margin-right: 20px;
           }
 
