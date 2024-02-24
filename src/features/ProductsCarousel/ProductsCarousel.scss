@@ -5,7 +5,7 @@
 .carousel {
   height: 220px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   position: relative;
 
   .carousel-item {
@@ -70,14 +70,44 @@
   }
 
   .right-arrow-button {
+    width: 33px;
+    height: 33px;
     position: absolute;
-    top: 0;
+    top: 48%;
     right: 0;
+    border-radius: 7px;
+    border: none;
+    background-color: #ffffff;
+    box-shadow: 0 1px 5px 0 rgb(0 0 0 / 50%);
+    cursor: pointer;
+
+    img {
+      width: 13px;
+    }
+  }
+
+  .right-arrow-button:hover {
+    background-color: #f0f0f0;
   }
 
   .left-arrow-button {
+    width: 33px;
+    height: 33px;
     position: absolute;
-    top: 0;
+    top: 48%;
     left: 0;
+    border-radius: 7px;
+    border: none;
+    background-color: #ffffff;
+    box-shadow: 0 1px 5px 0 rgb(0 0 0 / 50%);
+    cursor: pointer;
+
+    img {
+      width: 13px;
+    }
+  }
+
+  .left-arrow-button:hover {
+    background-color: #f0f0f0;
   }
 }
