@@ -14,10 +14,12 @@ export function ProductsCarousel() {
   const [carouselProducts, setCarouselProducts] = useState<
     TGetProducts[] | null
   >(null);
+  const [XTranslate, setXTranslate] = useState<number>(48);
+
   async function getCarouselProducts() {
     try {
       const response = await axios.get(
-        `http://localhost:3000/product?pageSize=7`
+        `http://localhost:3000/product?pageSize=14`
       );
       setCarouselProducts(response.data.products);
     } catch (error) {
@@ -30,26 +32,49 @@ export function ProductsCarousel() {
   }, []);
 
   return (
-    <div className="carousel">
-      {carouselProducts?.map((carouselProduct) => {
-        return (
-          <div key={carouselProduct.id} className="carousel-item">
-            <div className="carousel-image">
-              <img src={carouselProduct.image} alt="Carousel Product Image" />
+    <div className="carousel-spacing">
+      <div
+        className="carousel"
+        style={{ transform: `translateX(${XTranslate}%)` }}
+      >
+        {carouselProducts?.map((carouselProduct) => {
+          return (
+            <div key={carouselProduct.id} className="carousel-item">
+              <div className="carousel-image">
+                <img src={carouselProduct.image} alt="Carousel Product Image" />
+              </div>
+              <p className="carousel-product-title">{carouselProduct.title}</p>
+              <span className="carousel-item-rating">
+                <img src={fourAndFiveStart} alt="Carousel Product Rating" />
+                <span>72,274</span>
+              </span>
+              <h4 className="carousel-item-price">{`$${carouselProduct.salePrice}.99`}</h4>
             </div>
-            <p className="carousel-product-title">{carouselProduct.title}</p>
-            <span className="carousel-item-rating">
-              <img src={fourAndFiveStart} alt="Carousel Product Rating" />
-              <span>72,274</span>
-            </span>
-            <h4 className="carousel-item-price">{`$${carouselProduct.salePrice}.99`}</h4>
-          </div>
-        );
-      })}
-      <button className="right-arrow-button">
+          );
+        })}
+      </div>
+      <button
+        onClick={() => {
+          if (XTranslate === -50) {
+            setXTranslate(48);
+          } else if (XTranslate === 48) {
+            setXTranslate(-50);
+          }
+        }}
+        className="right-arrow-button"
+      >
         <img src={rightArrow} alt="Right Arrow" />
       </button>
-      <button className="left-arrow-button">
+      <button
+        onClick={() => {
+          if (XTranslate === 48) {
+            setXTranslate(-50);
+          } else if (XTranslate === -50) {
+            setXTranslate(48);
+          }
+        }}
+        className="left-arrow-button"
+      >
         <img src={leftArrow} alt="Left Arrow" />
       </button>
     </div>
