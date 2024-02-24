@@ -25,7 +25,6 @@ export function OneProductPage() {
   const navigate = useNavigate();
 
   const randomProduct = useRandomProduct();
-
   const secondRandomProduct = useRandomProduct();
 
   async function getOneProduct() {
