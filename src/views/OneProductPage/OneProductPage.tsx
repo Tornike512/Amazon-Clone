@@ -178,7 +178,7 @@ export function OneProductPage() {
             </div>
           </div>
         )}
-        {oneProduct && <ProductsCarousel item={oneProduct} />}
+        <ProductsCarousel />
       </div>
     </div>
   );
