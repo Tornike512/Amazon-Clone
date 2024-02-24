@@ -206,8 +206,8 @@ export function ProductsPage() {
                 <div className="description">
                   <p>{product.title}</p>
                   <div className="star-spacing">
-                    <img src={fiveStars} alt="Five Star Review" />
-                    <span>2724</span>
+                    <img src={fourHalfStars} alt="Four And Half Star Rating" />
+                    <span>77.229</span>
                   </div>
 
                   <h3>{`$${product.price}.90`}</h3>
