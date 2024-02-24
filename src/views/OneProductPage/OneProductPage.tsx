@@ -131,7 +131,10 @@ export function OneProductPage() {
         </div>
         {randomProduct && (
           <div className="sponsored-ad">
-            <div className="sponsored-item-spacing">
+            <div
+              onClick={() => navigate(`/products/${randomProduct.id}`)}
+              className="sponsored-item-spacing"
+            >
               <span className="sponsored-item">
                 <img
                   className="sponsored-item-image"
@@ -150,7 +153,10 @@ export function OneProductPage() {
                 </span>
               </span>
             </div>
-            <div className="sponsored-item-spacing">
+            <div
+              onClick={() => navigate(`/products/${secondRandomProduct.id}`)}
+              className="sponsored-item-spacing"
+            >
               <span className="sponsored-item">
                 <img
                   className="sponsored-item-image"
