@@ -126,19 +126,41 @@ export function OneProductPage() {
           </div>
         </div>
         <div className="sponsored-ad">
-          <div>
+          <div className="sponsored-item-spacing">
             <span className="sponsored-item">
-              <img src="" alt="Product Image" />
+              <img
+                className="sponsored-item-image"
+                src={oneProduct?.image}
+                alt="Product Image"
+              />
               <span>
-                <p></p>
+                <p>{oneProduct?.title}</p>
+                <span className="rating-price-spacing">
+                  <span className="rating-spacing">
+                    <img src={fourAndHalf} alt="Rating Stars Image" />
+                    <span>72,274</span>
+                  </span>
+                  <h6>{`$${oneProduct?.salePrice}.99`}</h6>
+                </span>
+              </span>
+            </span>
+          </div>
+          <div className="sponsored-item-spacing">
+            <span className="sponsored-item">
+              <img
+                className="sponsored-item-image"
+                src={oneProduct?.image}
+                alt="Product Image"
+              />
+              <span>
+                <p>{oneProduct?.title}</p>
                 <span>
-                  <img src="" alt="Rating Stars Image" />
+                  <img alt="Rating Stars Image" />
                   <h6>price</h6>
                 </span>
               </span>
             </span>
           </div>
-          <div></div>
         </div>
       </div>
     </div>

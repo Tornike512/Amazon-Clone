@@ -237,6 +237,59 @@
     }
 
     .sponsored-ad {
+      display: flex;
+      justify-content: space-between;
+      margin: 16px 0;
+      font-size: $font-size-14px;
+
+      .sponsored-item-spacing {
+        max-width: 600px;
+        display: flex;
+        padding: 14px 18px;
+        border: $tertiary-border-color;
+        border-radius: 8px;
+        cursor: pointer;
+
+        .sponsored-item {
+          display: flex;
+          justify-content: space-between;
+
+          .sponsored-item-image {
+            width: 140px;
+            margin-right: 20px;
+          }
+
+          .rating-price-spacing {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+
+            .rating-spacing {
+              display: flex;
+              align-items: center;
+              padding-right: 20px;
+              border-right: $tertiary-border-color;
+
+              img {
+                width: 80px;
+                margin-right: 5px;
+              }
+
+              span {
+                margin-top: 3px;
+                font-size: $font-size-12px;
+              }
+            }
+
+            h6 {
+              padding-left: 20px;
+              margin-top: 3px;
+              font-size: $font-size-12px;
+              font-weight: normal;
+            }
+          }
+        }
+      }
     }
   }
 }
