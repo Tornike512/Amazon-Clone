@@ -15,13 +15,14 @@
     cursor: pointer;
 
     .carousel-image {
-      height: 140px;
+      height: 160px;
       display: flex;
       align-items: center;
       justify-content: center;
 
       img {
-        max-width: 105px;
+        max-width: 160px;
+        max-height: 160px;
         padding: 10px 0;
       }
     }
@@ -29,7 +30,7 @@
     .carousel-product-title {
       width: 160px;
       height: 19px;
-      margin-top: 12px;
+      margin-top: 5px;
       font-size: $font-size-14px;
       text-align: start;
       text-overflow: ellipsis;
