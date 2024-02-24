@@ -42,7 +42,7 @@ export function ProductsCarousel() {
               <img src={fourAndFiveStart} alt="Carousel Product Rating" />
               <span>72,274</span>
             </span>
-            <h4>{carouselProduct.salePrice}</h4>
+            <h4 className="carousel-item-price">{`$${carouselProduct.salePrice}.99`}</h4>
           </div>
         );
       })}

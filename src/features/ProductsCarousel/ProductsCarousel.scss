@@ -29,6 +29,7 @@
     .carousel-product-title {
       width: 160px;
       height: 19px;
+      margin-top: 12px;
       font-size: $font-size-14px;
       text-align: start;
       text-overflow: ellipsis;
@@ -45,6 +46,7 @@
     .carousel-item-rating {
       display: flex;
       align-items: center;
+      margin-top: 10px;
 
       span {
         margin-left: 5px;
@@ -56,6 +58,13 @@
         width: 75px;
         padding-bottom: 1px;
       }
+    }
+
+    .carousel-item-price {
+      margin-top: 5px;
+      font-size: $font-size-18px;
+      font-weight: normal;
+      color: #b12704;
     }
   }
 
