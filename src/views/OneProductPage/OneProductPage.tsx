@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useParams, useNavigate } from "react-router-dom";
 import { useRandomProduct } from "@src/hooks/useRandomProduct";
+import { ProductsCarousel } from "@src/features/ProductsCarousel";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -154,7 +155,7 @@ export function OneProductPage() {
               </span>
             </div>
             <div
-              onClick={() => navigate(`/products/${secondRandomProduct.id}`)}
+              onClick={() => navigate(`/products/${secondRandomProduct?.id}`)}
               className="sponsored-item-spacing"
             >
               <span className="sponsored-item">
@@ -177,6 +178,7 @@ export function OneProductPage() {
             </div>
           </div>
         )}
+        {oneProduct && <ProductsCarousel item={oneProduct} />}
       </div>
     </div>
   );
