@@ -125,7 +125,21 @@ export function OneProductPage() {
             <button className="add-to-list">Add to List</button>
           </div>
         </div>
-        <div className="sponsored-ad"></div>
+        <div className="sponsored-ad">
+          <div>
+            <span className="sponsored-item">
+              <img src="" alt="Product Image" />
+              <span>
+                <p></p>
+                <span>
+                  <img src="" alt="Rating Stars Image" />
+                  <h6>price</h6>
+                </span>
+              </span>
+            </span>
+          </div>
+          <div></div>
+        </div>
       </div>
     </div>
   );
