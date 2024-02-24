@@ -29,10 +29,33 @@
     .carousel-product-title {
       width: 160px;
       height: 19px;
+      font-size: $font-size-14px;
       text-align: start;
       text-overflow: ellipsis;
+      color: $secondary-link-text-color;
       overflow: hidden;
       white-space: nowrap;
+    }
+
+    .carousel-product-title:hover {
+      color: #e47911;
+      text-decoration: none;
+    }
+
+    .carousel-item-rating {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 5px;
+        font-size: $font-size-14px;
+        color: $secondary-link-text-color;
+      }
+
+      img {
+        width: 75px;
+        padding-bottom: 1px;
+      }
     }
   }
 

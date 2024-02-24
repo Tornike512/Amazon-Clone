@@ -38,7 +38,7 @@ export function ProductsCarousel() {
               <img src={carouselProduct.image} alt="Carousel Product Image" />
             </div>
             <p className="carousel-product-title">{carouselProduct.title}</p>
-            <span>
+            <span className="carousel-item-rating">
               <img src={fourAndFiveStart} alt="Carousel Product Rating" />
               <span>72,274</span>
             </span>
