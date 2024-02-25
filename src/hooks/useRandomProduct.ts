@@ -20,18 +20,8 @@ export function useRandomProduct(): TGetProducts | null {
         const products = response.data.products;
 
         if (products.length > 0) {
-          const generateRandom = Math.floor(
-            Math.random() * response.data.products.length
-          );
-          products.map((product: TGetProducts) => {
-            if (id === product.id) {
-              const randomProduct = products[generateRandom + 1];
-              setRandomProduct(randomProduct);
-            } else {
-              const randomProduct = products[generateRandom];
-              setRandomProduct(randomProduct);
-            }
-          });
+          const randomIndex = Math.floor(Math.random() * products.length);
+          setRandomProduct(products[randomIndex]);
         }
       } catch (error) {
         console.log("Error Loading Products", error);

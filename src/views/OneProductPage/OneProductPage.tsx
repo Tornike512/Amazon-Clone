@@ -48,13 +48,19 @@ export function OneProductPage() {
     getOneProduct();
   }, []);
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
   const percentage =
     100 -
     Math.round(((oneProduct?.salePrice || 0) * 100) / (oneProduct?.price || 1));
+
+  const sponsoredSecondNav = () => {
+    navigate(`/products/${secondRandomProduct?.id}`);
+    window.location.reload();
+  };
+
+  const sponsoredNav = () => {
+    navigate(`/products/${randomProduct?.id}`);
+    window.location.reload();
+  };
 
   return (
     <div className="one-product-page">
@@ -133,7 +139,7 @@ export function OneProductPage() {
         {randomProduct && (
           <div className="sponsored-ad">
             <div
-              onClick={() => navigate(`/products/${randomProduct.id}`)}
+              onClick={() => sponsoredNav()}
               className="sponsored-item-spacing"
             >
               <span className="sponsored-item">
@@ -155,7 +161,7 @@ export function OneProductPage() {
               </span>
             </div>
             <div
-              onClick={() => navigate(`/products/${secondRandomProduct?.id}`)}
+              onClick={() => sponsoredSecondNav()}
               className="sponsored-item-spacing"
             >
               <span className="sponsored-item">
