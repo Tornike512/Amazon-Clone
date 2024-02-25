@@ -1,0 +1,144 @@
+@import "/src/sass/mixins.scss";
+@import "/src/sass/variables.scss";
+@import "/src/sass/colors.scss";
+
+.loading {
+  width: 1349px;
+  height: 330px;
+
+  .loader-spacing {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 100px;
+
+    .loader-1 {
+      width: 48px;
+      height: 48px;
+      display: inline-block;
+      border: 5px solid #0004ff;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .loader-2 {
+      width: 48px;
+      height: 48px;
+      display: inline-block;
+      border: 5px solid #0004ff;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .loader-3 {
+      width: 48px;
+      height: 48px;
+      display: inline-block;
+      border: 5px solid #0004ff;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loader-4 {
+      width: 48px;
+      height: 48px;
+      display: inline-block;
+      border: 5px solid #0004ff;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loader-5 {
+      width: 48px;
+      height: 48px;
+      display: inline-block;
+      border: 5px solid #0004ff;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .loader-6 {
+      width: 48px;
+      height: 48px;
+      display: inline-block;
+      border: 5px solid #0004ff;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loader-7 {
+      width: 48px;
+      height: 48px;
+      display: inline-block;
+      border: 5px solid #0004ff;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

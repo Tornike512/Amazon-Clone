@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import { Loader } from "@src/components/Loader";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
-import fourAndFiveStart from "@src/assets/four-half-stars.png";
 import rightArrow from "@src/assets/right-arrow.png";
 import leftArrow from "@src/assets/left-arrow.png";
+import fourAndFiveStars from "@src/assets/four-half-stars.png";
 
 import axios from "axios";
 
@@ -15,21 +16,29 @@ export function ProductsCarousel() {
     TGetProducts[] | null
   >(null);
   const [XTranslate, setXTranslate] = useState<number>(48);
+  const [loading, setLoading] = useState<boolean>(false);
 
   async function getCarouselProducts() {
     try {
+      setLoading(true);
       const response = await axios.get(
         `http://localhost:3000/product?pageSize=14`
       );
       setCarouselProducts(response.data.products);
     } catch (error) {
       console.log("Error Loading Products", error);
+    } finally {
+      setLoading(false);
     }
   }
 
   useEffect(() => {
     getCarouselProducts();
   }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="carousel-spacing">
@@ -45,7 +54,7 @@ export function ProductsCarousel() {
               </div>
               <p className="carousel-product-title">{carouselProduct.title}</p>
               <span className="carousel-item-rating">
-                <img src={fourAndFiveStart} alt="Carousel Product Rating" />
+                <img src={fourAndFiveStars} alt="Carousel Product Rating" />
                 <span>72,274</span>
               </span>
               <h4 className="carousel-item-price">{`$${carouselProduct.salePrice}.99`}</h4>
