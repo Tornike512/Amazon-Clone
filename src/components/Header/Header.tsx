@@ -171,7 +171,7 @@ export function Header() {
             <span>Returns</span>
             <p>& Orders</p>
           </div>
-          <div className="cart">
+          <div onClick={() => navigate("/cart")} className="cart">
             <div className="cart-count">
               <span>0</span>
               <img src={cartLogo} alt="Cart Logo" />
