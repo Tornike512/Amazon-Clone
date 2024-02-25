@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 import { Loader } from "@src/components/Loader";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
@@ -18,13 +20,23 @@ export function ProductsCarousel() {
   const [XTranslate, setXTranslate] = useState<number>(48);
   const [loading, setLoading] = useState<boolean>(false);
 
+  const { id } = useParams();
+
   async function getCarouselProducts() {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:3000/product?pageSize=14`
+        `http://localhost:3000/product?pageSize=15`
       );
-      setCarouselProducts(response.data.products);
+
+      const findDifferent = response.data.products.filter((different: any) => {
+        return id !== different.id;
+      });
+      if (findDifferent.length === 15) {
+        setCarouselProducts(findDifferent.slice(1));
+      } else {
+        setCarouselProducts(findDifferent);
+      }
     } catch (error) {
       console.log("Error Loading Products", error);
     } finally {
