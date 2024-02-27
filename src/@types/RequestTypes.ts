@@ -17,6 +17,7 @@ export interface TCategory {
 }
 
 export interface TGetProducts {
+  category: TCategory;
   title: string;
   description: string;
   image: string;
@@ -24,4 +25,12 @@ export interface TGetProducts {
   salePrice: null;
   category_name: string;
   id: string;
+}
+
+export interface TCartProducts {
+  cartProduct: TGetProducts;
+  count: number;
+  id: string;
+  product_id: string;
+  user_id: string;
 }
