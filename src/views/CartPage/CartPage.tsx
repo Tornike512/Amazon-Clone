@@ -79,9 +79,9 @@ export function CartPage() {
             </span>
           </div>
         </div>
-        <div className="save-for-later">
+        <div className="save-for-later-list">
           <h2>Your items</h2>
-          <span>No items saved for later</span>
+          <span className="saved-items">No items saved for later</span>
           <div className="saved-for-later-product">
             <img src="" alt="Saved For Later Image" />
             <p className="saved-for-later-title"></p>

@@ -122,11 +122,28 @@
         }
       }
     }
+
+    .save-for-later-list {
+      width: 100%;
+      padding: 20px 20px 15px 20px;
+      margin-top: 20px;
+      font-size: $font-size-14px;
+      background-color: #ffffff;
+
+      h2 {
+        padding-bottom: 20px;
+      }
+
+      .saved-items {
+        padding-bottom: 10px;
+        border-bottom: $tertiary-border-color;
+      }
+    }
   }
 
   .subtotal {
     height: 128px;
-    width: 336px;
+    width: 350px;
     display: flex;
     flex-direction: column;
     padding: 20px 20px 15px 20px;
@@ -154,6 +171,10 @@
       color: #0f1111;
       box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
       cursor: pointer;
+    }
+
+    .checkout:hover {
+      background-color: $primary-button-hover-color;
     }
   }
 }
