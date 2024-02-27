@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -7,8 +6,6 @@ import axios from "axios";
 
 export function useRandomProduct(): TGetProducts | null {
   const [randomProduct, setRandomProduct] = useState<TGetProducts | null>(null);
-
-  const { id } = useParams();
 
   useEffect(() => {
     const fetchRandomProduct = async () => {

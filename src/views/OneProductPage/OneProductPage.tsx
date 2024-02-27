@@ -3,6 +3,7 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useParams, useNavigate } from "react-router-dom";
 import { useRandomProduct } from "@src/hooks/useRandomProduct";
 import { ProductsCarousel } from "@src/features/ProductsCarousel";
+import { useCartProduct } from "@src/utils/CartPostRequest";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -16,7 +17,7 @@ import axios from "axios";
 import "./OneProductPage.scss";
 
 export function OneProductPage() {
-  const { productId, deliverTo, loading, setLoading, products } =
+  const { productId, setProductId, deliverTo, loading, setLoading, products } =
     useContext(GlobalContext);
 
   const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
@@ -123,7 +124,17 @@ export function OneProductPage() {
               <option value="4">Quantity: 4</option>
               <option value="5">Quantity: 5</option>
             </select>
-            <button className="add-to-cart">Add to Cart</button>
+            <button
+              onClick={() => {
+                navigate("/cart");
+                if (id) {
+                  setProductId(id);
+                }
+              }}
+              className="add-to-cart"
+            >
+              Add to Cart
+            </button>
             <button className="buy-now">Buy Now</button>
             <span className="ships-from">
               <span>Ships from</span>
