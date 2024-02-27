@@ -50,17 +50,21 @@ export function CartPage() {
                 </span>
                 <div className="cart-product-info">
                   <p className="cart-product-title">{item.cartProduct.title}</p>
-                  <span>In Stock</span>
+                  <span className="in-stock-text">In Stock</span>
                   <span className="cart-quantity">
-                    <select name="quantity" id="quantity">
+                    <select
+                      className="select-quantity"
+                      name="quantity"
+                      id="quantity"
+                    >
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
                       <option value="5">5</option>
                     </select>
-                    <span>Delete</span>
-                    <span>Save for later</span>
+                    <span className="delete-cart-product">Delete</span>
+                    <span className="save-for-later">Save for later</span>
                   </span>
                 </div>
                 <span className="cart-product-price">{`$${item.cartProduct.salePrice}.99`}</span>
