@@ -44,8 +44,10 @@ export function CartPage() {
           <span className="price-text">Price</span>
           {cartProducts?.map((item) => {
             return (
-              <div className="cart-product">
-                <img src={item.cartProduct.image} alt="Product-image" />
+              <div key={item.cartProduct.id} className="cart-product">
+                <span className="cart-product-image">
+                  <img src={item.cartProduct.image} alt="Product-image" />
+                </span>
                 <div className="cart-product-info">
                   <p className="cart-product-title">{item.cartProduct.title}</p>
                   <span>In Stock</span>
