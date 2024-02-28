@@ -9,8 +9,6 @@ interface TProductId {
 export function useCartProduct({ product_id }: TProductId) {
   const [cartProduct, setCartProduct] = useState<TProductId[] | null>([]);
 
-  console.log(cartProduct);
-
   useEffect(() => {
     async function fetchCartProduct() {
       try {

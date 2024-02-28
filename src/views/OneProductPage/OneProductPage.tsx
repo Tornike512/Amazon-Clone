@@ -29,6 +29,8 @@ export function OneProductPage() {
   const randomProduct = useRandomProduct();
   const secondRandomProduct = useRandomProduct();
 
+  const token = localStorage.getItem("access_token");
+
   async function getOneProduct() {
     try {
       const response = await axios.get(
@@ -52,6 +54,24 @@ export function OneProductPage() {
   const percentage =
     100 -
     Math.round(((oneProduct?.salePrice || 0) * 100) / (oneProduct?.price || 1));
+
+  async function addToCart() {
+    try {
+      const response = await axios.post(
+        `http://localhost:3000/cart`,
+        {
+          product_id: productId,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (error) {
+      console.log("Error Adding Product To Cart", error);
+    }
+  }
 
   const sponsoredSecondNav = () => {
     navigate(`/products/${secondRandomProduct?.id}`);
@@ -127,6 +147,7 @@ export function OneProductPage() {
             <button
               onClick={() => {
                 navigate("/cart");
+                addToCart();
                 if (id) {
                   setProductId(id);
                 }
