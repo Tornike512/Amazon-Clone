@@ -3,7 +3,7 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useParams, useNavigate } from "react-router-dom";
 import { useRandomProduct } from "@src/hooks/useRandomProduct";
 import { ProductsCarousel } from "@src/features/ProductsCarousel";
-import { useCartProduct } from "@src/utils/CartPostRequest";
+import cartPostRequest from "@src/utils/CartPostRequest";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -55,21 +55,29 @@ export function OneProductPage() {
     100 -
     Math.round(((oneProduct?.salePrice || 0) * 100) / (oneProduct?.price || 1));
 
+  // async function addToCart() {
+  //   try {
+  //     const response = await axios.post(
+  //       `http://localhost:3000/cart`,
+  //       {
+  //         product_id: productId,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       }
+  //     );
+  //   } catch (error) {
+  //     console.log("Error Adding Product To Cart", error);
+  //   }
+  // }
+
   async function addToCart() {
     try {
-      const response = await axios.post(
-        `http://localhost:3000/cart`,
-        {
-          product_id: productId,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      await cartPostRequest(productId, token);
     } catch (error) {
-      console.log("Error Adding Product To Cart", error);
+      console.log("Error Loading Cart Products", error);
     }
   }
 
