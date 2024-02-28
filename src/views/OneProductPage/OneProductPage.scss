@@ -196,6 +196,20 @@
         background-color: $primary-button-hover-color;
       }
 
+      .cart-added {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: $font-size-14px;
+        color: green;
+
+        img {
+          width: 20px;
+          height: 20px;
+          margin-right: 5px;
+        }
+      }
+
       .buy-now {
         padding: 8px 6px;
         margin-bottom: 10px;

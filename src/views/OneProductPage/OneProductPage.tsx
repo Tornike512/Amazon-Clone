@@ -11,6 +11,7 @@ import fourAndHalf from "@src/assets/four-half-stars.png";
 import leftArrow from "@src/assets/left-arrow.png";
 import alertIcon from "@src/assets/alert-icon.png";
 import locationLogoBlack from "@src/assets/location-logo-black.png";
+import successIcon from "@src/assets/success-icon.png";
 
 import axios from "axios";
 
@@ -21,6 +22,7 @@ export function OneProductPage() {
     useContext(GlobalContext);
 
   const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
+  const [cartAdded, setCartAdded] = useState<boolean>(false);
 
   const { id } = useParams();
 
@@ -154,8 +156,8 @@ export function OneProductPage() {
             </select>
             <button
               onClick={() => {
-                navigate("/cart");
                 addToCart();
+                setCartAdded(true);
                 if (id) {
                   setProductId(id);
                 }
@@ -164,6 +166,12 @@ export function OneProductPage() {
             >
               Add to Cart
             </button>
+            {cartAdded && (
+              <span className="cart-added">
+                <img src={successIcon} alt="Success Icon" />
+                <span>Added to Cart</span>
+              </span>
+            )}
             <button className="buy-now">Buy Now</button>
             <span className="ships-from">
               <span>Ships from</span>
