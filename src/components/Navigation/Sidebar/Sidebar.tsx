@@ -1,13 +1,17 @@
 import { useContext, useState, useEffect } from "react";
-import axios from "axios";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
+import { useAuthProvider } from "@src/providers/AuthProvider";
+
+import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
 import personLogo from "@src/assets/person-logo.png";
 import closeSidebar from "@src/assets/sidebar-close-button.png";
 import sidebarArrow from "@src/assets/sidebar-arrow.png";
 import usaFlag from "@src/assets/usa-flag.jpg";
 import webLogo from "@src/assets/web-logo.png";
+
+import axios from "axios";
 
 import "./Sidebar.scss";
 
@@ -21,6 +25,10 @@ interface TCategories {
 export function Sidebar() {
   const { sideBar, setSideBar, modal, setModal, setLoading } =
     useContext(GlobalContext);
+
+  const { authStatus } = useAuthProvider();
+
+  const storedFirstName = localStorage.getItem("firstName");
 
   const navigate = useNavigate();
 
@@ -56,7 +64,14 @@ export function Sidebar() {
               >
                 <div className="sign-in-text">
                   <img src={personLogo} alt="Person logo" />
-                  <h2>Hello, sign in</h2>
+                  <h2>
+                    Hello,{" "}
+                    {authStatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
+                      <>{storedFirstName}</>
+                    ) : (
+                      <>sign in</>
+                    )}
+                  </h2>
                 </div>
               </button>
               <>
