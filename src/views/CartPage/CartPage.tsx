@@ -1,6 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
-import { ACCESS_TOKEN } from "@src/config/LocalStorageKeys";
+import cartDeleteRequest from "@src/utils/CartDeleteRequest";
 
 import { TCartProducts } from "@src/@types/RequestTypes";
 
@@ -10,15 +10,14 @@ import "./CartPage.scss";
 
 export function CartPage() {
   const [cartProducts, setCartProducts] = useState<TCartProducts[]>([]);
+  const [cartProductId, setCartProductId] = useState<string>("");
+
+  const { productId } = useContext(GlobalContext);
 
   const token = localStorage.getItem("access_token");
 
   async function getCartProducts() {
     try {
-      if (!token) {
-        throw new Error("Access token not found in localStorage");
-      }
-
       const response = await axios.get("http://localhost:3000/cart", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -30,10 +29,22 @@ export function CartPage() {
       console.log("Error Requesting Cart Products", error);
     }
   }
+  console.log(cartProductId, "cartid");
 
   useEffect(() => {
     getCartProducts();
   }, []);
+
+  console.log(cartProducts);
+
+  async function deleteCartProduct(cartProductId: string) {
+    try {
+      cartDeleteRequest({ cartProductId, token });
+      getCartProducts();
+    } catch (error) {
+      console.log("Couldn't Remove The Product", error);
+    }
+  }
 
   return (
     <div className="cart-page-split">
@@ -65,7 +76,14 @@ export function CartPage() {
                         <option value="4">4</option>
                         <option value="5">5</option>
                       </select>
-                      <span className="delete-cart-product">Delete</span>
+                      <span
+                        onClick={() => {
+                          deleteCartProduct(item.id);
+                        }}
+                        className="delete-cart-product"
+                      >
+                        Delete
+                      </span>
                       <span className="save-for-later">Save for later</span>
                     </span>
                   </div>
