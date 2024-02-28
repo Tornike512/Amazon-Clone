@@ -136,7 +136,15 @@
 
       .saved-items {
         padding-bottom: 10px;
-        border-bottom: $tertiary-border-color;
+        margin-left: 16px;
+        border-bottom: 3px solid #ff780c;
+        font-weight: bold;
+      }
+
+      .saved-for-later-product {
+        padding-top: 35px;
+        margin-top: 10px;
+        border-top: $tertiary-border-color;
       }
     }
   }
