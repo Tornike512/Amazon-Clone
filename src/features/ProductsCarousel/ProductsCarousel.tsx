@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { Loader } from "@src/components/Loader";
 
@@ -17,6 +17,8 @@ export function ProductsCarousel({ products }: { products: TGetProducts[] }) {
   const [XTranslate, setXTranslate] = useState<number>(48);
   const [loading, setLoading] = useState<boolean>(false);
 
+  const navigate = useNavigate();
+
   if (loading) {
     return <Loader />;
   }
@@ -29,7 +31,14 @@ export function ProductsCarousel({ products }: { products: TGetProducts[] }) {
       >
         {products?.map((product) => {
           return (
-            <div key={product.id} className="carousel-item">
+            <div
+              onClick={() => {
+                navigate(`/products/${product.id}`);
+                window.location.reload();
+              }}
+              key={product.id}
+              className="carousel-item"
+            >
               <div className="carousel-image">
                 <img src={product.image} alt="Carousel Product Image" />
               </div>
