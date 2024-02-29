@@ -35,8 +35,6 @@ export function CartPage() {
     getCartProducts();
   }, []);
 
-  console.log(cartProducts);
-
   async function deleteCartProduct(cartProductId: string) {
     try {
       cartDeleteRequest({ cartProductId, token });
@@ -79,6 +77,7 @@ export function CartPage() {
                       <span
                         onClick={() => {
                           deleteCartProduct(item.id);
+                          window.location.reload();
                         }}
                         className="delete-cart-product"
                       >
@@ -92,7 +91,7 @@ export function CartPage() {
               );
             })}
             <span className="cart-product-subtotal">
-              Subtotal (1 item): <h5>$21.99</h5>
+              Subtotal (0 item): <h5>$0</h5>
             </span>
           </div>
         </div>
@@ -120,7 +119,7 @@ export function CartPage() {
       </div>
       <div className="subtotal">
         <span className="subtotal-price">
-          Subtotal (1 item): <h3>$21.99</h3>
+          Subtotal (0 item): <h3>$0</h3>
         </span>
         <button className="checkout">Proceed to checkout</button>
       </div>
