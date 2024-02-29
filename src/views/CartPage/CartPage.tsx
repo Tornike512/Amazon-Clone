@@ -10,11 +10,9 @@ import "./CartPage.scss";
 
 export function CartPage() {
   const [cartProducts, setCartProducts] = useState<TCartProducts[]>([]);
-  const [cartProductId, setCartProductId] = useState<string>("");
   const [subtotal, setSubtotal] = useState<number>(0);
   const [countProducts, setCountProducts] = useState<number>(0);
-
-  const { productId } = useContext(GlobalContext);
+  const [pageReload, setPageReload] = useState<boolean>(false);
 
   const token = localStorage.getItem("access_token");
 
@@ -36,6 +34,7 @@ export function CartPage() {
       setCountProducts(Object.keys(response.data).length);
     } catch (error) {
       console.log("Error Requesting Cart Products", error);
+    } finally {
     }
   }
 
@@ -49,6 +48,8 @@ export function CartPage() {
       getCartProducts();
     } catch (error) {
       console.log("Couldn't Remove The Product", error);
+    } finally {
+      setPageReload(false);
     }
   }
 
@@ -85,7 +86,9 @@ export function CartPage() {
                       <span
                         onClick={() => {
                           deleteCartProduct(item.id);
-                          window.location.reload();
+                          setTimeout(() => {
+                            window.location.reload();
+                          }, 1000);
                         }}
                         className="delete-cart-product"
                       >
