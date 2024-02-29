@@ -117,46 +117,45 @@ export function CartPage() {
         <div className="save-for-later-list">
           <h2>Your items</h2>
           <span className="saved-items">No items saved for later</span>
-          {saveForLater &&
-            cartProducts.map((item) => {
+          <div className="saved-for-later-grid">
+            {cartProducts.map((item) => {
               return (
-                <div className="saved-for-later-grid">
-                  <div className="saved-for-later-product">
-                    <div className="saved-for-later-image">
-                      <img
-                        src={item.cartProduct.image}
-                        alt="Saved For Later Image"
-                      />
-                    </div>
-                    <p className="saved-for-later-title">
-                      Lenovo IdeaPad 1 – AMD Ryzen5-5500U – 15.6 Full HD
-                      (1920x1080) – 8GB Memory – 512GB SSD Storage – Windows 11
-                      - Cloud Grey – (2023 Model)
-                    </p>
-                    <h5 className="saved-for-later-price">{`$${item.cartProduct.salePrice}.99`}</h5>
-                    <div className="in-stock">In Stock</div>
-                    <button
-                      onClick={() => setSaveForLater(true)}
-                      className="move-to-cart"
-                    >
-                      Move to cart
-                    </button>
-                    <p
-                      onClick={() => {
-                        deleteCartProduct(item.id);
-                        setTimeout(() => {
-                          window.location.reload();
-                        }, 1000);
-                      }}
-                      className="saved-for-later-delete"
-                    >
-                      Delete
-                    </p>
-                    <p className="saved-for-later-list">Add to list</p>
+                <div className="saved-for-later-product">
+                  <div className="saved-for-later-image">
+                    <img
+                      src={item.cartProduct.image}
+                      alt="Saved For Later Image"
+                    />
                   </div>
+                  <p className="saved-for-later-title">
+                    Lenovo IdeaPad 1 – AMD Ryzen5-5500U – 15.6 Full HD
+                    (1920x1080) – 8GB Memory – 512GB SSD Storage – Windows 11 -
+                    Cloud Grey – (2023 Model)
+                  </p>
+                  <h5 className="saved-for-later-price">{`$${item.cartProduct.salePrice}.99`}</h5>
+                  <div className="in-stock">In Stock</div>
+                  <button
+                    onClick={() => setSaveForLater(true)}
+                    className="move-to-cart"
+                  >
+                    Move to cart
+                  </button>
+                  <p
+                    onClick={() => {
+                      deleteCartProduct(item.id);
+                      setTimeout(() => {
+                        window.location.reload();
+                      }, 1000);
+                    }}
+                    className="saved-for-later-delete"
+                  >
+                    Delete
+                  </p>
+                  <p className="saved-for-later-list">Add to list</p>
                 </div>
               );
             })}
+          </div>
         </div>
       </div>
 
