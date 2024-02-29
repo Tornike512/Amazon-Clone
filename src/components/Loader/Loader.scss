@@ -3,17 +3,18 @@
 @import "/src/sass/colors.scss";
 
 .loading {
-  width: 1349px;
-  height: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
 
   .loader-spacing {
     display: flex;
     justify-content: space-around;
-    padding-top: 100px;
 
-    .loader-1 {
-      width: 48px;
-      height: 48px;
+    .loader {
+      width: 25px;
+      height: 25px;
       display: inline-block;
       border: 5px solid #0004ff;
       border-bottom-color: transparent;

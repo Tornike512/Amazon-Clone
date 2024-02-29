@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useParams, useNavigate } from "react-router-dom";
 import { ProductsCarousel } from "@src/features/ProductsCarousel";
+import { Loader } from "@src/components/Loader";
 import cartPostRequest from "@src/utils/CartPostRequest";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
@@ -29,6 +30,7 @@ export function OneProductPage() {
 
   const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
   const [cartAdded, setCartAdded] = useState<boolean>(false);
+  const [loader, setLoader] = useState<boolean>(false);
   const [firstSponsored, setFirstSponsored] = useState<TGetProducts | null>(
     null
   );
@@ -39,9 +41,6 @@ export function OneProductPage() {
   const { id } = useParams();
 
   const navigate = useNavigate();
-
-  // const randomProduct = useRandomProduct();
-  // const secondRandomProduct = useRandomProduct();
 
   const token = localStorage.getItem("access_token");
 
@@ -55,7 +54,7 @@ export function OneProductPage() {
       const products = response.data.products;
 
       if (products.length > 0) {
-        const randomIndex = Math.floor(Math.random() * products.length);
+        const randomIndex = Math.floor(Math.random() * products.length - 1);
         setFirstSponsored(products[randomIndex]);
         setSecondSponsored(products[randomIndex + 1]);
       }
@@ -160,7 +159,11 @@ export function OneProductPage() {
             <button
               onClick={() => {
                 addToCart();
-                setCartAdded(true);
+                setLoader(true);
+                setTimeout(() => {
+                  setCartAdded(true);
+                  setLoader(false);
+                }, 1000);
                 if (id) {
                   setProductId(id);
                 }
@@ -169,6 +172,11 @@ export function OneProductPage() {
             >
               Add to Cart
             </button>
+            {loader && (
+              <>
+                <Loader />
+              </>
+            )}
             {cartAdded && (
               <span className="cart-added">
                 <img src={successIcon} alt="Success Icon" />
