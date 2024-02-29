@@ -8,6 +8,7 @@
   background-color: #eaeded;
 
   .cart-page {
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -128,7 +129,7 @@
 
     .save-for-later-list {
       width: 100%;
-      padding: 20px 20px 15px 20px;
+      padding: 20px 20px 40px 20px;
       margin-top: 20px;
       font-size: $font-size-14px;
       background-color: #ffffff;
@@ -156,9 +157,13 @@
           border: $tertiary-border-color;
 
           .saved-for-later-image {
-            width: 100px;
-            height: 100px;
+            width: 100%;
             border-radius: 3px;
+            padding-bottom: 15px;
+
+            img {
+              width: 100%;
+            }
           }
 
           .saved-for-later-title {
