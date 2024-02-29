@@ -12,6 +12,7 @@ export function CartPage() {
   const [cartProducts, setCartProducts] = useState<TCartProducts[]>([]);
   const [cartProductId, setCartProductId] = useState<string>("");
   const [subtotal, setSubtotal] = useState<number>(0);
+  const [countProducts, setCountProducts] = useState<number>(0);
 
   const { productId } = useContext(GlobalContext);
 
@@ -31,6 +32,8 @@ export function CartPage() {
         0
       );
       setSubtotal(subTotal);
+
+      setCountProducts(Object.keys(response.data).length);
     } catch (error) {
       console.log("Error Requesting Cart Products", error);
     }
@@ -96,7 +99,9 @@ export function CartPage() {
               );
             })}
             <span className="cart-product-subtotal">
-              Subtotal (0 item): <h5>{`$${subtotal}.99`}</h5>
+              Subtotal ({countProducts}{" "}
+              {countProducts > 1 ? <>items</> : <>item</>}):
+              <h5>{`$${subtotal}.99`}</h5>
             </span>
           </div>
         </div>
@@ -124,7 +129,8 @@ export function CartPage() {
       </div>
       <div className="subtotal">
         <span className="subtotal-price">
-          Subtotal (0 item): <h3>{`$${subtotal}.99`}</h3>
+          Subtotal ({countProducts} {countProducts > 1 ? <>items</> : <>item</>}
+          ): <h3>{`$${subtotal}.99`}</h3>
         </span>
         <button className="checkout">Proceed to checkout</button>
       </div>
