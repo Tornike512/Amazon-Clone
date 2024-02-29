@@ -51,6 +51,7 @@ export function OneProductPage() {
         `http://localhost:3000/product?pageSize=40`
       );
 
+      setProducts(response.data.products);
       const products = response.data.products;
 
       if (products.length > 0) {
@@ -234,7 +235,7 @@ export function OneProductPage() {
           </div>
         </div>
 
-        <ProductsCarousel />
+        <ProductsCarousel products={products} />
       </div>
     </div>
   );
