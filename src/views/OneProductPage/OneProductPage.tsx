@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useParams, useNavigate } from "react-router-dom";
-import { useRandomProduct } from "@src/hooks/useRandomProduct";
 import { ProductsCarousel } from "@src/features/ProductsCarousel";
 import cartPostRequest from "@src/utils/CartPostRequest";
 
