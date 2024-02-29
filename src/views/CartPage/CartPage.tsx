@@ -11,6 +11,7 @@ import "./CartPage.scss";
 export function CartPage() {
   const [cartProducts, setCartProducts] = useState<TCartProducts[]>([]);
   const [cartProductId, setCartProductId] = useState<string>("");
+  const [subtotal, setSubtotal] = useState<number>(0);
 
   const { productId } = useContext(GlobalContext);
 
@@ -23,13 +24,17 @@ export function CartPage() {
           Authorization: `Bearer ${token}`,
         },
       });
-
       setCartProducts(response.data);
+
+      const subTotal = response.data.reduce(
+        (total: number, item: any) => total + item.cartProduct.salePrice,
+        0
+      );
+      setSubtotal(subTotal);
     } catch (error) {
       console.log("Error Requesting Cart Products", error);
     }
   }
-  console.log(cartProductId, "cartid");
 
   useEffect(() => {
     getCartProducts();
@@ -91,7 +96,7 @@ export function CartPage() {
               );
             })}
             <span className="cart-product-subtotal">
-              Subtotal (0 item): <h5>$0</h5>
+              Subtotal (0 item): <h5>{`$${subtotal}.99`}</h5>
             </span>
           </div>
         </div>
@@ -108,7 +113,7 @@ export function CartPage() {
                 8GB Memory – 512GB SSD Storage – Windows 11 - Cloud Grey – (2023
                 Model)
               </p>
-              <h5 className="saved-for-later-price">$21.99</h5>
+              <h5 className="saved-for-later-price">{`$21.99`}</h5>
               <div className="in-stock">In Stock</div>
               <button className="move-to-cart">Move to cart</button>
               <p className="saved-for-later-delete">Delete</p>
@@ -119,7 +124,7 @@ export function CartPage() {
       </div>
       <div className="subtotal">
         <span className="subtotal-price">
-          Subtotal (0 item): <h3>$0</h3>
+          Subtotal (0 item): <h3>{`$${subtotal}.99`}</h3>
         </span>
         <button className="checkout">Proceed to checkout</button>
       </div>
