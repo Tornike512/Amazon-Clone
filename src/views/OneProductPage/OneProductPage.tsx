@@ -18,18 +18,31 @@ import axios from "axios";
 import "./OneProductPage.scss";
 
 export function OneProductPage() {
-  const { productId, setProductId, deliverTo, loading, setLoading, products } =
-    useContext(GlobalContext);
+  const {
+    productId,
+    setProductId,
+    deliverTo,
+    loading,
+    setLoading,
+    products,
+    setProducts,
+  } = useContext(GlobalContext);
 
   const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
   const [cartAdded, setCartAdded] = useState<boolean>(false);
+  const [firstSponsored, setFirstSponsored] = useState<TGetProducts | null>(
+    null
+  );
+  const [SecondSponsored, setSecondSponsored] = useState<TGetProducts | null>(
+    null
+  );
 
   const { id } = useParams();
 
   const navigate = useNavigate();
 
-  const randomProduct = useRandomProduct();
-  const secondRandomProduct = useRandomProduct();
+  // const randomProduct = useRandomProduct();
+  // const secondRandomProduct = useRandomProduct();
 
   const token = localStorage.getItem("access_token");
 
@@ -38,6 +51,15 @@ export function OneProductPage() {
       const response = await axios.get(
         `http://localhost:3000/product?pageSize=40`
       );
+
+      const products = response.data.products;
+
+      if (products.length > 0) {
+        const randomIndex = Math.floor(Math.random() * products.length);
+        setFirstSponsored(products[randomIndex]);
+        setSecondSponsored(products[randomIndex + 1]);
+      }
+
       const product = response.data.products.find(
         (product: TGetProducts) => product.id === id
       );
@@ -57,24 +79,6 @@ export function OneProductPage() {
     100 -
     Math.round(((oneProduct?.salePrice || 0) * 100) / (oneProduct?.price || 1));
 
-  // async function addToCart() {
-  //   try {
-  //     const response = await axios.post(
-  //       `http://localhost:3000/cart`,
-  //       {
-  //         product_id: productId,
-  //       },
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       }
-  //     );
-  //   } catch (error) {
-  //     console.log("Error Adding Product To Cart", error);
-  //   }
-  // }
-
   async function addToCart() {
     try {
       await cartPostRequest(productId, token);
@@ -82,14 +86,13 @@ export function OneProductPage() {
       console.log("Error Loading Cart Products", error);
     }
   }
-
-  const sponsoredSecondNav = () => {
-    navigate(`/products/${secondRandomProduct?.id}`);
+  const firstSponsoredNav = () => {
+    navigate(`/products/${firstSponsored?.id}`);
     window.location.reload();
   };
 
-  const sponsoredNav = () => {
-    navigate(`/products/${randomProduct?.id}`);
+  const secondSponsoredNav = () => {
+    navigate(`/products/${SecondSponsored?.id}`);
     window.location.reload();
   };
 
@@ -184,54 +187,54 @@ export function OneProductPage() {
             <button className="add-to-list">Add to List</button>
           </div>
         </div>
-        {randomProduct && (
-          <div className="sponsored-ad">
-            <div
-              onClick={() => sponsoredNav()}
-              className="sponsored-item-spacing"
-            >
-              <span className="sponsored-item">
-                <img
-                  className="sponsored-item-image"
-                  src={randomProduct?.image}
-                  alt="Product Image"
-                />
-                <span>
-                  <p>{randomProduct?.title}</p>
-                  <span className="rating-price-spacing">
-                    <span className="rating-spacing">
-                      <img src={fourAndHalf} alt="Rating Stars Image" />
-                      <span>72,274</span>
-                    </span>
-                    <h6>{`$${randomProduct?.salePrice}.99`}</h6>
+
+        <div className="sponsored-ad">
+          <div
+            onClick={() => firstSponsoredNav()}
+            className="sponsored-item-spacing"
+          >
+            <span className="sponsored-item">
+              <img
+                className="sponsored-item-image"
+                src={firstSponsored?.image}
+                alt="Product Image"
+              />
+              <span>
+                <p>{firstSponsored?.title}</p>
+                <span className="rating-price-spacing">
+                  <span className="rating-spacing">
+                    <img src={fourAndHalf} alt="Rating Stars Image" />
+                    <span>72,274</span>
                   </span>
+                  <h6>{`$${firstSponsored?.salePrice}.99`}</h6>
                 </span>
               </span>
-            </div>
-            <div
-              onClick={() => sponsoredSecondNav()}
-              className="sponsored-item-spacing"
-            >
-              <span className="sponsored-item">
-                <img
-                  className="sponsored-item-image"
-                  src={secondRandomProduct?.image}
-                  alt="Product Image"
-                />
-                <span>
-                  <p>{secondRandomProduct?.title}</p>
-                  <span className="rating-price-spacing">
-                    <span className="rating-spacing">
-                      <img src={fourAndHalf} alt="Rating Stars Image" />
-                      <span>72,274</span>
-                    </span>
-                    <h6>{`$${secondRandomProduct?.salePrice}.99`}</h6>
-                  </span>
-                </span>
-              </span>
-            </div>
+            </span>
           </div>
-        )}
+          <div
+            onClick={() => secondSponsoredNav()}
+            className="sponsored-item-spacing"
+          >
+            <span className="sponsored-item">
+              <img
+                className="sponsored-item-image"
+                src={SecondSponsored?.image}
+                alt="Product Image"
+              />
+              <span>
+                <p>{SecondSponsored?.title}</p>
+                <span className="rating-price-spacing">
+                  <span className="rating-spacing">
+                    <img src={fourAndHalf} alt="Rating Stars Image" />
+                    <span>72,274</span>
+                  </span>
+                  <h6>{`$${SecondSponsored?.salePrice}.99`}</h6>
+                </span>
+              </span>
+            </span>
+          </div>
+        </div>
+
         <ProductsCarousel />
       </div>
     </div>
