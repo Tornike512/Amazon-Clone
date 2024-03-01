@@ -161,7 +161,14 @@ export function CartPage() {
                   <h5 className="saved-for-later-price">{`$${item.cartProduct.salePrice}.99`}</h5>
                   <div className="in-stock">In Stock</div>
                   <button
-                    onClick={() => setSaveForLater(true)}
+                    onClick={() => {
+                      setSaveForLater(true);
+                      if (selectSavedProduct.includes(item.id)) {
+                        setSelectSavedProduct((prev) =>
+                          prev.filter((productId) => productId !== item.id)
+                        );
+                      }
+                    }}
                     className="move-to-cart"
                   >
                     Move to cart
