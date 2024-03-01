@@ -13,8 +13,10 @@ export function CartPage() {
   const [subtotal, setSubtotal] = useState<number>(0);
   const [countProducts, setCountProducts] = useState<number>(0);
   const [saveForLater, setSaveForLater] = useState<boolean>(false);
+  const [selectSavedProduct, setSelectSavedProduct] = useState<string[]>([]);
 
   const token = localStorage.getItem("access_token");
+  console.log(saveForLater);
 
   async function getCartProducts() {
     try {
@@ -59,53 +61,57 @@ export function CartPage() {
           <div className="shopping-cart">
             <h1>Shopping Cart</h1>
             <span className="price-text">Price</span>
-            {!saveForLater &&
-              cartProducts?.map((item) => {
-                return (
-                  <div key={item.cartProduct.id} className="cart-product">
-                    <span className="cart-product-image">
-                      <img src={item.cartProduct.image} alt="Product-image" />
-                    </span>
-                    <div className="cart-product-info">
-                      <p className="cart-product-title">
-                        {item.cartProduct.title}
-                      </p>
-                      <span className="in-stock-text">In Stock</span>
-                      <span className="cart-quantity">
-                        <select
-                          className="select-quantity"
-                          name="quantity"
-                          id="quantity"
-                        >
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                        <span
-                          onClick={() => {
-                            deleteCartProduct(item.id);
-                            setTimeout(() => {
-                              window.location.reload();
-                            }, 1000);
-                          }}
-                          className="delete-cart-product"
-                        >
-                          Delete
-                        </span>
-                        <span
-                          onClick={() => setSaveForLater(true)}
-                          className="save-for-later"
-                        >
-                          Save for later
-                        </span>
+            {cartProducts?.map((item) => {
+              return !selectSavedProduct.includes(item.id) ? (
+                <div key={item.cartProduct.id} className="cart-product">
+                  <span className="cart-product-image">
+                    <img src={item.cartProduct.image} alt="Product-image" />
+                  </span>
+                  <div className="cart-product-info">
+                    <p className="cart-product-title">
+                      {item.cartProduct.title}
+                    </p>
+                    <span className="in-stock-text">In Stock</span>
+                    <span className="cart-quantity">
+                      <select
+                        className="select-quantity"
+                        name="quantity"
+                        id="quantity"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                      <span
+                        onClick={() => {
+                          deleteCartProduct(item.id);
+                          setTimeout(() => {
+                            window.location.reload();
+                          }, 1000);
+                        }}
+                        className="delete-cart-product"
+                      >
+                        Delete
                       </span>
-                    </div>
-                    <span className="cart-product-price">{`$${item.cartProduct.salePrice}.99`}</span>
+                      <span
+                        onClick={() => {
+                          setSelectSavedProduct((prev) => [...prev, item.id]);
+                          if (selectSavedProduct.includes(item.id)) {
+                            setSaveForLater(true);
+                          }
+                        }}
+                        className="save-for-later"
+                      >
+                        Save for later
+                      </span>
+                    </span>
                   </div>
-                );
-              })}
+                  <span className="cart-product-price">{`$${item.cartProduct.salePrice}.99`}</span>
+                </div>
+              ) : null;
+            })}
             <span className="cart-product-subtotal">
               Subtotal ({countProducts}{" "}
               {countProducts > 1 ? <>items</> : <>item</>}):
@@ -119,8 +125,11 @@ export function CartPage() {
           <span className="saved-items">No items saved for later</span>
           <div className="saved-for-later-grid">
             {cartProducts.map((item) => {
-              return (
-                <div className="saved-for-later-product">
+              return selectSavedProduct.includes(item.id) ? (
+                <div
+                  key={item.cartProduct.id}
+                  className="saved-for-later-product"
+                >
                   <div className="saved-for-later-image">
                     <img
                       src={item.cartProduct.image}
@@ -153,7 +162,7 @@ export function CartPage() {
                   </p>
                   <p className="saved-for-later-list">Add to list</p>
                 </div>
-              );
+              ) : null;
             })}
           </div>
         </div>
