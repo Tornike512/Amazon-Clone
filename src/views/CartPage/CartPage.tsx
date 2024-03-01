@@ -14,6 +14,7 @@ export function CartPage() {
   const [countProducts, setCountProducts] = useState<number>(0);
   const [saveForLater, setSaveForLater] = useState<boolean>(false);
   const [selectSavedProduct, setSelectSavedProduct] = useState<string[]>([]);
+  const [productId, setProductId] = useState<string>("");
 
   const token = localStorage.getItem("access_token");
   console.log(saveForLater);
@@ -98,6 +99,7 @@ export function CartPage() {
                       <span
                         onClick={() => {
                           setSelectSavedProduct((prev) => [...prev, item.id]);
+                          setProductId(item.id);
                           if (selectSavedProduct.includes(item.id)) {
                             setSaveForLater(true);
                           }
@@ -110,7 +112,22 @@ export function CartPage() {
                   </div>
                   <span className="cart-product-price">{`$${item.cartProduct.salePrice}.99`}</span>
                 </div>
-              ) : null;
+              ) : (
+                <>
+                  {cartProducts.map((item) => {
+                    return (
+                      productId === item.id && (
+                        <div className="saved-product">
+                          <a className="saved-product-title" href="#">
+                            {item.cartProduct.title}
+                          </a>
+                          <span> has been moved to Saved for Later.</span>
+                        </div>
+                      )
+                    );
+                  })}
+                </>
+              );
             })}
             <span className="cart-product-subtotal">
               Subtotal ({countProducts}{" "}

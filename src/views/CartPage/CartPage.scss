@@ -111,6 +111,31 @@
           }
         }
 
+        .saved-product {
+          display: flex;
+          align-items: center;
+          padding: 24px 0 24px 12px;
+          font-size: $font-size-14px;
+          border-top: $tertiary-border-color;
+
+          .saved-product-title {
+            width: 46%;
+            display: inline-block;
+            overflow: hidden !important;
+            margin-right: 5px;
+            color: $secondary-link-text-color;
+            color: #007185;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-decoration: none;
+            cursor: pointer;
+          }
+
+          .saved-product-title {
+            @include linkHoverEffect;
+          }
+        }
+
         .cart-product-subtotal {
           display: flex;
           justify-content: flex-end;
