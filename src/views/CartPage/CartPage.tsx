@@ -55,8 +55,6 @@ export function CartPage() {
     localStorage.setItem("subtraction", JSON.stringify(subtraction));
   }, [subtraction]);
 
-  const storageSubtraction = localStorage.getItem("subtraction");
-
   useEffect(() => {
     getCartProducts();
   }, []);
@@ -86,7 +84,7 @@ export function CartPage() {
     } finally {
     }
   }
-  console.log(subtraction, "subtracton");
+  console.log(countProducts, "countproducts");
 
   if (loading) {
     return <div>loading</div>;
