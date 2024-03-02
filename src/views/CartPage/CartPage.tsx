@@ -176,13 +176,19 @@ export function CartPage() {
                   key={item.cartProduct.id}
                   className="saved-for-later-product"
                 >
-                  <div className="saved-for-later-image">
+                  <div
+                    onClick={() => navigate(`/products/${item.cartProduct.id}`)}
+                    className="saved-for-later-image"
+                  >
                     <img
                       src={item.cartProduct.image}
                       alt="Saved For Later Image"
                     />
                   </div>
-                  <p className="saved-for-later-title">
+                  <p
+                    onClick={() => navigate(`/products/${item.cartProduct.id}`)}
+                    className="saved-for-later-title"
+                  >
                     Lenovo IdeaPad 1 – AMD Ryzen5-5500U – 15.6 Full HD
                     (1920x1080) – 8GB Memory – 512GB SSD Storage – Windows 11 -
                     Cloud Grey – (2023 Model)
