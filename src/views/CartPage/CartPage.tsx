@@ -30,7 +30,8 @@ export function CartPage() {
       setCartProducts(response.data);
       setLoading(false);
       const subTotal = response.data.reduce(
-        (total: number, item: any) => total + item.cartProduct.salePrice,
+        (total: number, item: any) =>
+          total + (item.cartProduct.salePrice * item.count ?? 0),
         0
       );
       setSubtotal(subTotal);
@@ -45,6 +46,17 @@ export function CartPage() {
   const token = localStorage.getItem("access_token");
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem("subtotal", JSON.stringify(subtotal));
+  }, [subtotal]);
+
+  useEffect(() => {
+    const storedSubtotal = localStorage.getItem("subtotal");
+    if (storedSubtotal) {
+      setSubtotal(JSON.parse(storedSubtotal));
+    }
+  }, []);
 
   useEffect(() => {
     getCartProducts();
@@ -145,6 +157,8 @@ export function CartPage() {
                           if (selectSavedProduct.includes(item.id)) {
                             setSaveForLater(true);
                           }
+                          setSubtotal(subtotal - item.cartProduct.salePrice);
+                          setCountProducts(countProducts - 1);
                         }}
                         className="save-for-later"
                       >
@@ -152,7 +166,9 @@ export function CartPage() {
                       </span>
                     </span>
                   </div>
-                  <span className="cart-product-price">{`$${item.cartProduct.salePrice}.99`}</span>
+                  <span className="cart-product-price">{`$${
+                    item.cartProduct.salePrice * item.count
+                  } .99`}</span>
                 </div>
               ) : (
                 <></>
