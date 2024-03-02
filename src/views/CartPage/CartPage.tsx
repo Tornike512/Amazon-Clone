@@ -15,19 +15,18 @@ export function CartPage() {
   const [saveForLater, setSaveForLater] = useState<boolean>(false);
   const [selectSavedProduct, setSelectSavedProduct] = useState<string[]>([]);
   const [productId, setProductId] = useState<string>("");
-
-  const token = localStorage.getItem("access_token");
-  console.log(saveForLater);
+  const [loading, setLoading] = useState<boolean>(false);
 
   async function getCartProducts() {
     try {
+      setLoading(true);
       const response = await axios.get("http://localhost:3000/cart", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       setCartProducts(response.data);
-
+      setLoading(false);
       const subTotal = response.data.reduce(
         (total: number, item: any) => total + item.cartProduct.salePrice,
         0
@@ -41,9 +40,24 @@ export function CartPage() {
     }
   }
 
+  const token = localStorage.getItem("access_token");
+
   useEffect(() => {
     getCartProducts();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("saved products", JSON.stringify(selectSavedProduct));
+  }, [selectSavedProduct]);
+
+  useEffect(() => {
+    const savedProducts = JSON.parse(
+      localStorage.getItem("saved products") || "[]"
+    );
+    setSelectSavedProduct(savedProducts);
+  }, []);
+
+  console.log(selectSavedProduct, "selected");
 
   async function deleteCartProduct(cartProductId: string) {
     try {
@@ -53,6 +67,10 @@ export function CartPage() {
       console.log("Couldn't Remove The Product", error);
     } finally {
     }
+  }
+
+  if (loading) {
+    return <div>loading</div>;
   }
 
   return (
@@ -117,7 +135,10 @@ export function CartPage() {
                   {cartProducts.map((item) => {
                     return (
                       productId === item.id && (
-                        <div className="saved-product">
+                        <div
+                          key={item.cartProduct.id}
+                          className="saved-product"
+                        >
                           <a className="saved-product-title" href="#">
                             {item.cartProduct.title}
                           </a>
@@ -163,6 +184,7 @@ export function CartPage() {
                   <button
                     onClick={() => {
                       setSaveForLater(true);
+
                       if (selectSavedProduct.includes(item.id)) {
                         setSelectSavedProduct((prev) =>
                           prev.filter((productId) => productId !== item.id)
