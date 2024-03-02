@@ -85,6 +85,9 @@ export function OneProductPage() {
       console.log("Error Loading Cart Products", error);
     }
   }
+
+  console.log(productId, "one product page");
+
   const firstSponsoredNav = () => {
     navigate(`/products/${firstSponsored?.id}`);
     window.location.reload();

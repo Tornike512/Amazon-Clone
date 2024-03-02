@@ -14,7 +14,7 @@ export function CartPage() {
   const [countProducts, setCountProducts] = useState<number>(0);
   const [saveForLater, setSaveForLater] = useState<boolean>(false);
   const [selectSavedProduct, setSelectSavedProduct] = useState<string[]>([]);
-  const [productId, setProductId] = useState<string>("");
+  const [productId, setProductId] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   async function getCartProducts() {
@@ -55,14 +55,14 @@ export function CartPage() {
     }, 1000);
   }, [selectSavedProduct]);
 
+  console.log(productId, "productiq");
+
   useEffect(() => {
     const savedProducts = JSON.parse(
       localStorage.getItem("saved products") || "[]"
     );
     setSelectSavedProduct(savedProducts);
   }, []);
-
-  console.log(selectSavedProduct, "selected");
 
   async function deleteCartProduct(cartProductId: string) {
     try {
@@ -85,6 +85,20 @@ export function CartPage() {
           <div className="shopping-cart">
             <h1>Shopping Cart</h1>
             <span className="price-text">Price</span>
+            <>
+              {cartProducts.map((item) => {
+                return (
+                  productId[productId.length - 1] === item.cartProduct.id && (
+                    <div key={item.id} className="saved-product">
+                      <a className="saved-product-title" href="#">
+                        {item.cartProduct.title}
+                      </a>
+                      <span> has been moved to Saved for Later.</span>
+                    </div>
+                  )
+                );
+              })}
+            </>
             {cartProducts?.map((item) => {
               return !selectSavedProduct.includes(item.id) ? (
                 <div key={item.cartProduct.id} className="cart-product">
@@ -122,7 +136,10 @@ export function CartPage() {
                       <span
                         onClick={() => {
                           setSelectSavedProduct((prev) => [...prev, item.id]);
-                          setProductId(item.id);
+                          setProductId((prev) => [
+                            ...prev,
+                            item.cartProduct.id,
+                          ]);
                           if (selectSavedProduct.includes(item.id)) {
                             setSaveForLater(true);
                           }
@@ -136,23 +153,7 @@ export function CartPage() {
                   <span className="cart-product-price">{`$${item.cartProduct.salePrice}.99`}</span>
                 </div>
               ) : (
-                <>
-                  {cartProducts.map((item) => {
-                    return (
-                      productId === item.id && (
-                        <div
-                          key={item.cartProduct.id}
-                          className="saved-product"
-                        >
-                          <a className="saved-product-title" href="#">
-                            {item.cartProduct.title}
-                          </a>
-                          <span> has been moved to Saved for Later.</span>
-                        </div>
-                      )
-                    );
-                  })}
-                </>
+                <></>
               );
             })}
             <span className="cart-product-subtotal">

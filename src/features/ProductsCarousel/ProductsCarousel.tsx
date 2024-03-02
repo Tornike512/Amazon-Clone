@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import { Loader } from "@src/components/Loader";
 
@@ -17,6 +18,8 @@ export function ProductsCarousel({ products }: { products: TGetProducts[] }) {
   const [XTranslate, setXTranslate] = useState<number>(48);
   const [loading, setLoading] = useState<boolean>(false);
 
+  const { productId, setProductId } = useContext(GlobalContext);
+
   const navigate = useNavigate();
 
   if (loading) {
@@ -33,6 +36,7 @@ export function ProductsCarousel({ products }: { products: TGetProducts[] }) {
           return (
             <div
               onClick={() => {
+                setProductId(product.id);
                 navigate(`/products/${product.id}`);
                 window.location.reload();
               }}
