@@ -18,6 +18,7 @@ export function CartPage() {
   const [selectSavedProduct, setSelectSavedProduct] = useState<string[]>([]);
   const [productId, setProductId] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [pricesList, setPricesList] = useState<number[]>([]);
 
   async function getCartProducts() {
     try {
@@ -46,17 +47,6 @@ export function CartPage() {
   const token = localStorage.getItem("access_token");
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    localStorage.setItem("subtotal", JSON.stringify(subtotal));
-  }, [subtotal]);
-
-  useEffect(() => {
-    const storedSubtotal = localStorage.getItem("subtotal");
-    if (storedSubtotal) {
-      setSubtotal(JSON.parse(storedSubtotal));
-    }
-  }, []);
 
   useEffect(() => {
     getCartProducts();
@@ -104,7 +94,12 @@ export function CartPage() {
                 return (
                   productId[productId.length - 1] === item.cartProduct.id && (
                     <div key={item.id} className="saved-product">
-                      <a className="saved-product-title" href="#">
+                      <a
+                        onClick={() =>
+                          navigate(`/products/${item.cartProduct.id}`)
+                        }
+                        className="saved-product-title"
+                      >
                         {item.cartProduct.title}
                       </a>
                       <span> has been moved to Saved for Later.</span>
