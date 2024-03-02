@@ -1,5 +1,7 @@
 import { useEffect, useContext, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import { useNavigate } from "react-router-dom";
+
 import cartDeleteRequest from "@src/utils/CartDeleteRequest";
 
 import { TCartProducts } from "@src/@types/RequestTypes";
@@ -16,7 +18,6 @@ export function CartPage() {
   const [selectSavedProduct, setSelectSavedProduct] = useState<string[]>([]);
   const [productId, setProductId] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [quantity, setQuantity] = useState<number>(1);
 
   async function getCartProducts() {
     try {
@@ -42,6 +43,8 @@ export function CartPage() {
   }
 
   const token = localStorage.getItem("access_token");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getCartProducts();
@@ -101,11 +104,19 @@ export function CartPage() {
             {cartProducts?.map((item) => {
               return !selectSavedProduct.includes(item.id) ? (
                 <div key={item.cartProduct.id} className="cart-product">
-                  <span className="cart-product-image">
+                  <span
+                    onClick={() => navigate(`/products/${item.cartProduct.id}`)}
+                    className="cart-product-image"
+                  >
                     <img src={item.cartProduct.image} alt="Product-image" />
                   </span>
                   <div className="cart-product-info">
-                    <p className="cart-product-title">
+                    <p
+                      onClick={() =>
+                        navigate(`/products/${item.cartProduct.id}`)
+                      }
+                      className="cart-product-title"
+                    >
                       {item.cartProduct.title}
                     </p>
                     <span className="in-stock-text">In Stock</span>
