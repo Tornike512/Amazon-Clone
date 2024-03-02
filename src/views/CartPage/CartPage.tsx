@@ -1,6 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 
 import cartDeleteRequest from "@src/utils/CartDeleteRequest";
 
@@ -18,7 +18,10 @@ export function CartPage() {
   const [selectSavedProduct, setSelectSavedProduct] = useState<string[]>([]);
   const [productId, setProductId] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [pricesList, setPricesList] = useState<number[]>([]);
+  const [subtraction, setSubtraction] = useState<number>(() => {
+    const storedSubtraction = localStorage.getItem("subtraction");
+    return storedSubtraction ? JSON.parse(storedSubtraction) : 0;
+  });
 
   async function getCartProducts() {
     try {
@@ -49,6 +52,12 @@ export function CartPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    localStorage.setItem("subtraction", JSON.stringify(subtraction));
+  }, [subtraction]);
+
+  const storageSubtraction = localStorage.getItem("subtraction");
+
+  useEffect(() => {
     getCartProducts();
   }, []);
 
@@ -77,6 +86,7 @@ export function CartPage() {
     } finally {
     }
   }
+  console.log(subtraction, "subtracton");
 
   if (loading) {
     return <div>loading</div>;
@@ -152,8 +162,11 @@ export function CartPage() {
                           if (selectSavedProduct.includes(item.id)) {
                             setSaveForLater(true);
                           }
-                          setSubtotal(subtotal - item.cartProduct.salePrice);
-                          setCountProducts(countProducts - 1);
+                          setSubtraction(
+                            (prevSubtraction) =>
+                              prevSubtraction -
+                              item.cartProduct.salePrice * item.count
+                          );
                         }}
                         className="save-for-later"
                       >
@@ -172,7 +185,7 @@ export function CartPage() {
             <span className="cart-product-subtotal">
               Subtotal ({countProducts}{" "}
               {countProducts > 1 ? <>items</> : <>item</>}):
-              <h5>{`$${subtotal}.99`}</h5>
+              <h5>{`$${subtraction}.99`}</h5>
             </span>
           </div>
         </div>
@@ -215,6 +228,11 @@ export function CartPage() {
                           prev.filter((productId) => productId !== item.id)
                         );
                       }
+                      setSubtraction(
+                        (prevSubtraction) =>
+                          prevSubtraction +
+                          item.cartProduct.salePrice * item.count
+                      );
                     }}
                     className="move-to-cart"
                   >
@@ -242,7 +260,7 @@ export function CartPage() {
       <div className="subtotal">
         <span className="subtotal-price">
           Subtotal ({countProducts} {countProducts > 1 ? <>items</> : <>item</>}
-          ): <h3>{`$${subtotal}.99`}</h3>
+          ): <h3>{`$${subtraction}.99`}</h3>
         </span>
         <button className="checkout">Proceed to checkout</button>
       </div>
