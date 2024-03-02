@@ -47,7 +47,12 @@ export function CartPage() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("saved products", JSON.stringify(selectSavedProduct));
+    setTimeout(() => {
+      localStorage.setItem(
+        "saved products",
+        JSON.stringify(selectSavedProduct)
+      );
+    }, 1000);
   }, [selectSavedProduct]);
 
   useEffect(() => {
