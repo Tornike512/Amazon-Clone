@@ -201,7 +201,9 @@ export function OneProductPage() {
 
         <div className="sponsored-ad">
           <div
-            onClick={() => firstSponsoredNav()}
+            onClick={() => {
+              firstSponsoredNav();
+            }}
             className="sponsored-item-spacing"
           >
             <span className="sponsored-item">

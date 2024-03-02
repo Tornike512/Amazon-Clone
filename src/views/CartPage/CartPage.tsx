@@ -16,6 +16,7 @@ export function CartPage() {
   const [selectSavedProduct, setSelectSavedProduct] = useState<string[]>([]);
   const [productId, setProductId] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [quantity, setQuantity] = useState<number>(1);
 
   async function getCartProducts() {
     try {
@@ -54,8 +55,6 @@ export function CartPage() {
       );
     }, 1000);
   }, [selectSavedProduct]);
-
-  console.log(productId, "productiq");
 
   useEffect(() => {
     const savedProducts = JSON.parse(
@@ -111,17 +110,9 @@ export function CartPage() {
                     </p>
                     <span className="in-stock-text">In Stock</span>
                     <span className="cart-quantity">
-                      <select
-                        className="select-quantity"
-                        name="quantity"
-                        id="quantity"
-                      >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                      </select>
+                      <span className="product-quantity">
+                        Quantity: {item.count}
+                      </span>
                       <span
                         onClick={() => {
                           deleteCartProduct(item.id);

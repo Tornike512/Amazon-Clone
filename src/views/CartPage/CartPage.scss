@@ -75,13 +75,8 @@
             .cart-quantity {
               margin-top: 75px;
 
-              .select-quantity {
-                @include selectStyle;
-                margin-right: 25px;
-              }
-
-              .select-quantity:focus {
-                @include selectStyleFocus;
+              .product-quantity {
+                font-size: 15px;
               }
 
               .delete-cart-product {
