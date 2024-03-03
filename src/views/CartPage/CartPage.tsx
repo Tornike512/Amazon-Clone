@@ -1,6 +1,6 @@
 import { useEffect, useContext, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import cartDeleteRequest from "@src/utils/CartDeleteRequest";
 
@@ -22,6 +22,8 @@ export function CartPage() {
     const storedSubtraction = localStorage.getItem("subtraction");
     return storedSubtraction ? JSON.parse(storedSubtraction) : 0;
   });
+
+  const { countCartProducts, setCountCartProducts } = useContext(GlobalContext);
 
   async function getCartProducts() {
     try {
@@ -50,6 +52,15 @@ export function CartPage() {
   const token = localStorage.getItem("access_token");
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem(
+      "header cart count",
+      JSON.stringify(countCartProducts)
+    );
+  }, [countCartProducts]);
+
+  setCountCartProducts(countProducts - selectSavedProduct.length);
 
   useEffect(() => {
     localStorage.setItem("subtraction", JSON.stringify(subtraction));
@@ -84,8 +95,6 @@ export function CartPage() {
     } finally {
     }
   }
-
-  console.log(countProducts);
 
   if (loading) {
     return <div>loading</div>;

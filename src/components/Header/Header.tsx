@@ -27,6 +27,7 @@ interface TCategories {
 
 export function Header() {
   const [categories, setCategories] = useState<TCategories[]>([]);
+  const [loader, setLoader] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -43,6 +44,10 @@ export function Header() {
 
   useEffect(() => {
     getCategories();
+    setTimeout(() => {
+      setLoader(true);
+    }, 1000);
+    setLoader(false);
   }, []);
 
   const {
@@ -54,6 +59,7 @@ export function Header() {
     languageHover,
     nameInput,
     setCurrentInfo,
+    countCartProducts,
   } = useContext(GlobalContext);
 
   const { toggleLocale } = useContext(LocaleContext);
@@ -173,7 +179,25 @@ export function Header() {
           </div>
           <div onClick={() => navigate("/cart")} className="cart">
             <div className="cart-count">
-              <span>0</span>
+              {authStatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
+                <>
+                  {!loader ? (
+                    <>
+                      <div className="loading">
+                        <div className="loader-spacing">
+                          <span className="loader"></span>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <span>
+                      {!countCartProducts <= 0 && <>{countCartProducts}</>}
+                    </span>
+                  )}
+                </>
+              ) : (
+                <span>0</span>
+              )}
               <img src={cartLogo} alt="Cart Logo" />
             </div>
             <span className="cart-text">Cart</span>

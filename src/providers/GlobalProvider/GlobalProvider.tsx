@@ -20,6 +20,10 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   );
   const [productId, setProductId] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
+  const [countCartProducts, setCountCartProducts] = useState<number>(() => {
+    const countCartItems = localStorage.getItem("header cart count");
+    return countCartItems ? JSON.parse(countCartItems) : 0;
+  });
 
   return (
     <GlobalContext.Provider
@@ -50,6 +54,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setProductId,
         loading,
         setLoading,
+        countCartProducts,
+        setCountCartProducts,
       }}
     >
       {children}
