@@ -22,10 +22,6 @@ export function CartPage() {
     const storedSubtraction = localStorage.getItem("subtraction");
     return storedSubtraction ? JSON.parse(storedSubtraction) : 0;
   });
-  const [subtractProducts, setSubtractProducts] = useState<number>(() => {
-    const subtractedProduct = localStorage.getItem("subtracted product");
-    return subtractedProduct ? JSON.parse(subtractedProduct) : 0;
-  });
 
   async function getCartProducts() {
     try {
@@ -54,15 +50,6 @@ export function CartPage() {
   const token = localStorage.getItem("access_token");
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    localStorage.setItem(
-      "subtracted product",
-      JSON.stringify(subtractProducts)
-    );
-  }, [subtractProducts]);
-
-  console.log(subtractProducts);
 
   useEffect(() => {
     localStorage.setItem("subtraction", JSON.stringify(subtraction));
@@ -179,9 +166,6 @@ export function CartPage() {
                               prevSubtraction -
                               item.cartProduct.salePrice * item.count
                           );
-                          setSubtractProducts(
-                            countProducts - selectSavedProduct.length
-                          );
                         }}
                         className="save-for-later"
                       >
@@ -205,7 +189,9 @@ export function CartPage() {
                 <>item</>
               )}
               ):
-              <h5>{`$${subtotal - -1 * subtraction}.99`}</h5>
+              <h5>{`$${subtotal - -1 * subtraction}${
+                countProducts - selectSavedProduct.length === 0 ? ".00" : ".99"
+              }`}</h5>
             </span>
           </div>
         </div>
@@ -253,7 +239,6 @@ export function CartPage() {
                           prevSubtraction +
                           item.cartProduct.salePrice * item.count
                       );
-                      setSubtractProducts(countProducts + 1);
                     }}
                     className="move-to-cart"
                   >
@@ -286,7 +271,10 @@ export function CartPage() {
           ) : (
             <>item</>
           )}
-          ): <h3>{`$${subtotal - -1 * subtraction}.99`}</h3>
+          ):{" "}
+          <h3>{`$${subtotal - -1 * subtraction}${
+            countProducts - selectSavedProduct.length === 0 ? ".00" : ".99"
+          }`}</h3>
         </span>
         <button className="checkout">Proceed to checkout</button>
       </div>
