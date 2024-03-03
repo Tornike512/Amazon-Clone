@@ -72,6 +72,7 @@ export function OneProductPage() {
 
   useEffect(() => {
     getOneProduct();
+    setProductId(id);
   }, []);
 
   const percentage =
@@ -167,9 +168,9 @@ export function OneProductPage() {
                   setCartAdded(true);
                   setLoader(false);
                 }, 1000);
-                if (id) {
-                  setProductId(id);
-                }
+                // if (id) {
+                //   setProductId(id);
+                // }
               }}
               className="add-to-cart"
             >

@@ -1,9 +1,8 @@
 import { useEffect, useContext, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import fourHalfStars from "@src/assets/four-half-stars.png";
-import fiveStars from "@src/assets/five-stars.png";
 
 import axios from "axios";
 
