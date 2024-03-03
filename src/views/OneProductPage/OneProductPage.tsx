@@ -26,6 +26,12 @@ export function OneProductPage() {
     setLoading,
     products,
     setProducts,
+    countCartProducts,
+    setCountCartProducts,
+    subtotal,
+    setSubtotal,
+    countProducts,
+    setCountProducts,
   } = useContext(GlobalContext);
 
   const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
@@ -69,6 +75,7 @@ export function OneProductPage() {
       setLoading(false);
     }
   }
+  console.log(countCartProducts);
 
   useEffect(() => {
     getOneProduct();
@@ -82,6 +89,7 @@ export function OneProductPage() {
   async function addToCart() {
     try {
       await cartPostRequest(productId, token);
+      setCountCartProducts(countCartProducts + 1);
     } catch (error) {
       console.log("Error Loading Cart Products", error);
     }
@@ -168,9 +176,6 @@ export function OneProductPage() {
                   setCartAdded(true);
                   setLoader(false);
                 }, 1000);
-                // if (id) {
-                //   setProductId(id);
-                // }
               }}
               className="add-to-cart"
             >

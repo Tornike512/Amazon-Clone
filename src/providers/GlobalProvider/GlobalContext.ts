@@ -32,6 +32,10 @@ interface TGlobalContext {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   countCartProducts: number;
   setCountCartProducts: React.Dispatch<React.SetStateAction<number>>;
+  subtotal: number;
+  setSubtotal: React.Dispatch<React.SetStateAction<number>>;
+  countProducts: number;
+  setCountProducts: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -63,4 +67,8 @@ export const GlobalContext = createContext<TGlobalContext>({
   setLoading: () => {},
   countCartProducts: 0,
   setCountCartProducts: () => {},
+  subtotal: 0,
+  setSubtotal: () => {},
+  countProducts: 0,
+  setCountProducts: () => {},
 });

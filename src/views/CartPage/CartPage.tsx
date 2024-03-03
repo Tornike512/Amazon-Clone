@@ -12,8 +12,6 @@ import "./CartPage.scss";
 
 export function CartPage() {
   const [cartProducts, setCartProducts] = useState<TCartProducts[]>([]);
-  const [subtotal, setSubtotal] = useState<number>(0);
-  const [countProducts, setCountProducts] = useState<number>(0);
   const [saveForLater, setSaveForLater] = useState<boolean>(false);
   const [selectSavedProduct, setSelectSavedProduct] = useState<string[]>([]);
   const [productId, setProductId] = useState<string[]>([]);
@@ -23,7 +21,14 @@ export function CartPage() {
     return storedSubtraction ? JSON.parse(storedSubtraction) : 0;
   });
 
-  const { countCartProducts, setCountCartProducts } = useContext(GlobalContext);
+  const {
+    countCartProducts,
+    setCountCartProducts,
+    subtotal,
+    setSubtotal,
+    countProducts,
+    setCountProducts,
+  } = useContext(GlobalContext);
 
   async function getCartProducts() {
     try {

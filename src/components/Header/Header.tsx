@@ -192,7 +192,7 @@ export function Header() {
                   ) : (
                     <span>
                       {countCartProducts <= 0 ? (
-                        <></>
+                        <>0</>
                       ) : (
                         <>
                           {countCartProducts <= 9 ? (

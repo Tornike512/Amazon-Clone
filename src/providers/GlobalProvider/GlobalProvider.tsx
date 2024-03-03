@@ -19,6 +19,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
     TDeliveryTo_enum.UNITED_KINGDOM
   );
   const [productId, setProductId] = useState<string>("");
+  const [subtotal, setSubtotal] = useState<number>(0);
+  const [countProducts, setCountProducts] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
   const [countCartProducts, setCountCartProducts] = useState<number>(() => {
     const countCartItems = localStorage.getItem("header cart count");
@@ -56,6 +58,10 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setLoading,
         countCartProducts,
         setCountCartProducts,
+        subtotal,
+        setSubtotal,
+        countProducts,
+        setCountProducts,
       }}
     >
       {children}
