@@ -84,7 +84,8 @@ export function CartPage() {
     } finally {
     }
   }
-  console.log(countProducts, "countproducts");
+  console.log(subtraction, "subtraction");
+  console.log(subtotal, "subtotal");
 
   if (loading) {
     return <div>loading</div>;
@@ -183,7 +184,7 @@ export function CartPage() {
             <span className="cart-product-subtotal">
               Subtotal ({countProducts}{" "}
               {countProducts > 1 ? <>items</> : <>item</>}):
-              <h5>{`$${subtraction}.99`}</h5>
+              <h5>{`$${subtotal - -1 * subtraction}.99`}</h5>
             </span>
           </div>
         </div>
@@ -258,7 +259,7 @@ export function CartPage() {
       <div className="subtotal">
         <span className="subtotal-price">
           Subtotal ({countProducts} {countProducts > 1 ? <>items</> : <>item</>}
-          ): <h3>{`$${subtraction}.99`}</h3>
+          ): <h3>{`$${subtotal - -1 * subtraction}.99`}</h3>
         </span>
         <button className="checkout">Proceed to checkout</button>
       </div>
