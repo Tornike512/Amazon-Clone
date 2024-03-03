@@ -191,7 +191,17 @@ export function Header() {
                     </>
                   ) : (
                     <span>
-                      {!countCartProducts <= 0 && <>{countCartProducts}</>}
+                      {countCartProducts <= 0 ? (
+                        <></>
+                      ) : (
+                        <>
+                          {countCartProducts <= 9 ? (
+                            <>{countCartProducts}</>
+                          ) : (
+                            <div style={{ margin: "-4px" }}>{`9+`}</div>
+                          )}
+                        </>
+                      )}
                     </span>
                   )}
                 </>
