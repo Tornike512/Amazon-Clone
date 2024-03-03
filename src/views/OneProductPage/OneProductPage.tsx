@@ -194,7 +194,9 @@ export function OneProductPage() {
                 <span>Added to Cart</span>
               </span>
             )}
-            <button className="buy-now">Buy Now</button>
+            <button onClick={() => navigate("/purchase")} className="buy-now">
+              Buy Now
+            </button>
             <span className="ships-from">
               <span>Ships from</span>
               <span>Amazon.com</span>

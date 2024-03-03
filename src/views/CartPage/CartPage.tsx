@@ -290,7 +290,9 @@ export function CartPage() {
             countProducts - selectSavedProduct.length === 0 ? ".00" : ".99"
           }`}</h3>
         </span>
-        <button className="checkout">Proceed to checkout</button>
+        <button onClick={() => navigate("/purchase")} className="checkout">
+          Proceed to checkout
+        </button>
       </div>
     </div>
   );

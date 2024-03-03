@@ -36,7 +36,6 @@ function App() {
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:id" element={<OneProductPage />} />
             <Route path="/cart" element={<CartPage />} />
-            <Route path="/purchase" element={<PurchasePage />} />
           </Route>
           <Route
             path="/sign-in"
@@ -54,6 +53,7 @@ function App() {
               </PublicRoute>
             }
           />
+          <Route path="/purchase" element={<PurchasePage />} />
         </Routes>
       </Suspense>
       <Sidebar />
