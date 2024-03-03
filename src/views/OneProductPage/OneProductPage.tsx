@@ -78,9 +78,11 @@ export function OneProductPage() {
   console.log(countCartProducts);
 
   useEffect(() => {
-    getOneProduct();
-    setProductId(id);
-  }, []);
+    if (id) {
+      getOneProduct();
+      setProductId(id);
+    }
+  }, [id]);
 
   const percentage =
     100 -

@@ -177,7 +177,16 @@ export function Header() {
             <span>Returns</span>
             <p>& Orders</p>
           </div>
-          <div onClick={() => navigate("/cart")} className="cart">
+          <div
+            onClick={() => {
+              if (authStatus === TAuthorizationStatus_Enum.AUTHORIZED) {
+                navigate("/cart");
+              } else {
+                navigate("/sign-in");
+              }
+            }}
+            className="cart"
+          >
             <div className="cart-count">
               {authStatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
                 <>

@@ -18,6 +18,7 @@ const OrderPage = lazy(() => import("./views/OrderPage"));
 const ProductsPage = lazy(() => import("./views/ProductsPage"));
 const OneProductPage = lazy(() => import("./views/OneProductPage"));
 const CartPage = lazy(() => import("./views/CartPage"));
+const PurchasePage = lazy(() => import("./views/PurchasePage"));
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:id" element={<OneProductPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/purchase" element={<PurchasePage />} />
           </Route>
           <Route
             path="/sign-in"
