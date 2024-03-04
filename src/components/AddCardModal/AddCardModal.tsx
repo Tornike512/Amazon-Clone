@@ -1,3 +1,5 @@
+import dates from "./date.json";
+
 import blackCloseIcon from "@src/assets/black-close-icon.png";
 
 import "./AddCardModal.scss";
@@ -25,10 +27,14 @@ export function AddCardModal() {
             <span className="expiration-date">
               <label>Expiration date</label>
               <select className="select-month" id="months">
-                <option value="1">1</option>
+                {dates.months.map((month) => {
+                  return <option value={month}>{month}</option>;
+                })}
               </select>
               <select className="select-year" id="years">
-                <option value="2024">2024</option>
+                {dates.years.map((year) => {
+                  return <option value={year}>{year}</option>;
+                })}
               </select>
             </span>
           </div>
