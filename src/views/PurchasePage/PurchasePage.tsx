@@ -81,6 +81,9 @@ export function PurchasePage() {
                   </span>
                 </span>
               </div>
+              <div className="use-payment-method">
+                <button>Use this payment method</button>
+              </div>
             </div>
           </div>
         </section>
