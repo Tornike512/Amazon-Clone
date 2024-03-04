@@ -1,7 +1,8 @@
 import amazonBlackLogo from "@src/assets/amazon-logo-black.png";
 import lockerIcon from "@src/assets/locker-icon.png";
 import plusIcon from "@src/assets/plus-icon.png";
-import cardImage from "@src/assets/card-image.png";
+import blueCardImage from "@src/assets/blue-card-image.png";
+import redCardImage from "@src/assets/red-card-image.png";
 
 import "./PurchasePage.scss";
 
@@ -59,19 +60,25 @@ export function PurchasePage() {
               </div>
               <div className="current-card">
                 <input type="checkBox" />
-                <img src={cardImage} alt="Card Image" />
+                <img src={redCardImage} alt="Card Image" />
                 <span className="card-info">
                   <span>Visa Gold</span> ending in 3449
                 </span>
                 <span className="card-user">tornike tsagareishvili</span>
                 <span className="card-expire-date">08/2025</span>
               </div>
-              <div>
-                <img src="" alt="Plus Icon" />
-                <img src="" alt="Card IMAGE" />
+              <div className="add-card">
+                <img className="plus-icon" src={plusIcon} alt="Plus Icon" />
+                <img
+                  className="add-card-image"
+                  src={blueCardImage}
+                  alt="Card Image"
+                />
                 <span>
                   <a href="">Add a credit or debit card</a>
-                  Amazon accepts all major credit cards.
+                  <span className="amazon-accepts">
+                    Amazon accepts all major credit cards.
+                  </span>
                 </span>
               </div>
             </div>
