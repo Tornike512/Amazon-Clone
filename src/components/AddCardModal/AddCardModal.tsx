@@ -12,7 +12,7 @@ export function AddCardModal() {
             <img src={blackCloseIcon} alt="Close Image" />
           </button>
         </div>
-        <div className="add-card">
+        <div className="add-card-details">
           <div className="card-details">
             <span className="card-number">
               <label>Card number</label>
@@ -23,11 +23,12 @@ export function AddCardModal() {
               <input />
             </span>
             <span className="expiration-date">
-              <select name="" id="">
-                <option value=""></option>
+              <label>Expiration date</label>
+              <select className="select-month" id="months">
+                <option value="1">1</option>
               </select>
-              <select name="" id="">
-                <option value=""></option>
+              <select className="select-year" id="years">
+                <option value="2024">2024</option>
               </select>
             </span>
           </div>
@@ -46,11 +47,11 @@ export function AddCardModal() {
             <img src="" alt="" />
             <img src="" alt="" />
           </div>
-          <span className="cancel-or-add">
-            <button className="cancel-button">Cancel</button>
-            <button className="add-card-button">Add your card</button>
-          </span>
         </div>
+        <span className="cancel-or-add">
+          <button className="cancel-button">Cancel</button>
+          <button className="add-card-button">Add your card</button>
+        </span>
       </div>
     </div>
   );
