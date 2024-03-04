@@ -1,5 +1,6 @@
 import amazonBlackLogo from "@src/assets/amazon-logo-black.png";
 import lockerIcon from "@src/assets/locker-icon.png";
+import plusIcon from "@src/assets/plus-icon.png";
 
 import "./PurchasePage.scss";
 
@@ -19,7 +20,7 @@ export function PurchasePage() {
       </header>
       <div className="purchase-info">
         <section>
-          <div className="shipping-address-container">
+          <div>
             <h2 className="shipping-address-text">
               <label>1</label> Choose a shipping address
             </h2>
@@ -27,14 +28,14 @@ export function PurchasePage() {
               <h3>Your Addresses</h3>
               <div>
                 <span className="address">
-                  <input type="textbox" />
-                  <span>
-                    tornike tsagareishvili chirgadze 4, tbilisi, T'bilisi, 0108,
-                    Georgia Edit address
+                  <input type="checkBox" />
+                  <span className="filled-address">
+                    <span>tornike tsagareishvili</span> chirgadze 4, tbilisi,
+                    T'bilisi, 0108, Georgia Edit address
                   </span>
                 </span>
                 <span className="add-new-address">
-                  <img src="" alt="Plus Icon" />
+                  <img src={plusIcon} alt="Plus Icon" />
                   <a href="#">Add a new address</a>
                 </span>
               </div>

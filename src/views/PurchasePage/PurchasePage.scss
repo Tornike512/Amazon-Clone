@@ -27,6 +27,7 @@
       .amazon-logo {
         width: 102px;
         height: 31px;
+        cursor: pointer;
       }
 
       .checkout-text {
@@ -43,22 +44,73 @@
   .purchase-info {
     width: 1150px;
     display: flex;
+    justify-content: space-between;
     padding-top: 10px;
 
-    .shipping-address-container {
-      .shipping-address-text {
-        font-size: $font-size-18px;
-        color: #c45500;
+    .shipping-address-text {
+      margin-bottom: 9px;
+      font-size: $font-size-18px;
+      color: #c45500;
 
-        label {
-          margin-right: 10px;
+      label {
+        margin-right: 10px;
+      }
+    }
+
+    .shipping-address {
+      padding: 18px;
+      margin-left: 25px;
+      border: $tertiary-border-color;
+      border-radius: 8px;
+
+      h3 {
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        font-size: $font-size-18px;
+        border-bottom: 1px solid #a1a1a1;
+      }
+
+      .address {
+        width: 730px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #fbd8b4;
+        border-radius: 4px;
+        background-color: #fcf5ee;
+
+        input {
+          margin-right: 6px;
+        }
+
+        .filled-address {
+          font-size: $font-size-14px;
+
+          span {
+            font-weight: bold;
+          }
         }
       }
 
-      .shipping-address {
-        padding: 18px;
-        margin-left: 25px;
-        border: $tertiary-border-color;
+      .add-new-address {
+        display: flex;
+        align-items: center;
+        margin: 9px 0 40px 9px;
+        font-size: $font-size-14px;
+
+        img {
+          width: 15px;
+          margin-right: 5px;
+        }
+
+        a {
+          text-decoration: none;
+          color: $secondary-link-text-color;
+        }
+
+        a:hover {
+          @include linkHoverEffect;
+        }
       }
     }
 
