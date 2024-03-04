@@ -1,3 +1,40 @@
 @import "/src/sass/mixins.scss";
 @import "/src/sass/variables.scss";
 @import "/src/sass/colors.scss";
+
+.purchase-page {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 14px 18px 18px;
+  margin: 0 auto;
+  color: #0f1111;
+
+  .purchase-page-header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(#ffffff, #ececec);
+
+    .amazon-logo {
+      width: 102px;
+      height: 31px;
+    }
+
+    .locker-logo {
+      width: 16px;
+      height: 21px;
+    }
+  }
+
+  .purchase-info {
+    margin-top: 60px;
+  }
+}
