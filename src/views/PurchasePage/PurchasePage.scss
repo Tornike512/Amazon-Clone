@@ -171,12 +171,46 @@
           display: flex;
           justify-content: flex-end;
           padding-bottom: 5px;
+          margin-bottom: 5px;
           border-bottom: $tertiary-border-color;
           font-size: $font-size-14px;
           color: #565959;
 
           .name-on-card-spacing {
             padding-right: 250px;
+          }
+        }
+
+        .current-card {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          border: 1px solid #fbd8b4;
+          border-radius: 4px;
+          font-size: $font-size-14px;
+          background-color: #fcf5ee;
+
+          input {
+            margin-right: 6px;
+          }
+
+          img {
+            width: 36px;
+            margin-right: 6px;
+          }
+
+          .card-info {
+            span {
+              font-weight: bold;
+            }
+          }
+
+          .card-user {
+            padding-left: 125px;
+          }
+
+          .card-expire-date {
+            padding-left: 196px;
           }
         }
       }
