@@ -1,6 +1,7 @@
 import dates from "./date.json";
 
 import blackCloseIcon from "@src/assets/black-close-icon.png";
+import supportedCards from "@src/assets/supported-cards.png";
 
 import "./AddCardModal.scss";
 
@@ -38,20 +39,9 @@ export function AddCardModal() {
               </select>
             </span>
           </div>
-          <div className="acceoted-cards">
+          <div className="accepted-cards">
             <p>Amazon accepts all major credit and debit cards:</p>
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
+            <img src={supportedCards} alt="Supported Cards" />
           </div>
         </div>
         <span className="cancel-or-add">
