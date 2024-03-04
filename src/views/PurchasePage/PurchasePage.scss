@@ -42,6 +42,28 @@
 
   .purchase-info {
     width: 1150px;
+    display: flex;
     padding-top: 10px;
+
+    .shipping-address-container {
+      .shipping-address-text {
+        font-size: $font-size-18px;
+        color: #c45500;
+
+        label {
+          margin-right: 10px;
+        }
+      }
+
+      .shipping-address {
+        padding: 18px;
+        margin-left: 25px;
+        border: $tertiary-border-color;
+      }
+    }
+
+    .buy-container {
+      width: 309px;
+    }
   }
 }

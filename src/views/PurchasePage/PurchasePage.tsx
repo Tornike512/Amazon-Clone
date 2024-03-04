@@ -21,7 +21,7 @@ export function PurchasePage() {
         <section>
           <div className="shipping-address-container">
             <h2 className="shipping-address-text">
-              1 Choose a shipping address
+              <label>1</label> Choose a shipping address
             </h2>
             <div className="shipping-address">
               <h3>Your Addresses</h3>
@@ -84,8 +84,7 @@ export function PurchasePage() {
             <span>$27.83</span>
           </span>
         </section>
-
-        <div className="Add-card-modal">
+        {/* <div className="Add-card-modal">
           <header>
             <div className="card-modal-header-text">
               <span>Add a credit or debit card</span>
@@ -131,7 +130,7 @@ export function PurchasePage() {
               </span>
             </div>
           </header>
-        </div>
+        </div> */}
       </div>
     </div>
   );
