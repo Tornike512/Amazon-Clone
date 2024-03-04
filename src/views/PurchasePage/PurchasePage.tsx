@@ -46,11 +46,14 @@ export function PurchasePage() {
             </div>
           </div>
           <div className="payment-method-container">
-            <h2 className="payment-method-text">2 Choose a payment method </h2>
+            <h2 className="payment-method-text">
+              <label>2</label>
+              Choose a payment method
+            </h2>
             <div className="payment">
               <h3>Your credit and debit cards</h3>
-              <div>
-                <span>Name on card</span>
+              <div className="payment-definition">
+                <span className="name-on-card-spacing">Name on card</span>
                 <span>Expires on</span>
               </div>
               <div>

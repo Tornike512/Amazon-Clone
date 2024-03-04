@@ -142,6 +142,46 @@
       }
     }
 
+    .payment-method-container {
+      .payment-method-text {
+        margin-bottom: 9px;
+        font-size: 18px;
+        color: #c45500;
+
+        label {
+          margin-right: 13px;
+        }
+      }
+
+      .payment {
+        position: relative;
+        padding: 18px 18px 64px 18px;
+        margin-left: 25px;
+        border: $tertiary-border-color;
+        border-radius: 8px;
+
+        h3 {
+          padding-bottom: 5px;
+          margin-bottom: 5px;
+          font-size: $font-size-18px;
+        }
+
+        .payment-definition {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          padding-bottom: 5px;
+          border-bottom: $tertiary-border-color;
+          font-size: $font-size-14px;
+          color: #565959;
+
+          .name-on-card-spacing {
+            padding-right: 250px;
+          }
+        }
+      }
+    }
+
     .buy-container {
       width: 309px;
     }
