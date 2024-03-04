@@ -278,6 +278,74 @@
 
     .buy-container {
       width: 309px;
+      height: 283px;
+      display: flex;
+      flex-direction: column;
+      padding: 14px 18px;
+      border: $tertiary-border-color;
+      border-radius: 8px;
+
+      .buy-button {
+        padding: 11px 65px;
+        border: none;
+        border-radius: 8px;
+        font-size: 13px;
+        background-color: $primary-button-color;
+        box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
+        cursor: pointer;
+      }
+
+      .buy-button:hover {
+        background-color: $primary-button-hover-color;
+      }
+
+      .choose-payment-text {
+        padding: 10px 0;
+        font-size: $font-size-12px;
+        text-align: center;
+        border-bottom: $tertiary-border-color;
+        color: #565959;
+      }
+
+      h3 {
+        padding-top: 10px;
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+
+      .order-items {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: $font-size-12px;
+        color: #0f1111;
+      }
+
+      .shipping-handling {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: $font-size-12px;
+        color: #0f1111;
+      }
+
+      .total-tax {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 8px;
+        border-bottom: $tertiary-border-color;
+        font-size: $font-size-12px;
+        color: #0f1111;
+      }
+
+      .order-total {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #b12704;
+      }
     }
   }
 }

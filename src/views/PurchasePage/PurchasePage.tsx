@@ -88,17 +88,17 @@ export function PurchasePage() {
           </div>
         </section>
         <section className="buy-container">
-          <button className="buy-button">Use this payment method</button>
+          <button className="buy-button">Place your order in USD</button>
           <p className="choose-payment-text">
-            Choose a payment method to continue checking out. You'll still have
-            a chance to review and edit your order before it's final.
+            By placing your order, you agree to Amazon's privacy notice and
+            conditions of use.
           </p>
           <h3>Order summary</h3>
           <span className="order-items">
-            <span>items:</span>
+            <span>Subtotal (9 items): </span>
             <span>$14.44</span>
           </span>
-          <span className="shopping-handling">
+          <span className="shipping-handling">
             <span>Shipping & handling:</span>
             <span>$13.39</span>
           </span>
