@@ -41,7 +41,7 @@ export function AddCardModal() {
           </div>
           <div className="accepted-cards">
             <p>Amazon accepts all major credit and debit cards:</p>
-            <img src={supportedCards} alt="Supported Cards" />
+            <img src={supportedCards} alt="Supported Cardss" />
           </div>
         </div>
         <span className="cancel-or-add">

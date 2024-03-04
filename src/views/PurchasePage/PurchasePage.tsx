@@ -1,4 +1,5 @@
 import { AddCardModal } from "@src/components/AddCardModal";
+import { AddAddressModal } from "@src/components/AddAddressModal";
 
 import amazonBlackLogo from "@src/assets/amazon-logo-black.png";
 import lockerIcon from "@src/assets/locker-icon.png";
@@ -116,7 +117,8 @@ export function PurchasePage() {
           </section>
         </div>
       </div>
-      <AddCardModal />
+      <AddAddressModal />
+      {/* <AddCardModal /> */}
     </div>
   );
 }
