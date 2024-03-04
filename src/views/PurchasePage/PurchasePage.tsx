@@ -19,20 +19,44 @@ export function PurchasePage() {
       </header>
       <div className="purchase-info">
         <section>
-          <h1 className="payment-method-text">2 Choose a payment method </h1>
-          <div className="payment">
-            <h2>Your credit and debit cards</h2>
-            <div>
-              <span>Name on card</span>
-              <span>Expires on</span>
+          <div className="shipping-address-container">
+            <h2 className="shipping-address-text">
+              1 Choose a shipping address
+            </h2>
+            <div className="shipping-address">
+              <h3>Your Addresses</h3>
+              <div>
+                <span className="address">
+                  <input type="textbox" />
+                  <span>
+                    tornike tsagareishvili chirgadze 4, tbilisi, T'bilisi, 0108,
+                    Georgia Edit address
+                  </span>
+                </span>
+                <span className="add-new-address">
+                  <img src="" alt="Plus Icon" />
+                  <a href="#">Add a new address</a>
+                </span>
+              </div>
+              <button>Use this address</button>
             </div>
-            <div>
-              <img src="" alt="Plus Icon" />
-              <img src="" alt="Card Icon" />
-              <span>
-                <a href="">Add a credit or debit card</a>
-                Amazon accepts all major credit cards.
-              </span>
+          </div>
+          <div className="payment-method-container">
+            <h2 className="payment-method-text">2 Choose a payment method </h2>
+            <div className="payment">
+              <h3>Your credit and debit cards</h3>
+              <div>
+                <span>Name on card</span>
+                <span>Expires on</span>
+              </div>
+              <div>
+                <img src="" alt="Plus Icon" />
+                <img src="" alt="Card Icon" />
+                <span>
+                  <a href="">Add a credit or debit card</a>
+                  Amazon accepts all major credit cards.
+                </span>
+              </div>
             </div>
           </div>
         </section>
