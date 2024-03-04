@@ -7,9 +7,15 @@ export function PurchasePage() {
   return (
     <div className="purchase-page">
       <header className="purchase-page-header">
-        <img className="amazon-logo" src={amazonBlackLogo} alt="Amazon Logo" />
-        <span className="checkout-text">Checkout x items</span>
-        <img className="locker-logo" src={lockerIcon} alt="Locker Logo" />
+        <span className="purchase-header-spacing">
+          <img
+            className="amazon-logo"
+            src={amazonBlackLogo}
+            alt="Amazon Logo"
+          />
+          <span className="checkout-text">Checkout x items</span>
+          <img className="locker-logo" src={lockerIcon} alt="Locker Logo" />
+        </span>
       </header>
       <div className="purchase-info">
         <section>
