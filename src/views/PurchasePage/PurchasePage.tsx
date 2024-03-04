@@ -39,7 +39,10 @@ export function PurchasePage() {
                   <a href="#">Add a new address</a>
                 </span>
               </div>
-              <button>Use this address</button>
+
+              <div className="use-this-address">
+                <button>Use this address</button>
+              </div>
             </div>
           </div>
           <div className="payment-method-container">
