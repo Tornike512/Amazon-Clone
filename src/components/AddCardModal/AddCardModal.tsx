@@ -51,6 +51,7 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
           <button className="add-card-button">Add your card</button>
         </span>
       </div>
+      <div onClick={closeModal} className="modal-background"></div>
     </div>
   );
 }
