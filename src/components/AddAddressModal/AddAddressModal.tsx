@@ -23,20 +23,20 @@ export function AddAddressModal() {
               <label>Phone number</label>
               <input type="text" />
             </div>
-            <label>Address</label>
-            <input
-              className="address-input"
-              type="text"
-              placeholder="Street address or P.O. Box"
-            />
-            <span>
-              <label>City</label>
-              <label>ZIP Code</label>
-            </span>
-            <span>
-              <input className="city-input" type="text" />
-              <input className="zip-code-input" type="text" />
-            </span>
+            <div className="address-input">
+              <label>Address</label>
+              <input type="text" placeholder="Street address or P.O. Box" />
+            </div>
+            <div className="city-zip-spacing">
+              <span className="city-zip-label">
+                <label className="city-label">City</label>
+                <label>ZIP Code</label>
+              </span>
+              <span>
+                <input className="city-input" type="text" />
+                <input className="zip-code-input" type="text" />
+              </span>
+            </div>
             <button className="use-address-button">Use this address</button>
           </form>
         </div>
