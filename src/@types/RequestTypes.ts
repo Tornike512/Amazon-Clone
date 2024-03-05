@@ -34,3 +34,11 @@ export interface TCartProducts {
   product_id: string;
   user_id: string;
 }
+
+export interface TPurchaseInfo {
+  fullName: string;
+  phoneNumber: string;
+  address: string;
+  city: string;
+  zipCode: string;
+}

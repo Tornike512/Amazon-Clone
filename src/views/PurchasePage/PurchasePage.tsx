@@ -11,15 +11,25 @@ import plusIcon from "@src/assets/plus-icon.png";
 import blueCardImage from "@src/assets/blue-card-image.png";
 import redCardImage from "@src/assets/red-card-image.png";
 
+import { TPurchaseInfo } from "@src/@types/RequestTypes";
+
 import "./PurchasePage.scss";
 
 export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
+  const [purchaseInfo, setPurchaseInfo] = useState<TPurchaseInfo[]>([]);
 
   const navigate = useNavigate();
 
-  const itemCount = localStorage.getItem("header cart count");
+  const itemCount = parseInt(
+    localStorage.getItem("header cart count") ?? "0",
+    10
+  );
+
+  console.log(purchaseInfo);
+
+  localStorage.setItem("purchase info", purchaseInfo);
 
   return (
     <div>
@@ -139,7 +149,15 @@ export function PurchasePage() {
         </div>
       </div>
       {addressModal && (
-        <AddAddressModal closeModal={() => setAddressModal(false)} />
+        <AddAddressModal
+          setFullName={fullName}
+          setPhoneNumber={phoneNumber}
+          setAddress={setAddress}
+          setCity={setCity}
+          setZipCode={setZipCode}
+          setPurchaseInfo={setPurchaseInfo}
+          closeModal={() => setAddressModal(false)}
+        />
       )}
       {cardModal && <AddCardModal closeModal={() => setCardModal(false)} />}
     </div>
