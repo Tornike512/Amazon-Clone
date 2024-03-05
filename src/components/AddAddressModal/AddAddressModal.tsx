@@ -37,7 +37,9 @@ export function AddAddressModal() {
                 <input className="zip-code-input" type="text" />
               </span>
             </div>
-            <button className="use-address-button">Use this address</button>
+            <div className="use-address-button">
+              <button>Use this address</button>
+            </div>
           </form>
         </div>
       </div>
