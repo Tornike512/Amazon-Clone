@@ -32,6 +32,11 @@
 
       .checkout-text {
         font-size: 28px;
+
+        a {
+          color: $secondary-link-text-color;
+          cursor: pointer;
+        }
       }
 
       .locker-logo {

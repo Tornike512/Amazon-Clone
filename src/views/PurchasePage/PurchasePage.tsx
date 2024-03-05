@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import { AddCardModal } from "@src/components/AddCardModal";
 import { AddAddressModal } from "@src/components/AddAddressModal";
@@ -15,17 +17,28 @@ export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
 
+  const navigate = useNavigate();
+
+  const itemCount = localStorage.getItem("header cart count");
+
   return (
     <div>
       <div className="purchase-page">
         <header className="purchase-page-header">
           <span className="purchase-header-spacing">
             <img
+              onClick={() => navigate("/")}
               className="amazon-logo"
               src={amazonBlackLogo}
               alt="Amazon Logo"
             />
-            <span className="checkout-text">Checkout x items</span>
+            <span className="checkout-text">
+              Checkout{" "}
+              <a onClick={() => navigate("/cart")}>
+                ({itemCount}{" "}
+                {itemCount === 0 || itemCount === 1 ? <>item</> : <>items</>})
+              </a>
+            </span>
             <img className="locker-logo" src={lockerIcon} alt="Locker Logo" />
           </span>
         </header>
@@ -42,7 +55,7 @@ export function PurchasePage() {
                     <input type="checkBox" />
                     <span className="filled-address">
                       <span>tornike tsagareishvili</span> chirgadze 4, tbilisi,
-                      T'bilisi, 0108, Georgia Edit address
+                      T'bilisi, 0108, Georgia
                     </span>
                   </span>
                   <span
