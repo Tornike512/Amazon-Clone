@@ -11,10 +11,11 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: rgb(0 0 0 / 40%);
 
   .add-address {
     width: 720px;
+    position: absolute;
+    z-index: 1;
     border-radius: 11px;
     background-color: #ffffff;
 
@@ -204,5 +205,14 @@
         }
       }
     }
+  }
+
+  .modal-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
   }
 }

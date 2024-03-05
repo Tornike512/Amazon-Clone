@@ -43,6 +43,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
           </form>
         </div>
       </div>
+      <div onClick={closeModal} className="modal-background"></div>
     </div>
   );
 }
