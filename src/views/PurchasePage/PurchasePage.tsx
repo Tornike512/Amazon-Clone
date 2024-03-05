@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { AddCardModal } from "@src/components/AddCardModal";
 import { AddAddressModal } from "@src/components/AddAddressModal";
 
@@ -10,6 +12,9 @@ import redCardImage from "@src/assets/red-card-image.png";
 import "./PurchasePage.scss";
 
 export function PurchasePage() {
+  const [addressModal, setAddressModal] = useState<boolean>(false);
+  const [cardModal, setCardModal] = useState<boolean>(false);
+
   return (
     <div>
       <div className="purchase-page">
@@ -40,7 +45,10 @@ export function PurchasePage() {
                       T'bilisi, 0108, Georgia Edit address
                     </span>
                   </span>
-                  <span className="add-new-address">
+                  <span
+                    onClick={() => setAddressModal(true)}
+                    className="add-new-address"
+                  >
                     <img src={plusIcon} alt="Plus Icon" />
                     <a href="#">Add a new address</a>
                   </span>
@@ -71,7 +79,7 @@ export function PurchasePage() {
                   <span className="card-user">tornike tsagareishvili</span>
                   <span className="card-expire-date">08/2025</span>
                 </div>
-                <div className="add-card">
+                <div onClick={() => setCardModal(true)} className="add-card">
                   <img className="plus-icon" src={plusIcon} alt="Plus Icon" />
                   <img
                     className="add-card-image"
@@ -117,8 +125,10 @@ export function PurchasePage() {
           </section>
         </div>
       </div>
-      <AddAddressModal />
-      {/* <AddCardModal /> */}
+      {addressModal && (
+        <AddAddressModal closeModal={() => setAddressModal(false)} />
+      )}
+      {cardModal && <AddCardModal closeModal={() => setCardModal(false)} />}
     </div>
   );
 }

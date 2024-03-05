@@ -2,13 +2,13 @@ import blackCloseIcon from "@src/assets/black-close-icon.png";
 
 import "./AddAddressModal.scss";
 
-export function AddAddressModal() {
+export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
   return (
     <div className="add-address-modal">
       <div className="add-address">
         <div className="address-modal-header">
           <span>Enter a new shipping address</span>
-          <button className="close-modal">
+          <button onClick={closeModal} className="close-modal">
             <img src={blackCloseIcon} alt="Close Image" />
           </button>
         </div>

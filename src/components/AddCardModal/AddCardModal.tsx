@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import dates from "./date.json";
 
 import blackCloseIcon from "@src/assets/black-close-icon.png";
@@ -5,13 +7,13 @@ import supportedCards from "@src/assets/supported-cards.png";
 
 import "./AddCardModal.scss";
 
-export function AddCardModal() {
+export function AddCardModal({ closeModal }: { closeModal: () => void }) {
   return (
     <div className="add-card-modal">
       <div className="add-card">
         <div className="card-modal-header">
           <span>Add a credit or debit card</span>
-          <button className="close-modal">
+          <button onClick={closeModal} className="close-modal">
             <img src={blackCloseIcon} alt="Close Image" />
           </button>
         </div>
