@@ -47,7 +47,9 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
           </div>
         </div>
         <span className="cancel-or-add">
-          <button className="cancel-button">Cancel</button>
+          <button onClick={closeModal} className="cancel-button">
+            Cancel
+          </button>
           <button className="add-card-button">Add your card</button>
         </span>
       </div>
