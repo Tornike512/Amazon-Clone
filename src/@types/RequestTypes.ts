@@ -35,7 +35,7 @@ export interface TCartProducts {
   user_id: string;
 }
 
-export interface TPurchaseInfo {
+export interface TPurchaseAddressInfo {
   fullName: string;
   phoneNumber: string;
   address: string;

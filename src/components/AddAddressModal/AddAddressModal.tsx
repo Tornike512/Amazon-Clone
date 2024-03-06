@@ -1,33 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import blackCloseIcon from "@src/assets/black-close-icon.png";
 
-import { TPurchaseInfo } from "@src/@types/RequestTypes";
-
 import "./AddAddressModal.scss";
 
-export function AddAddressModal({
-  closeModal,
-  setFullName,
-  setPhoneNumber,
-  setAddress,
-  setCity,
-  setZipCode,
-  setPurchaseInfo,
-}: {
-  closeModal: () => void;
-  setFullName: (fullName: string) => void;
-  setPhoneNumber: (phoneNumber: string) => void;
-  setAddress: (address: string) => void;
-  setCity: (city: string) => void;
-  setZipCode: (zipCode: string) => void;
-  setPurchaseInfo: (info: TPurchaseInfo[]) => void;
-}) {
-  const [fullNameInput, setFullNameInput] = useState<string>("");
-  const [phoneNumberInput, setPHoneNumberInput] = useState<string>("");
-  const [addressInput, setAddressInput] = useState<string>("");
-  const [cityInput, setCityInput] = useState<string>("");
-  const [zipCodeInput, setZipCodeInput] = useState<string>("");
+export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
+  const {
+    setAddressInput,
+    setCityInput,
+    setZipCodeInput,
+    setFullNameInput,
+    setPhoneNumberInput,
+  } = useContext(GlobalContext);
 
   return (
     <div className="add-address-modal">
@@ -46,7 +31,6 @@ export function AddAddressModal({
               <input
                 onChange={(e) => {
                   setFullNameInput(e.target.value);
-                  setFullName(e.target.value);
                 }}
                 type="text"
               />
@@ -55,8 +39,7 @@ export function AddAddressModal({
               <label>Phone number</label>
               <input
                 onChange={(e) => {
-                  setPHoneNumberInput(e.target.value);
-                  setPhoneNumber(e.target.value);
+                  setPhoneNumberInput(e.target.value);
                 }}
                 type="text"
               />
@@ -66,7 +49,6 @@ export function AddAddressModal({
               <input
                 onChange={(e) => {
                   setAddressInput(e.target.value);
-                  setAddress(e.target.value);
                 }}
                 type="text"
                 placeholder="Street address or P.O. Box"
@@ -81,7 +63,6 @@ export function AddAddressModal({
                 <input
                   onChange={(e) => {
                     setCityInput(e.target.value);
-                    setCity(e.target.value);
                   }}
                   className="city-input"
                   type="text"
@@ -89,7 +70,6 @@ export function AddAddressModal({
                 <input
                   onChange={(e) => {
                     setZipCodeInput(e.target.value);
-                    setZipCode(e.target.value);
                   }}
                   className="zip-code-input"
                   type="text"
@@ -99,20 +79,6 @@ export function AddAddressModal({
             <div className="use-address-button">
               <button
                 onClick={() => {
-                  setFullName(fullNameInput);
-                  setPhoneNumber(phoneNumberInput);
-                  setAddress(addressInput);
-                  setCity(cityInput);
-                  setZipCode(zipCodeInput);
-                  setPurchaseInfo([
-                    {
-                      fullName: fullNameInput,
-                      phoneNumber: phoneNumberInput,
-                      address: addressInput,
-                      city: cityInput,
-                      zipCode: zipCodeInput,
-                    },
-                  ]);
                   closeModal();
                 }}
               >

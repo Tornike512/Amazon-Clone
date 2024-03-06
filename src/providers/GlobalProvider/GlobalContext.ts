@@ -36,6 +36,16 @@ interface TGlobalContext {
   setSubtotal: React.Dispatch<React.SetStateAction<number>>;
   countProducts: number;
   setCountProducts: React.Dispatch<React.SetStateAction<number>>;
+  fullNameInput: string;
+  setFullNameInput: React.Dispatch<React.SetStateAction<string>>;
+  phoneNumberInput: string;
+  setPhoneNumberInput: React.Dispatch<React.SetStateAction<string>>;
+  addressInput: string;
+  setAddressInput: React.Dispatch<React.SetStateAction<string>>;
+  cityInput: string;
+  setCityInput: React.Dispatch<React.SetStateAction<string>>;
+  zipCodeInput: string;
+  setZipCodeInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -71,4 +81,14 @@ export const GlobalContext = createContext<TGlobalContext>({
   setSubtotal: () => {},
   countProducts: 0,
   setCountProducts: () => {},
+  addressInput: "",
+  setAddressInput: () => {},
+  phoneNumberInput: "",
+  setPhoneNumberInput: () => {},
+  cityInput: "",
+  setCityInput: () => {},
+  zipCodeInput: "",
+  setZipCodeInput: () => {},
+  fullNameInput: "",
+  setFullNameInput: () => {},
 });
