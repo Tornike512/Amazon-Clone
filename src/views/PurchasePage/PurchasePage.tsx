@@ -12,11 +12,12 @@ import blueCardImage from "@src/assets/blue-card-image.png";
 import redCardImage from "@src/assets/red-card-image.png";
 
 import "./PurchasePage.scss";
+import { info } from "sass";
+import { update } from "react-spring";
 
 export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
-  const [currentAddress, setCurrentAddress] = useState<string>("");
 
   const { infoArray, setInfoArray } = useContext(GlobalContext);
 
@@ -36,8 +37,10 @@ export function PurchasePage() {
 
   const removeAddress = (id: string) => {
     setInfoArray((prev) => prev.filter((address) => address.id !== id));
+
+    const updatedInfoArray = infoArray.filter((address) => address.id !== id);
+    localStorage.setItem("infoArray", JSON.stringify(updatedInfoArray));
   };
-  console.log(removeAddress);
 
   return (
     <div>
