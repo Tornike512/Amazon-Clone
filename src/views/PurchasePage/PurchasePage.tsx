@@ -16,6 +16,7 @@ import "./PurchasePage.scss";
 export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
+  const [currentAddress, setCurrentAddress] = useState<string>("");
 
   const { infoArray, setInfoArray } = useContext(GlobalContext);
 
@@ -32,6 +33,11 @@ export function PurchasePage() {
       setInfoArray(JSON.parse(infoArray));
     }
   }, [setInfoArray]);
+
+  const removeAddress = (id: string) => {
+    setInfoArray((prev) => prev.filter((address) => address.id !== id));
+  };
+  console.log(removeAddress);
 
   return (
     <div>
@@ -72,7 +78,12 @@ export function PurchasePage() {
                           {info.cityInput}, {info.zipCodeInput}
                         </span>
                         <div className="remove-edit">
-                          <span className="remove">Remove</span>
+                          <span
+                            onClick={() => removeAddress(info.id)}
+                            className="remove"
+                          >
+                            Remove
+                          </span>
                           <span className="edit">Edit</span>
                         </div>
                       </span>
