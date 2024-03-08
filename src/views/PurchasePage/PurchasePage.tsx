@@ -65,7 +65,7 @@ export function PurchasePage() {
                 <div>
                   {infoArray.map((info) => {
                     return (
-                      <span className="address">
+                      <span key={info.id} className="address">
                         <input type="checkBox" />
                         <span className="filled-address">
                           <span>{info.fullNameInput}</span> {info.addressInput},{" "}

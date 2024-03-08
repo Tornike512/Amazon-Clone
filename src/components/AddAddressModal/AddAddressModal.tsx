@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import blackCloseIcon from "@src/assets/black-close-icon.png";
@@ -13,6 +14,8 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
   const [zipCodeInput, setZipCodeInput] = useState<string>("");
 
   const { infoArray, setInfoArray } = useContext(GlobalContext);
+
+  const uniqueId = uuidv4();
 
   function handleInfo() {
     setAddressInput(addressInput);
@@ -31,6 +34,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
       setInfoArray((infoArray) => [
         ...infoArray,
         {
+          id: uniqueId,
           addressInput: addressInput,
           fullNameInput: fullNameInput,
           phoneNumberInput: phoneNumberInput,

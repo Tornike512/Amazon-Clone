@@ -21,6 +21,7 @@
     "react-spring": "^9.7.3",
     "sas": "^3.0.4",
     "sass": "^1.69.5",
+    "uuid": "^9.0.1",
     "vite-tsconfig-paths": "^4.2.2"
   },
   "devDependencies": {
