@@ -12,12 +12,11 @@ import blueCardImage from "@src/assets/blue-card-image.png";
 import redCardImage from "@src/assets/red-card-image.png";
 
 import "./PurchasePage.scss";
-import { info } from "sass";
-import { update } from "react-spring";
 
 export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
+  const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
   const { infoArray, setInfoArray } = useContext(GlobalContext);
 
@@ -87,20 +86,25 @@ export function PurchasePage() {
                           >
                             Remove
                           </span>
-                          <span className="edit">Edit</span>
+                          <span
+                            onClick={() => {
+                              setIsEditMode(true);
+                            }}
+                            className="edit"
+                          >
+                            Edit
+                          </span>
                         </div>
                       </span>
                     );
                   })}
-                  {Object.keys(infoArray).length < 2 && (
-                    <span
-                      onClick={() => setAddressModal(true)}
-                      className="add-new-address"
-                    >
-                      <img src={plusIcon} alt="Plus Icon" />
-                      <a href="#">Add a new address</a>
-                    </span>
-                  )}
+                  <span
+                    onClick={() => setAddressModal(true)}
+                    className="add-new-address"
+                  >
+                    <img src={plusIcon} alt="Plus Icon" />
+                    <a href="#">Add a new address</a>
+                  </span>
                 </div>
 
                 <div className="use-this-address">
@@ -174,11 +178,12 @@ export function PurchasePage() {
           </section>
         </div>
       </div>
-      {addressModal && (
+      {(addressModal || isEditMode) && (
         <AddAddressModal
           closeModal={() => {
             setTimeout(() => {
               setAddressModal(false);
+              setIsEditMode(false);
             }, 100);
           }}
         />
