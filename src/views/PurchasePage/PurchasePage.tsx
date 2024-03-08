@@ -71,6 +71,10 @@ export function PurchasePage() {
                           <span>{info.fullNameInput}</span> {info.addressInput},{" "}
                           {info.cityInput}, {info.zipCodeInput}
                         </span>
+                        <div className="remove-edit">
+                          <span className="remove">Remove</span>
+                          <span className="edit">Edit</span>
+                        </div>
                       </span>
                     );
                   })}

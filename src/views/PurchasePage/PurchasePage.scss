@@ -78,10 +78,12 @@
       }
 
       .address {
-        width: 730px;
+        width: 750px;
         display: flex;
         align-items: center;
+        position: relative;
         padding: 10px;
+        margin-bottom: 7px;
         border: 1px solid #fbd8b4;
         border-radius: 4px;
         background-color: #fcf5ee;
@@ -95,6 +97,31 @@
 
           span {
             font-weight: bold;
+          }
+        }
+
+        .remove-edit {
+          position: absolute;
+          top: 25%;
+          right: 2%;
+          font-size: $font-size-14px;
+          color: $secondary-link-text-color;
+
+          .edit {
+            cursor: pointer;
+          }
+
+          .edit:hover {
+            @include linkHoverEffect;
+          }
+
+          .remove {
+            padding-right: 5px;
+            cursor: pointer;
+          }
+
+          .remove:hover {
+            @include linkHoverEffect;
           }
         }
       }
