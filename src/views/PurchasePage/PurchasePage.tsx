@@ -25,16 +25,10 @@ export function PurchasePage() {
     zipCodeInput,
     phoneNumberInput,
     fullNameInput,
+    confirmAddress,
   } = useContext(GlobalContext);
 
   const navigate = useNavigate();
-  console.log(
-    addressInput,
-    zipCodeInput,
-    cityInput,
-    phoneNumberInput,
-    fullNameInput
-  );
 
   const itemCount = parseInt(
     localStorage.getItem("header cart count") ?? "0",
@@ -73,10 +67,12 @@ export function PurchasePage() {
                 <div>
                   <span className="address">
                     <input type="checkBox" />
-                    <span className="filled-address">
-                      <span>tornike tsagareishvili</span> chirgadze 4, tbilisi,
-                      T'bilisi, 0108, Georgia
-                    </span>
+                    {confirmAddress && (
+                      <span className="filled-address">
+                        <span>{fullNameInput}</span> {addressInput}, {cityInput}
+                        , {zipCodeInput}
+                      </span>
+                    )}
                   </span>
                   <span
                     onClick={() => setAddressModal(true)}

@@ -7,12 +7,28 @@ import "./AddAddressModal.scss";
 
 export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
   const {
+    addressInput,
     setAddressInput,
+    cityInput,
     setCityInput,
+    zipCodeInput,
     setZipCodeInput,
+    fullNameInput,
     setFullNameInput,
+    phoneNumberInput,
     setPhoneNumberInput,
+    setConfirmAddress,
   } = useContext(GlobalContext);
+
+  function handleInfo() {
+    closeModal();
+    setAddressInput(addressInput);
+    setFullNameInput(fullNameInput);
+    setPhoneNumberInput(phoneNumberInput);
+    setCityInput(cityInput);
+    setZipCodeInput(zipCodeInput);
+    setConfirmAddress(true);
+  }
 
   return (
     <div className="add-address-modal">
@@ -79,7 +95,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
             <div className="use-address-button">
               <button
                 onClick={() => {
-                  closeModal();
+                  handleInfo();
                 }}
               >
                 Use this address
