@@ -21,16 +21,24 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
     setPhoneNumberInput(phoneNumberInput);
     setCityInput(cityInput);
     setZipCodeInput(zipCodeInput);
-    setInfoArray((infoArray) => [
-      ...infoArray,
-      {
-        addressInput: addressInput,
-        fullNameInput: fullNameInput,
-        phoneNumberInput: phoneNumberInput,
-        cityInput: cityInput,
-        zipCodeInput: zipCodeInput,
-      },
-    ]);
+    if (
+      addressInput !== "" ||
+      fullNameInput !== "" ||
+      phoneNumberInput !== "" ||
+      cityInput !== "" ||
+      zipCodeInput !== ""
+    ) {
+      setInfoArray((infoArray) => [
+        ...infoArray,
+        {
+          addressInput: addressInput,
+          fullNameInput: fullNameInput,
+          phoneNumberInput: phoneNumberInput,
+          cityInput: cityInput,
+          zipCodeInput: zipCodeInput,
+        },
+      ]);
+    }
   }
 
   return (
