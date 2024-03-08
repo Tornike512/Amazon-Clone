@@ -1,9 +1,10 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import blackCloseIcon from "@src/assets/black-close-icon.png";
 
 import "./AddAddressModal.scss";
+import { info } from "sass";
 
 export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
   const [fullNameInput, setFullNameInput] = useState<string>("");
@@ -12,10 +13,9 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
   const [cityInput, setCityInput] = useState<string>("");
   const [zipCodeInput, setZipCodeInput] = useState<string>("");
 
-  const { setInfoArray } = useContext(GlobalContext);
+  const { infoArray, setInfoArray } = useContext(GlobalContext);
 
   function handleInfo() {
-    closeModal();
     setAddressInput(addressInput);
     setFullNameInput(fullNameInput);
     setPhoneNumberInput(phoneNumberInput);
@@ -38,8 +38,13 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
           zipCodeInput: zipCodeInput,
         },
       ]);
+      closeModal();
     }
   }
+
+  useEffect(() => {
+    localStorage.setItem("infoArray", JSON.stringify(infoArray));
+  }, [infoArray]);
 
   return (
     <div className="add-address-modal">

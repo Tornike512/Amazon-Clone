@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
@@ -17,7 +17,7 @@ export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
 
-  const { infoArray } = useContext(GlobalContext);
+  const { infoArray, setInfoArray } = useContext(GlobalContext);
 
   const navigate = useNavigate();
 
@@ -25,6 +25,13 @@ export function PurchasePage() {
     localStorage.getItem("header cart count") ?? "0",
     10
   );
+
+  useEffect(() => {
+    const infoArray = localStorage.getItem("infoArray");
+    if (infoArray) {
+      setInfoArray(JSON.parse(infoArray));
+    }
+  }, [setInfoArray]);
 
   return (
     <div>
@@ -148,7 +155,13 @@ export function PurchasePage() {
         </div>
       </div>
       {addressModal && (
-        <AddAddressModal closeModal={() => setAddressModal(false)} />
+        <AddAddressModal
+          closeModal={() => {
+            setTimeout(() => {
+              setAddressModal(false);
+            }, 100);
+          }}
+        />
       )}
       {cardModal && <AddCardModal closeModal={() => setCardModal(false)} />}
     </div>
