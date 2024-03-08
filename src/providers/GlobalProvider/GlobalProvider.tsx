@@ -37,7 +37,7 @@ export function GlobalProvider({ children }: PropsWithChildren) {
       zipCodeInput: string;
     }[]
   >([]);
-  console.log(infoArray);
+  console.log(infoArray, "inputarray");
 
   return (
     <GlobalContext.Provider

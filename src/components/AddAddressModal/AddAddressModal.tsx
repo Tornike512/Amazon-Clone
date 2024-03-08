@@ -4,7 +4,6 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import blackCloseIcon from "@src/assets/black-close-icon.png";
 
 import "./AddAddressModal.scss";
-import { info } from "sass";
 
 export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
   const [fullNameInput, setFullNameInput] = useState<string>("");
@@ -21,6 +20,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
     setPhoneNumberInput(phoneNumberInput);
     setCityInput(cityInput);
     setZipCodeInput(zipCodeInput);
+
     if (
       addressInput !== "" ||
       fullNameInput !== "" ||

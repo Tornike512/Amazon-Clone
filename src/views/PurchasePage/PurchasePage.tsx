@@ -74,13 +74,15 @@ export function PurchasePage() {
                       </span>
                     );
                   })}
-                  <span
-                    onClick={() => setAddressModal(true)}
-                    className="add-new-address"
-                  >
-                    <img src={plusIcon} alt="Plus Icon" />
-                    <a href="#">Add a new address</a>
-                  </span>
+                  {Object.keys(infoArray).length < 2 && (
+                    <span
+                      onClick={() => setAddressModal(true)}
+                      className="add-new-address"
+                    >
+                      <img src={plusIcon} alt="Plus Icon" />
+                      <a href="#">Add a new address</a>
+                    </span>
+                  )}
                 </div>
 
                 <div className="use-this-address">
