@@ -11,23 +11,13 @@ import plusIcon from "@src/assets/plus-icon.png";
 import blueCardImage from "@src/assets/blue-card-image.png";
 import redCardImage from "@src/assets/red-card-image.png";
 
-import { TPurchaseAddressInfo } from "@src/@types/RequestTypes";
-
 import "./PurchasePage.scss";
 
 export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
 
-  const {
-    addressInput,
-    cityInput,
-    zipCodeInput,
-    phoneNumberInput,
-    fullNameInput,
-    confirmAddress,
-    infoArray,
-  } = useContext(GlobalContext);
+  const { infoArray } = useContext(GlobalContext);
 
   const navigate = useNavigate();
 

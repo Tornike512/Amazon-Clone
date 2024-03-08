@@ -6,20 +6,13 @@ import blackCloseIcon from "@src/assets/black-close-icon.png";
 import "./AddAddressModal.scss";
 
 export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
-  const {
-    addressInput,
-    setAddressInput,
-    cityInput,
-    setCityInput,
-    zipCodeInput,
-    setZipCodeInput,
-    fullNameInput,
-    setFullNameInput,
-    phoneNumberInput,
-    setPhoneNumberInput,
-    setConfirmAddress,
-    setInfoArray,
-  } = useContext(GlobalContext);
+  const [fullNameInput, setFullNameInput] = useState<string>("");
+  const [phoneNumberInput, setPhoneNumberInput] = useState<string>("");
+  const [addressInput, setAddressInput] = useState<string>("");
+  const [cityInput, setCityInput] = useState<string>("");
+  const [zipCodeInput, setZipCodeInput] = useState<string>("");
+
+  const { setInfoArray } = useContext(GlobalContext);
 
   function handleInfo() {
     closeModal();
@@ -28,7 +21,6 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
     setPhoneNumberInput(phoneNumberInput);
     setCityInput(cityInput);
     setZipCodeInput(zipCodeInput);
-    setConfirmAddress(true);
     setInfoArray((infoArray) => [
       ...infoArray,
       {

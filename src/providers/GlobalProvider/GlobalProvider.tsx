@@ -28,11 +28,6 @@ export function GlobalProvider({ children }: PropsWithChildren) {
     return countCartItems ? JSON.parse(countCartItems) : 0;
   });
   const [fullNameInput, setFullNameInput] = useState<string>("");
-  const [phoneNumberInput, setPhoneNumberInput] = useState<string>("");
-  const [addressInput, setAddressInput] = useState<string>("");
-  const [cityInput, setCityInput] = useState<string>("");
-  const [zipCodeInput, setZipCodeInput] = useState<string>("");
-  const [confirmAddress, setConfirmAddress] = useState<boolean>(false);
   const [infoArray, setInfoArray] = useState<
     {
       fullNameInput: string;
@@ -79,18 +74,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setSubtotal,
         countProducts,
         setCountProducts,
-        phoneNumberInput,
-        setPhoneNumberInput,
         fullNameInput,
         setFullNameInput,
-        zipCodeInput,
-        setZipCodeInput,
-        cityInput,
-        setCityInput,
-        addressInput,
-        setAddressInput,
-        confirmAddress,
-        setConfirmAddress,
         infoArray,
         setInfoArray,
       }}
