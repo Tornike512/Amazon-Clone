@@ -48,6 +48,24 @@ interface TGlobalContext {
   setZipCodeInput: React.Dispatch<React.SetStateAction<string>>;
   confirmAddress: boolean;
   setConfirmAddress: React.Dispatch<React.SetStateAction<boolean>>;
+  infoArray: {
+    fullNameInput: string;
+    phoneNumberInput: string;
+    addressInput: string;
+    cityInput: string;
+    zipCodeInput: string;
+  }[];
+  setInfoArray: React.Dispatch<
+    React.SetStateAction<
+      {
+        fullNameInput: string;
+        phoneNumberInput: string;
+        addressInput: string;
+        cityInput: string;
+        zipCodeInput: string;
+      }[]
+    >
+  >;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -95,4 +113,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setFullNameInput: () => {},
   confirmAddress: false,
   setConfirmAddress: () => {},
+  infoArray: [],
+  setInfoArray: () => {},
 });

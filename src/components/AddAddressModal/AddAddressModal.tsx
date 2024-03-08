@@ -18,6 +18,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
     phoneNumberInput,
     setPhoneNumberInput,
     setConfirmAddress,
+    setInfoArray,
   } = useContext(GlobalContext);
 
   function handleInfo() {
@@ -28,6 +29,16 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
     setCityInput(cityInput);
     setZipCodeInput(zipCodeInput);
     setConfirmAddress(true);
+    setInfoArray((infoArray) => [
+      ...infoArray,
+      {
+        addressInput: addressInput,
+        fullNameInput: fullNameInput,
+        phoneNumberInput: phoneNumberInput,
+        cityInput: cityInput,
+        zipCodeInput: zipCodeInput,
+      },
+    ]);
   }
 
   return (

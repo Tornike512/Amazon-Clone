@@ -3,6 +3,7 @@ import { GlobalContext } from "./GlobalContext";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 import { TDeliveryTo_enum } from "@src/@types/Enums";
+import { info } from "sass";
 
 export function GlobalProvider({ children }: PropsWithChildren) {
   const [sideBar, setSideBar] = useState(false);
@@ -32,6 +33,16 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   const [cityInput, setCityInput] = useState<string>("");
   const [zipCodeInput, setZipCodeInput] = useState<string>("");
   const [confirmAddress, setConfirmAddress] = useState<boolean>(false);
+  const [infoArray, setInfoArray] = useState<
+    {
+      fullNameInput: string;
+      phoneNumberInput: string;
+      addressInput: string;
+      cityInput: string;
+      zipCodeInput: string;
+    }[]
+  >([]);
+  console.log(infoArray);
 
   return (
     <GlobalContext.Provider
@@ -80,6 +91,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setAddressInput,
         confirmAddress,
         setConfirmAddress,
+        infoArray,
+        setInfoArray,
       }}
     >
       {children}

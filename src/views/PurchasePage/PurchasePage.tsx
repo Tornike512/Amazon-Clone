@@ -26,6 +26,7 @@ export function PurchasePage() {
     phoneNumberInput,
     fullNameInput,
     confirmAddress,
+    infoArray,
   } = useContext(GlobalContext);
 
   const navigate = useNavigate();
@@ -65,15 +66,17 @@ export function PurchasePage() {
               <div className="shipping-address">
                 <h3>Your Addresses</h3>
                 <div>
-                  <span className="address">
-                    <input type="checkBox" />
-                    {confirmAddress && (
-                      <span className="filled-address">
-                        <span>{fullNameInput}</span> {addressInput}, {cityInput}
-                        , {zipCodeInput}
+                  {infoArray.map((info) => {
+                    return (
+                      <span className="address">
+                        <input type="checkBox" />
+                        <span className="filled-address">
+                          <span>{info.fullNameInput}</span> {info.addressInput},{" "}
+                          {info.cityInput}, {info.zipCodeInput}
+                        </span>
                       </span>
-                    )}
-                  </span>
+                    );
+                  })}
                   <span
                     onClick={() => setAddressModal(true)}
                     className="add-new-address"
