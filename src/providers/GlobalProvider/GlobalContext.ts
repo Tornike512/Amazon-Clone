@@ -58,6 +58,10 @@ interface TGlobalContext {
       }[]
     >
   >;
+  isEditMode: boolean;
+  setIsEditMode: React.Dispatch<React.SetStateAction<boolean>>;
+  editCurrentAddress: string;
+  setEditCurrentAddress: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -97,4 +101,8 @@ export const GlobalContext = createContext<TGlobalContext>({
   setFullNameInput: () => {},
   infoArray: [],
   setInfoArray: () => {},
+  isEditMode: false,
+  setIsEditMode: () => {},
+  editCurrentAddress: "",
+  setEditCurrentAddress: () => {},
 });

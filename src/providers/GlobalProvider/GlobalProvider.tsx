@@ -3,7 +3,6 @@ import { GlobalContext } from "./GlobalContext";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 import { TDeliveryTo_enum } from "@src/@types/Enums";
-import { info } from "sass";
 
 export function GlobalProvider({ children }: PropsWithChildren) {
   const [sideBar, setSideBar] = useState(false);
@@ -38,7 +37,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
       zipCodeInput: string;
     }[]
   >([]);
-  console.log(infoArray, "inputarray");
+  const [isEditMode, setIsEditMode] = useState<boolean>(false);
+  const [editCurrentAddress, setEditCurrentAddress] = useState<string>("");
 
   return (
     <GlobalContext.Provider
@@ -79,6 +79,10 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setFullNameInput,
         infoArray,
         setInfoArray,
+        isEditMode,
+        setIsEditMode,
+        editCurrentAddress,
+        setEditCurrentAddress,
       }}
     >
       {children}

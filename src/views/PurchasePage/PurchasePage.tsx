@@ -16,9 +16,14 @@ import "./PurchasePage.scss";
 export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
-  const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
-  const { infoArray, setInfoArray } = useContext(GlobalContext);
+  const {
+    infoArray,
+    setInfoArray,
+    isEditMode,
+    setIsEditMode,
+    setEditCurrentAddress,
+  } = useContext(GlobalContext);
 
   const navigate = useNavigate();
 
@@ -88,6 +93,7 @@ export function PurchasePage() {
                           </span>
                           <span
                             onClick={() => {
+                              setEditCurrentAddress(info.id);
                               setIsEditMode(true);
                             }}
                             className="edit"
