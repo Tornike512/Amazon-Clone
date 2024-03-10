@@ -12,6 +12,7 @@ import blueCardImage from "@src/assets/blue-card-image.png";
 import redCardImage from "@src/assets/red-card-image.png";
 
 import "./PurchasePage.scss";
+import { info } from "sass";
 
 export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
@@ -79,7 +80,7 @@ export function PurchasePage() {
                   {infoArray.map((info) => {
                     return (
                       <span key={info.id} className="address">
-                        <input type="checkBox" />
+                        <input type="radio" />
                         <span className="filled-address">
                           <span>{info.fullNameInput}</span> {info.addressInput},{" "}
                           {info.cityInput}, {info.zipCodeInput}

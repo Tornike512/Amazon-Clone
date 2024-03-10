@@ -5,7 +5,6 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import blackCloseIcon from "@src/assets/black-close-icon.png";
 
 import "./AddAddressModal.scss";
-import { info } from "sass";
 
 export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
   const [fullNameInput, setFullNameInput] = useState<string>("");
@@ -25,12 +24,6 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
   const uniqueId = uuidv4();
 
   function handleInfo() {
-    setAddressInput(addressInput);
-    setFullNameInput(fullNameInput);
-    setPhoneNumberInput(phoneNumberInput);
-    setCityInput(cityInput);
-    setZipCodeInput(zipCodeInput);
-
     if (
       addressInput !== "" &&
       fullNameInput !== "" &&
@@ -38,17 +31,34 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
       cityInput !== "" &&
       zipCodeInput !== ""
     ) {
-      setInfoArray((infoArray) => [
-        ...infoArray,
-        {
-          id: uniqueId,
-          addressInput: addressInput,
-          fullNameInput: fullNameInput,
-          phoneNumberInput: phoneNumberInput,
-          cityInput: cityInput,
-          zipCodeInput: zipCodeInput,
-        },
-      ]);
+      if (isEditMode) {
+        const updatedInfoArray = infoArray.map((address) => {
+          if (address.id === editCurrentAddress) {
+            return {
+              ...address,
+              addressInput: addressInput,
+              fullNameInput: fullNameInput,
+              phoneNumberInput: phoneNumberInput,
+              cityInput: cityInput,
+              zipCodeInput: zipCodeInput,
+            };
+          }
+          return address;
+        });
+        setInfoArray(updatedInfoArray);
+      } else {
+        setInfoArray((infoArray) => [
+          ...infoArray,
+          {
+            id: uniqueId,
+            addressInput: addressInput,
+            fullNameInput: fullNameInput,
+            phoneNumberInput: phoneNumberInput,
+            cityInput: cityInput,
+            zipCodeInput: zipCodeInput,
+          },
+        ]);
+      }
       closeModal();
     }
   }
@@ -57,11 +67,9 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
     localStorage.setItem("infoArray", JSON.stringify(infoArray));
   }, [infoArray]);
 
-  const editAddress = infoArray.filter((address) => {
+  const filterAddress = infoArray.filter((address) => {
     return address.id === editCurrentAddress;
   });
-
-  console.log(editAddress);
 
   return (
     <div className="add-address-modal">
@@ -76,13 +84,12 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
           <h1 className="add-address-text">Add a new address</h1>
           {isEditMode ? (
             <>
-              {editAddress.map((address) => {
+              {filterAddress.map((address) => {
                 return (
                   <form key={address.id} onSubmit={(e) => e.preventDefault()}>
                     <div className="full-name-input">
                       <label>Full name (First and Last name)</label>
                       <input
-                        value={address.fullNameInput}
                         onChange={(e) => {
                           setFullNameInput(e.target.value);
                         }}
