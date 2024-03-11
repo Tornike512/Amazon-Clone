@@ -24,21 +24,21 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
   const uniqueId = uuidv4();
 
   useEffect(() => {
-    setTimeout(() => {
-      if (infoArray.length > 0) {
-        const currentAddress = infoArray[infoArray.length - 1];
-        console.log(currentAddress);
+    if (isEditMode) {
+      setTimeout(() => {
+        if (infoArray.length > 0) {
+          const currentAddress = infoArray[infoArray.length - 1];
+          console.log(currentAddress);
 
-        setFullNameInput(currentAddress.fullNameInput);
-        setPhoneNumberInput(currentAddress.phoneNumberInput);
-        setAddressInput(currentAddress.addressInput);
-        setCityInput(currentAddress.cityInput);
-        setZipCodeInput(currentAddress.zipCodeInput);
-      }
-    }, 100);
-
-    // Cleanup function to clear the timer
-  }, []); // Run this effect only once after component mounting
+          setFullNameInput(currentAddress.fullNameInput);
+          setPhoneNumberInput(currentAddress.phoneNumberInput);
+          setAddressInput(currentAddress.addressInput);
+          setCityInput(currentAddress.cityInput);
+          setZipCodeInput(currentAddress.zipCodeInput);
+        }
+      }, 100);
+    }
+  }, []);
 
   function handleInfo() {
     if (
@@ -68,6 +68,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
           ...infoArray,
           {
             id: uniqueId,
+            select: false,
             addressInput: addressInput,
             fullNameInput: fullNameInput,
             phoneNumberInput: phoneNumberInput,
@@ -178,6 +179,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                 <div className="full-name-input">
                   <label>Full name (First and Last name)</label>
                   <input
+                    defaultValue={fullNameInput}
                     onChange={(e) => {
                       setFullNameInput(e.target.value);
                     }}
@@ -187,6 +189,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                 <div className="phone-number-input">
                   <label>Phone number</label>
                   <input
+                    defaultValue={phoneNumberInput}
                     onChange={(e) => {
                       setPhoneNumberInput(e.target.value);
                     }}
@@ -196,6 +199,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                 <div className="address-input">
                   <label>Address</label>
                   <input
+                    defaultValue={addressInput}
                     onChange={(e) => {
                       setAddressInput(e.target.value);
                     }}
@@ -210,6 +214,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                   </span>
                   <span>
                     <input
+                      defaultValue={cityInput}
                       onChange={(e) => {
                         setCityInput(e.target.value);
                       }}
@@ -217,6 +222,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                       type="text"
                     />
                     <input
+                      defaultValue={zipCodeInput}
                       onChange={(e) => {
                         setZipCodeInput(e.target.value);
                       }}
