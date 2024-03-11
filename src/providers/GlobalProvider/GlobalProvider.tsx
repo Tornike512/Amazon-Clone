@@ -30,6 +30,7 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   const [infoArray, setInfoArray] = useState<
     {
       id: string;
+      select: boolean;
       fullNameInput: string;
       phoneNumberInput: string;
       addressInput: string;

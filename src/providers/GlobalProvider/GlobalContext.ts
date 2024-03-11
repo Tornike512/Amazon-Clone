@@ -40,6 +40,7 @@ interface TGlobalContext {
   setFullNameInput: React.Dispatch<React.SetStateAction<string>>;
   infoArray: {
     id: string;
+    select: boolean;
     fullNameInput: string;
     phoneNumberInput: string;
     addressInput: string;
@@ -50,6 +51,7 @@ interface TGlobalContext {
     React.SetStateAction<
       {
         id: string;
+        select: boolean;
         fullNameInput: string;
         phoneNumberInput: string;
         addressInput: string;
