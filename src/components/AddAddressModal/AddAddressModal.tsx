@@ -53,6 +53,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
           if (address.id === editCurrentAddress) {
             return {
               ...address,
+              select: true,
               addressInput: addressInput,
               fullNameInput: fullNameInput,
               phoneNumberInput: phoneNumberInput,
@@ -164,6 +165,12 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                       <button
                         onClick={() => {
                           handleInfo();
+                          setInfoArray((prev) =>
+                            prev.map((select) => ({
+                              ...select,
+                              select: select.id === address.id,
+                            }))
+                          );
                         }}
                       >
                         Use this address
