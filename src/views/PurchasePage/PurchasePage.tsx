@@ -22,6 +22,7 @@ export function PurchasePage() {
     setInfoArray,
     isEditMode,
     setIsEditMode,
+    editCurrentAddress,
     setEditCurrentAddress,
   } = useContext(GlobalContext);
 
@@ -79,7 +80,18 @@ export function PurchasePage() {
                   {infoArray.map((info) => {
                     return (
                       <span key={info.id} className="address">
-                        <input type="radio" />
+                        <input
+                          onClick={() => {
+                            setInfoArray((prev) =>
+                              prev.map((select) => ({
+                                ...select,
+                                select: select.id === info.id,
+                              }))
+                            );
+                          }}
+                          type="radio"
+                          checked={info.select}
+                        />
                         <span className="filled-address">
                           <span>{info.fullNameInput}</span> {info.addressInput},{" "}
                           {info.cityInput}, {info.zipCodeInput}
