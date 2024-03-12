@@ -174,7 +174,7 @@ export function PurchasePage() {
                             </li>
                           </ul>
                           <a
-                            onChange={() => setChooseAddress(false)}
+                            onClick={() => setChooseAddress(false)}
                             className="change-chosen-address"
                             href="#"
                           >
