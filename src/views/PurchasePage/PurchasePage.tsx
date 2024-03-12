@@ -87,11 +87,11 @@ export function PurchasePage() {
                                 backgroundColor: `#ffffff`,
                                 border: `1px solid #ffffff`,
                               }
-                            : null
+                            : {}
                         }
                         className="address"
                       >
-                        <input
+                        <span
                           onClick={() => {
                             setInfoArray((prev) =>
                               prev.map((select) => ({
@@ -100,12 +100,13 @@ export function PurchasePage() {
                               }))
                             );
                           }}
-                          type="radio"
-                          checked={info.select}
-                        />
-                        <span className="filled-address">
-                          <span>{info.fullNameInput}</span> {info.addressInput},{" "}
-                          {info.cityInput}, {info.zipCodeInput}
+                        >
+                          <input type="radio" checked={info.select} />
+                          <span className="filled-address">
+                            <span>{info.fullNameInput}</span>{" "}
+                            {info.addressInput}, {info.cityInput},{" "}
+                            {info.zipCodeInput}
+                          </span>
                         </span>
                         <div className="remove-edit">
                           <span
