@@ -45,6 +45,7 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   const [addressInput, setAddressInput] = useState<string>("");
   const [cityInput, setCityInput] = useState<string>("");
   const [zipCodeInput, setZipCodeInput] = useState<string>("");
+  const [addressLoader, setAddressLoader] = useState<boolean>(false);
 
   return (
     <GlobalContext.Provider
@@ -99,6 +100,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setZipCodeInput,
         addressInput,
         setAddressInput,
+        addressLoader,
+        setAddressLoader,
       }}
     >
       {children}

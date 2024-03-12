@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import { v4 as uuidv4 } from "uuid";
 
 import { AddCardModal } from "@src/components/AddCardModal";
 import { AddAddressModal } from "@src/components/AddAddressModal";
@@ -26,16 +27,16 @@ export function PurchasePage() {
     setEditCurrentAddress,
     chooseAddress,
     setChooseAddress,
-    fullNameInput,
     setFullNameInput,
-    cityInput,
+    fullNameInput,
     setCityInput,
-    addressInput,
+    cityInput,
     setAddressInput,
-    zipCodeInput,
+    addressInput,
     setZipCodeInput,
-    phoneNumberInput,
+    zipCodeInput,
     setPhoneNumberInput,
+    phoneNumberInput,
   } = useContext(GlobalContext);
 
   console.log(
@@ -68,8 +69,6 @@ export function PurchasePage() {
   const selectedAddress = infoArray.filter((info) => {
     return info.id === editCurrentAddress;
   });
-
-  console.log(selectedAddress, "selectaddress");
 
   return (
     <div>
@@ -120,6 +119,7 @@ export function PurchasePage() {
                             <span
                               onClick={() => {
                                 setEditCurrentAddress(info.id);
+                                setConfirmAddress(true);
                                 setInfoArray((prev) =>
                                   prev.map((select) => ({
                                     ...select,
