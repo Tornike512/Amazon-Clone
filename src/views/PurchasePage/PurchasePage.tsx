@@ -119,7 +119,6 @@ export function PurchasePage() {
                             <span
                               onClick={() => {
                                 setEditCurrentAddress(info.id);
-                                setConfirmAddress(true);
                                 setInfoArray((prev) =>
                                   prev.map((select) => ({
                                     ...select,
