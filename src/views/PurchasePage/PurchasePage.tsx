@@ -48,6 +48,10 @@ export function PurchasePage() {
     localStorage.setItem("infoArray", JSON.stringify(updatedInfoArray));
   };
 
+  const selectedAddress = infoArray.filter((info) => {
+    info.id === editCurrentAddress;
+  });
+
   return (
     <div>
       <div className="purchase-page">
@@ -96,6 +100,7 @@ export function PurchasePage() {
                           >
                             <span
                               onClick={() => {
+                                setEditCurrentAddress(info.id);
                                 setInfoArray((prev) =>
                                   prev.map((select) => ({
                                     ...select,
@@ -151,17 +156,24 @@ export function PurchasePage() {
                 {infoArray.map((info) => {
                   return (
                     <>
-                      <h2 className="chosen-address-text">
-                        <label>1</label> Shipping address
-                      </h2>
-                      <ul>
-                        <li>{info.fullNameInput}</li>
-                        <li>{info.addressInput}</li>
-                        <li>
-                          {info.cityInput},{info.zipCodeInput}
-                        </li>
-                      </ul>
-                      <a href="#">Change</a>
+                      {editCurrentAddress === info.id}
+                      {
+                        <>
+                          <h2 className="chosen-address-text">
+                            <label>1</label> Shipping address
+                          </h2>
+                          <ul className="person-info">
+                            <li>{info.fullNameInput}</li>
+                            <li>{info.addressInput}</li>
+                            <li>
+                              {info.cityInput},{info.zipCodeInput}
+                            </li>
+                          </ul>
+                          <a className="change-chosen-address" href="#">
+                            Change
+                          </a>
+                        </>
+                      }
                     </>
                   );
                 })}
