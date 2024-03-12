@@ -16,6 +16,7 @@ import "./PurchasePage.scss";
 export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
+  const [chooseAddress, setChooseAddress] = useState<boolean>(false);
 
   const {
     infoArray,
@@ -70,78 +71,102 @@ export function PurchasePage() {
         </header>
         <div className="purchase-info">
           <section>
-            <div>
-              <h2 className="shipping-address-text">
-                <label>1</label> Choose a shipping address
-              </h2>
-              <div className="shipping-address">
-                <h3>Your Addresses</h3>
+            {chooseAddress ? (
+              <>
                 <div>
-                  {infoArray.map((info) => {
-                    return (
+                  <h2 className="shipping-address-text">
+                    <label>1</label> Choose a shipping address
+                  </h2>
+                  <div className="shipping-address">
+                    <h3>Your Addresses</h3>
+                    <div>
+                      {infoArray.map((info) => {
+                        return (
+                          <span
+                            key={info.id}
+                            style={
+                              !info.select
+                                ? {
+                                    backgroundColor: `#ffffff`,
+                                    border: `1px solid #ffffff`,
+                                  }
+                                : {}
+                            }
+                            className="address"
+                          >
+                            <span
+                              onClick={() => {
+                                setInfoArray((prev) =>
+                                  prev.map((select) => ({
+                                    ...select,
+                                    select: select.id === info.id,
+                                  }))
+                                );
+                              }}
+                            >
+                              <input type="radio" checked={info.select} />
+                              <span className="filled-address">
+                                <span>{info.fullNameInput}</span>{" "}
+                                {info.addressInput}, {info.cityInput},{" "}
+                                {info.zipCodeInput}
+                              </span>
+                            </span>
+                            <div className="remove-edit">
+                              <span
+                                onClick={() => removeAddress(info.id)}
+                                className="remove"
+                              >
+                                Remove
+                              </span>
+                              <span
+                                onClick={() => {
+                                  setEditCurrentAddress(info.id);
+                                  setIsEditMode(true);
+                                }}
+                                className="edit"
+                              >
+                                Edit
+                              </span>
+                            </div>
+                          </span>
+                        );
+                      })}
                       <span
-                        key={info.id}
-                        style={
-                          !info.select
-                            ? {
-                                backgroundColor: `#ffffff`,
-                                border: `1px solid #ffffff`,
-                              }
-                            : {}
-                        }
-                        className="address"
+                        onClick={() => setAddressModal(true)}
+                        className="add-new-address"
                       >
-                        <span
-                          onClick={() => {
-                            setInfoArray((prev) =>
-                              prev.map((select) => ({
-                                ...select,
-                                select: select.id === info.id,
-                              }))
-                            );
-                          }}
-                        >
-                          <input type="radio" checked={info.select} />
-                          <span className="filled-address">
-                            <span>{info.fullNameInput}</span>{" "}
-                            {info.addressInput}, {info.cityInput},{" "}
-                            {info.zipCodeInput}
-                          </span>
-                        </span>
-                        <div className="remove-edit">
-                          <span
-                            onClick={() => removeAddress(info.id)}
-                            className="remove"
-                          >
-                            Remove
-                          </span>
-                          <span
-                            onClick={() => {
-                              setEditCurrentAddress(info.id);
-                              setIsEditMode(true);
-                            }}
-                            className="edit"
-                          >
-                            Edit
-                          </span>
-                        </div>
+                        <img src={plusIcon} alt="Plus Icon" />
+                        <a href="#">Add a new address</a>
                       </span>
-                    );
-                  })}
-                  <span
-                    onClick={() => setAddressModal(true)}
-                    className="add-new-address"
-                  >
-                    <img src={plusIcon} alt="Plus Icon" />
-                    <a href="#">Add a new address</a>
-                  </span>
-                </div>
+                    </div>
 
-                <div className="use-this-address">
-                  <button>Use this address</button>
+                    <div className="use-this-address">
+                      <button>Use this address</button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </>
+            ) : (
+              <>
+                {infoArray.map((info) => {
+                  return (
+                    <>
+                      <h2 className="chosen-address-text">
+                        <label>1</label> Shipping address
+                      </h2>
+                      <ul>
+                        <li>{info.fullNameInput}</li>
+                        <li>{info.addressInput}</li>
+                        <li>
+                          {info.cityInput},{info.zipCodeInput}
+                        </li>
+                      </ul>
+                      <a href="#">Change</a>
+                    </>
+                  );
+                })}
+              </>
+            )}
             <div className="payment-method-container">
               <h2 className="payment-method-text">
                 <label>2</label>
