@@ -16,7 +16,6 @@ import "./PurchasePage.scss";
 export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
-  const [chooseAddress, setChooseAddress] = useState<boolean>(false);
 
   const {
     infoArray,
@@ -25,8 +24,26 @@ export function PurchasePage() {
     setIsEditMode,
     editCurrentAddress,
     setEditCurrentAddress,
+    chooseAddress,
+    setChooseAddress,
+    fullNameInput,
+    setFullNameInput,
+    cityInput,
+    setCityInput,
+    addressInput,
+    setAddressInput,
+    zipCodeInput,
+    setZipCodeInput,
+    phoneNumberInput,
+    setPhoneNumberInput,
   } = useContext(GlobalContext);
 
+  console.log(
+    infoArray.map((info) => {
+      return info.select;
+    }),
+    "seleqt"
+  );
   const navigate = useNavigate();
 
   const itemCount = parseInt(
@@ -106,7 +123,8 @@ export function PurchasePage() {
                                 setInfoArray((prev) =>
                                   prev.map((select) => ({
                                     ...select,
-                                    select: select.id === info.id,
+                                    select:
+                                      select.id === info.id ? true : false,
                                   }))
                                 );
                               }}

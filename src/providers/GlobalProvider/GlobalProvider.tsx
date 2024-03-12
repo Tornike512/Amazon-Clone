@@ -40,6 +40,11 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   >([]);
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const [editCurrentAddress, setEditCurrentAddress] = useState<string>("");
+  const [chooseAddress, setChooseAddress] = useState<boolean>(false);
+  const [phoneNumberInput, setPhoneNumberInput] = useState<string>("");
+  const [addressInput, setAddressInput] = useState<string>("");
+  const [cityInput, setCityInput] = useState<string>("");
+  const [zipCodeInput, setZipCodeInput] = useState<string>("");
 
   return (
     <GlobalContext.Provider
@@ -84,6 +89,16 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setIsEditMode,
         editCurrentAddress,
         setEditCurrentAddress,
+        chooseAddress,
+        setChooseAddress,
+        cityInput,
+        setCityInput,
+        phoneNumberInput,
+        setPhoneNumberInput,
+        zipCodeInput,
+        setZipCodeInput,
+        addressInput,
+        setAddressInput,
       }}
     >
       {children}

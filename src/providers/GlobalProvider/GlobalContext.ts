@@ -64,6 +64,16 @@ interface TGlobalContext {
   setIsEditMode: React.Dispatch<React.SetStateAction<boolean>>;
   editCurrentAddress: string;
   setEditCurrentAddress: React.Dispatch<React.SetStateAction<string>>;
+  chooseAddress: boolean;
+  setChooseAddress: React.Dispatch<React.SetStateAction<boolean>>;
+  phoneNumberInput: string;
+  setPhoneNumberInput: React.Dispatch<React.SetStateAction<string>>;
+  addressInput: string;
+  setAddressInput: React.Dispatch<React.SetStateAction<string>>;
+  cityInput: string;
+  setCityInput: React.Dispatch<React.SetStateAction<string>>;
+  zipCodeInput: string;
+  setZipCodeInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -107,4 +117,14 @@ export const GlobalContext = createContext<TGlobalContext>({
   setIsEditMode: () => {},
   editCurrentAddress: "",
   setEditCurrentAddress: () => {},
+  chooseAddress: false,
+  setChooseAddress: () => {},
+  addressInput: "",
+  setAddressInput: () => {},
+  cityInput: "",
+  setCityInput: () => {},
+  zipCodeInput: "",
+  setZipCodeInput: () => {},
+  phoneNumberInput: "",
+  setPhoneNumberInput: () => {},
 });
