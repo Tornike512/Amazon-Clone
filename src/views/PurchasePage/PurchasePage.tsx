@@ -79,7 +79,18 @@ export function PurchasePage() {
                 <div>
                   {infoArray.map((info) => {
                     return (
-                      <span key={info.id} className="address">
+                      <span
+                        key={info.id}
+                        style={
+                          !info.select
+                            ? {
+                                backgroundColor: `#ffffff`,
+                                border: `1px solid #ffffff`,
+                              }
+                            : null
+                        }
+                        className="address"
+                      >
                         <input
                           onClick={() => {
                             setInfoArray((prev) =>

@@ -41,9 +41,6 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const [editCurrentAddress, setEditCurrentAddress] = useState<string>("");
 
-  console.log(infoArray, "onfaraay");
-  console.log(editCurrentAddress);
-
   return (
     <GlobalContext.Provider
       value={{
