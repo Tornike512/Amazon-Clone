@@ -52,6 +52,8 @@ export function PurchasePage() {
     info.id === editCurrentAddress;
   });
 
+  console.log(selectedAddress);
+
   return (
     <div>
       <div className="purchase-page">
@@ -158,7 +160,7 @@ export function PurchasePage() {
                     <>
                       {editCurrentAddress === info.id}
                       {
-                        <div className="chosen-address-spacing">
+                        <div key={info.id} className="chosen-address-spacing">
                           <h2 className="chosen-address-text">
                             <label>1</label> Shipping address
                           </h2>
