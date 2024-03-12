@@ -39,12 +39,6 @@ export function PurchasePage() {
     phoneNumberInput,
   } = useContext(GlobalContext);
 
-  console.log(
-    infoArray.map((info) => {
-      return info.select;
-    }),
-    "seleqt"
-  );
   const navigate = useNavigate();
 
   const itemCount = parseInt(
