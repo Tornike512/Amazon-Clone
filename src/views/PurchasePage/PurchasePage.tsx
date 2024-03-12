@@ -49,10 +49,10 @@ export function PurchasePage() {
   };
 
   const selectedAddress = infoArray.filter((info) => {
-    info.id === editCurrentAddress;
+    return info.id === editCurrentAddress;
   });
 
-  console.log(selectedAddress);
+  console.log(selectedAddress, "selectaddress");
 
   return (
     <div>
@@ -77,7 +77,7 @@ export function PurchasePage() {
         </header>
         <div className="purchase-info">
           <section>
-            {chooseAddress ? (
+            {!chooseAddress ? (
               <>
                 <div>
                   <h2 className="shipping-address-text">
@@ -148,14 +148,16 @@ export function PurchasePage() {
                     </div>
 
                     <div className="use-this-address">
-                      <button>Use this address</button>
+                      <button onClick={() => setChooseAddress(true)}>
+                        Use this address
+                      </button>
                     </div>
                   </div>
                 </div>
               </>
             ) : (
               <>
-                {infoArray.map((info) => {
+                {selectedAddress?.map((info) => {
                   return (
                     <>
                       {editCurrentAddress === info.id}
@@ -171,7 +173,11 @@ export function PurchasePage() {
                               {info.cityInput},{info.zipCodeInput}
                             </li>
                           </ul>
-                          <a className="change-chosen-address" href="#">
+                          <a
+                            onChange={() => setChooseAddress(false)}
+                            className="change-chosen-address"
+                            href="#"
+                          >
                             Change
                           </a>
                         </div>
