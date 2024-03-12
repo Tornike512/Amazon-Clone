@@ -151,6 +151,37 @@
       }
     }
 
+    .chosen-address-spacing {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #9e9e9e;
+
+      label {
+        margin-right: 10px;
+      }
+
+      .chosen-address-text {
+        margin-bottom: 9px;
+        font-size: $font-size-18px;
+      }
+
+      .person-info {
+        font-size: $font-size-14px;
+        list-style-type: none;
+      }
+
+      .change-chosen-address {
+        font-size: $font-size-14px;
+        color: $secondary-link-text-color;
+        text-decoration: none;
+      }
+
+      .change-chosen-address:hover {
+        @include linkHoverEffect;
+      }
+    }
+
     .use-this-address {
       width: 100%;
       position: absolute;

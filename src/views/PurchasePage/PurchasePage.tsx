@@ -158,7 +158,7 @@ export function PurchasePage() {
                     <>
                       {editCurrentAddress === info.id}
                       {
-                        <>
+                        <div className="chosen-address-spacing">
                           <h2 className="chosen-address-text">
                             <label>1</label> Shipping address
                           </h2>
@@ -172,7 +172,7 @@ export function PurchasePage() {
                           <a className="change-chosen-address" href="#">
                             Change
                           </a>
-                        </>
+                        </div>
                       }
                     </>
                   );
