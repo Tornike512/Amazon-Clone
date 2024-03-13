@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { v4 as uuidv4 } from "uuid";
+
 import dates from "./date.json";
 
 import blackCloseIcon from "@src/assets/black-close-icon.png";
@@ -8,14 +10,35 @@ import supportedCards from "@src/assets/supported-cards.png";
 import "./AddCardModal.scss";
 
 export function AddCardModal({ closeModal }: { closeModal: () => void }) {
+  const [cardNumber, setCardNumber] = useState<string>("");
+  const [nameOnCard, setNameOnCard] = useState<string>("");
+  const [months, setMonths] = useState<string>("");
+  const [years, setYears] = useState<string>("");
+
   const [cards, setCards] = useState<
     {
+      id: string;
       cardNumber: string;
       nameOnCard: string;
       months: string;
       years: string;
     }[]
   >([]);
+
+  console.log(cards);
+
+  function addCards() {
+    setCards((card) => [
+      ...card,
+      {
+        id: uuidv4(),
+        cardNumber: cardNumber,
+        nameOnCard: nameOnCard,
+        months: months,
+        years: years,
+      },
+    ]);
+  }
 
   return (
     <div className="add-card-modal">
@@ -30,20 +53,28 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
           <div className="card-details">
             <span className="card-number">
               <label>Card number</label>
-              <input />
+              <input onChange={(e) => setCardNumber(e.target.value)} />
             </span>
             <span className="name-on-card">
               <label>Name on card</label>
-              <input />
+              <input onChange={(e) => setNameOnCard(e.target.value)} />
             </span>
             <span className="expiration-date">
               <label>Expiration date</label>
-              <select className="select-month" id="months">
+              <select
+                onChange={(e) => setMonths(e.target.value)}
+                className="select-month"
+                id="months"
+              >
                 {dates.months.map((month) => {
                   return <option value={month}>{month}</option>;
                 })}
               </select>
-              <select className="select-year" id="years">
+              <select
+                onChange={(e) => setYears(e.target.value)}
+                className="select-year"
+                id="years"
+              >
                 {dates.years.map((year) => {
                   return <option value={year}>{year}</option>;
                 })}
@@ -59,7 +90,13 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
           <button onClick={closeModal} className="cancel-button">
             Cancel
           </button>
-          <button onClick={closeModal} className="add-card-button">
+          <button
+            onClick={() => {
+              closeModal();
+              addCards();
+            }}
+            className="add-card-button"
+          >
             Add your card
           </button>
         </span>
