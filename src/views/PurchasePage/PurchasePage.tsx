@@ -80,6 +80,8 @@ export function PurchasePage() {
     localStorage.setItem("stored cards", JSON.stringify(cards));
   }, [cards]);
 
+  console.log(currentCardId);
+
   return (
     <div>
       <div className="purchase-page">
@@ -250,8 +252,8 @@ export function PurchasePage() {
                             setCards((prev) =>
                               prev.map((prevCard) =>
                                 prevCard.id === card.id
-                                  ? { ...prevCard, select: !prevCard.select }
-                                  : prevCard
+                                  ? { ...prevCard, select: true }
+                                  : { ...prevCard, select: false }
                               )
                             );
                           }}
