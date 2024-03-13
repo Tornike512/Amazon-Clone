@@ -74,6 +74,24 @@ interface TGlobalContext {
   setCityInput: React.Dispatch<React.SetStateAction<string>>;
   zipCodeInput: string;
   setZipCodeInput: React.Dispatch<React.SetStateAction<string>>;
+  cards: {
+    id: string;
+    cardNumber: string;
+    nameOnCard: string;
+    months: string;
+    years: string;
+  }[];
+  setCards: React.Dispatch<
+    React.SetStateAction<
+      {
+        id: string;
+        cardNumber: string;
+        nameOnCard: string;
+        months: string;
+        years: string;
+      }[]
+    >
+  >;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -127,4 +145,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setZipCodeInput: () => {},
   phoneNumberInput: "",
   setPhoneNumberInput: () => {},
+  cards: [],
+  setCards: () => {},
 });

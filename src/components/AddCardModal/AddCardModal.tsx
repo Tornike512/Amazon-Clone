@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -15,17 +16,7 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
   const [months, setMonths] = useState<string>("");
   const [years, setYears] = useState<string>("");
 
-  const [cards, setCards] = useState<
-    {
-      id: string;
-      cardNumber: string;
-      nameOnCard: string;
-      months: string;
-      years: string;
-    }[]
-  >([]);
-
-  console.log(cards);
+  const { cards, setCards } = useContext(GlobalContext);
 
   function addCards() {
     setCards((card) => [

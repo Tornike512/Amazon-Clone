@@ -61,12 +61,6 @@ export function PurchasePage() {
     localStorage.setItem("selectedAddress", JSON.stringify(selectedAddress));
   }, [selectedAddress]);
 
-  const getSelectedAddress = JSON.parse(
-    localStorage.getItem("selectedAddress") ?? "[]"
-  );
-
-  console.log(getSelectedAddress);
-
   const removeAddress = (id: string) => {
     setInfoArray((prev) => prev.filter((address) => address.id !== id));
 

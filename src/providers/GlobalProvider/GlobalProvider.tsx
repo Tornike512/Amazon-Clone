@@ -51,6 +51,16 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   const [cityInput, setCityInput] = useState<string>("");
   const [zipCodeInput, setZipCodeInput] = useState<string>("");
 
+  const [cards, setCards] = useState<
+    {
+      id: string;
+      cardNumber: string;
+      nameOnCard: string;
+      months: string;
+      years: string;
+    }[]
+  >([]);
+
   return (
     <GlobalContext.Provider
       value={{
@@ -104,6 +114,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setZipCodeInput,
         addressInput,
         setAddressInput,
+        cards,
+        setCards,
       }}
     >
       {children}
