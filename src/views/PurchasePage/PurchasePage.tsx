@@ -13,12 +13,12 @@ import blueCardImage from "@src/assets/blue-card-image.png";
 import redCardImage from "@src/assets/red-card-image.png";
 
 import "./PurchasePage.scss";
-import { Select } from "flowbite-react";
 
 export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
   const [currentCardId, setCurrentCardId] = useState<string>("");
+  const [selectCard, setSelectCard] = useState<boolean>(false);
 
   const {
     infoArray,
@@ -79,8 +79,6 @@ export function PurchasePage() {
   useEffect(() => {
     localStorage.setItem("stored cards", JSON.stringify(cards));
   }, [cards]);
-
-  console.log(currentCardId);
 
   return (
     <div>
@@ -221,73 +219,112 @@ export function PurchasePage() {
                 })}
               </>
             )}
-            <div className="payment-method-container">
-              <h2 className="payment-method-text">
-                <label>2</label>
-                Choose a payment method
-              </h2>
-              <div className="payment">
-                <h3>Your credit and debit cards</h3>
-                <div className="payment-definition">
-                  <span className="name-on-card-spacing">Name on card</span>
-                  <span>Expires on</span>
+            {selectCard ? (
+              <>
+                <div className="payment-method-container">
+                  <h2 className="payment-method-text">
+                    <label>2</label>
+                    Choose a payment method
+                  </h2>
+                  <div className="payment">
+                    <h3>Your credit and debit cards</h3>
+                    <div className="payment-definition">
+                      <span className="name-on-card-spacing">Name on card</span>
+                      <span>Expires on</span>
+                    </div>
+                    {cards.map((card) => {
+                      return (
+                        <div
+                          key={card.id}
+                          onClick={() => {
+                            setCurrentCardId(card.id);
+                            setCards((prev) =>
+                              prev.map((prevCard) =>
+                                prevCard.id === card.id
+                                  ? { ...prevCard, select: true }
+                                  : { ...prevCard, select: false }
+                              )
+                            );
+                          }}
+                          style={
+                            !card.select
+                              ? {
+                                  backgroundColor: "#ffffff",
+                                  border: "1px solid #ffffff",
+                                }
+                              : {}
+                          }
+                          className="current-card"
+                        >
+                          <div className="checkbox-spacing">
+                            <input checked={card.select} type="checkBox" />
+                            <img src={redCardImage} alt="Card Image" />
+                          </div>
+                          <span className="card-info">
+                            <span>Visa Gold</span> ending in{" "}
+                            {card.cardNumber.slice(card.cardNumber.length - 4)}
+                          </span>
+                          <span className="card-user">{card.nameOnCard}</span>
+                          <span className="card-expire-date">{`${card.months}/${card.years}`}</span>
+                        </div>
+                      );
+                    })}
+                    <div
+                      onClick={() => setCardModal(true)}
+                      className="add-card"
+                    >
+                      <img
+                        className="plus-icon"
+                        src={plusIcon}
+                        alt="Plus Icon"
+                      />
+                      <img
+                        className="add-card-image"
+                        src={blueCardImage}
+                        alt="Card Image"
+                      />
+                      <span>
+                        <a href="#">Add a credit or debit card</a>
+                        <span className="amazon-accepts">
+                          Amazon accepts all major credit cards.
+                        </span>
+                      </span>
+                    </div>
+                    <div className="use-payment-method">
+                      <button>Use this payment method</button>
+                    </div>
+                  </div>
                 </div>
+              </>
+            ) : (
+              <>
+                <h2 className="selected-card-text">
+                  <label>2</label>
+                  Payment method
+                </h2>
                 {cards.map((card) => {
                   return (
-                    <div
-                      key={card.id}
-                      onClick={() => {
-                        setCurrentCardId(card.id);
-                        setCards((prev) =>
-                          prev.map((prevCard) =>
-                            prevCard.id === card.id
-                              ? { ...prevCard, select: true }
-                              : { ...prevCard, select: false }
-                          )
-                        );
-                      }}
-                      style={
-                        !card.select
-                          ? {
-                              backgroundColor: "#ffffff",
-                              border: "1px solid #ffffff",
-                            }
-                          : {}
-                      }
-                      className="current-card"
-                    >
-                      <div className="checkbox-spacing">
-                        <input checked={card.select} type="checkBox" />
-                        <img src={redCardImage} alt="Card Image" />
+                    <>
+                      <div className="selected-card-info">
+                        <span>{`Paying with Visa ${card.cardNumber.slice(
+                          card.cardNumber.length - 4
+                        )}`}</span>
+                        {selectedAddress.map((address) => {
+                          return (
+                            <span className="selected-card-address">
+                              {`${address.fullNameInput}, ${address.addressInput}, ${address.cityInput}`}
+                            </span>
+                          );
+                        })}
+                        <a className="change-selected-card" href="#">
+                          Change
+                        </a>
                       </div>
-                      <span className="card-info">
-                        <span>Visa Gold</span> ending in{" "}
-                        {card.cardNumber.slice(card.cardNumber.length - 4)}
-                      </span>
-                      <span className="card-user">{card.nameOnCard}</span>
-                      <span className="card-expire-date">{`${card.months}/${card.years}`}</span>
-                    </div>
+                    </>
                   );
                 })}
-                <div onClick={() => setCardModal(true)} className="add-card">
-                  <img className="plus-icon" src={plusIcon} alt="Plus Icon" />
-                  <img
-                    className="add-card-image"
-                    src={blueCardImage}
-                    alt="Card Image"
-                  />
-                  <span>
-                    <a href="#">Add a credit or debit card</a>
-                    <span className="amazon-accepts">
-                      Amazon accepts all major credit cards.
-                    </span>
-                  </span>
-                </div>
-                <div className="use-payment-method">
-                  <button>Use this payment method</button>
-                </div>
-              </div>
-            </div>
+              </>
+            )}
           </section>
           <section className="buy-container">
             <button className="buy-button">Place your order in USD</button>

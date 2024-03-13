@@ -29,7 +29,7 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
         ...card,
         {
           id: uuidv4(),
-          select: true,
+          select: false,
           cardNumber: cardNumber,
           nameOnCard: nameOnCard,
           months: months,
