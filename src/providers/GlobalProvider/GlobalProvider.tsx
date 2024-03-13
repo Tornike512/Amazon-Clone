@@ -59,7 +59,10 @@ export function GlobalProvider({ children }: PropsWithChildren) {
       months: string;
       years: string;
     }[]
-  >([]);
+  >(() => {
+    const storedCards = localStorage.getItem("stored cards");
+    return storedCards ? JSON.parse(storedCards) : [];
+  });
 
   return (
     <GlobalContext.Provider

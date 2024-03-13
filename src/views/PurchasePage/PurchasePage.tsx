@@ -72,6 +72,11 @@ export function PurchasePage() {
   useEffect(() => {
     localStorage.setItem("editCurrentAddress", editCurrentAddress);
   }, [editCurrentAddress]);
+
+  useEffect(() => {
+    localStorage.setItem("stored cards", JSON.stringify(cards));
+  }, [cards]);
+
   return (
     <div>
       <div className="purchase-page">
