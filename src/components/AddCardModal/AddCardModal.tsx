@@ -67,7 +67,7 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
                 id="months"
               >
                 {dates.months.map((month) => {
-                  return <option value={month}>{month}</option>;
+                  return <option key={month.id}>{month.name}</option>;
                 })}
               </select>
               <select
@@ -76,7 +76,7 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
                 id="years"
               >
                 {dates.years.map((year) => {
-                  return <option value={year}>{year}</option>;
+                  return <option key={year.id}>{year.value}</option>;
                 })}
               </select>
             </span>
