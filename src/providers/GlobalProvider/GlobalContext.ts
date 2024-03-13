@@ -76,6 +76,7 @@ interface TGlobalContext {
   setZipCodeInput: React.Dispatch<React.SetStateAction<string>>;
   cards: {
     id: string;
+    select: boolean;
     cardNumber: string;
     nameOnCard: string;
     months: string;
@@ -85,6 +86,7 @@ interface TGlobalContext {
     React.SetStateAction<
       {
         id: string;
+        select: boolean;
         cardNumber: string;
         nameOnCard: string;
         months: string;

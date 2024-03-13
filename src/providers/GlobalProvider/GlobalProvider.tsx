@@ -54,6 +54,7 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   const [cards, setCards] = useState<
     {
       id: string;
+      select: boolean;
       cardNumber: string;
       nameOnCard: string;
       months: string;

@@ -13,10 +13,12 @@ import blueCardImage from "@src/assets/blue-card-image.png";
 import redCardImage from "@src/assets/red-card-image.png";
 
 import "./PurchasePage.scss";
+import { Select } from "flowbite-react";
 
 export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
+  const [currentCardId, setCurrentCardId] = useState<string>("");
 
   const {
     infoArray,
@@ -28,6 +30,7 @@ export function PurchasePage() {
     chooseAddress,
     setChooseAddress,
     cards,
+    setCards,
   } = useContext(GlobalContext);
 
   const navigate = useNavigate();
@@ -233,8 +236,26 @@ export function PurchasePage() {
                 </div>
                 {cards.map((card) => {
                   return (
-                    <div className="current-card">
-                      <input type="checkBox" />
+                    <div
+                      key={card.id}
+                      onClick={() => {
+                        setCurrentCardId(card.id);
+                      }}
+                      className="current-card"
+                    >
+                      <input
+                        checked={card.select}
+                        onClick={() => {
+                          setCards((prev) =>
+                            prev.map((prevCard) =>
+                              prevCard.id === card.id
+                                ? { ...prevCard, select: !prevCard.select }
+                                : prevCard
+                            )
+                          );
+                        }}
+                        type="checkBox"
+                      />
                       <img src={redCardImage} alt="Card Image" />
                       <span className="card-info">
                         <span>Visa Gold</span> ending in

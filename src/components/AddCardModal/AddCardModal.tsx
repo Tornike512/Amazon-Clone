@@ -23,6 +23,7 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
       ...card,
       {
         id: uuidv4(),
+        select: true,
         cardNumber: cardNumber,
         nameOnCard: nameOnCard,
         months: months,
