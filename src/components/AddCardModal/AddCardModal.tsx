@@ -19,17 +19,25 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
   const { cards, setCards } = useContext(GlobalContext);
 
   function addCards() {
-    setCards((card) => [
-      ...card,
-      {
-        id: uuidv4(),
-        select: true,
-        cardNumber: cardNumber,
-        nameOnCard: nameOnCard,
-        months: months,
-        years: years,
-      },
-    ]);
+    if (
+      cardNumber !== "" ||
+      nameOnCard !== "" ||
+      months !== "" ||
+      years !== ""
+    ) {
+      setCards((card) => [
+        ...card,
+        {
+          id: uuidv4(),
+          select: true,
+          cardNumber: cardNumber,
+          nameOnCard: nameOnCard,
+          months: months,
+          years: years,
+        },
+      ]);
+      closeModal();
+    }
   }
 
   return (
@@ -84,7 +92,6 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
           </button>
           <button
             onClick={() => {
-              closeModal();
               addCards();
             }}
             className="add-card-button"

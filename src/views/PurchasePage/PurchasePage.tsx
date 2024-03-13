@@ -194,33 +194,29 @@ export function PurchasePage() {
               <>
                 {selectedAddress?.map((info: any) => {
                   return (
-                    <>
-                      {
-                        <div key={info.id} className="chosen-address-spacing">
-                          <h2 className="chosen-address-text">
-                            <label>1</label> Shipping address
-                          </h2>
-                          <ul className="person-info">
-                            <li>{info.fullNameInput}</li>
-                            <li>{info.addressInput}</li>
-                            <li>
-                              {info.cityInput},{info.zipCodeInput}
-                            </li>
-                          </ul>
-                          <a
-                            onClick={() => {
-                              setTimeout(() => {
-                                setChooseAddress(false);
-                              }, 100);
-                            }}
-                            className="change-chosen-address"
-                            href="#"
-                          >
-                            Change
-                          </a>
-                        </div>
-                      }
-                    </>
+                    <div key={info.id} className="chosen-address-spacing">
+                      <h2 className="chosen-address-text">
+                        <label>1</label> Shipping address
+                      </h2>
+                      <ul className="person-info">
+                        <li>{info.fullNameInput}</li>
+                        <li>{info.addressInput}</li>
+                        <li>
+                          {info.cityInput},{info.zipCodeInput}
+                        </li>
+                      </ul>
+                      <a
+                        onClick={() => {
+                          setTimeout(() => {
+                            setChooseAddress(false);
+                          }, 100);
+                        }}
+                        className="change-chosen-address"
+                        href="#"
+                      >
+                        Change
+                      </a>
+                    </div>
                   );
                 })}
               </>
@@ -265,7 +261,7 @@ export function PurchasePage() {
                         <img src={redCardImage} alt="Card Image" />
                       </div>
                       <span className="card-info">
-                        <span>Visa Gold</span> ending in
+                        <span>Visa Gold</span> ending in{" "}
                         {card.cardNumber.slice(card.cardNumber.length - 4)}
                       </span>
                       <span className="card-user">{card.nameOnCard}</span>
