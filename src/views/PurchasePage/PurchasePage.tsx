@@ -27,6 +27,7 @@ export function PurchasePage() {
     setEditCurrentAddress,
     chooseAddress,
     setChooseAddress,
+    cards,
   } = useContext(GlobalContext);
 
   const navigate = useNavigate();
@@ -225,15 +226,19 @@ export function PurchasePage() {
                   <span className="name-on-card-spacing">Name on card</span>
                   <span>Expires on</span>
                 </div>
-                <div className="current-card">
-                  <input type="checkBox" />
-                  <img src={redCardImage} alt="Card Image" />
-                  <span className="card-info">
-                    <span>Visa Gold</span> ending in 3449
-                  </span>
-                  <span className="card-user">tornike tsagareishvili</span>
-                  <span className="card-expire-date">08/2025</span>
-                </div>
+                {cards.map((card) => {
+                  return (
+                    <div className="current-card">
+                      <input type="checkBox" />
+                      <img src={redCardImage} alt="Card Image" />
+                      <span className="card-info">
+                        <span>Visa Gold</span> ending in{card.cardNumber}
+                      </span>
+                      <span className="card-user">{card.nameOnCard}</span>
+                      <span className="card-expire-date">{`${card.months}/${card.years}`}</span>
+                    </div>
+                  );
+                })}
                 <div onClick={() => setCardModal(true)} className="add-card">
                   <img className="plus-icon" src={plusIcon} alt="Plus Icon" />
                   <img
