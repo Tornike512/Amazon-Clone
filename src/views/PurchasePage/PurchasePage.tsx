@@ -242,23 +242,26 @@ export function PurchasePage() {
                       key={card.id}
                       onClick={() => {
                         setCurrentCardId(card.id);
+                        setCards((prev) =>
+                          prev.map((prevCard) =>
+                            prevCard.id === card.id
+                              ? { ...prevCard, select: true }
+                              : { ...prevCard, select: false }
+                          )
+                        );
                       }}
+                      style={
+                        !card.select
+                          ? {
+                              backgroundColor: "#ffffff",
+                              border: "1px solid #ffffff",
+                            }
+                          : {}
+                      }
                       className="current-card"
                     >
                       <div className="checkbox-spacing">
-                        <input
-                          checked={card.select}
-                          onClick={() => {
-                            setCards((prev) =>
-                              prev.map((prevCard) =>
-                                prevCard.id === card.id
-                                  ? { ...prevCard, select: true }
-                                  : { ...prevCard, select: false }
-                              )
-                            );
-                          }}
-                          type="checkBox"
-                        />
+                        <input checked={card.select} type="checkBox" />
                         <img src={redCardImage} alt="Card Image" />
                       </div>
                       <span className="card-info">
