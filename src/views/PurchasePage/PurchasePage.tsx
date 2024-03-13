@@ -27,16 +27,6 @@ export function PurchasePage() {
     setEditCurrentAddress,
     chooseAddress,
     setChooseAddress,
-    setFullNameInput,
-    fullNameInput,
-    setCityInput,
-    cityInput,
-    setAddressInput,
-    addressInput,
-    setZipCodeInput,
-    zipCodeInput,
-    setPhoneNumberInput,
-    phoneNumberInput,
   } = useContext(GlobalContext);
 
   const navigate = useNavigate();
@@ -53,6 +43,30 @@ export function PurchasePage() {
     }
   }, [setInfoArray]);
 
+  useEffect(() => {
+    if (!chooseAddress) {
+      setChooseAddress(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("chooseAddress", JSON.stringify(chooseAddress));
+  }, [chooseAddress]);
+
+  const selectedAddress = infoArray.filter((info) => {
+    return info.id === editCurrentAddress;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("selectedAddress", JSON.stringify(selectedAddress));
+  }, [selectedAddress]);
+
+  const getSelectedAddress = JSON.parse(
+    localStorage.getItem("selectedAddress") ?? "[]"
+  );
+
+  console.log(getSelectedAddress);
+
   const removeAddress = (id: string) => {
     setInfoArray((prev) => prev.filter((address) => address.id !== id));
 
@@ -60,10 +74,9 @@ export function PurchasePage() {
     localStorage.setItem("infoArray", JSON.stringify(updatedInfoArray));
   };
 
-  const selectedAddress = infoArray.filter((info) => {
-    return info.id === editCurrentAddress;
-  });
-
+  useEffect(() => {
+    localStorage.setItem("editCurrentAddress", editCurrentAddress);
+  }, [editCurrentAddress]);
   return (
     <div>
       <div className="purchase-page">
@@ -159,7 +172,13 @@ export function PurchasePage() {
                     </div>
 
                     <div className="use-this-address">
-                      <button onClick={() => setChooseAddress(true)}>
+                      <button
+                        onClick={() => {
+                          setTimeout(() => {
+                            setChooseAddress(true);
+                          }, 100);
+                        }}
+                      >
                         Use this address
                       </button>
                     </div>
@@ -168,10 +187,9 @@ export function PurchasePage() {
               </>
             ) : (
               <>
-                {selectedAddress?.map((info) => {
+                {selectedAddress?.map((info: any) => {
                   return (
                     <>
-                      {editCurrentAddress === info.id}
                       {
                         <div key={info.id} className="chosen-address-spacing">
                           <h2 className="chosen-address-text">
@@ -185,7 +203,11 @@ export function PurchasePage() {
                             </li>
                           </ul>
                           <a
-                            onClick={() => setChooseAddress(false)}
+                            onClick={() => {
+                              setTimeout(() => {
+                                setChooseAddress(false);
+                              }, 100);
+                            }}
                             className="change-chosen-address"
                             href="#"
                           >

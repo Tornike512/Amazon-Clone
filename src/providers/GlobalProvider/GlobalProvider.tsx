@@ -39,8 +39,13 @@ export function GlobalProvider({ children }: PropsWithChildren) {
     }[]
   >([]);
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
-  const [editCurrentAddress, setEditCurrentAddress] = useState<string>("");
-  const [chooseAddress, setChooseAddress] = useState<boolean>(false);
+  const [editCurrentAddress, setEditCurrentAddress] = useState<string>(
+    localStorage.getItem("editCurrentAddress") ?? ""
+  );
+  const [chooseAddress, setChooseAddress] = useState<boolean>(() => {
+    const chosenAddress = localStorage.getItem("chooseAddress");
+    return chosenAddress ? JSON.parse(chosenAddress) : false;
+  });
   const [phoneNumberInput, setPhoneNumberInput] = useState<string>("");
   const [addressInput, setAddressInput] = useState<string>("");
   const [cityInput, setCityInput] = useState<string>("");
