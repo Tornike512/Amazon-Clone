@@ -8,6 +8,15 @@ import supportedCards from "@src/assets/supported-cards.png";
 import "./AddCardModal.scss";
 
 export function AddCardModal({ closeModal }: { closeModal: () => void }) {
+  const [cards, setCards] = useState<
+    {
+      cardNumber: string;
+      nameOnCard: string;
+      months: string;
+      years: string;
+    }[]
+  >([]);
+
   return (
     <div className="add-card-modal">
       <div className="add-card">
@@ -50,7 +59,9 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
           <button onClick={closeModal} className="cancel-button">
             Cancel
           </button>
-          <button className="add-card-button">Add your card</button>
+          <button onClick={closeModal} className="add-card-button">
+            Add your card
+          </button>
         </span>
       </div>
       <div onClick={closeModal} className="modal-background"></div>
