@@ -232,7 +232,8 @@ export function PurchasePage() {
                       <input type="checkBox" />
                       <img src={redCardImage} alt="Card Image" />
                       <span className="card-info">
-                        <span>Visa Gold</span> ending in{card.cardNumber}
+                        <span>Visa Gold</span> ending in
+                        {card.cardNumber.slice(card.cardNumber.length - 4)}
                       </span>
                       <span className="card-user">{card.nameOnCard}</span>
                       <span className="card-expire-date">{`${card.months}/${card.years}`}</span>
