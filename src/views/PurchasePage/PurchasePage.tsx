@@ -243,20 +243,22 @@ export function PurchasePage() {
                       }}
                       className="current-card"
                     >
-                      <input
-                        checked={card.select}
-                        onClick={() => {
-                          setCards((prev) =>
-                            prev.map((prevCard) =>
-                              prevCard.id === card.id
-                                ? { ...prevCard, select: !prevCard.select }
-                                : prevCard
-                            )
-                          );
-                        }}
-                        type="checkBox"
-                      />
-                      <img src={redCardImage} alt="Card Image" />
+                      <div className="checkbox-spacing">
+                        <input
+                          checked={card.select}
+                          onClick={() => {
+                            setCards((prev) =>
+                              prev.map((prevCard) =>
+                                prevCard.id === card.id
+                                  ? { ...prevCard, select: !prevCard.select }
+                                  : prevCard
+                              )
+                            );
+                          }}
+                          type="checkBox"
+                        />
+                        <img src={redCardImage} alt="Card Image" />
+                      </div>
                       <span className="card-info">
                         <span>Visa Gold</span> ending in
                         {card.cardNumber.slice(card.cardNumber.length - 4)}

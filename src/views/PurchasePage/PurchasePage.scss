@@ -254,11 +254,17 @@
         .current-card {
           display: flex;
           align-items: center;
+          justify-content: space-between;
           padding: 10px;
           border: 1px solid #fbd8b4;
           border-radius: 4px;
           font-size: $font-size-14px;
           background-color: #fcf5ee;
+
+          .checkbox-spacing {
+            display: flex;
+            align-items: center;
+          }
 
           input {
             margin-right: 6px;
