@@ -366,6 +366,11 @@
         label {
           margin-right: 10px;
         }
+
+        .selected-card-info {
+          display: flex;
+          flex-direction: column;
+        }
       }
     }
 

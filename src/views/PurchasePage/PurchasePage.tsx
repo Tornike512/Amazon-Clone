@@ -80,6 +80,12 @@ export function PurchasePage() {
     localStorage.setItem("stored cards", JSON.stringify(cards));
   }, [cards]);
 
+  const selectedCard = cards.filter((card) => {
+    return card.id === currentCardId;
+  });
+
+  console.log(selectedCard);
+
   return (
     <div>
       <div className="purchase-page">
@@ -219,7 +225,7 @@ export function PurchasePage() {
                 })}
               </>
             )}
-            {selectCard ? (
+            {!selectCard ? (
               <>
                 <div className="payment-method-container">
                   <h2 className="payment-method-text">
@@ -291,7 +297,9 @@ export function PurchasePage() {
                       </span>
                     </div>
                     <div className="use-payment-method">
-                      <button>Use this payment method</button>
+                      <button onClick={() => setSelectCard(true)}>
+                        Use this payment method
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -302,7 +310,7 @@ export function PurchasePage() {
                   <label>2</label>
                   Payment method
                 </h2>
-                {cards.map((card) => {
+                {selectedCard.map((card) => {
                   return (
                     <>
                       <div className="selected-card-info">
@@ -316,13 +324,17 @@ export function PurchasePage() {
                             </span>
                           );
                         })}
-                        <a className="change-selected-card" href="#">
-                          Change
-                        </a>
                       </div>
                     </>
                   );
                 })}
+                <a
+                  onClick={() => setSelectCard(false)}
+                  className="change-selected-card"
+                  href="#"
+                >
+                  Change
+                </a>
               </div>
             )}
           </section>
