@@ -18,7 +18,10 @@ export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
   const [currentCardId, setCurrentCardId] = useState<string>("");
-  const [selectCard, setSelectCard] = useState<boolean>(false);
+  const [selectCard, setSelectCard] = useState<boolean>(() => {
+    const storeSelectedCard = localStorage.getItem("selected card");
+    return storeSelectedCard ? JSON.parse(storeSelectedCard) : false;
+  });
 
   const {
     infoArray,
@@ -39,6 +42,10 @@ export function PurchasePage() {
     localStorage.getItem("header cart count") ?? "0",
     10
   );
+
+  useEffect(() => {
+    localStorage.setItem("selected card", JSON.stringify(selectCard));
+  }, [selectCard]);
 
   useEffect(() => {
     const infoArray = localStorage.getItem("infoArray");
