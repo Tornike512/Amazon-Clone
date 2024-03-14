@@ -314,7 +314,7 @@ export function PurchasePage() {
                   return (
                     <>
                       <div className="selected-card-info">
-                        <span>{`Paying with Visa ${card.cardNumber.slice(
+                        <span className="selected-card-digits">{`Paying with Visa ${card.cardNumber.slice(
                           card.cardNumber.length - 4
                         )}`}</span>
                         {selectedAddress.map((address) => {
