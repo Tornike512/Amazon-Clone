@@ -386,6 +386,16 @@
           cursor: pointer;
         }
       }
+
+      .change-selected-card {
+        font-size: $font-size-14px;
+        color: $secondary-link-text-color;
+        text-decoration: none;
+      }
+
+      .change-selected-card:hover {
+        @include linkHoverEffect;
+      }
     }
 
     .buy-container {
