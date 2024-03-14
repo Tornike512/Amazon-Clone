@@ -22,16 +22,6 @@ export function PurchasePage() {
     const storeSelectedCard = localStorage.getItem("selected card");
     return storeSelectedCard ? JSON.parse(storeSelectedCard) : false;
   });
-  const [storedSelectedCard, setStoredSelectedCard] = useState<
-    {
-      id: string;
-      select: boolean;
-      cardNumber: string;
-      nameOnCard: string;
-      months: string;
-      years: string;
-    }[]
-  >([]);
 
   const {
     infoArray,
@@ -100,20 +90,6 @@ export function PurchasePage() {
   const selectedCard = cards.filter((card) => {
     return card.id === currentCardId;
   });
-
-  useEffect(() => {
-    const storeSelectedCard = localStorage.setItem(
-      "filter selected card",
-      JSON.stringify(selectedCard)
-    );
-  }, [selectedCard]);
-
-  useEffect(() => {
-    const storedCard = localStorage.getItem("filter selected card");
-    if (storedCard) {
-      setStoredSelectedCard(JSON.parse(storedCard));
-    }
-  }, []);
 
   return (
     <div>
@@ -243,7 +219,9 @@ export function PurchasePage() {
                           setTimeout(() => {
                             setChooseAddress(false);
                           }, 100);
-                          setSelectCard(true);
+                          setTimeout(() => {
+                            setSelectCard(true);
+                          }, 100);
                         }}
                         className="change-chosen-address"
                         href="#"
@@ -327,7 +305,13 @@ export function PurchasePage() {
                       </span>
                     </div>
                     <div className="use-payment-method">
-                      <button onClick={() => setSelectCard(true)}>
+                      <button
+                        onClick={() => {
+                          setTimeout(() => {
+                            setSelectCard(true);
+                          }, 100);
+                        }}
+                      >
                         Use this payment method
                       </button>
                     </div>
@@ -340,27 +324,29 @@ export function PurchasePage() {
                   <label>2</label>
                   Payment method
                 </h2>
-                {selectedCard.map((card) => {
-                  return (
-                    <>
+
+                {cards.map((card) => (
+                  <div key={card.id}>
+                    {card.id === currentCardId && (
                       <div className="selected-card-info">
                         <span className="selected-card-digits">{`Paying with Visa ${card.cardNumber.slice(
                           card.cardNumber.length - 4
                         )}`}</span>
-                        {selectedAddress.map((address) => {
-                          return (
-                            <span className="selected-card-address">
-                              {`${address.fullNameInput}, ${address.addressInput}, ${address.cityInput}`}
-                            </span>
-                          );
-                        })}
+                        {selectedAddress?.map((address, index) => (
+                          <span key={index} className="selected-card-address">
+                            {`${address.fullNameInput}, ${address.addressInput}, ${address.cityInput}`}
+                          </span>
+                        ))}
                       </div>
-                    </>
-                  );
-                })}
+                    )}
+                  </div>
+                ))}
+
                 <a
                   onClick={() => {
-                    setSelectCard(false);
+                    setTimeout(() => {
+                      setSelectCard(false);
+                    }, 100);
                     setChooseAddress(true);
                   }}
                   className="change-selected-card"

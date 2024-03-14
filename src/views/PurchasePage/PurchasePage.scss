@@ -372,9 +372,9 @@
       .selected-card-info {
         display: flex;
         flex-direction: column;
+        font-size: $font-size-14px;
 
         .selected-card-digits {
-          margin-bottom: 16px;
           font-weight: bold;
         }
 
