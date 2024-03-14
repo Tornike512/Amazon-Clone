@@ -214,6 +214,7 @@ export function PurchasePage() {
                           setTimeout(() => {
                             setChooseAddress(false);
                           }, 100);
+                          setSelectCard(true);
                         }}
                         className="change-chosen-address"
                         href="#"
@@ -329,7 +330,10 @@ export function PurchasePage() {
                   );
                 })}
                 <a
-                  onClick={() => setSelectCard(false)}
+                  onClick={() => {
+                    setSelectCard(false);
+                    setChooseAddress(true);
+                  }}
                   className="change-selected-card"
                   href="#"
                 >
