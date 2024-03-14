@@ -22,6 +22,16 @@ export function PurchasePage() {
     const storeSelectedCard = localStorage.getItem("selected card");
     return storeSelectedCard ? JSON.parse(storeSelectedCard) : false;
   });
+  const [storedSelectedCard, setStoredSelectedCard] = useState<
+    {
+      id: string;
+      select: boolean;
+      cardNumber: string;
+      nameOnCard: string;
+      months: string;
+      years: string;
+    }[]
+  >([]);
 
   const {
     infoArray,
@@ -91,7 +101,19 @@ export function PurchasePage() {
     return card.id === currentCardId;
   });
 
-  console.log(selectedCard);
+  useEffect(() => {
+    const storeSelectedCard = localStorage.setItem(
+      "filter selected card",
+      JSON.stringify(selectedCard)
+    );
+  }, [selectedCard]);
+
+  useEffect(() => {
+    const storedCard = localStorage.getItem("filter selected card");
+    if (storedCard) {
+      setStoredSelectedCard(JSON.parse(storedCard));
+    }
+  }, []);
 
   return (
     <div>
