@@ -297,7 +297,7 @@ export function PurchasePage() {
                 </div>
               </>
             ) : (
-              <>
+              <div className="selected-card">
                 <h2 className="selected-card-text">
                   <label>2</label>
                   Payment method
@@ -323,7 +323,7 @@ export function PurchasePage() {
                     </>
                   );
                 })}
-              </>
+              </div>
             )}
           </section>
           <section className="buy-container">

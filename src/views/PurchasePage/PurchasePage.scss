@@ -353,6 +353,22 @@
       }
     }
 
+    .selected-card {
+      width: 830px;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #9e9e9e;
+
+      .selected-card-text {
+        font-size: $font-size-18px;
+
+        label {
+          margin-right: 10px;
+        }
+      }
+    }
+
     .buy-container {
       width: 309px;
       height: 283px;
