@@ -17,7 +17,10 @@ import "./PurchasePage.scss";
 export function PurchasePage() {
   const [addressModal, setAddressModal] = useState<boolean>(false);
   const [cardModal, setCardModal] = useState<boolean>(false);
-  const [currentCardId, setCurrentCardId] = useState<string>("");
+  const [currentCardId, setCurrentCardId] = useState<string>(() => {
+    const storedCardId = localStorage.getItem("current card id");
+    return storedCardId ? JSON.parse(storedCardId) : "";
+  });
   const [selectCard, setSelectCard] = useState<boolean>(() => {
     const storeSelectedCard = localStorage.getItem("selected card");
     return storeSelectedCard ? JSON.parse(storeSelectedCard) : false;
@@ -42,6 +45,10 @@ export function PurchasePage() {
     localStorage.getItem("header cart count") ?? "0",
     10
   );
+
+  useEffect(() => {
+    localStorage.setItem("current card id", JSON.stringify(currentCardId));
+  }, [currentCardId]);
 
   useEffect(() => {
     localStorage.setItem("selected card", JSON.stringify(selectCard));
@@ -88,7 +95,7 @@ export function PurchasePage() {
   }, [cards]);
 
   const selectedCard = cards.filter((card) => {
-    return card.id === currentCardId;
+    return currentCardId === card.id;
   });
 
   return (
@@ -325,20 +332,18 @@ export function PurchasePage() {
                   Payment method
                 </h2>
 
-                {cards.map((card) => (
+                {selectedCard?.map((card) => (
                   <div key={card.id}>
-                    {card.id === currentCardId && (
-                      <div className="selected-card-info">
-                        <span className="selected-card-digits">{`Paying with Visa ${card.cardNumber.slice(
-                          card.cardNumber.length - 4
-                        )}`}</span>
-                        {selectedAddress?.map((address, index) => (
-                          <span key={index} className="selected-card-address">
-                            {`${address.fullNameInput}, ${address.addressInput}, ${address.cityInput}`}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                    <div className="selected-card-info">
+                      <span className="selected-card-digits">{`Paying with Visa ${card.cardNumber.slice(
+                        card.cardNumber.length - 4
+                      )}`}</span>
+                      {selectedAddress?.map((address, index) => (
+                        <span key={index} className="selected-card-address">
+                          {`${address.fullNameInput}, ${address.addressInput}, ${address.cityInput}`}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 ))}
 
