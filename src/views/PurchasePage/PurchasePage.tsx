@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import cartPostRequest from "@src/utils/CartPostRequest";
 import { v4 as uuidv4 } from "uuid";
 
 import { AddCardModal } from "@src/components/AddCardModal";
@@ -45,6 +46,8 @@ export function PurchasePage() {
     localStorage.getItem("header cart count") ?? "0",
     10
   );
+
+  const token = localStorage.getItem("access_token");
 
   useEffect(() => {
     localStorage.setItem("current card id", JSON.stringify(currentCardId));
@@ -97,6 +100,14 @@ export function PurchasePage() {
   const selectedCard = cards.filter((card) => {
     return currentCardId === card.id;
   });
+
+  async function purchaseProducts() {
+    try {
+      await cartPostRequest(productId, token);
+    } catch (error) {
+      console.log("Error Loading Cart Products", error);
+    }
+  }
 
   return (
     <div>

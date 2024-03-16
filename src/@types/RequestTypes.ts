@@ -34,9 +34,3 @@ export interface TCartProducts {
   product_id: string;
   user_id: string;
 }
-
-export interface TPurchaseProducts {
-  totalPrice: number;
-  totaltems: number;
-  id: string;
-}
