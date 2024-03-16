@@ -43,9 +43,7 @@ export function PurchasePage() {
 
   const navigate = useNavigate();
 
-  const { purchaseProducts, purchaseItems } = usePurchaseProducts();
-
-  console.log(purchaseProducts);
+  const { purchaseProducts } = usePurchaseProducts();
 
   const itemCount = parseInt(
     localStorage.getItem("header cart count") ?? "0",
@@ -378,30 +376,41 @@ export function PurchasePage() {
                   Items shipped from Amazon.com
                 </p>
                 <div className="current-products-list">
-                  <div className="current-product">
-                    <div className="current-product-image">
-                      <img src={amazonBlackLogo} alt="Product Image" />
-                    </div>
-                    <div>
-                      <span className="product-title">
-                        Lenovo Laptop Bag T210, Messenger Shoulder Bag for
-                        Laptop or Tablet
-                      </span>
-                      <h4 className="product-price">$ 25.52</h4>
-                      <select
-                        className="purchase-page-quantity"
-                        name="product quantity"
-                      >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                      </select>
-                      <p className="sold-by-amazon">
-                        Sold by:Amazon.com Services, Inc.
-                      </p>
-                    </div>
+                  <div className="list">
+                    {purchaseProducts.map((purchaseProduct) => {
+                      return (
+                        <div
+                          key={purchaseProduct.cartProduct.id}
+                          className="current-product"
+                        >
+                          <div className="current-product-image">
+                            <img
+                              src={purchaseProduct.cartProduct.image}
+                              alt="Product Image"
+                            />
+                          </div>
+                          <div>
+                            <span className="product-title">
+                              {purchaseProduct.cartProduct.title}
+                            </span>
+                            <h4 className="product-price">{`$ ${purchaseProduct.cartProduct.salePrice}`}</h4>
+                            <select
+                              className="purchase-page-quantity"
+                              name="product quantity"
+                            >
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                            </select>
+                            <p className="sold-by-amazon">
+                              Sold by:Amazon.com Services, Inc.
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                   <div className="choose-delivery-option">
                     <label>Choose a delivery option:</label>
