@@ -470,6 +470,34 @@
           }
         }
       }
+
+      .choose-delivery-option {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-weight: bold;
+        }
+
+        .delivery-time {
+          display: flex;
+          align-items: center;
+
+          input {
+            margin-right: 4px;
+          }
+
+          span {
+            font-weight: bold;
+            color: #007600;
+          }
+        }
+
+        .delivery-price {
+          margin: 3px 0 0 17px;
+          font-size: $font-size-14px;
+        }
+      }
     }
 
     .buy-container {

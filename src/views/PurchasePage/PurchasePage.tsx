@@ -369,10 +369,7 @@ export function PurchasePage() {
               <div className="current-products">
                 <h2 className="arrival-time">Arriving Mar 26, 2024</h2>
                 <p className="current-products-paragraph">
-                  We're sorry. Today's deadline for guaranteed accelerated
-                  delivery has expired. Please reselect your shipping speed to
-                  see updated shipping information. (Details) Items shipped from
-                  Amazon.com
+                  Items shipped from Amazon.com
                 </p>
                 <div className="current-products-list">
                   <div className="current-product">
@@ -403,7 +400,7 @@ export function PurchasePage() {
                   <div className="choose-delivery-option">
                     <label>Choose a delivery option:</label>
                     <span className="delivery-time">
-                      <input type="checkBox" />
+                      <input type="radio" />
                       <span>Tuesday, Mar 26</span>
                     </span>
                     <span className="delivery-price">$33.11 - Delivery</span>
