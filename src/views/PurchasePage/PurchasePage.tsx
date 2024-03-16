@@ -368,7 +368,7 @@ export function PurchasePage() {
               </h2>
               <div className="current-products">
                 <h2 className="arrival-time">Arriving Mar 26, 2024</h2>
-                <p>
+                <p className="current-products-paragraph">
                   We're sorry. Today's deadline for guaranteed accelerated
                   delivery has expired. Please reselect your shipping speed to
                   see updated shipping information. (Details) Items shipped from
@@ -376,25 +376,29 @@ export function PurchasePage() {
                 </p>
                 <div className="current-products-list">
                   <div className="current-product">
-                    <img src="" alt="Product Image" />
-                    <span className="product-title">
-                      Lenovo Laptop Bag T210, Messenger Shoulder Bag for Laptop
-                      or Tablet
-                    </span>
-                    <span className="product-price">$25.52</span>
-                    <select name="product quantity">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                    </select>
-                    <span>Sold by:Amazon.com Services, Inc.</span>
-                    <p>
-                      Item often ships in manufacturer's container to reduce
-                      packaging and reveals what's inside. If this is a gift,
-                      consider shipping to a different address.
-                    </p>
+                    <div className="current-product-image">
+                      <img src={amazonBlackLogo} alt="Product Image" />
+                    </div>
+                    <div>
+                      <span className="product-title">
+                        Lenovo Laptop Bag T210, Messenger Shoulder Bag for
+                        Laptop or Tablet
+                      </span>
+                      <span className="product-price">$25.52</span>
+                      <select name="product quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                      <span>Sold by:Amazon.com Services, Inc.</span>
+                      <p>
+                        Item often ships in manufacturer's container to reduce
+                        packaging and reveals what's inside. If this is a gift,
+                        consider shipping to a different address.
+                      </p>
+                    </div>
                   </div>
                   <div className="choose-delivery-option">
                     <label>Choose a delivery option:</label>

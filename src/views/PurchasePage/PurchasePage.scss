@@ -419,8 +419,32 @@
         border-radius: 8px;
 
         .arrival-time {
+          margin-bottom: 8px;
           font-size: $font-size-18px;
           color: #007600;
+        }
+
+        .current-products-paragraph {
+          margin-bottom: 5px;
+          font-size: $font-size-14px;
+          color: #565959;
+        }
+
+        .current-products-list {
+          display: flex;
+
+          .current-product {
+            width: 40%;
+            display: flex;
+
+            .current-product-image {
+              padding: 10px;
+
+              img {
+                width: 90px;
+              }
+            }
+          }
         }
       }
     }
