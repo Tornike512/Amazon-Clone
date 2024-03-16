@@ -64,6 +64,10 @@ export function GlobalProvider({ children }: PropsWithChildren) {
     const storedCards = localStorage.getItem("stored cards");
     return storedCards ? JSON.parse(storedCards) : [];
   });
+  const [purchasedItem, setPurchasedItem] = useState<TGetProducts[]>(() => {
+    const storedPurchasedItem = localStorage.getItem("purchased item");
+    return storedPurchasedItem ? JSON.parse(storedPurchasedItem) : [];
+  });
 
   return (
     <GlobalContext.Provider
@@ -120,6 +124,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setAddressInput,
         cards,
         setCards,
+        purchasedItem,
+        setPurchasedItem,
       }}
     >
       {children}

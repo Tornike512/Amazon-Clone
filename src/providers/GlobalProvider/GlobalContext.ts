@@ -94,6 +94,8 @@ interface TGlobalContext {
       }[]
     >
   >;
+  purchasedItem: TGetProducts[];
+  setPurchasedItem: React.Dispatch<React.SetStateAction<TGetProducts[]>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -149,4 +151,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setPhoneNumberInput: () => {},
   cards: [],
   setCards: () => {},
+  purchasedItem: [],
+  setPurchasedItem: () => {},
 });
