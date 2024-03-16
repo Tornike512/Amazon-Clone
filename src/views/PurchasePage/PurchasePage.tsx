@@ -450,7 +450,9 @@ export function PurchasePage() {
             </p>
             <h3>Order summary</h3>
             <span className="order-items">
-              <span>Subtotal (9 items): </span>
+              <span>
+                Subtotal ({itemCount} {itemCount < 2 ? "item" : "items"}):{" "}
+              </span>
               <span>$14.44</span>
             </span>
             <span className="shipping-handling">
