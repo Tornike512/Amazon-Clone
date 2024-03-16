@@ -437,7 +437,7 @@ export function PurchasePage() {
                       />
                       <span>Tuesday, Mar 26</span>
                     </span>
-                    <span className="delivery-price">$33.11 - Delivery</span>
+                    <span className="delivery-price">$13.39 - Delivery</span>
                   </div>
                 </div>
               </div>
