@@ -64,7 +64,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
     const storedCards = localStorage.getItem("stored cards");
     return storedCards ? JSON.parse(storedCards) : [];
   });
-  const [purchasedItem, setPurchasedItem] = useState<TGetProducts[]>(() => {
+
+  const [purchasedItem, setPurchasedItem] = useState<{ id: string }[]>(() => {
     const storedPurchasedItem = localStorage.getItem("purchased item");
     return storedPurchasedItem ? JSON.parse(storedPurchasedItem) : [];
   });

@@ -4,6 +4,8 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import { usePurchaseProducts } from "@src/hooks/usePurchaseProducts";
 import { v4 as uuidv4 } from "uuid";
 
+import { TGetProducts } from "@src/@types/RequestTypes";
+
 import { AddCardModal } from "@src/components/AddCardModal";
 import { AddAddressModal } from "@src/components/AddAddressModal";
 
@@ -42,7 +44,8 @@ export function PurchasePage() {
     setChooseAddress,
     cards,
     setCards,
-    productId,
+    purchasedItem,
+    setPurchasedItem,
   } = useContext(GlobalContext);
 
   const navigate = useNavigate();
@@ -123,6 +126,8 @@ export function PurchasePage() {
   const totalPrice = localStorage.getItem("total price");
 
   const orderTotal = Number(totalPrice) + 0.99 + 13.39 + 27.83;
+
+  console.log(purchasedItem);
 
   return (
     <div>
@@ -444,7 +449,18 @@ export function PurchasePage() {
             </div>
           </section>
           <section className="buy-container">
-            <button className="buy-button">Place your order in USD</button>
+            <button
+              onClick={() => {
+                setPurchasedItem(
+                  purchaseProducts.map((item) => ({
+                    id: item.cartProduct.id,
+                  })) as TGetProducts[]
+                );
+              }}
+              className="buy-button"
+            >
+              Place your order in USD
+            </button>
             <p className="choose-payment-text">
               By placing your order, you agree to Amazon's privacy notice and
               conditions of use.
