@@ -361,6 +361,52 @@ export function PurchasePage() {
                 </a>
               </div>
             )}
+            <div className="purchase-page-products">
+              <h2 className="purchase-page-products-text">
+                <label>3</label>
+                Review items and shipping
+              </h2>
+              <div className="current-products">
+                <h2 className="arrival-time">Arriving Mar 26, 2024</h2>
+                <p>
+                  We're sorry. Today's deadline for guaranteed accelerated
+                  delivery has expired. Please reselect your shipping speed to
+                  see updated shipping information. (Details) Items shipped from
+                  Amazon.com
+                </p>
+                <div className="current-products-list">
+                  <div className="current-product">
+                    <img src="" alt="Product Image" />
+                    <span className="product-title">
+                      Lenovo Laptop Bag T210, Messenger Shoulder Bag for Laptop
+                      or Tablet
+                    </span>
+                    <span className="product-price">$25.52</span>
+                    <select name="product quantity">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <span>Sold by:Amazon.com Services, Inc.</span>
+                    <p>
+                      Item often ships in manufacturer's container to reduce
+                      packaging and reveals what's inside. If this is a gift,
+                      consider shipping to a different address.
+                    </p>
+                  </div>
+                  <div className="choose-delivery-option">
+                    <label>Choose a delivery option:</label>
+                    <span className="delivery-time">
+                      <input type="checkBox" />
+                      <span>Tuesday, Mar 26</span>
+                    </span>
+                    <span className="delivery-price">$33.11 - Delivery</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
           <section className="buy-container">
             <button className="buy-button">Place your order in USD</button>
