@@ -10,8 +10,6 @@ import rightArrow from "@src/assets/right-arrow.png";
 import leftArrow from "@src/assets/left-arrow.png";
 import fourAndFiveStars from "@src/assets/four-half-stars.png";
 
-import axios from "axios";
-
 import "./ProductsCarousel.scss";
 
 export function ProductsCarousel({ products }: { products: TGetProducts[] }) {
