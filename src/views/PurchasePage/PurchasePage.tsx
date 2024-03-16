@@ -384,19 +384,19 @@ export function PurchasePage() {
                         Lenovo Laptop Bag T210, Messenger Shoulder Bag for
                         Laptop or Tablet
                       </span>
-                      <span className="product-price">$25.52</span>
-                      <select name="product quantity">
+                      <h4 className="product-price">$ 25.52</h4>
+                      <select
+                        className="purchase-page-quantity"
+                        name="product quantity"
+                      >
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
                       </select>
-                      <span>Sold by:Amazon.com Services, Inc.</span>
-                      <p>
-                        Item often ships in manufacturer's container to reduce
-                        packaging and reveals what's inside. If this is a gift,
-                        consider shipping to a different address.
+                      <p className="sold-by-amazon">
+                        Sold by:Amazon.com Services, Inc.
                       </p>
                     </div>
                   </div>

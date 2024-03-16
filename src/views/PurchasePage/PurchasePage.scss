@@ -444,6 +444,29 @@
                 width: 90px;
               }
             }
+
+            .product-title {
+              font-size: $font-size-14px;
+              font-weight: bold;
+            }
+
+            .product-price {
+              margin-top: 4px;
+              font-size: 14px;
+              color: #b12704;
+            }
+
+            .purchase-page-quantity {
+              @include selectStyle;
+              height: 25px;
+              padding: 2px 15px 2px 3px;
+              margin-top: 5px;
+            }
+
+            .sold-by-amazon {
+              font-size: $font-size-12px;
+              color: #565959;
+            }
           }
         }
       }
