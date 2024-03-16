@@ -121,7 +121,8 @@ export function PurchasePage() {
   });
 
   const totalPrice = localStorage.getItem("total price");
-  console.log(totalPrice);
+
+  const orderTotal = Number(totalPrice) + 0.99 + 13.39 + 27.83;
 
   return (
     <div>
@@ -453,7 +454,7 @@ export function PurchasePage() {
               <span>
                 Subtotal ({itemCount} {itemCount < 2 ? "item" : "items"}):{" "}
               </span>
-              <span>$14.44</span>
+              <span>{`$${totalPrice}.99`}</span>
             </span>
             <span className="shipping-handling">
               <span>Shipping & handling:</span>
@@ -465,7 +466,7 @@ export function PurchasePage() {
             </span>
             <span className="order-total">
               <span>Order Total:</span>
-              <span>$27.83</span>
+              <span>{`$${orderTotal.toFixed(2)}`}</span>
             </span>
           </section>
         </div>
