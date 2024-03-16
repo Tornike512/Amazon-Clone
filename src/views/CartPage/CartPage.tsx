@@ -101,6 +101,11 @@ export function CartPage() {
     }
   }
 
+  useEffect(() => {
+    const totalPrice = subtotal - -1 * subtraction;
+    localStorage.setItem("total price", JSON.stringify(totalPrice));
+  }, [subtotal, subtraction]);
+
   if (loading) {
     return <div>loading</div>;
   }

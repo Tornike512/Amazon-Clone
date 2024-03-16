@@ -54,6 +54,10 @@ export function PurchasePage() {
     10
   );
 
+  const savedProducts = JSON.parse(
+    localStorage.getItem("saved products") || ""
+  );
+
   useEffect(() => {
     localStorage.setItem("current card id", JSON.stringify(currentCardId));
   }, [currentCardId]);
@@ -109,6 +113,15 @@ export function PurchasePage() {
   useEffect(() => {
     localStorage.setItem("delivery option", JSON.stringify(deliveryOption));
   }, [deliveryOption]);
+
+  const filterPurchaseProducts = purchaseProducts.filter((purchaseProduct) => {
+    console.log(purchaseProduct);
+
+    return !savedProducts.includes(purchaseProduct.id);
+  });
+
+  const totalPrice = localStorage.getItem("total price");
+  console.log(totalPrice);
 
   return (
     <div>
@@ -385,7 +398,7 @@ export function PurchasePage() {
                 </p>
                 <div className="current-products-list">
                   <div className="list">
-                    {purchaseProducts.map((purchaseProduct) => {
+                    {filterPurchaseProducts.map((purchaseProduct) => {
                       return (
                         <div
                           key={purchaseProduct.cartProduct.id}
@@ -401,7 +414,7 @@ export function PurchasePage() {
                             <span className="product-title">
                               {purchaseProduct.cartProduct.title}
                             </span>
-                            <h4 className="product-price">{`$ ${purchaseProduct.cartProduct.salePrice}`}</h4>
+                            <h4 className="product-price">{`$ ${purchaseProduct.cartProduct.salePrice}.99`}</h4>
                             <span className="purchase-page-quantity">
                               Quantity: {`${purchaseProduct.count}`}
                             </span>
