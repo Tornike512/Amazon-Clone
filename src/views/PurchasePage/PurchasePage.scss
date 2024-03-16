@@ -400,6 +400,31 @@
       }
     }
 
+    .purchase-page-products {
+      width: 830px;
+      padding-top: 10px;
+
+      .purchase-page-products-text {
+        margin-bottom: 5px;
+        font-size: $font-size-18px;
+
+        label {
+          margin-right: 10px;
+        }
+      }
+
+      .current-products {
+        padding: 14px 18px;
+        border: $tertiary-border-color;
+        border-radius: 8px;
+
+        .arrival-time {
+          font-size: $font-size-18px;
+          color: #007600;
+        }
+      }
+    }
+
     .buy-container {
       width: 309px;
       height: 283px;
