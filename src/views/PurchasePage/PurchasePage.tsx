@@ -26,6 +26,10 @@ export function PurchasePage() {
     const storeSelectedCard = localStorage.getItem("selected card");
     return storeSelectedCard ? JSON.parse(storeSelectedCard) : false;
   });
+  const [deliveryOption, setDeliveryOption] = useState<boolean>(() => {
+    const storedDeliveryOption = localStorage.getItem("delivery option");
+    return storedDeliveryOption ? JSON.parse(storedDeliveryOption) : false;
+  });
 
   const {
     infoArray,
@@ -101,6 +105,10 @@ export function PurchasePage() {
   const selectedCard = cards.filter((card) => {
     return currentCardId === card.id;
   });
+
+  useEffect(() => {
+    localStorage.setItem("delivery option", JSON.stringify(deliveryOption));
+  }, [deliveryOption]);
 
   return (
     <div>
@@ -394,16 +402,9 @@ export function PurchasePage() {
                               {purchaseProduct.cartProduct.title}
                             </span>
                             <h4 className="product-price">{`$ ${purchaseProduct.cartProduct.salePrice}`}</h4>
-                            <select
-                              className="purchase-page-quantity"
-                              name="product quantity"
-                            >
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                            </select>
+                            <span className="purchase-page-quantity">
+                              Quantity: {`${purchaseProduct.count}`}
+                            </span>
                             <p className="sold-by-amazon">
                               Sold by:Amazon.com Services, Inc.
                             </p>
@@ -415,7 +416,11 @@ export function PurchasePage() {
                   <div className="choose-delivery-option">
                     <label>Choose a delivery option:</label>
                     <span className="delivery-time">
-                      <input type="radio" />
+                      <input
+                        checked={true}
+                        onClick={() => setDeliveryOption(true)}
+                        type="radio"
+                      />
                       <span>Tuesday, Mar 26</span>
                     </span>
                     <span className="delivery-price">$33.11 - Delivery</span>
