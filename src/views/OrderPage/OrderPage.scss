@@ -146,6 +146,7 @@
   .past-orders {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin: 24px 0 32px 0;
     font-size: $font-size-14px;
 
@@ -172,6 +173,25 @@
       p {
         font-size: $font-size-14px;
         font-weight: bold;
+      }
+    }
+
+    .purchased-item {
+      height: 85px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: $tertiary-border-color;
+      border-radius: 5px;
+
+      .purchased-item-image {
+        width: auto;
+        padding: 10px;
+
+        img {
+          width: 80px;
+        }
       }
     }
 

@@ -34,6 +34,8 @@ export function OrderPage() {
 
   const { purchaseProducts } = usePurchaseProducts();
 
+  console.log(purchaseProducts);
+
   return (
     <div className="orders">
       <nav className="orders-nav">
@@ -115,17 +117,27 @@ export function OrderPage() {
                 ) : (
                   <>
                     {purchaseProducts ? (
-                      <div className="purchased-item">
-                        <div className="purchased-item-image">
-                          <img src="" alt="Purchased item" />
-                        </div>
-                        <div className="purchased-item-description">
-                          <p></p>
-                          <button className="view-your-item">
-                            View your item
-                          </button>
-                        </div>
-                      </div>
+                      purchaseProducts.map((purchase) => {
+                        return (
+                          <div
+                            key={purchase.cartProduct.id}
+                            className="purchased-item"
+                          >
+                            <div className="purchased-item-image">
+                              <img
+                                src={purchase.cartProduct.image}
+                                alt="Purchased item"
+                              />
+                            </div>
+                            <div className="purchased-item-title">
+                              <p>{purchase.cartProduct.title}</p>
+                              <button className="view-your-item">
+                                View your item
+                              </button>
+                            </div>
+                          </div>
+                        );
+                      })
                     ) : (
                       <>You have not placed any orders in {`${select}.`}</>
                     )}
