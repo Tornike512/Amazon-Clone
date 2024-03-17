@@ -99,7 +99,7 @@ export function OrderPage() {
               <option value="2021">2021</option>
             </select>
           </div>
-          <p className="past-orders">
+          <div className="past-orders">
             {select !== "2021" ? (
               <>
                 {successfulPurchase ? (
@@ -157,7 +157,7 @@ export function OrderPage() {
                 You have not placed any orders in 2021.
               </p>
             )}
-          </p>
+          </div>
         </>
       )}
       {currentInfo === "Buy Again" && (

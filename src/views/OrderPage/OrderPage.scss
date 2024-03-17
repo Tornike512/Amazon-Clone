@@ -177,9 +177,7 @@
     }
 
     .purchased-item {
-      height: 85px;
       display: flex;
-      align-items: center;
       padding: 10px;
       margin-bottom: 10px;
       border: $tertiary-border-color;
@@ -195,6 +193,10 @@
       }
 
       .purchased-item-title {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: space-between;
         font-size: 13px;
 
         p {
