@@ -200,6 +200,15 @@
         p {
           margin-bottom: 5px;
         }
+
+        .view-your-item {
+          @include selectStyle;
+          padding: 4px 10px 4px 10px;
+        }
+
+        .view-your-item:hover {
+          background-color: #e3e3e3;
+        }
       }
     }
 
