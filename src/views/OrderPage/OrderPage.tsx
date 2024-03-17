@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import { usePurchaseProducts } from "@src/hooks/usePurchaseProducts";
 
 import searchIcon from "@src/assets/search-icon.png";
 import successIcon from "@src/assets/success-icon.png";
@@ -12,12 +13,8 @@ interface TOrderInfo {
 }
 
 export function OrderPage() {
-  const {
-    currentInfo,
-    setCurrentInfo,
-    successfulPurchase,
-    setSuccessfulPurchase,
-  } = useContext(GlobalContext);
+  const { currentInfo, setCurrentInfo, successfulPurchase } =
+    useContext(GlobalContext);
 
   const [select, setSelect] = useState<string>("");
 
@@ -34,6 +31,8 @@ export function OrderPage() {
     setCurrentInfo("Orders");
     setSelect("last 30 days");
   }, []);
+
+  const { purchaseProducts } = usePurchaseProducts();
 
   return (
     <div className="orders">
@@ -114,7 +113,23 @@ export function OrderPage() {
                     </div>
                   </>
                 ) : (
-                  <>You have not placed any orders in {`${select}.`}</>
+                  <>
+                    {purchaseProducts ? (
+                      <div className="purchased-item">
+                        <div className="purchased-item-image">
+                          <img src="" alt="Purchased item" />
+                        </div>
+                        <div className="purchased-item-description">
+                          <p></p>
+                          <button className="view-your-item">
+                            View your item
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <>You have not placed any orders in {`${select}.`}</>
+                    )}
+                  </>
                 )}
               </>
             ) : (
