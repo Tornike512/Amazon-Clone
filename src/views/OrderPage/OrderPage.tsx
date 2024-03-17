@@ -99,7 +99,13 @@ export function OrderPage() {
               <option value="2021">2021</option>
             </select>
           </div>
-          <div className="past-orders">
+          <div
+            style={{
+              alignItems:
+                Object.keys(purchaseProducts).length === 0 ? `center` : "",
+            }}
+            className="past-orders"
+          >
             {select !== "2021" ? (
               <>
                 {successfulPurchase ? (
@@ -117,40 +123,39 @@ export function OrderPage() {
                   </>
                 ) : (
                   <>
-                    {purchaseProducts ? (
-                      purchaseProducts.map((purchase) => {
-                        return (
-                          <div
-                            key={purchase.cartProduct.id}
-                            className="purchased-item"
-                          >
-                            <div className="purchased-item-image">
-                              <img
-                                src={purchase.cartProduct.image}
-                                alt="Purchased item"
-                              />
-                            </div>
-                            <div className="purchased-item-title">
-                              <p>{purchase.cartProduct.title}</p>
-                              <button
-                                onClick={() =>
-                                  navigate(
-                                    `/products/${purchase.cartProduct.id}`
-                                  )
-                                }
-                                className="view-your-item"
-                              >
-                                View your item
-                              </button>
-                            </div>
-                          </div>
-                        );
-                      })
-                    ) : (
+                    {Object.keys(purchaseProducts).length === 0 && (
                       <>You have not placed any orders in {`${select}.`}</>
                     )}
                   </>
                 )}
+                <>
+                  {purchaseProducts.map((purchase) => {
+                    return (
+                      <div
+                        key={purchase.cartProduct.id}
+                        className="purchased-item"
+                      >
+                        <div className="purchased-item-image">
+                          <img
+                            src={purchase.cartProduct.image}
+                            alt="Purchased item"
+                          />
+                        </div>
+                        <div className="purchased-item-title">
+                          <p>{purchase.cartProduct.title}</p>
+                          <button
+                            onClick={() =>
+                              navigate(`/products/${purchase.cartProduct.id}`)
+                            }
+                            className="view-your-item"
+                          >
+                            View your item
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </>
               </>
             ) : (
               <p className="past-orders">
