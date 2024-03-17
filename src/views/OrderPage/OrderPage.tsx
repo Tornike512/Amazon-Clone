@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { usePurchaseProducts } from "@src/hooks/usePurchaseProducts";
 
@@ -34,7 +35,7 @@ export function OrderPage() {
 
   const { purchaseProducts } = usePurchaseProducts();
 
-  console.log(purchaseProducts);
+  const navigate = useNavigate();
 
   return (
     <div className="orders">
@@ -131,7 +132,14 @@ export function OrderPage() {
                             </div>
                             <div className="purchased-item-title">
                               <p>{purchase.cartProduct.title}</p>
-                              <button className="view-your-item">
+                              <button
+                                onClick={() =>
+                                  navigate(
+                                    `/products/${purchase.cartProduct.id}`
+                                  )
+                                }
+                                className="view-your-item"
+                              >
                                 View your item
                               </button>
                             </div>
