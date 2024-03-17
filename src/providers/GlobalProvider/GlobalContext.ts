@@ -94,8 +94,18 @@ interface TGlobalContext {
       }[]
     >
   >;
-  purchasedItem: TGetProducts[];
-  setPurchasedItem: React.Dispatch<React.SetStateAction<TGetProducts[]>>;
+  purchasedItem: {
+    id: string;
+  }[];
+  setPurchasedItem: React.Dispatch<
+    React.SetStateAction<
+      {
+        id: string;
+      }[]
+    >
+  >;
+  successfulPurchase: boolean;
+  setSuccessfulPurchase: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -153,4 +163,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setCards: () => {},
   purchasedItem: [],
   setPurchasedItem: () => {},
+  successfulPurchase: false,
+  setSuccessfulPurchase: () => {},
 });

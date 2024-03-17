@@ -69,6 +69,7 @@ export function GlobalProvider({ children }: PropsWithChildren) {
     const storedPurchasedItem = localStorage.getItem("purchased item");
     return storedPurchasedItem ? JSON.parse(storedPurchasedItem) : [];
   });
+  const [successfulPurchase, setSuccessfulPurchase] = useState<boolean>(false);
 
   return (
     <GlobalContext.Provider
@@ -127,6 +128,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setCards,
         purchasedItem,
         setPurchasedItem,
+        successfulPurchase,
+        setSuccessfulPurchase,
       }}
     >
       {children}

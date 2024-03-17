@@ -46,6 +46,8 @@ export function PurchasePage() {
     setCards,
     purchasedItem,
     setPurchasedItem,
+    successfulPurchase,
+    setSuccessfulPurchase,
   } = useContext(GlobalContext);
 
   const navigate = useNavigate();
@@ -456,6 +458,8 @@ export function PurchasePage() {
                     id: item.cartProduct.id,
                   })) as TGetProducts[]
                 );
+                navigate("/orders");
+                setSuccessfulPurchase(true);
               }}
               className="buy-button"
             >
