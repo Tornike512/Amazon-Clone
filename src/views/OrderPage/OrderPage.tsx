@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import searchIcon from "@src/assets/search-icon.png";
+import successIcon from "@src/assets/success-icon.png";
 
 import "@src/views/OrderPage/OrderPage.scss";
 
@@ -11,7 +12,12 @@ interface TOrderInfo {
 }
 
 export function OrderPage() {
-  const { currentInfo, setCurrentInfo } = useContext(GlobalContext);
+  const {
+    currentInfo,
+    setCurrentInfo,
+    successfulPurchase,
+    setSuccessfulPurchase,
+  } = useContext(GlobalContext);
 
   const [select, setSelect] = useState<string>("");
 
@@ -93,7 +99,24 @@ export function OrderPage() {
           </div>
           <p className="past-orders">
             {select !== "2021" ? (
-              <>You have not placed any orders in {`${select}.`}</>
+              <>
+                {successfulPurchase ? (
+                  <>
+                    <div className="successful-order">
+                      <span className="successful-order-text">
+                        <img src={successIcon} alt="Success Icon" />
+                        <h2>Your product has been successfully ordered</h2>
+                      </span>
+                      <p>
+                        Thank you for shopping with Amazon! Your recent order
+                        has been successfully placed.
+                      </p>
+                    </div>
+                  </>
+                ) : (
+                  <>You have not placed any orders in {`${select}.`}</>
+                )}
+              </>
             ) : (
               <p className="past-orders">
                 You have not placed any orders in 2021.
