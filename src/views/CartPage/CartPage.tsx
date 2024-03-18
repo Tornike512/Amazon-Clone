@@ -9,6 +9,7 @@ import { TCartProducts } from "@src/@types/RequestTypes";
 import axios from "axios";
 
 import "./CartPage.scss";
+import PurchasePage from "../PurchasePage";
 
 export function CartPage() {
   const [cartProducts, setCartProducts] = useState<TCartProducts[]>([]);
@@ -28,10 +29,7 @@ export function CartPage() {
     setSubtotal,
     countProducts,
     setCountProducts,
-    purchasedItem,
   } = useContext(GlobalContext);
-
-  console.log(purchasedItem);
 
   async function getCartProducts() {
     try {
@@ -58,6 +56,10 @@ export function CartPage() {
   }
 
   const token = localStorage.getItem("access_token");
+
+  const purchasedItem = localStorage.getItem("purchased item");
+
+  console.log(purchasedItem);
 
   const navigate = useNavigate();
 
@@ -110,7 +112,7 @@ export function CartPage() {
   }, [subtotal, subtraction]);
 
   const filtedPurchasedItems = cartProducts.filter((item) => {
-    !purchasedItem.includes({ id: item.cartProduct.id });
+    return !purchasedItem?.includes(item.cartProduct.id);
   });
 
   console.log(filtedPurchasedItems);
