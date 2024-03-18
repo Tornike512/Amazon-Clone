@@ -28,7 +28,10 @@ export function CartPage() {
     setSubtotal,
     countProducts,
     setCountProducts,
+    purchasedItem,
   } = useContext(GlobalContext);
+
+  console.log(purchasedItem);
 
   async function getCartProducts() {
     try {
@@ -106,6 +109,12 @@ export function CartPage() {
     localStorage.setItem("total price", JSON.stringify(totalPrice));
   }, [subtotal, subtraction]);
 
+  const filtedPurchasedItems = cartProducts.filter((item) => {
+    !purchasedItem.includes({ id: item.cartProduct.id });
+  });
+
+  console.log(filtedPurchasedItems);
+
   if (loading) {
     return <div>loading</div>;
   }
@@ -136,7 +145,7 @@ export function CartPage() {
                 );
               })}
             </>
-            {cartProducts?.map((item) => {
+            {filtedPurchasedItems?.map((item) => {
               return !selectSavedProduct.includes(item.id) ? (
                 <div key={item.cartProduct.id} className="cart-product">
                   <span

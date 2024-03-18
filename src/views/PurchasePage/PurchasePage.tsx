@@ -129,7 +129,9 @@ export function PurchasePage() {
 
   const orderTotal = Number(totalPrice) + 0.99 + 13.39 + 27.83;
 
-  console.log(purchasedItem);
+  useEffect(() => {
+    localStorage.setItem("purchased item", JSON.stringify(purchasedItem));
+  }, [purchasedItem]);
 
   return (
     <div>
