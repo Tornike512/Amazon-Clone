@@ -29,6 +29,7 @@ export function CartPage() {
     setSubtotal,
     countProducts,
     setCountProducts,
+    purchasedItem,
   } = useContext(GlobalContext);
 
   async function getCartProducts() {
@@ -57,7 +58,7 @@ export function CartPage() {
 
   const token = localStorage.getItem("access_token");
 
-  const purchasedItem = localStorage.getItem("purchased item");
+  const storedPurchasedItem = localStorage.getItem("purchased item");
 
   console.log(purchasedItem);
 
@@ -111,8 +112,12 @@ export function CartPage() {
     localStorage.setItem("total price", JSON.stringify(totalPrice));
   }, [subtotal, subtraction]);
 
+  useEffect(() => {
+    localStorage.setItem("purchased item", JSON.stringify(purchasedItem));
+  }, [purchasedItem]);
+
   const filtedPurchasedItems = cartProducts.filter((item) => {
-    return !purchasedItem?.includes(item.cartProduct.id);
+    return !storedPurchasedItem?.includes(item.cartProduct.id);
   });
 
   console.log(filtedPurchasedItems);
