@@ -63,6 +63,8 @@ export function PurchasePage() {
     localStorage.getItem("saved products") || ""
   );
 
+  const storedPurchasedItem = localStorage.getItem("purchased item");
+
   useEffect(() => {
     localStorage.setItem("current card id", JSON.stringify(currentCardId));
   }, [currentCardId]);
@@ -124,6 +126,12 @@ export function PurchasePage() {
 
     return !savedProducts.includes(purchaseProduct.id);
   });
+
+  const filterByPurchasedProducts = filterPurchaseProducts.filter((item) => {
+    return !storedPurchasedItem?.includes(item.cartProduct.id);
+  });
+
+  console.log(filterByPurchasedProducts);
 
   const totalPrice = localStorage.getItem("total price");
 
@@ -408,7 +416,7 @@ export function PurchasePage() {
                 </p>
                 <div className="current-products-list">
                   <div className="list">
-                    {filterPurchaseProducts.map((purchaseProduct) => {
+                    {filterByPurchasedProducts.map((purchaseProduct) => {
                       return (
                         <div
                           key={purchaseProduct.cartProduct.id}
