@@ -37,6 +37,8 @@ export function OrderPage() {
 
   const navigate = useNavigate();
 
+  const purchasedItemsCount = localStorage.getItem("header cart count");
+
   return (
     <div className="orders">
       <nav className="orders-nav">
@@ -84,7 +86,11 @@ export function OrderPage() {
         <>
           <div className="order-history">
             <label>
-              <span>0 Orders</span> placed in
+              <span>
+                {purchasedItemsCount}{" "}
+                {purchasedItemsCount === "1" ? "Order" : "Orders"}
+              </span>{" "}
+              placed in
             </label>
             <select
               onChange={(e) => setSelect(e.target.value)}

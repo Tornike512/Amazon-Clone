@@ -178,6 +178,7 @@
     }
 
     .purchased-item {
+      height: 85px;
       display: flex;
       padding: 10px;
       margin-bottom: 10px;
@@ -185,11 +186,13 @@
       border-radius: 5px;
 
       .purchased-item-image {
-        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 10px;
 
         img {
-          width: 80px;
+          width: 50px;
         }
       }
 
