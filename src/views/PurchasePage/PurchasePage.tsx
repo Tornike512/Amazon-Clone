@@ -48,6 +48,7 @@ export function PurchasePage() {
     setPurchasedItem,
     successfulPurchase,
     setSuccessfulPurchase,
+    setCountCartProducts,
   } = useContext(GlobalContext);
 
   const navigate = useNavigate();
@@ -480,6 +481,7 @@ export function PurchasePage() {
                 );
                 navigate("/orders");
                 setSuccessfulPurchase(true);
+                setCountCartProducts(0);
               }}
               className="buy-button"
             >
