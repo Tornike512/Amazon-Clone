@@ -93,10 +93,8 @@ export function OrderPage() {
           <div className="order-history">
             <label>
               <span>
-                {purchasedItemsCount - Object.keys(storePurchasedItems).length}{" "}
-                {(
-                  purchasedItemsCount - Object.keys(storePurchasedItems).length
-                ).toString() === "1"
+                {Object.keys(storePurchasedItems).length}{" "}
+                {Object.keys(storePurchasedItems).length.toString() === "1"
                   ? "Order"
                   : "Orders"}
               </span>{" "}

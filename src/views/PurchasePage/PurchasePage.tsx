@@ -480,9 +480,6 @@ export function PurchasePage() {
                 );
                 navigate("/orders");
                 setSuccessfulPurchase(true);
-                setTimeout(() => {
-                  window.location.reload();
-                }, 100);
               }}
               className="buy-button"
             >

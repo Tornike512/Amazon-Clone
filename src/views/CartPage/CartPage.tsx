@@ -122,14 +122,6 @@ export function CartPage() {
       .includes(item.cartProduct.id);
   });
 
-  console.log(
-    storedPurchasedItem.map((stored: any) => {
-      return stored.id;
-    })
-  );
-
-  console.log(filterPurchasedItems, "filtered");
-
   if (loading) {
     return <div>loading</div>;
   }
