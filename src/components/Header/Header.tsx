@@ -68,6 +68,10 @@ export function Header() {
 
   const storedFirstName = localStorage.getItem("firstName");
 
+  const storedPurchasedItem = JSON.parse(
+    localStorage.getItem("purchased item") || ""
+  );
+
   return (
     <header className="header">
       {signInHover && (
@@ -200,12 +204,19 @@ export function Header() {
                     </>
                   ) : (
                     <span>
-                      {countCartProducts <= 0 ? (
+                      {countCartProducts -
+                        Object.keys(storedPurchasedItem).length <=
+                      0 ? (
                         <>0</>
                       ) : (
                         <>
-                          {countCartProducts <= 9 ? (
-                            <>{countCartProducts}</>
+                          {countCartProducts -
+                            Object.keys(storedPurchasedItem).length <=
+                          9 ? (
+                            <>
+                              {countCartProducts -
+                                Object.keys(storedPurchasedItem).length}
+                            </>
                           ) : (
                             <div style={{ margin: "-4px" }}>{`9+`}</div>
                           )}

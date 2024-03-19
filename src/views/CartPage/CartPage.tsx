@@ -58,9 +58,9 @@ export function CartPage() {
 
   const token = localStorage.getItem("access_token");
 
-  const storedPurchasedItem = localStorage.getItem("purchased item");
-
-  console.log(purchasedItem);
+  const storedPurchasedItem = JSON.parse(
+    localStorage.getItem("purchased item") || ""
+  );
 
   const navigate = useNavigate();
 
@@ -117,7 +117,7 @@ export function CartPage() {
   }, [purchasedItem]);
 
   const filtedPurchasedItems = cartProducts.filter((item) => {
-    return !storedPurchasedItem?.includes(item.cartProduct.id);
+    return storedPurchasedItem?.includes(item.cartProduct.id);
   });
 
   console.log(filtedPurchasedItems);
@@ -217,8 +217,13 @@ export function CartPage() {
               );
             })}
             <span className="cart-product-subtotal">
-              Subtotal ({countProducts - selectSavedProduct.length}{" "}
-              {countProducts - selectSavedProduct.length > 1 ? (
+              Subtotal (
+              {countProducts -
+                selectSavedProduct.length -
+                Object.keys(storedPurchasedItem).length}{" "}
+              {countProducts -
+              selectSavedProduct.length -
+              Object.keys(storedPurchasedItem).length ? (
                 <>items</>
               ) : (
                 <>item</>
@@ -300,8 +305,14 @@ export function CartPage() {
 
       <div className="subtotal">
         <span className="subtotal-price">
-          Subtotal ({countProducts - selectSavedProduct.length}{" "}
-          {countProducts - selectSavedProduct.length > 1 ? (
+          Subtotal (
+          {countProducts -
+            selectSavedProduct.length -
+            Object.keys(storedPurchasedItem).length}{" "}
+          {countProducts -
+            selectSavedProduct.length -
+            Object.keys(storedPurchasedItem).length >
+          1 ? (
             <>items</>
           ) : (
             <>item</>
