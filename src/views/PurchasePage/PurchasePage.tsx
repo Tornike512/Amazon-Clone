@@ -130,7 +130,9 @@ export function PurchasePage() {
   });
 
   const filterByPurchasedProducts = filterPurchaseProducts.filter((item) => {
-    return !storedPurchasedItem?.includes(item.cartProduct.id);
+    return !storedPurchasedItem
+      .map((stored: any) => stored.id)
+      .includes(item.cartProduct.id);
   });
 
   console.log(filterByPurchasedProducts);
