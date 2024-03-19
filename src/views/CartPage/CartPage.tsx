@@ -116,11 +116,19 @@ export function CartPage() {
     localStorage.setItem("purchased item", JSON.stringify(purchasedItem));
   }, [purchasedItem]);
 
-  const filtedPurchasedItems = cartProducts.filter((item) => {
-    return storedPurchasedItem?.includes(item.cartProduct.id);
+  const filterPurchasedItems = cartProducts.filter((item) => {
+    return !storedPurchasedItem
+      .map((stored: any) => stored.id)
+      .includes(item.cartProduct.id);
   });
 
-  console.log(filtedPurchasedItems);
+  console.log(
+    storedPurchasedItem.map((stored: any) => {
+      return stored.id;
+    })
+  );
+
+  console.log(filterPurchasedItems, "filtered");
 
   if (loading) {
     return <div>loading</div>;
@@ -152,7 +160,7 @@ export function CartPage() {
                 );
               })}
             </>
-            {filtedPurchasedItems?.map((item) => {
+            {filterPurchasedItems?.map((item) => {
               return !selectSavedProduct.includes(item.id) ? (
                 <div key={item.cartProduct.id} className="cart-product">
                   <span

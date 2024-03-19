@@ -124,7 +124,7 @@ export function PurchasePage() {
   const filterPurchaseProducts = purchaseProducts.filter((purchaseProduct) => {
     console.log(purchaseProduct);
 
-    return !savedProducts.includes(purchaseProduct.id);
+    return !savedProducts.includes(purchaseProduct.cartProduct.id);
   });
 
   const filterByPurchasedProducts = filterPurchaseProducts.filter((item) => {
