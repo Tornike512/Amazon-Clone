@@ -59,7 +59,7 @@ export function CartPage() {
   const token = localStorage.getItem("access_token");
 
   const storedPurchasedItem = JSON.parse(
-    localStorage.getItem("purchased item") || ""
+    localStorage.getItem("purchased item") || "{}"
   );
 
   const navigate = useNavigate();

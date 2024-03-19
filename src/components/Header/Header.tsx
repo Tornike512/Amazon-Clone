@@ -69,7 +69,7 @@ export function Header() {
   const storedFirstName = localStorage.getItem("firstName");
 
   const storedPurchasedItem = JSON.parse(
-    localStorage.getItem("purchased item") || ""
+    localStorage.getItem("purchased item") || "{}"
   );
 
   return (
