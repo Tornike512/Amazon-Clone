@@ -323,7 +323,11 @@ export function CartPage() {
           }`}</h3>
         </span>
         <button
-          disabled={countCartProducts === 0 ? true : false}
+          disabled={
+            countCartProducts - Object.keys(storedPurchasedItem).length === 0
+              ? true
+              : false
+          }
           onClick={() => navigate("/purchase")}
           className="checkout"
         >
