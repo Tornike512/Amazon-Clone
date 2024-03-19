@@ -63,7 +63,9 @@ export function PurchasePage() {
     localStorage.getItem("saved products") || ""
   );
 
-  const storedPurchasedItem = localStorage.getItem("purchased item");
+  const storedPurchasedItem = JSON.parse(
+    localStorage.getItem("purchased item") || "{}"
+  );
 
   useEffect(() => {
     localStorage.setItem("current card id", JSON.stringify(currentCardId));
@@ -155,8 +157,14 @@ export function PurchasePage() {
             <span className="checkout-text">
               Checkout{" "}
               <a onClick={() => navigate("/cart")}>
-                ({itemCount}{" "}
-                {itemCount === 0 || itemCount === 1 ? <>item</> : <>items</>})
+                ({itemCount - Object.keys(storedPurchasedItem).length}{" "}
+                {itemCount - Object.keys(storedPurchasedItem).length === 0 ||
+                itemCount - Object.keys(storedPurchasedItem).length === 1 ? (
+                  <>item</>
+                ) : (
+                  <>items</>
+                )}
+                )
               </a>
             </span>
             <img className="locker-logo" src={lockerIcon} alt="Locker Logo" />
