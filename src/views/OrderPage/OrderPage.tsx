@@ -37,7 +37,13 @@ export function OrderPage() {
 
   const navigate = useNavigate();
 
-  const purchasedItemsCount = localStorage.getItem("header cart count");
+  const purchasedItemsCount = JSON.parse(
+    localStorage.getItem("header cart count") || "{}"
+  );
+
+  const storePurchasedItems = JSON.parse(
+    localStorage.getItem("purchased item") || "{}"
+  );
 
   return (
     <div className="orders">
@@ -87,8 +93,12 @@ export function OrderPage() {
           <div className="order-history">
             <label>
               <span>
-                {purchasedItemsCount}{" "}
-                {purchasedItemsCount === "1" ? "Order" : "Orders"}
+                {purchasedItemsCount - Object.keys(storePurchasedItems).length}{" "}
+                {(
+                  purchasedItemsCount - Object.keys(storePurchasedItems).length
+                ).toString() === "1"
+                  ? "Order"
+                  : "Orders"}
               </span>{" "}
               placed in
             </label>
