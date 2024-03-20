@@ -94,20 +94,8 @@ export function OrderPage() {
                   ? "Order"
                   : "Orders"}
               </span>{" "}
-              placed in
+              placed in 2024
             </label>
-            <select
-              onChange={(e) => setSelect(e.target.value)}
-              name="orders-date"
-              id="orders-select"
-            >
-              <option value="last 30 days">last 30 days</option>
-              <option value="past 3 months">past 3 months</option>
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-            </select>
           </div>
           <div
             style={{
@@ -193,20 +181,8 @@ export function OrderPage() {
         <>
           <div className="order-history">
             <label>
-              <span>0 Orders</span> placed in
+              <span>0 Orders</span> placed in 2024
             </label>
-            <select
-              onChange={(e) => setSelect(e.target.value)}
-              name="orders-date"
-              id="orders-select"
-            >
-              <option value="last 30 days">last 30 days</option>
-              <option value="past 3 months">past 3 months</option>
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-            </select>
           </div>
           <p className="past-orders">
             {select !== "2021" ? (
@@ -223,20 +199,8 @@ export function OrderPage() {
         <>
           <div className="order-history">
             <label>
-              <span>0 Orders</span> placed in
+              <span>0 Orders</span> placed in 2024
             </label>
-            <select
-              onChange={(e) => setSelect(e.target.value)}
-              name="orders-date"
-              id="orders-select"
-            >
-              <option value="last 30 days">last 30 days</option>
-              <option value="past 3 months">past 3 months</option>
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-            </select>
           </div>
           <p className="past-orders">
             {select !== "2021" ? (
