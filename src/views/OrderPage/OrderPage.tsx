@@ -156,7 +156,10 @@ export function OrderPage() {
                 </>
               </>
             ) : (
-              <p className="past-orders">
+              <p
+                style={{ display: "flex", justifyContent: "center" }}
+                className="past-orders"
+              >
                 You have not placed any orders in 2021.
               </p>
             )}
@@ -215,7 +218,10 @@ export function OrderPage() {
               placed in 2024
             </label>
           </div>
-          <p className="past-orders">
+          <p
+            style={{ display: "flex", justifyContent: "center" }}
+            className="past-orders"
+          >
             {select !== "2021" ? (
               <>You have not placed any orders in {`${select}.`}</>
             ) : (
@@ -239,7 +245,10 @@ export function OrderPage() {
               placed in 2024
             </label>
           </div>
-          <p className="past-orders">
+          <p
+            style={{ display: "flex", justifyContent: "center" }}
+            className="past-orders"
+          >
             {select !== "2021" ? (
               <>You have not placed any orders in {`${select}.`}</>
             ) : (
