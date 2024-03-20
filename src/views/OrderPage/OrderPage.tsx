@@ -37,10 +37,6 @@ export function OrderPage() {
 
   const navigate = useNavigate();
 
-  const purchasedItemsCount = JSON.parse(
-    localStorage.getItem("header cart count") || "{}"
-  );
-
   const storePurchasedItems = JSON.parse(
     localStorage.getItem("purchased item") || "{}"
   );
