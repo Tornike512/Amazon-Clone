@@ -18,6 +18,10 @@ export function OrderPage() {
     useContext(GlobalContext);
 
   const [select, setSelect] = useState<string>("");
+  const [searchInput, setSearchInput] = useState<string>("");
+  const [search, setSearch] = useState<string>("");
+
+  console.log(search);
 
   const orderInfos: TOrderInfo[] = [
     { id: "orders-id", name: "Orders" },
@@ -41,6 +45,13 @@ export function OrderPage() {
     localStorage.getItem("purchased item") || "{}"
   );
 
+  const searchProducts = purchaseProducts?.filter((products) => {
+    const lowerSearch = search.trim().toLowerCase();
+    const lowerProduct = products.cartProduct.title.trim().toLowerCase();
+
+    return lowerProduct.includes(lowerSearch);
+  });
+
   return (
     <div className="orders">
       <nav className="orders-nav">
@@ -58,12 +69,22 @@ export function OrderPage() {
           <span className="order-search-spacing">
             <img src={searchIcon} alt="Search Icon" />
             <input
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
               className="order-search-bar"
               type="text"
               placeholder="Search all orders"
             />
           </span>
-          <button className="order-search-button">Search Orders</button>
+          <button
+            onClick={(e) => {
+              setSearch(searchInput);
+              setSearchInput("");
+            }}
+            className="order-search-button"
+          >
+            Search Orders
+          </button>
         </div>
       </div>
       <ul className="order-infos">
@@ -127,7 +148,7 @@ export function OrderPage() {
                   </>
                 )}
                 <>
-                  {purchaseProducts.map((purchase) => {
+                  {searchProducts.map((purchase) => {
                     return (
                       <div
                         key={purchase.cartProduct.id}
@@ -174,7 +195,7 @@ export function OrderPage() {
       )}
       {currentInfo === "Not Yet Shipped" && (
         <>
-          {purchaseProducts.map((purchase) => {
+          {searchProducts.map((purchase) => {
             return (
               <div key={purchase.cartProduct.id} className="purchased-item">
                 <div className="purchased-item-image">
