@@ -2,6 +2,8 @@ import { useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
+import CategoryTitle from "@src/views/ProductsPage/CategoryTitle.json";
+
 import fourHalfStars from "@src/assets/four-half-stars.png";
 
 import axios from "axios";
@@ -85,10 +87,9 @@ export function ProductsPage() {
         </div>
       </div>
       <div className="products">
-        <h1>Computers, Tablets and IT Accessories</h1>
+        <h1>{CategoryTitle.ComputersTitle}</h1>
         <p className="products-description">
-          Shop laptops, desktops, monitors, tablets, PC gaming, hard drives and
-          storage, accessories and more
+          {CategoryTitle.ComputersDescription}
         </p>
         <h2>Top rated</h2>
         <div className="top-rated">
