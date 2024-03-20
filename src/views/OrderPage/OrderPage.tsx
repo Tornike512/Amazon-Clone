@@ -170,12 +170,37 @@ export function OrderPage() {
         </p>
       )}
       {currentInfo === "Not Yet Shipped" && (
-        <p className="not-yet-shipped">
-          Looking for an order? All of your orders have shipped.{" "}
-          <a onClick={() => setCurrentInfo("Orders")} href="#">
-            View all orders
-          </a>
-        </p>
+        <>
+          {purchaseProducts.map((purchase) => {
+            return (
+              <div key={purchase.cartProduct.id} className="purchased-item">
+                <div className="purchased-item-image">
+                  <img src={purchase.cartProduct.image} alt="Purchased item" />
+                </div>
+                <div className="purchased-item-title">
+                  <p>{purchase.cartProduct.title}</p>
+                  <button
+                    onClick={() =>
+                      navigate(`/products/${purchase.cartProduct.id}`)
+                    }
+                    className="view-your-item"
+                  >
+                    View your item
+                  </button>
+                </div>
+              </div>
+            );
+          })}{" "}
+          :{" "}
+          {
+            <p className="not-yet-shipped">
+              Looking for an order? All of your orders have shipped.{" "}
+              <a onClick={() => setCurrentInfo("Orders")} href="#">
+                View all orders
+              </a>
+            </p>
+          }
+        </>
       )}
       {currentInfo === "Digital Orders" && (
         <>

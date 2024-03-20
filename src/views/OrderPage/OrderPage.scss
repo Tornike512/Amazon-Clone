@@ -144,10 +144,6 @@
   }
 
   .past-orders {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     margin: 24px 0 32px 0;
     font-size: $font-size-14px;
 
@@ -261,6 +257,47 @@
       color: $secondary-link-text-color;
       text-decoration: none;
       @include linkHoverEffect;
+    }
+  }
+}
+
+.purchased-item {
+  height: 85px;
+  display: flex;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: $tertiary-border-color;
+  border-radius: 5px;
+
+  .purchased-item-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+    img {
+      width: 50px;
+    }
+  }
+
+  .purchased-item-title {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 13px;
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    .view-your-item {
+      @include selectStyle;
+      padding: 4px 10px 4px 10px;
+    }
+
+    .view-your-item:hover {
+      background-color: #e3e3e3;
     }
   }
 }
