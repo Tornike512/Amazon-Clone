@@ -181,7 +181,13 @@ export function OrderPage() {
         <>
           <div className="order-history">
             <label>
-              <span>0 Orders</span> placed in 2024
+              <span>
+                {Object.keys(storePurchasedItems).length}{" "}
+                {Object.keys(storePurchasedItems).length.toString() === "1"
+                  ? "Order"
+                  : "Orders"}
+              </span>{" "}
+              placed in 2024
             </label>
           </div>
           <p className="past-orders">
@@ -199,7 +205,13 @@ export function OrderPage() {
         <>
           <div className="order-history">
             <label>
-              <span>0 Orders</span> placed in 2024
+              <span>
+                {Object.keys(storePurchasedItems).length}{" "}
+                {Object.keys(storePurchasedItems).length.toString() === "1"
+                  ? "Order"
+                  : "Orders"}
+              </span>{" "}
+              placed in 2024
             </label>
           </div>
           <p className="past-orders">
