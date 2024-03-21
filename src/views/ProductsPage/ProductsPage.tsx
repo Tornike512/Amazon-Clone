@@ -24,6 +24,10 @@ export function ProductsPage() {
 
   const navigate = useNavigate();
 
+  const currentCategory = JSON.parse(
+    localStorage.getItem("current category") || ""
+  );
+
   async function getProducts() {
     try {
       const response = await axios.get(
@@ -41,6 +45,7 @@ export function ProductsPage() {
     getProducts();
   }, []);
 
+  console.log(currentCategory);
   const topRatedProducts = products
     .slice()
     .sort((a: any, b: any) => {
@@ -61,6 +66,44 @@ export function ProductsPage() {
       return b - a;
     })
     .slice(8);
+
+  const handleCategoryTitle = () => {
+    switch (currentCategory) {
+      case "Computers":
+        return CategoryTitle.ComputersTitle;
+      case "Kitchen":
+        return CategoryTitle.KitchenTitle;
+      case "Books":
+        return CategoryTitle.BooksTitle;
+      case "Video Games":
+        return CategoryTitle.VideoGamesTitle;
+      case "Toys & Games":
+        return CategoryTitle.ToysAndGamesTitle;
+      case "Beauty & Personal Care":
+        return CategoryTitle.BeautyAndPersonalCareTitle;
+      default:
+        return "";
+    }
+  };
+
+  const handleCategoryDescription = () => {
+    switch (currentCategory) {
+      case "Computers":
+        return CategoryTitle.ComputersDescription;
+      case "Kitchen":
+        return CategoryTitle.KitchenDescription;
+      case "Books":
+        return CategoryTitle.BooksDescription;
+      case "Video Games":
+        return CategoryTitle.VideoGamesDescription;
+      case "Toys & Games":
+        return CategoryTitle.ToysAndGamesDescription;
+      case "Beauty & Personal Care":
+        return CategoryTitle.BeautyAndPersonalCareDescription;
+      default:
+        return "";
+    }
+  };
 
   if (loading) {
     return <div className="loading">Loading</div>;
@@ -87,10 +130,8 @@ export function ProductsPage() {
         </div>
       </div>
       <div className="products">
-        <h1>{CategoryTitle.ComputersTitle}</h1>
-        <p className="products-description">
-          {CategoryTitle.ComputersDescription}
-        </p>
+        <h1>{handleCategoryTitle()}</h1>
+        <p className="products-description">{handleCategoryDescription()}</p>
         <h2>Top rated</h2>
         <div className="top-rated">
           <div className="top-rated-spacing">
