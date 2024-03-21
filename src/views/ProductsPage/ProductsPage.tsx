@@ -57,20 +57,24 @@ export function ProductsPage() {
     }
   }, [currentCategory]);
 
-  console.log(Object.keys(products).length);
+  console.log(minSlice, "minslice");
+  console.log(maxSlice, "maxslice");
 
   const topRatedProducts = products.slice(minSlice, maxSlice);
 
-  const under25Products = products
+  console.log(topRatedProducts, "topratedproducts");
+
+  const under25Products = products.slice(minSlice + 4, maxSlice + 4);
+
+  console.log(under25Products, "under25");
+
+  const categoryProducts = products
+    .slice(minSlice + 8, maxSlice + 220)
     .filter((product) => {
-      return product.price <= 25;
-    })
-    .slice(maxSlice, maxSlice + 4);
+      return product.salePrice;
+    });
 
-  console.log(under25Products);
-
-  console.log(under25Products);
-  const categoryProducts = products.slice(maxSlice + 5, maxSlice + 17);
+  console.log(categoryProducts, "categoryprocuts");
 
   const handleCategoryTitle = () => {
     switch (currentCategory) {
