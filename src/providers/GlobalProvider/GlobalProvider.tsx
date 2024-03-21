@@ -70,6 +70,10 @@ export function GlobalProvider({ children }: PropsWithChildren) {
     return storedPurchasedItem ? JSON.parse(storedPurchasedItem) : [];
   });
   const [successfulPurchase, setSuccessfulPurchase] = useState<boolean>(false);
+  const [currentCategory, setCurrentCategory] = useState<string>(() => {
+    const storedCurrentCategory = localStorage.getItem("current category");
+    return storedCurrentCategory ? JSON.parse(storedCurrentCategory) : "";
+  });
 
   return (
     <GlobalContext.Provider
@@ -130,6 +134,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setPurchasedItem,
         successfulPurchase,
         setSuccessfulPurchase,
+        currentCategory,
+        setCurrentCategory,
       }}
     >
       {children}

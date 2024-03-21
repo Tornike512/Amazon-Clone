@@ -106,6 +106,8 @@ interface TGlobalContext {
   >;
   successfulPurchase: boolean;
   setSuccessfulPurchase: React.Dispatch<React.SetStateAction<boolean>>;
+  currentCategory: string;
+  setCurrentCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -165,4 +167,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setPurchasedItem: () => {},
   successfulPurchase: false,
   setSuccessfulPurchase: () => {},
+  currentCategory: "",
+  setCurrentCategory: () => {},
 });
