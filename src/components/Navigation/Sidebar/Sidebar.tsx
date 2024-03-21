@@ -23,8 +23,15 @@ interface TCategories {
 }
 
 export function Sidebar() {
-  const { sideBar, setSideBar, modal, setModal, setLoading } =
-    useContext(GlobalContext);
+  const {
+    sideBar,
+    setSideBar,
+    modal,
+    setModal,
+    setLoading,
+    currentCategory,
+    setCurrentCategory,
+  } = useContext(GlobalContext);
 
   const { authStatus } = useAuthProvider();
 
@@ -48,6 +55,10 @@ export function Sidebar() {
   useEffect(() => {
     getCategories();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("current category", JSON.stringify(currentCategory));
+  }, [currentCategory]);
 
   return (
     <>
@@ -80,11 +91,8 @@ export function Sidebar() {
                     <div
                       key={category.id}
                       onClick={() => {
-                        if (category.name === "Computers") {
-                          navigate("/products");
-                          setSideBar(false);
-                          setLoading(true);
-                        }
+                        navigate("/products");
+                        setCurrentCategory(category.name);
                       }}
                       className="sidebar-categories"
                     >
