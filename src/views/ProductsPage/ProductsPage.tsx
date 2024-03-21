@@ -21,6 +21,8 @@ export function ProductsPage() {
   } = useContext(GlobalContext);
 
   const [quickLook, setQuickLook] = useState<number | null>(null);
+  const [minSlice, setMinSlice] = useState<number>(0);
+  const [maxSlice, setMaxSlice] = useState<number>(4);
 
   const navigate = useNavigate();
 
@@ -45,23 +47,36 @@ export function ProductsPage() {
     getProducts();
   }, []);
 
-  const topRatedProducts = products.slice().sort((a: any, b: any) => {
-    return b - a;
-  });
+  useEffect(() => {
+    if (currentCategory === "Computers") {
+      setMinSlice(0);
+      setMaxSlice(4);
+    } else if (currentCategory === "Kitchen") {
+      setMinSlice(20);
+      setMaxSlice(24);
+    }
+  }, [currentCategory]);
+
+  const topRatedProducts = products
+    .slice()
+    .sort((a: any, b: any) => {
+      return b - a;
+    })
+    .slice(minSlice, maxSlice);
 
   const under25Products = products
     .slice()
     .sort((a: any, b: any) => {
       return b - a;
     })
-    .slice(4, 9);
+    .slice(maxSlice, maxSlice + 5);
 
   const categoryProducts = products
     .slice()
     .sort((a: any, b: any) => {
       return b - a;
     })
-    .slice(8);
+    .slice(maxSlice + 4, maxSlice + 16);
 
   const handleCategoryTitle = () => {
     switch (currentCategory) {
