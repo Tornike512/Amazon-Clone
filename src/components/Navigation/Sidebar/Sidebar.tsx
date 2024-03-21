@@ -49,36 +49,6 @@ export function Sidebar() {
     getCategories();
   }, []);
 
-  const sidebarNavigation = () => {
-    categories.map((category) => {
-      if (category.name === "Computers") {
-        navigate("/products/computers");
-        setSideBar(false);
-        setLoading(true);
-      } else if (category.name === "Kitchen") {
-        navigate("/products/kitchen");
-        setSideBar(false);
-        setLoading(true);
-      } else if (category.name === "Books") {
-        navigate("/products/books");
-        setSideBar(false);
-        setLoading(true);
-      } else if (category.name === "Video Games") {
-        navigate("/products/videogames");
-        setSideBar(false);
-        setLoading(true);
-      } else if (category.name === "Toys & Games") {
-        navigate("/products/toysandgames");
-        setSideBar(false);
-        setLoading(true);
-      } else if (category.name === "Beauty & Personal Care") {
-        navigate("/products/beautyandpersonalcare");
-        setSideBar(false);
-        setLoading(true);
-      }
-    });
-  };
-
   return (
     <>
       {sideBar && (
@@ -110,7 +80,11 @@ export function Sidebar() {
                     <div
                       key={category.id}
                       onClick={() => {
-                        sidebarNavigation();
+                        if (category.name === "Computers") {
+                          navigate("/products");
+                          setSideBar(false);
+                          setLoading(true);
+                        }
                       }}
                       className="sidebar-categories"
                     >
