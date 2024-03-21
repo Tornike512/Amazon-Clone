@@ -136,6 +136,14 @@ export function ProductsPage() {
               .map((product, index) => {
                 return (
                   <div
+                    style={{
+                      height: "280px",
+                      marginBottom: "245px",
+                      marginRight: "5px",
+                      borderRadius: "4px",
+                      backgroundColor: "#f7f4f4",
+                      cursor: "pointer",
+                    }}
                     key={product.id}
                     onClick={() => {
                       setProductId(product.id);
