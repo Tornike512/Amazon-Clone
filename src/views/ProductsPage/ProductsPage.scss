@@ -58,7 +58,9 @@
     }
 
     .top-rated {
+      width: 23%;
       margin: 10px 0 0 12px;
+      overflow: hidden;
 
       .top-rated-spacing {
         display: flex;
@@ -91,7 +93,7 @@
           }
 
           img {
-            width: 180px;
+            max-width: 230px;
             max-height: 230px;
           }
         }

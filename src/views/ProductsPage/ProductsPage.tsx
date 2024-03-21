@@ -45,13 +45,9 @@ export function ProductsPage() {
     getProducts();
   }, []);
 
-  console.log(currentCategory);
-  const topRatedProducts = products
-    .slice()
-    .sort((a: any, b: any) => {
-      return b - a;
-    })
-    .slice(0, 4);
+  const topRatedProducts = products.slice().sort((a: any, b: any) => {
+    return b - a;
+  });
 
   const under25Products = products
     .slice()
@@ -60,7 +56,7 @@ export function ProductsPage() {
     })
     .slice(4, 9);
 
-  const computerProducts = products
+  const categoryProducts = products
     .slice()
     .sort((a: any, b: any) => {
       return b - a;
@@ -235,7 +231,7 @@ export function ProductsPage() {
 
         <h2>Results from {currentCategory}</h2>
         <div className="products-grid">
-          {computerProducts
+          {categoryProducts
             .filter((product) => product.category_name === currentCategory)
             .map((product) => {
               return (
