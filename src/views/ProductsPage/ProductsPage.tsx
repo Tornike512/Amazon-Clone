@@ -57,26 +57,20 @@ export function ProductsPage() {
     }
   }, [currentCategory]);
 
-  const topRatedProducts = products
-    .slice()
-    .sort((a: any, b: any) => {
-      return b - a;
-    })
-    .slice(minSlice, maxSlice);
+  console.log(Object.keys(products).length);
+
+  const topRatedProducts = products.slice(minSlice, maxSlice);
 
   const under25Products = products
-    .slice()
-    .sort((a: any, b: any) => {
-      return b - a;
+    .filter((product) => {
+      return product.price <= 25;
     })
-    .slice(maxSlice, maxSlice + 5);
+    .slice(maxSlice, maxSlice + 4);
 
-  const categoryProducts = products
-    .slice()
-    .sort((a: any, b: any) => {
-      return b - a;
-    })
-    .slice(maxSlice + 5, maxSlice + 16);
+  console.log(under25Products);
+
+  console.log(under25Products);
+  const categoryProducts = products.slice(maxSlice + 5, maxSlice + 17);
 
   const handleCategoryTitle = () => {
     switch (currentCategory) {
@@ -213,39 +207,37 @@ export function ProductsPage() {
                       navigate(`/products/${product.id}`);
                     }}
                   >
-                    {product.price <= 25 && (
-                      <>
-                        <div>
-                          <div
-                            onMouseOver={() => setQuickLook(index)}
-                            onMouseLeave={() => setQuickLook(null)}
-                            className="under-25-item"
-                          >
-                            {quickLook === index && (
-                              <button className="quick-look">Quick look</button>
-                            )}
-                            <img src={product.image} alt="Product Image" />
-                          </div>
-                          <div
-                            onMouseOver={() => setQuickLook(index)}
-                            onMouseLeave={() => setQuickLook(null)}
-                            className="under-25-info"
-                          >
-                            <h3>{`$${product.salePrice}.99`}</h3>
-                            <h6>{`$${product.price}.99`}</h6>
-                            <p>{product.title}</p>
-                            <span className="review-spacing">
-                              <img
-                                className="review-stars"
-                                src={fourHalfStars}
-                                alt="Four And Half Star Review"
-                              />
-                              <span>77.229</span>
-                            </span>
-                          </div>
+                    <>
+                      <div>
+                        <div
+                          onMouseOver={() => setQuickLook(index)}
+                          onMouseLeave={() => setQuickLook(null)}
+                          className="under-25-item"
+                        >
+                          {quickLook === index && (
+                            <button className="quick-look">Quick look</button>
+                          )}
+                          <img src={product.image} alt="Product Image" />
                         </div>
-                      </>
-                    )}
+                        <div
+                          onMouseOver={() => setQuickLook(index)}
+                          onMouseLeave={() => setQuickLook(null)}
+                          className="under-25-info"
+                        >
+                          <h3>{`$${product.salePrice}.99`}</h3>
+                          <h6>{`$${product.price}.99`}</h6>
+                          <p>{product.title}</p>
+                          <span className="review-spacing">
+                            <img
+                              className="review-stars"
+                              src={fourHalfStars}
+                              alt="Four And Half Star Review"
+                            />
+                            <span>77.229</span>
+                          </span>
+                        </div>
+                      </div>
+                    </>
                   </div>
                 );
               })}
