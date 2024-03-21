@@ -31,7 +31,7 @@ export function ProductsPage() {
   async function getProducts() {
     try {
       const response = await axios.get(
-        "http://localhost:3000/product?pageSize=25"
+        "http://localhost:3000/product?pageSize=100"
       );
       setProducts(response.data.products);
     } catch (error) {
@@ -184,9 +184,7 @@ export function ProductsPage() {
         <div className="under-25">
           <div className="under-25-spacing">
             {under25Products
-              .filter((product) => {
-                product.category_name === currentCategory;
-              })
+              .filter((product) => product.category_name === currentCategory)
               .map((product, index) => {
                 return (
                   <div
@@ -235,7 +233,7 @@ export function ProductsPage() {
           </div>
         </div>
 
-        <h2>Computer Results</h2>
+        <h2>Results from {currentCategory}</h2>
         <div className="products-grid">
           {computerProducts
             .filter((product) => product.category_name === currentCategory)
