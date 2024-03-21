@@ -111,7 +111,7 @@ export function ProductsPage() {
 
   return (
     <div className="products-page">
-      <div className="filter-products">
+      <aside className="filter-products">
         <span>Department</span>
         <span className="category">Computers</span>
         <div className="choose-category">
@@ -128,135 +128,146 @@ export function ProductsPage() {
           <a href="#">Tablet Accessories</a>
           <a href="#">Tablet Replacement Parts</a>
         </div>
-      </div>
+      </aside>
       <div className="products">
         <h1>{handleCategoryTitle()}</h1>
         <p className="products-description">{handleCategoryDescription()}</p>
         <h2>Top rated</h2>
         <div className="top-rated">
           <div className="top-rated-spacing">
-            {topRatedProducts.map((product, index) => {
-              return (
-                <div
-                  key={product.id}
-                  onClick={() => {
-                    setProductId(product.id);
-                    navigate(`/products/${product.id}`);
-                    setLoading(true);
-                  }}
-                >
+            {topRatedProducts
+              .filter((product) => product.category_name === currentCategory)
+              .map((product, index) => {
+                return (
                   <div
-                    onMouseOver={() => setQuickLook(index)}
-                    onMouseLeave={() => setQuickLook(null)}
-                    className="top-rated-item"
+                    key={product.id}
+                    onClick={() => {
+                      setProductId(product.id);
+                      navigate(`/products/${product.id}`);
+                      setLoading(true);
+                    }}
                   >
-                    {quickLook === index && (
-                      <button className="quick-look">Quick look</button>
-                    )}
-                    <img src={product.image} alt="Product Image" />
+                    <div
+                      onMouseOver={() => setQuickLook(index)}
+                      onMouseLeave={() => setQuickLook(null)}
+                      className="top-rated-item"
+                    >
+                      {quickLook === index && (
+                        <button className="quick-look">Quick look</button>
+                      )}
+                      <img src={product.image} alt="Product Image" />
+                    </div>
+                    <div
+                      onMouseOver={() => setQuickLook(index)}
+                      onMouseLeave={() => setQuickLook(null)}
+                      className="top-rated-info"
+                    >
+                      <h3>{`$${product.salePrice}.99`}</h3>
+                      <h6>{`$${product.price}.99`}</h6>
+                      <p>{product.title}</p>
+                      <span className="review-spacing">
+                        <img
+                          className="review-stars"
+                          src={fourHalfStars}
+                          alt="Four And Half Star Review"
+                        />
+                        <span>77.229</span>
+                      </span>
+                    </div>
                   </div>
-                  <div
-                    onMouseOver={() => setQuickLook(index)}
-                    onMouseLeave={() => setQuickLook(null)}
-                    className="top-rated-info"
-                  >
-                    <h3>{`$${product.salePrice}.99`}</h3>
-                    <h6>{`$${product.price}.99`}</h6>
-                    <p>{product.title}</p>
-                    <span className="review-spacing">
-                      <img
-                        className="review-stars"
-                        src={fourHalfStars}
-                        alt="Four And Half Star Review"
-                      />
-                      <span>77.229</span>
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </div>
 
         <h2>Under $25</h2>
         <div className="under-25">
           <div className="under-25-spacing">
-            {under25Products.map((product, index) => {
-              return (
-                <div
-                  key={product.id}
-                  onClick={() => {
-                    setProductId(product.id);
-                    navigate(`/products/${product.id}`);
-                  }}
-                >
-                  {product.price <= 25 && (
-                    <>
-                      <div>
-                        <div
-                          onMouseOver={() => setQuickLook(index)}
-                          onMouseLeave={() => setQuickLook(null)}
-                          className="under-25-item"
-                        >
-                          {quickLook === index && (
-                            <button className="quick-look">Quick look</button>
-                          )}
-                          <img src={product.image} alt="Product Image" />
+            {under25Products
+              .filter((product) => {
+                product.category_name === currentCategory;
+              })
+              .map((product, index) => {
+                return (
+                  <div
+                    key={product.id}
+                    onClick={() => {
+                      setProductId(product.id);
+                      navigate(`/products/${product.id}`);
+                    }}
+                  >
+                    {product.price <= 25 && (
+                      <>
+                        <div>
+                          <div
+                            onMouseOver={() => setQuickLook(index)}
+                            onMouseLeave={() => setQuickLook(null)}
+                            className="under-25-item"
+                          >
+                            {quickLook === index && (
+                              <button className="quick-look">Quick look</button>
+                            )}
+                            <img src={product.image} alt="Product Image" />
+                          </div>
+                          <div
+                            onMouseOver={() => setQuickLook(index)}
+                            onMouseLeave={() => setQuickLook(null)}
+                            className="under-25-info"
+                          >
+                            <h3>{`$${product.salePrice}.99`}</h3>
+                            <h6>{`$${product.price}.99`}</h6>
+                            <p>{product.title}</p>
+                            <span className="review-spacing">
+                              <img
+                                className="review-stars"
+                                src={fourHalfStars}
+                                alt="Four And Half Star Review"
+                              />
+                              <span>77.229</span>
+                            </span>
+                          </div>
                         </div>
-                        <div
-                          onMouseOver={() => setQuickLook(index)}
-                          onMouseLeave={() => setQuickLook(null)}
-                          className="under-25-info"
-                        >
-                          <h3>{`$${product.salePrice}.99`}</h3>
-                          <h6>{`$${product.price}.99`}</h6>
-                          <p>{product.title}</p>
-                          <span className="review-spacing">
-                            <img
-                              className="review-stars"
-                              src={fourHalfStars}
-                              alt="Four And Half Star Review"
-                            />
-                            <span>77.229</span>
-                          </span>
-                        </div>
-                      </div>
-                    </>
-                  )}
-                </div>
-              );
-            })}
+                      </>
+                    )}
+                  </div>
+                );
+              })}
           </div>
         </div>
 
         <h2>Computer Results</h2>
         <div className="products-grid">
-          {computerProducts.map((product) => {
-            return (
-              <div
-                onClick={() => {
-                  setProductId(product.id);
-                  navigate(`/products/${product.id}`);
-                }}
-                key={product.id}
-                className="products-item"
-              >
-                <div className="products-image">
-                  <img src={product.image} alt="Product Image" />
-                </div>
-                <div className="description">
-                  <p>{product.title}</p>
-                  <div className="star-spacing">
-                    <img src={fourHalfStars} alt="Four And Half Star Rating" />
-                    <span>77.229</span>
+          {computerProducts
+            .filter((product) => product.category_name === currentCategory)
+            .map((product) => {
+              return (
+                <div
+                  onClick={() => {
+                    setProductId(product.id);
+                    navigate(`/products/${product.id}`);
+                  }}
+                  key={product.id}
+                  className="products-item"
+                >
+                  <div className="products-image">
+                    <img src={product.image} alt="Product Image" />
                   </div>
+                  <div className="description">
+                    <p>{product.title}</p>
+                    <div className="star-spacing">
+                      <img
+                        src={fourHalfStars}
+                        alt="Four And Half Star Rating"
+                      />
+                      <span>77.229</span>
+                    </div>
 
-                  <h3>{`$${product.price}.90`}</h3>
-                  <span className="deliver-to">{`Ships to ${deliverTo}`}</span>
+                    <h3>{`$${product.price}.90`}</h3>
+                    <span className="deliver-to">{`Ships to ${deliverTo}`}</span>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
     </div>
