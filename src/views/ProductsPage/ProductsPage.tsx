@@ -76,7 +76,7 @@ export function ProductsPage() {
     .sort((a: any, b: any) => {
       return b - a;
     })
-    .slice(maxSlice + 4, maxSlice + 16);
+    .slice(maxSlice + 5, maxSlice + 16);
 
   const handleCategoryTitle = () => {
     switch (currentCategory) {
@@ -279,7 +279,7 @@ export function ProductsPage() {
                       <span>77.229</span>
                     </div>
 
-                    <h3>{`$${product.price}.90`}</h3>
+                    <h3>{`$${product.salePrice}.90`}</h3>
                     <span className="deliver-to">{`Ships to ${deliverTo}`}</span>
                   </div>
                 </div>
