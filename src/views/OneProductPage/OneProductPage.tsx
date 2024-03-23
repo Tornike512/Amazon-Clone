@@ -53,7 +53,7 @@ export function OneProductPage() {
   async function getOneProduct() {
     try {
       const response = await axios.get(
-        `http://localhost:3000/product?pageSize=40`
+        `http://localhost:3000/product?pageSize=100`
       );
 
       setProducts(response.data.products);
