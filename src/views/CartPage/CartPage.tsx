@@ -9,7 +9,6 @@ import { TCartProducts } from "@src/@types/RequestTypes";
 import axios from "axios";
 
 import "./CartPage.scss";
-import PurchasePage from "../PurchasePage";
 
 export function CartPage() {
   const [cartProducts, setCartProducts] = useState<TCartProducts[]>([]);
