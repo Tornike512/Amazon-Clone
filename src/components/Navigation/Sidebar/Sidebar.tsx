@@ -93,6 +93,7 @@ export function Sidebar() {
                       onClick={() => {
                         navigate("/products");
                         setCurrentCategory(category.name);
+                        setSideBar(false);
                       }}
                       className="sidebar-categories"
                     >

@@ -58,7 +58,7 @@ export function CartPage() {
   const token = localStorage.getItem("access_token");
 
   const storedPurchasedItem = JSON.parse(
-    localStorage.getItem("purchased item") || "{}"
+    localStorage.getItem("purchased item") || "0"
   );
 
   const navigate = useNavigate();
@@ -75,6 +75,10 @@ export function CartPage() {
   useEffect(() => {
     localStorage.setItem("subtraction", JSON.stringify(subtraction));
   }, [subtraction]);
+
+  const storedTotalPrice = JSON.parse(
+    localStorage.getItem("total price") || "{}"
+  );
 
   useEffect(() => {
     getCartProducts();
@@ -109,7 +113,7 @@ export function CartPage() {
   useEffect(() => {
     const totalPrice = subtotal - -1 * subtraction;
     localStorage.setItem("total price", JSON.stringify(totalPrice));
-  }, [subtotal, subtraction]);
+  }, [storedTotalPrice, subtraction, subtotal]);
 
   useEffect(() => {
     localStorage.setItem("purchased item", JSON.stringify(purchasedItem));
@@ -228,7 +232,7 @@ export function CartPage() {
                 <>item</>
               )}
               ):
-              <h5>{`$${subtotal - -1 * subtraction}${
+              <h5>{`$${storedTotalPrice}${
                 countProducts - selectSavedProduct.length === 0 ? ".00" : ".99"
               }`}</h5>
             </span>
@@ -317,7 +321,7 @@ export function CartPage() {
             <>item</>
           )}
           ):{" "}
-          <h3>{`$${subtotal - -1 * subtraction}${
+          <h3>{`$${storedTotalPrice}${
             countProducts - selectSavedProduct.length === 0 ? ".00" : ".99"
           }`}</h3>
         </span>
@@ -327,7 +331,9 @@ export function CartPage() {
               ? true
               : false
           }
-          onClick={() => navigate("/purchase")}
+          onClick={() => {
+            navigate("/purchase");
+          }}
           className="checkout"
         >
           Proceed to checkout

@@ -60,6 +60,10 @@ export function PurchasePage() {
     10
   );
 
+  const storedTotalPrice = JSON.parse(
+    localStorage.getItem("total price") || "{}"
+  );
+
   const savedProducts = JSON.parse(
     localStorage.getItem("saved products") || ""
   );
@@ -71,6 +75,10 @@ export function PurchasePage() {
   useEffect(() => {
     localStorage.setItem("current card id", JSON.stringify(currentCardId));
   }, [currentCardId]);
+
+  useEffect(() => {
+    localStorage.setItem("total price", JSON.stringify(storedTotalPrice));
+  }, [storedTotalPrice]);
 
   useEffect(() => {
     localStorage.setItem("selected card", JSON.stringify(selectCard));
@@ -482,6 +490,7 @@ export function PurchasePage() {
                 navigate("/orders");
                 setSuccessfulPurchase(true);
                 setCountCartProducts(0);
+                localStorage.setItem("total price", JSON.stringify(0));
               }}
               className="buy-button"
             >
