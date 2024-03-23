@@ -260,6 +260,7 @@ export function PurchasePage() {
                           setTimeout(() => {
                             setChooseAddress(true);
                           }, 100);
+                          setChooseAddress(true);
                         }}
                       >
                         Use this address
