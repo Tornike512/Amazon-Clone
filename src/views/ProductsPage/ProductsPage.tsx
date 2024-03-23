@@ -57,6 +57,9 @@ export function ProductsPage() {
     } else if (currentCategory === "Books") {
       setMinSlice(40);
       setMaxSlice(44);
+    } else if (currentCategory === "Video Games") {
+      setMinSlice(64);
+      setMaxSlice(68);
     }
   }, [currentCategory]);
 
