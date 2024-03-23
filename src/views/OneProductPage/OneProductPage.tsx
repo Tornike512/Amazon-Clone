@@ -28,7 +28,7 @@ export function OneProductPage() {
     setProducts,
     countCartProducts,
     setCountCartProducts,
-    subtotal,
+    ca,
     setSubtotal,
     countProducts,
     setCountProducts,

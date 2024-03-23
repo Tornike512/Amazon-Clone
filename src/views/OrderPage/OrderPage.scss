@@ -183,13 +183,15 @@
       border-radius: 5px;
 
       .purchased-item-image {
+        width: 85px;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 10px;
 
         img {
-          width: 50px;
+          width: auto;
+          max-height: 52px;
         }
       }
 
@@ -271,13 +273,15 @@
   border-radius: 5px;
 
   .purchased-item-image {
+    width: 85px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
 
     img {
-      width: 50px;
+      width: auto;
+      max-height: 50px;
     }
   }
 

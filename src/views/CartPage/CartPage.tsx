@@ -210,7 +210,7 @@ export function CartPage() {
                   </div>
                   <span className="cart-product-price">{`$${
                     item.cartProduct.salePrice * item.count
-                  } .99`}</span>
+                  }.99`}</span>
                 </div>
               ) : (
                 <></>
