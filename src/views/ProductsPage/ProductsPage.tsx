@@ -54,6 +54,9 @@ export function ProductsPage() {
     } else if (currentCategory === "Kitchen") {
       setMinSlice(20);
       setMaxSlice(24);
+    } else if (currentCategory === "Books") {
+      setMinSlice(40);
+      setMaxSlice(44);
     }
   }, [currentCategory]);
 
