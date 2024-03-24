@@ -60,6 +60,9 @@ export function ProductsPage() {
     } else if (currentCategory === "Video Games") {
       setMinSlice(64);
       setMaxSlice(68);
+    } else if (currentCategory === "Toys & Games") {
+      setMinSlice(96);
+      setMaxSlice(100);
     }
   }, [currentCategory]);
 
