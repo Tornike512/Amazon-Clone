@@ -130,7 +130,7 @@
     margin-top: 231px;
 
     .home-page-category {
-      height: 270px;
+      height: 330px;
       padding: 20px;
       overflow: hidden;
       background-color: #ffffff;
@@ -138,7 +138,7 @@
 
       h2 {
         margin-bottom: 10px;
-        font-size: 21px;
+        font-size: 18px;
       }
 
       img {
@@ -151,6 +151,33 @@
         font-size: $font-size-13px;
         color: $secondary-link-text-color;
         text-decoration: none;
+      }
+    }
+
+    .home-page-category-kitchen {
+      height: 330px;
+      padding: 20px;
+      overflow: hidden;
+      background-color: #ffffff;
+      cursor: pointer;
+
+      h2 {
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+
+      .kitchen-image-spacing {
+        display: grid;
+        grid-template-columns: 125px 93px;
+        justify-content: center;
+        align-items: center;
+
+        .kitchen-image {
+          img {
+            max-height: 82px;
+            margin-bottom: 15px;
+          }
+        }
       }
     }
   }

@@ -146,17 +146,47 @@ export function Home() {
           onClick={() => navigate("/products")}
           className="home-page-category"
         >
-          <h2>Deals in PCs</h2>
+          <h2>Computers and Accessories</h2>
           <img src={computerImage} alt="Computer Image" />
           <a href="#">Shop now</a>
         </div>
-        <div className="home-page-category"></div>
-        <div className="home-page-category"></div>
-        <div className="home-page-category"></div>
-        <div className="home-page-category"></div>
-        <div className="home-page-category"></div>
-        <div className="home-page-category"></div>
-        <div className="home-page-category"></div>
+        <div className="home-page-category-kitchen">
+          <h2>Kitchen</h2>
+          <div className="kitchen-image-spacing">
+            <div className="kitchen-image">
+              <img src={computerImage} alt="Computer Image" />
+              <p>hello</p>
+            </div>
+            <div className="kitchen-image">
+              <img src={computerImage} alt="Computer Image" />
+              <p>hello</p>
+            </div>
+            <div className="kitchen-image">
+              <img src={computerImage} alt="Computer Image" />
+              <p>hello</p>
+            </div>
+            <div className="kitchen-image">
+              <img src={computerImage} alt="Computer Image" />
+              <p>hello</p>
+            </div>
+          </div>
+          <a href="#">Shop now</a>
+        </div>
+        <div className="home-page-category">
+          <h2>Books</h2>
+          <img src={computerImage} alt="Computer Image" />
+          <a href="#">Shop now</a>
+        </div>
+        <div className="home-page-category">
+          <h2>Video Games</h2>
+          <img src={computerImage} alt="Computer Image" />
+          <a href="#">Shop now</a>
+        </div>
+        <div className="home-page-category">
+          <h2>Toys And Games</h2>
+          <img src={computerImage} alt="Computer Image" />
+          <a href="#">Shop now</a>
+        </div>
       </div>
       {products.map((product) => {
         return (
