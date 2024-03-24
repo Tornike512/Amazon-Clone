@@ -123,14 +123,14 @@
 
   .category-grid {
     display: grid;
-    grid-template-columns: 350px 350px 350px 350px;
+    grid-template-columns: 270px 270px 270px 270px 270px;
     column-gap: 20px;
     row-gap: 20px;
     padding: 20px;
     margin-top: 231px;
 
     .home-page-category {
-      height: 420px;
+      height: 270px;
       padding: 20px;
       overflow: hidden;
       background-color: #ffffff;
@@ -142,8 +142,7 @@
       }
 
       img {
-        width: 310px;
-        height: 305px;
+        max-height: 168px;
         margin-bottom: 15px;
       }
 
