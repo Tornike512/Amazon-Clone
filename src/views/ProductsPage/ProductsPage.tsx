@@ -33,7 +33,7 @@ export function ProductsPage() {
   async function getProducts() {
     try {
       const response = await axios.get(
-        "http://localhost:3000/product?pageSize=100"
+        "http://localhost:3000/product?pageSize=150"
       );
       setProducts(response.data.products);
     } catch (error) {
@@ -63,16 +63,9 @@ export function ProductsPage() {
     }
   }, [currentCategory]);
 
-  console.log(minSlice, "minslice");
-  console.log(maxSlice, "maxslice");
-
   const topRatedProducts = products.slice(minSlice, maxSlice);
 
-  console.log(topRatedProducts, "topratedproducts");
-
   const under25Products = products.slice(minSlice + 4, maxSlice + 4);
-
-  console.log(under25Products, "under25");
 
   const categoryProducts = products
     .slice(minSlice + 8, maxSlice + 220)
@@ -80,7 +73,7 @@ export function ProductsPage() {
       return product.salePrice;
     });
 
-  console.log(categoryProducts, "categoryprocuts");
+  console.log(products);
 
   const handleCategoryTitle = () => {
     switch (currentCategory) {
