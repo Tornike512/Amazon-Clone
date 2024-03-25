@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { ProductsCarousel } from "@src/features/ProductsCarousel";
 
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
