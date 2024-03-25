@@ -175,9 +175,15 @@
         .kitchen-image {
           img {
             max-height: 82px;
-            margin-bottom: 15px;
           }
         }
+      }
+
+      a {
+        @include linkHoverEffect;
+        font-size: $font-size-13px;
+        color: $secondary-link-text-color;
+        text-decoration: none;
       }
     }
   }
