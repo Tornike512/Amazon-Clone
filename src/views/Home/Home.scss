@@ -154,7 +154,7 @@
       }
     }
 
-    .home-page-category-kitchen {
+    .home-page-category-grid {
       height: 330px;
       padding: 20px;
       overflow: hidden;
@@ -166,7 +166,7 @@
         font-size: 18px;
       }
 
-      .kitchen-image-spacing {
+      .home-page-category-grid-spacing {
         display: grid;
         grid-template-columns: 130px 120px;
         row-gap: 10px;
@@ -175,7 +175,7 @@
         margin-bottom: 25px;
 
         .image-title {
-          .kitchen-image {
+          .home-page-category-grid-image {
             width: 120px;
             height: 80px;
             display: flex;

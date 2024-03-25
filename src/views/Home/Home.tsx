@@ -153,29 +153,29 @@ export function Home() {
           <a href="#">Shop now</a>
         </div>
         {products.length > 0 && (
-          <div className="home-page-category-kitchen">
+          <div className="home-page-category-grid">
             <h2>Kitchen</h2>
-            <div className="kitchen-image-spacing">
+            <div className="home-page-category-grid-spacing">
               <div className="image-title">
-                <div className="kitchen-image">
+                <div className="home-page-category-grid-image">
                   <img src={products[30].image} alt="Computer Image" />
                 </div>
                 <p>{products[30].title}</p>
               </div>
               <div className="image-title">
-                <div className="kitchen-image">
+                <div className="home-page-category-grid-image">
                   <img src={products[26].image} alt="Computer Image" />
                 </div>
                 <p>{products[26].title}</p>
               </div>
               <div className="image-title">
-                <div className="kitchen-image">
+                <div className="home-page-category-grid-image">
                   <img src={products[27].image} alt="Computer Image" />
                 </div>
                 <p>{products[27].title}</p>
               </div>
               <div className="image-title">
-                <div className="kitchen-image">
+                <div className="home-page-category-grid-image">
                   <img src={products[28].image} alt="Computer Image" />
                 </div>
                 <p>{products[28].title}</p>
@@ -185,29 +185,29 @@ export function Home() {
           </div>
         )}
         {products.length > 0 && (
-          <div className="home-page-category-kitchen">
+          <div className="home-page-category-grid">
             <h2>Books</h2>
-            <div className="kitchen-image-spacing">
+            <div className="home-page-category-grid-spacing">
               <div className="image-title">
-                <div className="kitchen-image">
+                <div className="home-page-category-grid-image">
                   <img src={products[45].image} alt="Computer Image" />
                 </div>
                 <p>{products[45].title}</p>
               </div>
               <div className="image-title">
-                <div className="kitchen-image">
+                <div className="home-page-category-grid-image">
                   <img src={products[46].image} alt="Computer Image" />
                 </div>
                 <p>{products[46].title}</p>
               </div>
               <div className="image-title">
-                <div className="kitchen-image">
+                <div className="home-page-category-grid-image">
                   <img src={products[47].image} alt="Computer Image" />
                 </div>
                 <p>{products[47].title}</p>
               </div>
               <div className="image-title">
-                <div className="kitchen-image">
+                <div className="home-page-category-grid-image">
                   <img src={products[51].image} alt="Computer Image" />
                 </div>
                 <p>{products[51].title}</p>
@@ -216,16 +216,70 @@ export function Home() {
             <a href="#">Shop now</a>
           </div>
         )}
-        <div className="home-page-category">
-          <h2>Video Games</h2>
-          <img src={computerImage} alt="Computer Image" />
-          <a href="#">Shop now</a>
-        </div>
-        <div className="home-page-category">
-          <h2>Toys And Games</h2>
-          <img src={computerImage} alt="Computer Image" />
-          <a href="#">Shop now</a>
-        </div>
+        {products.length > 0 && (
+          <div className="home-page-category-grid">
+            <h2>Video Games</h2>
+            <div className="home-page-category-grid-spacing">
+              <div className="image-title">
+                <div className="home-page-category-grid-image">
+                  <img src={products[69].image} alt="Computer Image" />
+                </div>
+                <p>{products[69].title}</p>
+              </div>
+              <div className="image-title">
+                <div className="home-page-category-grid-image">
+                  <img src={products[70].image} alt="Computer Image" />
+                </div>
+                <p>{products[70].title}</p>
+              </div>
+              <div className="image-title">
+                <div className="home-page-category-grid-image">
+                  <img src={products[71].image} alt="Computer Image" />
+                </div>
+                <p>{products[71].title}</p>
+              </div>
+              <div className="image-title">
+                <div className="home-page-category-grid-image">
+                  <img src={products[72].image} alt="Computer Image" />
+                </div>
+                <p>{products[72].title}</p>
+              </div>
+            </div>
+            <a href="#">Shop now</a>
+          </div>
+        )}
+        {products.length > 0 && (
+          <div className="home-page-category-grid">
+            <h2>Toys & Games</h2>
+            <div className="home-page-category-grid-spacing">
+              <div className="image-title">
+                <div className="home-page-category-grid-image">
+                  <img src={products[95].image} alt="Computer Image" />
+                </div>
+                <p>{products[95].title}</p>
+              </div>
+              <div className="image-title">
+                <div className="home-page-category-grid-image">
+                  <img src={products[102].image} alt="Computer Image" />
+                </div>
+                <p>{products[102].title}</p>
+              </div>
+              <div className="image-title">
+                <div className="home-page-category-grid-image">
+                  <img src={products[97].image} alt="Computer Image" />
+                </div>
+                <p>{products[97].title}</p>
+              </div>
+              <div className="image-title">
+                <div className="home-page-category-grid-image">
+                  <img src={products[98].image} alt="Computer Image" />
+                </div>
+                <p>{products[98].title}</p>
+              </div>
+            </div>
+            <a href="#">Shop now</a>
+          </div>
+        )}
       </div>
       {products.map((product) => {
         return (
