@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -22,7 +24,13 @@ export function Home() {
   const [swipeRight, setSwipeRight] = useState<boolean>(false);
   const [products, setProducts] = useState<TGetProducts[]>([]);
 
+  const { currentCategory, setCurrentCategory } = useContext(GlobalContext);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem("current category", JSON.stringify(currentCategory));
+  }, [currentCategory]);
 
   const images = [
     essentialsForGamers,
@@ -78,6 +86,8 @@ export function Home() {
   }
 
   useEffect(() => {
+    localStorage.removeItem("current card id");
+
     let swipeRightInterval: NodeJS.Timeout;
 
     if (!stopAutoSwipe) {
@@ -145,7 +155,10 @@ export function Home() {
       </a>
       <div className="category-grid">
         <div
-          onClick={() => navigate("/products")}
+          onClick={() => {
+            navigate("/products");
+            setCurrentCategory("Computers");
+          }}
           className="home-page-category"
         >
           <h2>Computers and Accessories</h2>
@@ -153,7 +166,13 @@ export function Home() {
           <a href="#">Shop now</a>
         </div>
         {products.length > 0 && (
-          <div className="home-page-category-grid">
+          <div
+            onClick={() => {
+              navigate("/products");
+              setCurrentCategory("Kitchen");
+            }}
+            className="home-page-category-grid"
+          >
             <h2>Kitchen</h2>
             <div className="home-page-category-grid-spacing">
               <div className="image-title">
@@ -185,7 +204,13 @@ export function Home() {
           </div>
         )}
         {products.length > 0 && (
-          <div className="home-page-category-grid">
+          <div
+            onClick={() => {
+              navigate("/products");
+              setCurrentCategory("Books");
+            }}
+            className="home-page-category-grid"
+          >
             <h2>Books</h2>
             <div className="home-page-category-grid-spacing">
               <div className="image-title">
@@ -217,7 +242,13 @@ export function Home() {
           </div>
         )}
         {products.length > 0 && (
-          <div className="home-page-category-grid">
+          <div
+            onClick={() => {
+              navigate("/products");
+              setCurrentCategory("Video Games");
+            }}
+            className="home-page-category-grid"
+          >
             <h2>Video Games</h2>
             <div className="home-page-category-grid-spacing">
               <div className="image-title">
@@ -249,7 +280,13 @@ export function Home() {
           </div>
         )}
         {products.length > 0 && (
-          <div className="home-page-category-grid">
+          <div
+            onClick={() => {
+              navigate("/products");
+              setCurrentCategory("Toys & Games");
+            }}
+            className="home-page-category-grid"
+          >
             <h2>Toys & Games</h2>
             <div className="home-page-category-grid-spacing">
               <div className="image-title">
@@ -281,14 +318,6 @@ export function Home() {
           </div>
         )}
       </div>
-      {products.map((product) => {
-        return (
-          <div key={product.id}>
-            {product.title}
-            <img src={product.image} alt="Products" />
-          </div>
-        );
-      })}
     </div>
   );
 }
