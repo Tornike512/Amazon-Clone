@@ -152,28 +152,38 @@ export function Home() {
           <img src={computerImage} alt="Computer Image" />
           <a href="#">Shop now</a>
         </div>
-        <div className="home-page-category-kitchen">
-          <h2>Kitchen</h2>
-          <div className="kitchen-image-spacing">
-            <div className="kitchen-image">
-              <img src={computerImage} alt="Computer Image" />
-              <p>hello</p>
+        {products.length > 0 && (
+          <div className="home-page-category-kitchen">
+            <h2>Kitchen</h2>
+            <div className="kitchen-image-spacing">
+              <div className="image-title">
+                <div className="kitchen-image">
+                  <img src={products[0].image} alt="Computer Image" />
+                </div>
+                <p>{products[0].title}</p>
+              </div>
+              <div className="image-title">
+                <div className="kitchen-image">
+                  <img src={products[1].image} alt="Computer Image" />
+                </div>
+                <p>{products[1].title}</p>
+              </div>
+              <div className="image-title">
+                <div className="kitchen-image">
+                  <img src={products[2].image} alt="Computer Image" />
+                </div>
+                <p>{products[2].title}</p>
+              </div>
+              <div className="image-title">
+                <div className="kitchen-image">
+                  <img src={products[3].image} alt="Computer Image" />
+                </div>
+                <p>{products[3].title}</p>
+              </div>
             </div>
-            <div className="kitchen-image">
-              <img src={computerImage} alt="Computer Image" />
-              <p>hello</p>
-            </div>
-            <div className="kitchen-image">
-              <img src={computerImage} alt="Computer Image" />
-              <p>hello</p>
-            </div>
-            <div className="kitchen-image">
-              <img src={computerImage} alt="Computer Image" />
-              <p>hello</p>
-            </div>
+            <a href="#">Shop now</a>
           </div>
-          <a href="#">Shop now</a>
-        </div>
+        )}
         <div className="home-page-category">
           <h2>Books</h2>
           <img src={computerImage} alt="Computer Image" />

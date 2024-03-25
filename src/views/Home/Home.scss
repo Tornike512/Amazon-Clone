@@ -168,23 +168,37 @@
 
       .kitchen-image-spacing {
         display: grid;
-        grid-template-columns: 125px 93px;
+        grid-template-columns: 130px 95px;
         row-gap: 10px;
         justify-content: center;
         align-items: center;
         margin-bottom: 25px;
 
-        .kitchen-image {
-          img {
-            max-height: 82px;
-          }
+        .image-title {
+          .kitchen-image {
+            width: 120px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
-          p {
-            @include linkHoverEffect;
-            font-size: $font-size-13px;
-            color: $secondary-link-text-color;
-            text-decoration: none;
+            img {
+              max-height: 82px;
+              max-width: 100px;
+            }
           }
+        }
+
+        p {
+          width: 110px;
+          @include linkHoverEffect;
+          font-size: $font-size-13px;
+          color: $secondary-link-text-color;
+          text-decoration: none;
+          display: inline-block;
+          white-space: nowrap;
+          overflow: hidden !important;
+          text-overflow: ellipsis;
         }
       }
 
