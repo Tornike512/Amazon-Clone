@@ -34,7 +34,9 @@ export function Home() {
 
   async function getProducts() {
     try {
-      const response = await axios.get("http://localhost:3000/product");
+      const response = await axios.get(
+        "http://localhost:3000/product?page=1&pageSize=150"
+      );
       setProducts(response.data.products);
     } catch (error) {
       console.log("Error Loading Products", error);
