@@ -168,7 +168,7 @@
 
       .kitchen-image-spacing {
         display: grid;
-        grid-template-columns: 130px 95px;
+        grid-template-columns: 130px 120px;
         row-gap: 10px;
         justify-content: center;
         align-items: center;
@@ -177,14 +177,17 @@
         .image-title {
           .kitchen-image {
             width: 120px;
-            height: 100px;
+            height: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            background-color: #f3f3f394;
 
             img {
               max-height: 82px;
-              max-width: 100px;
+              max-width: max-content;
+              padding-bottom: 5px;
             }
           }
         }

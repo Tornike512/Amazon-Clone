@@ -158,37 +158,64 @@ export function Home() {
             <div className="kitchen-image-spacing">
               <div className="image-title">
                 <div className="kitchen-image">
-                  <img src={products[0].image} alt="Computer Image" />
+                  <img src={products[30].image} alt="Computer Image" />
                 </div>
-                <p>{products[0].title}</p>
+                <p>{products[30].title}</p>
               </div>
               <div className="image-title">
                 <div className="kitchen-image">
-                  <img src={products[1].image} alt="Computer Image" />
+                  <img src={products[26].image} alt="Computer Image" />
                 </div>
-                <p>{products[1].title}</p>
+                <p>{products[26].title}</p>
               </div>
               <div className="image-title">
                 <div className="kitchen-image">
-                  <img src={products[2].image} alt="Computer Image" />
+                  <img src={products[27].image} alt="Computer Image" />
                 </div>
-                <p>{products[2].title}</p>
+                <p>{products[27].title}</p>
               </div>
               <div className="image-title">
                 <div className="kitchen-image">
-                  <img src={products[3].image} alt="Computer Image" />
+                  <img src={products[28].image} alt="Computer Image" />
                 </div>
-                <p>{products[3].title}</p>
+                <p>{products[28].title}</p>
               </div>
             </div>
             <a href="#">Shop now</a>
           </div>
         )}
-        <div className="home-page-category">
-          <h2>Books</h2>
-          <img src={computerImage} alt="Computer Image" />
-          <a href="#">Shop now</a>
-        </div>
+        {products.length > 0 && (
+          <div className="home-page-category-kitchen">
+            <h2>Books</h2>
+            <div className="kitchen-image-spacing">
+              <div className="image-title">
+                <div className="kitchen-image">
+                  <img src={products[45].image} alt="Computer Image" />
+                </div>
+                <p>{products[45].title}</p>
+              </div>
+              <div className="image-title">
+                <div className="kitchen-image">
+                  <img src={products[46].image} alt="Computer Image" />
+                </div>
+                <p>{products[46].title}</p>
+              </div>
+              <div className="image-title">
+                <div className="kitchen-image">
+                  <img src={products[47].image} alt="Computer Image" />
+                </div>
+                <p>{products[47].title}</p>
+              </div>
+              <div className="image-title">
+                <div className="kitchen-image">
+                  <img src={products[51].image} alt="Computer Image" />
+                </div>
+                <p>{products[51].title}</p>
+              </div>
+            </div>
+            <a href="#">Shop now</a>
+          </div>
+        )}
         <div className="home-page-category">
           <h2>Video Games</h2>
           <img src={computerImage} alt="Computer Image" />
