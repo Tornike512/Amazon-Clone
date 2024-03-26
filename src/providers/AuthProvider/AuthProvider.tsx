@@ -12,8 +12,6 @@ export function AuthProvider({ children }: PropsWithChildren) {
   );
   const [userData, setUserData] = useState<TUserRequest>();
 
-  const storedFirstName = localStorage.getItem("firstName");
-
   function setAuthData(tokens: TAuthRequest) {
     const tokenData: TUserRequest = jwtDecode(tokens.access_token);
     setUserData(tokenData);

@@ -2,15 +2,15 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { PublicAxios } from "@src/utils/PublicAxios";
 import { useAuthProvider } from "@src/providers/AuthProvider";
+import { GlobalContext } from "@src/providers/GlobalProvider";
+
+import { TAuthRequest } from "@src/@types/RequestTypes";
 
 import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
 import exclamationIcon from "@src/assets/exclamation-point-logo.png";
 import exclamationBlue from "@src/assets/exclamation-blue.png";
 
 import "src/views/RegisterPage/RegisterPage.scss";
-import { TAuthRequest } from "@src/@types/RequestTypes";
-import { GlobalContext } from "@src/providers/GlobalProvider";
-import { ACCESS_TOKEN } from "@src/config/LocalStorageKeys";
 
 export interface TRegisterValue {
   first_name: string;
@@ -94,6 +94,11 @@ export function RegisterPage() {
       console.log("Registration failed:", error);
     }
   }
+
+  const isValidEmail = (email: string) => {
+    const checkEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return checkEmail.test(email);
+  };
 
   return (
     <div className="register-page">
@@ -282,6 +287,11 @@ export function RegisterPage() {
                       mobileNumberInput.length > 0
                     ) {
                       setMobileNumberWarning(true);
+                    }
+
+                    if (!isValidEmail(emailInput)) {
+                      setEmailWarning(true);
+                      setEmailInput("");
                     }
                     continueButton();
                     register();
