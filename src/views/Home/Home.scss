@@ -194,9 +194,7 @@
 
         p {
           width: 110px;
-          @include linkHoverEffect;
           font-size: $font-size-13px;
-          color: $secondary-link-text-color;
           text-decoration: none;
           display: inline-block;
           white-space: nowrap;
