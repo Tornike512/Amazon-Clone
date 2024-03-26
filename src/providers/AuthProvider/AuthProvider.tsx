@@ -12,6 +12,8 @@ export function AuthProvider({ children }: PropsWithChildren) {
   );
   const [userData, setUserData] = useState<TUserRequest>();
 
+  const storedFirstName = localStorage.getItem("firstName");
+
   function setAuthData(tokens: TAuthRequest) {
     console.log(tokens);
     const tokenData: TUserRequest = jwtDecode(tokens.access_token);
@@ -20,6 +22,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
     localStorage.setItem(REFRESH_TOKEN, tokens.refresh_token);
     setPrivateAccessToken(tokens.access_token);
     setAuthStatus(TAuthorizationStatus_Enum.AUTHORIZED);
+    localStorage.setItem("firstName", tokenData.first_name);
   }
 
   async function getNewAccessToken(refreshToken: string) {
@@ -37,9 +40,11 @@ export function AuthProvider({ children }: PropsWithChildren) {
   function signOut() {
     localStorage.removeItem(ACCESS_TOKEN);
     localStorage.removeItem(REFRESH_TOKEN);
+    localStorage.removeItem("firstName");
     setUserData(undefined);
     setAuthStatus(TAuthorizationStatus_Enum.UNAUTHORIZED);
     setPrivateAccessToken("");
+    l;
   }
 
   useEffect(() => {
