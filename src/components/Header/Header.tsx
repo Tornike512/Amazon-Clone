@@ -28,6 +28,7 @@ interface TCategories {
 export function Header() {
   const [categories, setCategories] = useState<TCategories[]>([]);
   const [loader, setLoader] = useState<boolean>(false);
+  const [selectNiche, setSelectNiche] = useState<string>("");
 
   const navigate = useNavigate();
 
@@ -72,6 +73,8 @@ export function Header() {
     localStorage.getItem("purchased item") || "{}"
   );
 
+  console.log(selectNiche);
+
   return (
     <header className="header">
       {signInHover && (
@@ -111,11 +114,29 @@ export function Header() {
         </div>
         <div className="search-bar">
           <div className="input-spacing">
-            <select name="all" className="select-niche">
+            <select
+              onChange={(e) => setSelectNiche(e.target.value)}
+              name="all"
+              className="select-niche"
+              value={selectNiche}
+              style={
+                selectNiche === "Computers"
+                  ? { width: "10%" }
+                  : selectNiche === "Kitchen"
+                  ? { width: "8%" }
+                  : selectNiche === "Books"
+                  ? { width: "7%" }
+                  : selectNiche === "Video Games"
+                  ? { width: "12%" }
+                  : selectNiche === "Toys & Games"
+                  ? { width: "12%" }
+                  : undefined
+              }
+            >
               <option value="/">All</option>
               {categories.map((category) => {
                 return (
-                  <option value="/" key={category.id}>
+                  <option value={category.name} key={category.id}>
                     {category.name}
                   </option>
                 );
