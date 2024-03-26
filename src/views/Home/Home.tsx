@@ -1,11 +1,26 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { ProductsCarousel } from "@src/features/ProductsCarousel";
 
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
+import kitchen1 from "@src/assets/kitchen-1.png";
+import kitchen2 from "@src/assets/kitchen-2.png";
+import kitchen3 from "@src/assets/kitchen-3.png";
+import kitchen4 from "@src/assets/kitchen-4.png";
+import book1 from "@src/assets/book-1.png";
+import book2 from "@src/assets/book-2.png";
+import book3 from "@src/assets/book-3.png";
+import book4 from "@src/assets/book-4.png";
+import videoGame1 from "@src/assets/videogames-1.png";
+import videoGame2 from "@src/assets/videogame-2.png";
+import videoGame3 from "@src/assets/videogames-3.png";
+import videoGame4 from "@src/assets/videogames-4.png";
+import toy1 from "@src/assets/toy-1.png";
+import toy2 from "@src/assets/toy-2.png";
+import toy3 from "@src/assets/toy-3.png";
+import toy4 from "@src/assets/toy-4.png";
 import beautyProducts from "@src/assets/beauty-products.jpg";
 import essentialsForGamers from "@src/assets/essentials-for-gamers.jpg";
 import kitchenFavorites from "@src/assets/kitchen-favorites.jpg";
@@ -178,25 +193,25 @@ export function Home() {
             <div className="home-page-category-grid-spacing">
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[30].image} alt="Computer Image" />
+                  <img src={kitchen1} alt="Computer Image" />
                 </div>
                 <p>{products[30].title}</p>
               </div>
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[26].image} alt="Computer Image" />
+                  <img src={kitchen2} alt="Computer Image" />
                 </div>
                 <p>{products[26].title}</p>
               </div>
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[27].image} alt="Computer Image" />
+                  <img src={kitchen3} alt="Computer Image" />
                 </div>
                 <p>{products[27].title}</p>
               </div>
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[28].image} alt="Computer Image" />
+                  <img src={kitchen4} alt="Computer Image" />
                 </div>
                 <p>{products[28].title}</p>
               </div>
@@ -216,25 +231,25 @@ export function Home() {
             <div className="home-page-category-grid-spacing">
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[45].image} alt="Computer Image" />
+                  <img src={book1} alt="Computer Image" />
                 </div>
                 <p>{products[45].title}</p>
               </div>
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[46].image} alt="Computer Image" />
+                  <img src={book2} alt="Computer Image" />
                 </div>
                 <p>{products[46].title}</p>
               </div>
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[47].image} alt="Computer Image" />
+                  <img src={book3} alt="Computer Image" />
                 </div>
                 <p>{products[47].title}</p>
               </div>
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[51].image} alt="Computer Image" />
+                  <img src={book4} alt="Computer Image" />
                 </div>
                 <p>{products[51].title}</p>
               </div>
@@ -254,25 +269,25 @@ export function Home() {
             <div className="home-page-category-grid-spacing">
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[69].image} alt="Computer Image" />
+                  <img src={videoGame1} alt="Computer Image" />
                 </div>
                 <p>{products[69].title}</p>
               </div>
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[70].image} alt="Computer Image" />
+                  <img src={videoGame2} alt="Computer Image" />
                 </div>
                 <p>{products[70].title}</p>
               </div>
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[71].image} alt="Computer Image" />
+                  <img src={videoGame3} alt="Computer Image" />
                 </div>
                 <p>{products[71].title}</p>
               </div>
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[72].image} alt="Computer Image" />
+                  <img src={videoGame4} alt="Computer Image" />
                 </div>
                 <p>{products[72].title}</p>
               </div>
@@ -292,25 +307,25 @@ export function Home() {
             <div className="home-page-category-grid-spacing">
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[95].image} alt="Computer Image" />
+                  <img src={toy1} alt="Computer Image" />
                 </div>
                 <p>{products[95].title}</p>
               </div>
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[102].image} alt="Computer Image" />
+                  <img src={toy2} alt="Computer Image" />
                 </div>
                 <p>{products[102].title}</p>
               </div>
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[97].image} alt="Computer Image" />
+                  <img src={toy3} alt="Computer Image" />
                 </div>
                 <p>{products[97].title}</p>
               </div>
               <div className="image-title">
                 <div className="home-page-category-grid-image">
-                  <img src={products[98].image} alt="Computer Image" />
+                  <img src={toy4} alt="Computer Image" />
                 </div>
                 <p>{products[98].title}</p>
               </div>
