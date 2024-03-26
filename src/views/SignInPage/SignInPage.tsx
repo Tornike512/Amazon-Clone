@@ -26,6 +26,7 @@ export function SignInPage() {
   const [warning, setWarning] = useState<boolean>(false);
   const [signInInput, setSignInInput] = useState<string>("");
   const [enterPassword, setEnterPassword] = useState<boolean>(false);
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
   async function signIn() {
     try {
@@ -39,6 +40,7 @@ export function SignInPage() {
       console.log(user);
     } catch (error) {
       console.log("Registration failed:", error);
+      setLoggedIn(true);
     }
   }
 
@@ -133,6 +135,11 @@ export function SignInPage() {
               <button className="sign-in-button" onClick={() => signIn()}>
                 Sign in
               </button>
+              {loggedIn && (
+                <span className="incorrect-data">
+                  Invalid email address or password
+                </span>
+              )}
               <div className="keep-signed-in">
                 <input type="checkbox" />
                 <p>Keep me signed in.</p>
