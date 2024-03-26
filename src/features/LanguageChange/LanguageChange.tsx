@@ -18,7 +18,17 @@ export function LanguageChange() {
     <>
       {languageHover && (
         <div>
-          <img className="triangle" src={triangle} alt="White Triangle" />
+          <img
+            onMouseOver={() => {
+              setLanguageHover(true);
+            }}
+            onMouseLeave={() => {
+              setLanguageHover(false);
+            }}
+            className="triangle"
+            src={triangle}
+            alt="White Triangle"
+          />
           <div
             onMouseOver={() => {
               setModal(Modal_Enum.ON);
