@@ -87,6 +87,7 @@
 
       a {
         width: fit-content;
+        margin-bottom: 2px;
         font-size: $font-size-13px;
         text-decoration: none;
         color: $secondary-text-color;
@@ -114,9 +115,11 @@
 
       a {
         width: fit-content;
+        margin-bottom: 2px;
         font-size: $font-size-13px;
         text-decoration: none;
         color: $secondary-text-color;
+        cursor: pointer;
       }
 
       a {

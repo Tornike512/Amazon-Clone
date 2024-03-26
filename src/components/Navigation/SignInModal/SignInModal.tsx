@@ -52,21 +52,45 @@ export function SignInModal() {
               <span className="lists">
                 <span>Your Lists</span>
                 <a onClick={() => navigate("/wishlist")}>Create a List</a>
+                <a onClick={() => navigate("/products")}>Find Products</a>
               </span>
               <span className="account">
                 <span>Your Account</span>
-                <a href="#">Account</a>
+                <a
+                  onClick={() => {
+                    navigate("/sign-in");
+                    setSignInHover(false);
+                  }}
+                >
+                  Account
+                </a>
                 {authStatus === TAuthorizationStatus_Enum.AUTHORIZED && (
-                  <a
-                    onClick={() => {
-                      navigate("/sign-in");
-                      setSignInHover(false);
-                      signOut();
-                    }}
-                    href="#"
-                  >
-                    Sign out
-                  </a>
+                  <>
+                    <a
+                      onClick={() => {
+                        navigate("/sign-in");
+                        setSignInHover(false);
+                        signOut();
+                      }}
+                      href="#"
+                    >
+                      Sign out
+                    </a>
+                    <a
+                      onClick={() => {
+                        navigate("/products");
+                      }}
+                    >
+                      Returns & Orders
+                    </a>
+                    <a
+                      onClick={() => {
+                        navigate("/cart");
+                      }}
+                    >
+                      Cart
+                    </a>
+                  </>
                 )}
               </span>
             </div>

@@ -31,11 +31,9 @@ export function LanguageChange() {
           />
           <div
             onMouseOver={() => {
-              setModal(Modal_Enum.ON);
               setLanguageHover(true);
             }}
             onMouseLeave={() => {
-              setModal(Modal_Enum.OFF);
               setLanguageHover(false);
             }}
             className="language-change"
