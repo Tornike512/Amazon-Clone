@@ -12,7 +12,7 @@
 
 .sign-in-bar {
   width: 500px;
-  height: 386px;
+  height: auto;
   padding: 14px 14px 7px;
   position: absolute;
   top: 52px;
@@ -86,6 +86,7 @@
       }
 
       a {
+        width: fit-content;
         font-size: $font-size-13px;
         text-decoration: none;
         color: $secondary-text-color;
@@ -112,6 +113,7 @@
       }
 
       a {
+        width: fit-content;
         font-size: $font-size-13px;
         text-decoration: none;
         color: $secondary-text-color;
