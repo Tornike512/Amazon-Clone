@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+
 import triangle from "@src/assets/triangle.png";
 
 export enum Modal_Enum {

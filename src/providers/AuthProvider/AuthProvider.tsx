@@ -35,6 +35,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
   }
 
   function signOut() {
+    localStorage.removeItem("purchased item");
     localStorage.removeItem(ACCESS_TOKEN);
     localStorage.removeItem(REFRESH_TOKEN);
     localStorage.removeItem("firstName");
