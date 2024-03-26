@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
+import CategoryProductsTitle from "@src/views/Home/CategoryProductsTitle.json";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
@@ -181,158 +181,150 @@ export function Home() {
           <img src={computerImage} alt="Computer Image" />
           <a href="#">Shop now</a>
         </div>
-        {products.length > 0 && (
-          <div
-            onClick={() => {
-              navigate("/products");
-              setCurrentCategory("Kitchen");
-            }}
-            className="home-page-category-grid"
-          >
-            <h2>Kitchen</h2>
-            <div className="home-page-category-grid-spacing">
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={kitchen1} alt="Computer Image" />
-                </div>
-                <p>{products[30].title}</p>
+        <div
+          onClick={() => {
+            navigate("/products");
+            setCurrentCategory("Kitchen");
+          }}
+          className="home-page-category-grid"
+        >
+          <h2>Kitchen</h2>
+          <div className="home-page-category-grid-spacing">
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={kitchen1} alt="Computer Image" />
               </div>
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={kitchen2} alt="Computer Image" />
-                </div>
-                <p>{products[26].title}</p>
-              </div>
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={kitchen3} alt="Computer Image" />
-                </div>
-                <p>{products[27].title}</p>
-              </div>
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={kitchen4} alt="Computer Image" />
-                </div>
-                <p>{products[28].title}</p>
-              </div>
+              <p>{CategoryProductsTitle.kitchen.title1}</p>
             </div>
-            <a href="#">Shop now</a>
-          </div>
-        )}
-        {products.length > 0 && (
-          <div
-            onClick={() => {
-              navigate("/products");
-              setCurrentCategory("Books");
-            }}
-            className="home-page-category-grid"
-          >
-            <h2>Books</h2>
-            <div className="home-page-category-grid-spacing">
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={book1} alt="Computer Image" />
-                </div>
-                <p>{products[45].title}</p>
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={kitchen2} alt="Computer Image" />
               </div>
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={book2} alt="Computer Image" />
-                </div>
-                <p>{products[46].title}</p>
-              </div>
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={book3} alt="Computer Image" />
-                </div>
-                <p>{products[47].title}</p>
-              </div>
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={book4} alt="Computer Image" />
-                </div>
-                <p>{products[51].title}</p>
-              </div>
+              <p>{CategoryProductsTitle.kitchen.title2}</p>
             </div>
-            <a href="#">Shop now</a>
-          </div>
-        )}
-        {products.length > 0 && (
-          <div
-            onClick={() => {
-              navigate("/products");
-              setCurrentCategory("Video Games");
-            }}
-            className="home-page-category-grid"
-          >
-            <h2>Video Games</h2>
-            <div className="home-page-category-grid-spacing">
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={videoGame1} alt="Computer Image" />
-                </div>
-                <p>{products[69].title}</p>
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={kitchen3} alt="Computer Image" />
               </div>
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={videoGame2} alt="Computer Image" />
-                </div>
-                <p>{products[70].title}</p>
-              </div>
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={videoGame3} alt="Computer Image" />
-                </div>
-                <p>{products[71].title}</p>
-              </div>
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={videoGame4} alt="Computer Image" />
-                </div>
-                <p>{products[72].title}</p>
-              </div>
+              <p>{CategoryProductsTitle.kitchen.title3}</p>
             </div>
-            <a href="#">Shop now</a>
-          </div>
-        )}
-        {products.length > 0 && (
-          <div
-            onClick={() => {
-              navigate("/products");
-              setCurrentCategory("Toys & Games");
-            }}
-            className="home-page-category-grid"
-          >
-            <h2>Toys & Games</h2>
-            <div className="home-page-category-grid-spacing">
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={toy1} alt="Computer Image" />
-                </div>
-                <p>{products[95].title}</p>
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={kitchen4} alt="Computer Image" />
               </div>
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={toy2} alt="Computer Image" />
-                </div>
-                <p>{products[102].title}</p>
-              </div>
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={toy3} alt="Computer Image" />
-                </div>
-                <p>{products[97].title}</p>
-              </div>
-              <div className="image-title">
-                <div className="home-page-category-grid-image">
-                  <img src={toy4} alt="Computer Image" />
-                </div>
-                <p>{products[98].title}</p>
-              </div>
+              <p>{CategoryProductsTitle.kitchen.title4}</p>
             </div>
-            <a href="#">Shop now</a>
           </div>
-        )}
+          <a href="#">Shop now</a>
+        </div>
+        <div
+          onClick={() => {
+            navigate("/products");
+            setCurrentCategory("Books");
+          }}
+          className="home-page-category-grid"
+        >
+          <h2>Books</h2>
+          <div className="home-page-category-grid-spacing">
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={book1} alt="Computer Image" />
+              </div>
+              <p>{CategoryProductsTitle.books.title1}</p>
+            </div>
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={book2} alt="Computer Image" />
+              </div>
+              <p>{CategoryProductsTitle.books.title2}</p>
+            </div>
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={book3} alt="Computer Image" />
+              </div>
+              <p>{CategoryProductsTitle.books.title3}</p>
+            </div>
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={book4} alt="Computer Image" />
+              </div>
+              <p>{CategoryProductsTitle.books.title4}</p>
+            </div>
+          </div>
+          <a href="#">Shop now</a>
+        </div>
+        <div
+          onClick={() => {
+            navigate("/products");
+            setCurrentCategory("Video Games");
+          }}
+          className="home-page-category-grid"
+        >
+          <h2>Video Games</h2>
+          <div className="home-page-category-grid-spacing">
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={videoGame1} alt="Computer Image" />
+              </div>
+              <p>{CategoryProductsTitle.videoGames.title1}</p>
+            </div>
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={videoGame2} alt="Computer Image" />
+              </div>
+              <p>{CategoryProductsTitle.videoGames.title2}</p>
+            </div>
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={videoGame3} alt="Computer Image" />
+              </div>
+              <p>{CategoryProductsTitle.videoGames.title3}</p>
+            </div>
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={videoGame4} alt="Computer Image" />
+              </div>
+              <p>{CategoryProductsTitle.videoGames.title4}</p>
+            </div>
+          </div>
+          <a href="#">Shop now</a>
+        </div>
+        <div
+          onClick={() => {
+            navigate("/products");
+            setCurrentCategory("Toys & Games");
+          }}
+          className="home-page-category-grid"
+        >
+          <h2>Toys & Games</h2>
+          <div className="home-page-category-grid-spacing">
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={toy1} alt="Computer Image" />
+              </div>
+              <p>{CategoryProductsTitle.toys.title1}</p>
+            </div>
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={toy2} alt="Computer Image" />
+              </div>
+              <p>{CategoryProductsTitle.toys.title2}</p>
+            </div>
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={toy3} alt="Computer Image" />
+              </div>
+              <p>{CategoryProductsTitle.toys.title3}</p>
+            </div>
+            <div className="image-title">
+              <div className="home-page-category-grid-image">
+                <img src={toy4} alt="Computer Image" />
+              </div>
+              <p>{CategoryProductsTitle.toys.title4}</p>
+            </div>
+          </div>
+          <a href="#">Shop now</a>
+        </div>
       </div>
     </div>
   );
