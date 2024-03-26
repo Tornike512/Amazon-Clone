@@ -76,6 +76,12 @@ export function Header() {
     <header className="header">
       {signInHover && (
         <img
+          onMouseOver={() => {
+            setSignInHover(true);
+          }}
+          onMouseLeave={() => {
+            setSignInHover(false);
+          }}
           className="sign-in-triangle"
           src={triangle}
           alt="Small White Triangle"
