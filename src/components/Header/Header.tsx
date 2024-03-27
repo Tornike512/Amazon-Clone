@@ -92,10 +92,6 @@ export function Header() {
     return productTitle.includes(searchTerm);
   });
 
-  console.log(filterProducts);
-
-  console.log(searchInput);
-
   return (
     <header className="header">
       {signInHover && (
@@ -134,23 +130,35 @@ export function Header() {
           </div>
         </div>
         <div className="search-bar">
-          <div className="search-modal">
-            {filterProducts?.map((product: TGetProducts) => {
-              return (
-                <div
-                  onClick={() => {
-                    window.location.reload();
-                    navigate(`/products/${product.id}`);
-                  }}
-                  key={product.id}
-                  className="search-modal-element"
-                >
-                  <img src={searchIcon} alt="Search Icon" />
-                  <p>{product.title}</p>
-                </div>
-              );
-            })}
-          </div>
+          {searchModal && (
+            <div className="search-modal">
+              {products ? (
+                <>
+                  {filterProducts?.map((product: TGetProducts) => {
+                    return (
+                      <div
+                        onClick={() => {
+                          setTimeout(() => {
+                            window.location.reload();
+                          }, 100);
+                          navigate(`/products/${product.id}`);
+                        }}
+                        key={product.id}
+                        className="search-modal-element"
+                      >
+                        <img src={searchIcon} alt="Search Icon" />
+                        <p>{product.title}</p>
+                      </div>
+                    );
+                  })}
+                </>
+              ) : (
+                <>
+                  <div className="search-loader"></div>
+                </>
+              )}
+            </div>
+          )}
           <div className="input-spacing">
             <select
               onChange={(e) => setSelectNiche(e.target.value)}
@@ -184,6 +192,9 @@ export function Header() {
               type="text"
               placeholder="Search Amazon"
               className="search-amazon"
+              onClick={() => {
+                setSearchModal(true);
+              }}
               onChange={(e) => {
                 setSearchInput(e.target.value);
               }}
@@ -321,6 +332,7 @@ export function Header() {
       </nav>
       {signInHover && <div className="sign-in-modal-mouseover"></div>}
       {!signInHover && <div className="sign-in-modal-mouseout"></div>}
+      <div className="search-modal-background"></div>
     </header>
   );
 }
