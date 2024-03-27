@@ -83,11 +83,10 @@
 
       .search-modal-element {
         height: 39px;
+        width: 97%;
         display: flex;
+        align-items: center;
         padding: 6px;
-        white-space: nowrap;
-        overflow: hidden !important;
-        text-overflow: ellipsis;
         cursor: pointer;
 
         img {
@@ -100,6 +99,9 @@
           font-size: 15px;
           font-weight: 600;
           letter-spacing: 1px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
 

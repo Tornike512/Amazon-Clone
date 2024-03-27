@@ -31,7 +31,7 @@ interface TCategories {
 
 export function Header() {
   const [categories, setCategories] = useState<TCategories[]>([]);
-  const [products, setProducts] = useState<TGetProducts>([]);
+  const [products, setProducts] = useState<TGetProducts[]>([]);
   const [loader, setLoader] = useState<boolean>(false);
   const [selectNiche, setSelectNiche] = useState<string>("");
   const [searchModal, setSearchModal] = useState<boolean>(false);
@@ -123,7 +123,7 @@ export function Header() {
           </div>
         </div>
         <div className="search-bar">
-          {/* <div className="search-modal">
+          <div className="search-modal">
             {products?.map((product: TGetProducts) => {
               return (
                 <div className="search-modal-element">
@@ -132,7 +132,7 @@ export function Header() {
                 </div>
               );
             })}
-          </div> */}
+          </div>
           <div className="input-spacing">
             <select
               onChange={(e) => setSelectNiche(e.target.value)}
