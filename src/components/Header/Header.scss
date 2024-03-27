@@ -80,6 +80,28 @@
       left: 0;
       z-index: 2;
       border: 1px solid #cdcdcd;
+
+      .search-modal-element {
+        display: flex;
+        padding: 6px;
+        cursor: pointer;
+
+        img {
+          width: 25px;
+          padding: 4px;
+        }
+
+        p {
+          padding: 2px;
+          font-size: 15px;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+      }
+
+      .search-modal-element:hover {
+        background-color: #f0f0f0;
+      }
     }
 
     .search-amazon {

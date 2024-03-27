@@ -15,9 +15,9 @@ import usaFlag from "@src/assets/usa-flag.jpg";
 import dropDownIcon from "src/assets/dropdown-icon.png";
 import cartLogo from "@src/assets/cart-logo.png";
 import triangle from "@src/assets/triangle.png";
+import searchIcon from "@src/assets/search-icon.png";
 
 import "./Header.scss";
-import { Modal } from "flowbite-react";
 
 interface TCategories {
   id: string;
@@ -116,7 +116,12 @@ export function Header() {
           </div>
         </div>
         <div className="search-bar">
-          <div className="search-modal">Search-modal</div>
+          <div className="search-modal">
+            <div className="search-modal-element">
+              <img src={searchIcon} alt="Search Icon" />
+              <p>hello hello hello hello</p>
+            </div>
+          </div>
           <div className="input-spacing">
             <select
               onChange={(e) => setSelectNiche(e.target.value)}
