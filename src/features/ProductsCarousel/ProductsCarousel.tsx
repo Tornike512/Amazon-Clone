@@ -13,7 +13,7 @@ import fourAndFiveStars from "@src/assets/four-half-stars.png";
 import "./ProductsCarousel.scss";
 
 export function ProductsCarousel({ products }: { products: TGetProducts[] }) {
-  const [XTranslate, setXTranslate] = useState<number>(48);
+  const [XTranslate, setXTranslate] = useState<number>(55);
   const [loading, setLoading] = useState<boolean>(false);
 
   const { productId, setProductId } = useContext(GlobalContext);
@@ -56,10 +56,10 @@ export function ProductsCarousel({ products }: { products: TGetProducts[] }) {
       </div>
       <button
         onClick={() => {
-          if (XTranslate === -50) {
-            setXTranslate(48);
-          } else if (XTranslate === 48) {
-            setXTranslate(-50);
+          if (XTranslate === -58) {
+            setXTranslate(55);
+          } else if (XTranslate === 55) {
+            setXTranslate(-58);
           }
         }}
         className="right-arrow-button"
@@ -68,10 +68,10 @@ export function ProductsCarousel({ products }: { products: TGetProducts[] }) {
       </button>
       <button
         onClick={() => {
-          if (XTranslate === 48) {
-            setXTranslate(-50);
-          } else if (XTranslate === -50) {
-            setXTranslate(48);
+          if (XTranslate === 55) {
+            setXTranslate(-58);
+          } else if (XTranslate === -58) {
+            setXTranslate(55);
           }
         }}
         className="left-arrow-button"
