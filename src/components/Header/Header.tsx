@@ -17,6 +17,7 @@ import cartLogo from "@src/assets/cart-logo.png";
 import triangle from "@src/assets/triangle.png";
 
 import "./Header.scss";
+import { Modal } from "flowbite-react";
 
 interface TCategories {
   id: string;
@@ -29,6 +30,7 @@ export function Header() {
   const [categories, setCategories] = useState<TCategories[]>([]);
   const [loader, setLoader] = useState<boolean>(false);
   const [selectNiche, setSelectNiche] = useState<string>("");
+  const [searchModal, setSearchModal] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -53,6 +55,7 @@ export function Header() {
 
   const {
     setSideBar,
+    modal,
     setModal,
     setSignInHover,
     signInHover,
@@ -73,7 +76,7 @@ export function Header() {
     localStorage.getItem("purchased item") || "{}"
   );
 
-  console.log(selectNiche);
+  console.log(modal);
 
   return (
     <header className="header">
@@ -113,6 +116,7 @@ export function Header() {
           </div>
         </div>
         <div className="search-bar">
+          <div className="search-modal">Search-modal</div>
           <div className="input-spacing">
             <select
               onChange={(e) => setSelectNiche(e.target.value)}
