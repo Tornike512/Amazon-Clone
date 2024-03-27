@@ -82,12 +82,16 @@
       border: 1px solid #cdcdcd;
 
       .search-modal-element {
+        height: 39px;
         display: flex;
         padding: 6px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
         cursor: pointer;
 
         img {
-          width: 25px;
+          width: 26px;
           padding: 4px;
         }
 

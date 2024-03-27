@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import axios from "axios";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
 import { LocaleContext } from "@src/providers/LocaleProvider";
 import { FormattedMessage } from "react-intl";
 import { useAuthProvider } from "@src/providers/AuthProvider";
+
+import { TGetProducts } from "@src/@types/RequestTypes";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
 import navIcon from "@src/assets/nav-icon.png";
@@ -17,6 +18,8 @@ import cartLogo from "@src/assets/cart-logo.png";
 import triangle from "@src/assets/triangle.png";
 import searchIcon from "@src/assets/search-icon.png";
 
+import axios from "axios";
+
 import "./Header.scss";
 
 interface TCategories {
@@ -28,6 +31,7 @@ interface TCategories {
 
 export function Header() {
   const [categories, setCategories] = useState<TCategories[]>([]);
+  const [products, setProducts] = useState<TGetProducts>([]);
   const [loader, setLoader] = useState<boolean>(false);
   const [selectNiche, setSelectNiche] = useState<string>("");
   const [searchModal, setSearchModal] = useState<boolean>(false);
@@ -39,7 +43,12 @@ export function Header() {
       const response = await axios.get(
         "http://localhost:3000/product-category"
       );
+      const productResponse = await axios.get(
+        "http://localhost:3000/product?page=1&pageSize=150"
+      );
+
       setCategories(response.data);
+      setProducts(productResponse.data.products);
     } catch (error) {
       console.log("Error Loading Categories", error);
     }
@@ -75,8 +84,6 @@ export function Header() {
   const storedPurchasedItem = JSON.parse(
     localStorage.getItem("purchased item") || "{}"
   );
-
-  console.log(modal);
 
   return (
     <header className="header">
@@ -116,12 +123,16 @@ export function Header() {
           </div>
         </div>
         <div className="search-bar">
-          <div className="search-modal">
-            <div className="search-modal-element">
-              <img src={searchIcon} alt="Search Icon" />
-              <p>hello hello hello hello</p>
-            </div>
-          </div>
+          {/* <div className="search-modal">
+            {products?.map((product: TGetProducts) => {
+              return (
+                <div className="search-modal-element">
+                  <img src={searchIcon} alt="Search Icon" />
+                  <p>{product.title}</p>
+                </div>
+              );
+            })}
+          </div> */}
           <div className="input-spacing">
             <select
               onChange={(e) => setSelectNiche(e.target.value)}
