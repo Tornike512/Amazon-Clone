@@ -141,15 +141,15 @@ export function Header() {
               value={selectNiche}
               style={
                 selectNiche === "Computers"
-                  ? { width: "10%" }
+                  ? { width: "16%" }
                   : selectNiche === "Kitchen"
-                  ? { width: "8%" }
+                  ? { width: "13%" }
                   : selectNiche === "Books"
-                  ? { width: "7%" }
+                  ? { width: "11%" }
                   : selectNiche === "Video Games"
-                  ? { width: "12%" }
+                  ? { width: "19%" }
                   : selectNiche === "Toys & Games"
-                  ? { width: "12%" }
+                  ? { width: "19%" }
                   : undefined
               }
             >
