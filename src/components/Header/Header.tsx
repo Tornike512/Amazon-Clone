@@ -35,6 +35,7 @@ export function Header() {
   const [loader, setLoader] = useState<boolean>(false);
   const [selectNiche, setSelectNiche] = useState<string>("");
   const [searchModal, setSearchModal] = useState<boolean>(false);
+  const [searchInput, setSearchInput] = useState<string>("");
 
   const navigate = useNavigate();
 
@@ -44,7 +45,7 @@ export function Header() {
         "http://localhost:3000/product-category"
       );
       const productResponse = await axios.get(
-        "http://localhost:3000/product?page=1&pageSize=150"
+        "http://localhost:3000/product?page=1&pageSize=120"
       );
 
       setCategories(response.data);
@@ -85,6 +86,16 @@ export function Header() {
     localStorage.getItem("purchased item") || "{}"
   );
 
+  const filterProducts = products.filter((product) => {
+    const productTitle = product.title.trim().toLowerCase();
+    const searchTerm = searchInput.trim().toLowerCase();
+    return productTitle.includes(searchTerm);
+  });
+
+  console.log(filterProducts);
+
+  console.log(searchInput);
+
   return (
     <header className="header">
       {signInHover && (
@@ -124,9 +135,16 @@ export function Header() {
         </div>
         <div className="search-bar">
           <div className="search-modal">
-            {products?.map((product: TGetProducts) => {
+            {filterProducts?.map((product: TGetProducts) => {
               return (
-                <div className="search-modal-element">
+                <div
+                  onClick={() => {
+                    window.location.reload();
+                    navigate(`/products/${product.id}`);
+                  }}
+                  key={product.id}
+                  className="search-modal-element"
+                >
                   <img src={searchIcon} alt="Search Icon" />
                   <p>{product.title}</p>
                 </div>
@@ -166,6 +184,9 @@ export function Header() {
               type="text"
               placeholder="Search Amazon"
               className="search-amazon"
+              onChange={(e) => {
+                setSearchInput(e.target.value);
+              }}
             />
           </div>
           <button className="search-button">
