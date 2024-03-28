@@ -138,6 +138,7 @@ export function Header() {
                     return (
                       <div
                         onClick={() => {
+                          setSearchModal(false);
                           setTimeout(() => {
                             window.location.reload();
                           }, 100);
@@ -200,7 +201,12 @@ export function Header() {
               }}
             />
           </div>
-          <button className="search-button">
+          <button
+            onClick={() => {
+              setSearchModal(false);
+            }}
+            className="search-button"
+          >
             <img src={searchicon} alt="Search Icon" />
           </button>
         </div>
@@ -208,6 +214,7 @@ export function Header() {
           <div
             onMouseOver={() => {
               setLanguageHover(true);
+              setSearchModal(false);
             }}
             onMouseLeave={() => setLanguageHover(false)}
             className="change-language"
@@ -221,9 +228,13 @@ export function Header() {
               if (authStatus === TAuthorizationStatus_Enum.UNAUTHORIZED) {
                 navigate("/sign-in");
               }
+
               setSignInHover(false);
             }}
-            onMouseOver={() => setSignInHover(true)}
+            onMouseOver={() => {
+              setSignInHover(true);
+              setSearchModal(false);
+            }}
             onMouseLeave={() => setSignInHover(false)}
             className="sign-in"
           >
@@ -332,7 +343,14 @@ export function Header() {
       </nav>
       {signInHover && <div className="sign-in-modal-mouseover"></div>}
       {!signInHover && <div className="sign-in-modal-mouseout"></div>}
-      <div className="search-modal-background"></div>
+      {searchModal && (
+        <div
+          onClick={() => {
+            setSearchModal(false);
+          }}
+          className="search-modal-background"
+        ></div>
+      )}
     </header>
   );
 }

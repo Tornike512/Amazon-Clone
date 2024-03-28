@@ -445,10 +445,13 @@
   .search-modal-background {
     width: 100%;
     height: 100%;
-    background-color: #0f1111;
     position: absolute;
-    top: 0;
+    top: 100px;
     left: 0;
+    opacity: 0.8;
+    z-index: 1;
+    background-color: #0f1111;
+    animation: 0.1s modal-background forwards;
   }
 }
 
@@ -458,5 +461,14 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes modal-background {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
   }
 }
