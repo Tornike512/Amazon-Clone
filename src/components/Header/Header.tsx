@@ -82,6 +82,8 @@ export function Header() {
 
   const storedFirstName = localStorage.getItem("firstName");
 
+  const currentCategory = localStorage.getItem("current category");
+
   const storedPurchasedItem = JSON.parse(
     localStorage.getItem("purchased item") || "{}"
   );
@@ -91,6 +93,10 @@ export function Header() {
     const searchTerm = searchInput.trim().toLowerCase();
     return productTitle.includes(searchTerm);
   });
+
+  useEffect(() => {
+    localStorage.setItem("current caregory", JSON.stringify(currentCategory));
+  }, [currentCategory]);
 
   return (
     <header className="header">
@@ -204,6 +210,7 @@ export function Header() {
           <button
             onClick={() => {
               setSearchModal(false);
+              navigate("/products");
             }}
             className="search-button"
           >

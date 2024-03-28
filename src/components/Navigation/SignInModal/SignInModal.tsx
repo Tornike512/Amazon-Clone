@@ -78,7 +78,8 @@ export function SignInModal() {
                     </a>
                     <a
                       onClick={() => {
-                        navigate("/products");
+                        setSignInHover(false);
+                        navigate("/orders");
                       }}
                     >
                       Returns & Orders
@@ -86,6 +87,7 @@ export function SignInModal() {
                     <a
                       onClick={() => {
                         navigate("/cart");
+                        setSignInHover(false);
                       }}
                     >
                       Cart
