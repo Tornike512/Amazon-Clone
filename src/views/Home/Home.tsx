@@ -38,7 +38,6 @@ export function Home() {
   const [swipeLeft, setSwipeLeft] = useState<boolean>(false);
   const [stopAutoSwipe, setStopAutoSwipe] = useState<boolean>(false);
   const [swipeRight, setSwipeRight] = useState<boolean>(false);
-  const [products, setProducts] = useState<TGetProducts[]>([]);
 
   const { currentCategory, setCurrentCategory } = useContext(GlobalContext);
 
@@ -55,17 +54,6 @@ export function Home() {
     kitchenFavorites,
     shopBooks,
   ];
-
-  async function getProducts() {
-    try {
-      const response = await axios.get(
-        "http://localhost:3000/product?page=1&pageSize=150"
-      );
-      setProducts(response.data.products);
-    } catch (error) {
-      console.log("Error Loading Products", error);
-    }
-  }
 
   function changeBackgroundImage(direction: string) {
     if (direction === "left") {
@@ -114,8 +102,6 @@ export function Home() {
           changeBackgroundImage("right");
         }, 500);
       }, 5000);
-
-      getProducts();
     }
 
     return () => clearInterval(swipeRightInterval);

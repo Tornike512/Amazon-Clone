@@ -44,8 +44,9 @@ export function Header() {
       const response = await axios.get(
         "http://localhost:3000/product-category"
       );
+
       const productResponse = await axios.get(
-        "http://localhost:3000/product?page=1&pageSize=120"
+        `http://localhost:3000/product?productName=${filterProducts}`
       );
 
       setCategories(response.data);
@@ -88,11 +89,9 @@ export function Header() {
     localStorage.getItem("purchased item") || "{}"
   );
 
-  const filterProducts = products.filter((product) => {
-    const productTitle = product.title.trim().toLowerCase();
-    const searchTerm = searchInput.trim().toLowerCase();
-    return productTitle.includes(searchTerm);
-  });
+  const filterProducts = searchInput.trim().toLowerCase();
+
+  console.log(filterProducts);
 
   useEffect(() => {
     localStorage.setItem("current caregory", JSON.stringify(currentCategory));
@@ -138,32 +137,24 @@ export function Header() {
         <div className="search-bar">
           {searchModal && (
             <div className="search-modal">
-              {products ? (
-                <>
-                  {filterProducts?.map((product: TGetProducts) => {
-                    return (
-                      <div
-                        onClick={() => {
-                          setSearchModal(false);
-                          setTimeout(() => {
-                            window.location.reload();
-                          }, 100);
-                          navigate(`/products/${product.id}`);
-                        }}
-                        key={product.id}
-                        className="search-modal-element"
-                      >
-                        <img src={searchIcon} alt="Search Icon" />
-                        <p>{product.title}</p>
-                      </div>
-                    );
-                  })}
-                </>
-              ) : (
-                <>
-                  <div className="search-loader"></div>
-                </>
-              )}
+              {products?.map((product: TGetProducts) => {
+                return (
+                  <div
+                    onClick={() => {
+                      setSearchModal(false);
+                      setTimeout(() => {
+                        window.location.reload();
+                      }, 100);
+                      navigate(`/products/${product.id}`);
+                    }}
+                    key={product.id}
+                    className="search-modal-element"
+                  >
+                    <img src={searchIcon} alt="Search Icon" />
+                    <p>{product.title}</p>
+                  </div>
+                );
+              })}
             </div>
           )}
           <div className="input-spacing">

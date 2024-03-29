@@ -75,8 +75,6 @@ export function GlobalProvider({ children }: PropsWithChildren) {
     return storedCurrentCategory ? JSON.parse(storedCurrentCategory) : "";
   });
 
-  console.log(currentCategory);
-
   return (
     <GlobalContext.Provider
       value={{
