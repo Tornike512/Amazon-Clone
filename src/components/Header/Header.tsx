@@ -5,7 +5,7 @@ import { LocaleContext } from "@src/providers/LocaleProvider";
 import { FormattedMessage } from "react-intl";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 
-import { TGetProducts } from "@src/@types/RequestTypes";
+import { TCartProducts, TGetProducts } from "@src/@types/RequestTypes";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
 import navIcon from "@src/assets/nav-icon.png";
@@ -46,11 +46,20 @@ export function Header() {
       );
 
       const productResponse = await axios.get(
-        `http://localhost:3000/product?productName=${filterProducts}`
+        `http://localhost:3000/product?productName=${searchInput
+          .trim()
+          .toLowerCase()}`
+      );
+
+      const lowercaseProducts = productResponse.data.products.map(
+        (product: TGetProducts) => ({
+          ...product,
+          title: product.title.trim().toLowerCase(),
+        })
       );
 
       setCategories(response.data);
-      setProducts(productResponse.data.products);
+      setProducts(lowercaseProducts);
     } catch (error) {
       console.log("Error Loading Categories", error);
     }
@@ -58,11 +67,7 @@ export function Header() {
 
   useEffect(() => {
     getCategories();
-    setTimeout(() => {
-      setLoader(true);
-    }, 1000);
-    setLoader(false);
-  }, []);
+  }, [searchInput]);
 
   const {
     setSideBar,
@@ -88,10 +93,6 @@ export function Header() {
   const storedPurchasedItem = JSON.parse(
     localStorage.getItem("purchased item") || "{}"
   );
-
-  const filterProducts = searchInput.trim().toLowerCase();
-
-  console.log(filterProducts);
 
   useEffect(() => {
     localStorage.setItem("current caregory", JSON.stringify(currentCategory));
