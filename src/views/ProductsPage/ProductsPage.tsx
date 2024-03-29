@@ -33,7 +33,7 @@ export function ProductsPage() {
   async function getProducts() {
     try {
       const response = await axios.get(
-        "http://localhost:3000/product?pageSize=150"
+        `http://localhost:3000/product?categoryName=${currentCategory}&pageSize=30`
       );
       setProducts(response.data.products);
     } catch (error) {
@@ -46,25 +46,6 @@ export function ProductsPage() {
   useEffect(() => {
     getProducts();
   }, []);
-
-  useEffect(() => {
-    if (currentCategory === "Computers") {
-      setMinSlice(0);
-      setMaxSlice(4);
-    } else if (currentCategory === "Kitchen") {
-      setMinSlice(20);
-      setMaxSlice(24);
-    } else if (currentCategory === "Books") {
-      setMinSlice(40);
-      setMaxSlice(44);
-    } else if (currentCategory === "Video Games") {
-      setMinSlice(64);
-      setMaxSlice(68);
-    } else if (currentCategory === "Toys & Games") {
-      setMinSlice(96);
-      setMaxSlice(100);
-    }
-  }, [currentCategory]);
 
   const topRatedProducts = products.slice(minSlice, maxSlice);
 
