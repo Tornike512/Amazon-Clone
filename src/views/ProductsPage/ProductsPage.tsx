@@ -9,6 +9,7 @@ import fourHalfStars from "@src/assets/four-half-stars.png";
 import axios from "axios";
 
 import "./ProductsPage.scss";
+import { TGetProducts } from "@src/@types/RequestTypes";
 
 export function ProductsPage() {
   const {
@@ -23,6 +24,7 @@ export function ProductsPage() {
   const [quickLook, setQuickLook] = useState<number | null>(null);
   const [minSlice, setMinSlice] = useState<number>(0);
   const [maxSlice, setMaxSlice] = useState<number>(4);
+  const [toysAndGames, setToysAndGames] = useState<TGetProducts[]>([]);
 
   const navigate = useNavigate();
 
@@ -32,10 +34,17 @@ export function ProductsPage() {
 
   async function getProducts() {
     try {
-      const response = await axios.get(
-        `http://localhost:3000/product?categoryName=${currentCategory}&pageSize=30`
-      );
-      setProducts(response.data.products);
+      if (currentCategory === "Toys & Games") {
+        const response = await axios.get(
+          `http://localhost:3000/product?pageSize=30&categoryName=Toys%20%26%20Games`
+        );
+        setProducts(response.data.products);
+      } else if (currentCategory !== "Toys & Games") {
+        const response = await axios.get(
+          `http://localhost:3000/product?pageSize=20&categoryName=${currentCategory}`
+        );
+        setProducts(response.data.products);
+      }
     } catch (error) {
       console.log("Error Loading Products", error);
     } finally {
@@ -45,7 +54,9 @@ export function ProductsPage() {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [currentCategory]);
+
+  console.log(products);
 
   const topRatedProducts = products.slice(minSlice, maxSlice);
 
@@ -58,6 +69,7 @@ export function ProductsPage() {
     });
 
   console.log(products);
+  console.log(currentCategory);
 
   const handleCategoryTitle = () => {
     switch (currentCategory) {
@@ -186,7 +198,7 @@ export function ProductsPage() {
             {under25Products
               .filter((product) => product.category_name === currentCategory)
               .map((product, index) => {
-                return (
+                return [
                   <div
                     key={product.id}
                     onClick={() => {
@@ -225,8 +237,8 @@ export function ProductsPage() {
                         </div>
                       </div>
                     </>
-                  </div>
-                );
+                  </div>,
+                ];
               })}
           </div>
         </div>

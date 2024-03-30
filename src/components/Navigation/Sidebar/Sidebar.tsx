@@ -94,6 +94,7 @@ export function Sidebar() {
                         navigate("/products");
                         setCurrentCategory(category.name);
                         setSideBar(false);
+                        window.location.reload();
                       }}
                       className="sidebar-categories"
                     >
