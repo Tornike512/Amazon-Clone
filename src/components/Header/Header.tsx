@@ -48,7 +48,7 @@ export function Header() {
       const productResponse = await axios.get(
         `http://localhost:3000/product?productName=${searchInput
           .trim()
-          .toLowerCase()}`
+          .toUpperCase()}`
       );
 
       const lowercaseProducts = productResponse.data.products.map(
@@ -68,6 +68,8 @@ export function Header() {
   useEffect(() => {
     getCategories();
   }, [searchInput]);
+
+  console.log(products);
 
   const {
     setSideBar,
