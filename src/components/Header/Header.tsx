@@ -346,11 +346,66 @@ export function Header() {
           <img src={navIcon} alt="nav icon" /> All
         </button>
 
-        <a href="#">Today's Deals</a>
-        <a href="#">Customer Service</a>
-        <a href="#">Registry</a>
-        <a href="#">Gift Cards</a>
-        <a href="#">Sell</a>
+        <a
+          onClick={() => {
+            localStorage.setItem(
+              "current category",
+              JSON.stringify("Computers")
+            );
+            navigate("/products");
+          }}
+        >
+          Computers
+        </a>
+        <a
+          onClick={() => {
+            localStorage.setItem("current category", JSON.stringify("Kitchen"));
+            navigate("/products");
+          }}
+        >
+          Kitchen
+        </a>
+        <a
+          onClick={() => {
+            localStorage.setItem("current category", JSON.stringify("Books"));
+            navigate("/products");
+          }}
+        >
+          Books
+        </a>
+        <a
+          onClick={() => {
+            localStorage.setItem(
+              "current category",
+              JSON.stringify("Video Games")
+            );
+            navigate("/products");
+          }}
+        >
+          Video Games
+        </a>
+        <a
+          onClick={() => {
+            localStorage.setItem(
+              "current category",
+              JSON.stringify("Toys & Games")
+            );
+
+            navigate("/products");
+          }}
+        >
+          Toys & Games
+        </a>
+        <a
+          onClick={() => {
+            navigate("/cart");
+          }}
+        >
+          Cart
+        </a>
+        <a onClick={() => navigate("/orders")} href="#">
+          Returns & Orders
+        </a>
       </nav>
       {signInHover && <div className="sign-in-modal-mouseover"></div>}
       {!signInHover && <div className="sign-in-modal-mouseout"></div>}
