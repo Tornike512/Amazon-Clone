@@ -59,7 +59,6 @@ export function Header() {
 
       setCategories(response.data);
       setProducts(filteredProducts);
-      setLoader(false);
     } catch (error) {
       console.log("Error Loading Categories", error);
     }
@@ -104,10 +103,6 @@ export function Header() {
   const storedPurchasedItem = JSON.parse(
     localStorage.getItem("purchased item") || "{}"
   );
-
-  useEffect(() => {
-    localStorage.setItem("current caregory", JSON.stringify(currentCategory));
-  }, [currentCategory]);
 
   return (
     <header className="header">
@@ -171,7 +166,13 @@ export function Header() {
           )}
           <div className="input-spacing">
             <select
-              onChange={(e) => setSelectNiche(e.target.value)}
+              onChange={(e) => {
+                setSelectNiche(e.target.value);
+                localStorage.setItem(
+                  "current category",
+                  JSON.stringify(e.target.value)
+                );
+              }}
               name="all"
               className="select-niche"
               value={selectNiche}
