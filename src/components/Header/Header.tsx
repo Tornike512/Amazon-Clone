@@ -45,21 +45,22 @@ export function Header() {
         "http://localhost:3000/product-category"
       );
 
-      const productResponse = await axios.get(
-        `http://localhost:3000/product?productName=${searchInput
-          .trim()
-          .toUpperCase()}`
-      );
+      const productResponse = await axios.get(`http://localhost:3000/product`);
 
-      const lowercaseProducts = productResponse.data.products.map(
-        (product: TGetProducts) => ({
-          ...product,
-          title: product.title.trim().toLowerCase(),
-        })
+      // const lowercaseProducts = productResponse.data.products.map(
+      //   (product: TGetProducts) => ({
+      //     ...product,
+      //     title: product.title.trim().toLowerCase(),
+      //   })
+      // );
+
+      const filteredProducts = productResponse.data.products.filter(
+        (product: TGetProducts) =>
+          product.title.toLowerCase().includes(searchInput.toLowerCase())
       );
 
       setCategories(response.data);
-      setProducts(lowercaseProducts);
+      setProducts(filteredProducts);
     } catch (error) {
       console.log("Error Loading Categories", error);
     }
@@ -68,6 +69,8 @@ export function Header() {
   useEffect(() => {
     getCategories();
   }, [searchInput]);
+
+  console.log(searchInput);
 
   console.log(products);
 
