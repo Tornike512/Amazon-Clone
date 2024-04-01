@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { LocaleContext } from "@src/providers/LocaleProvider";
 import { FormattedMessage } from "react-intl";
 import { useAuthProvider } from "@src/providers/AuthProvider";
+import { useDebounce } from "@src/hooks/useDebounce";
 
 import { TCartProducts, TGetProducts } from "@src/@types/RequestTypes";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
@@ -37,6 +38,8 @@ export function Header() {
   const [searchModal, setSearchModal] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
 
+  const debounceSearch = useDebounce(searchInput, 500);
+
   const navigate = useNavigate();
 
   async function getCategories() {
@@ -45,18 +48,13 @@ export function Header() {
         "http://localhost:3000/product-category"
       );
 
-      const productResponse = await axios.get(`http://localhost:3000/product`);
-
-      // const lowercaseProducts = productResponse.data.products.map(
-      //   (product: TGetProducts) => ({
-      //     ...product,
-      //     title: product.title.trim().toLowerCase(),
-      //   })
-      // );
+      const productResponse = await axios.get(
+        `http://localhost:3000/product?pageSize=50`
+      );
 
       const filteredProducts = productResponse.data.products.filter(
         (product: TGetProducts) =>
-          product.title.toLowerCase().includes(searchInput.toLowerCase())
+          product.title.toLowerCase().includes(debounceSearch.toLowerCase())
       );
 
       setCategories(response.data);
@@ -68,7 +66,7 @@ export function Header() {
 
   useEffect(() => {
     getCategories();
-  }, [searchInput]);
+  }, [debounceSearch]);
 
   console.log(searchInput);
 
