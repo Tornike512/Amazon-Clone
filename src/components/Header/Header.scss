@@ -132,7 +132,7 @@
 
     .select-niche {
       height: 38px;
-      width: 8%;
+      width: 44px;
       padding: 0 0 0 5px;
       font-size: $font-size-12px;
       background-color: #e6e6e6;
@@ -450,5 +450,11 @@
   }
   to {
     opacity: 0.8;
+  }
+}
+
+@media (min-width: 1326px) {
+  .select-niche {
+    width: 10%;
   }
 }
