@@ -59,10 +59,18 @@ export function Header() {
 
       setCategories(response.data);
       setProducts(filteredProducts);
+      setLoader(false);
     } catch (error) {
       console.log("Error Loading Categories", error);
     }
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(true);
+    }, 1000);
+    setLoader(false);
+  }, []);
 
   useEffect(() => {
     getCategories();
