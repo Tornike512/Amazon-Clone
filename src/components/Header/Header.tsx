@@ -9,6 +9,7 @@ import { useDebounce } from "@src/hooks/useDebounce";
 import { TCartProducts, TGetProducts } from "@src/@types/RequestTypes";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
+import userLogo from "@src/assets/user-logo.png";
 import navIcon from "@src/assets/nav-icon.png";
 import amazonLogo from "@src/assets/amazon-logo.png";
 import locationLogo from "@src/assets/location-logo.png";
@@ -37,6 +38,7 @@ export function Header() {
   const [selectNiche, setSelectNiche] = useState<string>("");
   const [searchModal, setSearchModal] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
+  const [responsive587Px, setResponsive587Px] = useState<boolean>(false);
 
   const debounceSearch = useDebounce(searchInput, 500);
 
@@ -259,14 +261,25 @@ export function Header() {
                 )}
               </span>
               <p className="account-list">
-                <b>Account & Lists</b>
+                {authStatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
+                  !responsive587Px && (
+                    <>
+                      <b>{storedFirstName}</b>
+                      <img src={userLogo} alt="sign in dropdown icon" />
+                    </>
+                  )
+                ) : (
+                  <b>Account & Lists</b>
+                )}
               </p>
             </div>
-            <img
-              className="sign-in-dropdown"
-              src={dropDownIcon}
-              alt="sign in dropdown icon"
-            />
+            {responsive587Px && (
+              <img
+                className="sign-in-dropdown"
+                src={dropDownIcon}
+                alt="sign in dropdown icon"
+              />
+            )}
           </a>
           <div
             onClick={() => {
