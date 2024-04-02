@@ -252,6 +252,18 @@
     }
   }
 
+  @media (max-width: 1372px) {
+    .cart-page {
+      width: 72%;
+    }
+  }
+
+  @media (max-width: 1026px) {
+    .cart-page {
+      width: 62%;
+    }
+  }
+
   .subtotal {
     height: 128px;
     width: 350px;
