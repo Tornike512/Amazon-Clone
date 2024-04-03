@@ -444,7 +444,7 @@
     height: 40px;
     display: flex;
     align-items: center;
-    overflow: auto;
+    overflow: scroll;
     background-color: $tertiary-background-color;
     cursor: pointer;
 
@@ -473,6 +473,12 @@
       @include border-radius(2px);
     }
 
+    @media (max-width: 587px) {
+      .open-sidebar:hover {
+        outline: none;
+      }
+    }
+
     a:first-child img {
       width: 14px;
       height: 17px;
@@ -487,6 +493,7 @@
       padding: 8px 9px;
       margin-left: 5px;
       font-size: $font-size-14px;
+      text-align: center;
       color: $primary-text-color;
     }
 
@@ -494,15 +501,23 @@
       @include outline(1px solid #ffffff);
       @include border-radius(2px);
     }
-  }
-  @media (max-width: 704px) {
-    .nav-bar {
-      width: max-content;
+
+    @media (max-width: 587px) {
+      a:hover {
+        outline: none;
+      }
     }
   }
 
   .nav-bar::-webkit-scrollbar {
     width: 0;
+  }
+
+  @media (max-width: 587px) {
+    .nav-bar {
+      height: 52px;
+      padding-top: 5px;
+    }
   }
 
   .search-modal-background {

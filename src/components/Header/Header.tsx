@@ -433,9 +433,11 @@ export function Header() {
         >
           Cart
         </a>
-        <a onClick={() => navigate("/orders")} href="#">
-          Returns & Orders
-        </a>
+        {!responsive587Px && (
+          <a onClick={() => navigate("/orders")} href="#">
+            Returns & Orders
+          </a>
+        )}
       </nav>
       {signInHover && <div className="sign-in-modal-mouseover"></div>}
       {!signInHover && <div className="sign-in-modal-mouseout"></div>}
