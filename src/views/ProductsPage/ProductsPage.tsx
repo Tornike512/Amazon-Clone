@@ -1,6 +1,10 @@
 import { useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useWindowSize } from "@react-hook/window-size";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import { ResponsiveContext } from "@src/providers/ResponsiveProvider";
+
+import { TGetProducts } from "@src/@types/RequestTypes";
 
 import CategoryTitle from "@src/views/ProductsPage/CategoryTitle.json";
 
@@ -9,7 +13,6 @@ import fourHalfStars from "@src/assets/four-half-stars.png";
 import axios from "axios";
 
 import "./ProductsPage.scss";
-import { TGetProducts } from "@src/@types/RequestTypes";
 
 export function ProductsPage() {
   const {
@@ -24,7 +27,8 @@ export function ProductsPage() {
   const [quickLook, setQuickLook] = useState<number | null>(null);
   const [minSlice, setMinSlice] = useState<number>(0);
   const [maxSlice, setMaxSlice] = useState<number>(4);
-  const [toysAndGames, setToysAndGames] = useState<TGetProducts[]>([]);
+
+  const { responsive587Px, setResponsive587Px } = useContext(ResponsiveContext);
 
   const navigate = useNavigate();
 

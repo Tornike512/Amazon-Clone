@@ -9,7 +9,7 @@
   color: #0f1111;
 
   .filter-products {
-    width: 460px;
+    min-width: 180px;
     display: flex;
     flex-direction: column;
     border-right: 2px solid #ddd;
@@ -62,7 +62,8 @@
       margin: 10px 0 0 12px;
 
       .top-rated-spacing {
-        display: flex;
+        display: grid;
+        grid-template-columns: 280px 280px 280px 280px;
 
         .top-rated-item {
           width: 100%;
@@ -137,6 +138,13 @@
               font-size: $font-size-12px;
             }
           }
+        }
+      }
+
+      @media (max-width: 1230px) {
+        .top-rated-spacing {
+          display: grid;
+          grid-template-columns: 280px 280px 280px;
         }
       }
     }

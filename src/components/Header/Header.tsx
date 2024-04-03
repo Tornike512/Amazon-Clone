@@ -286,9 +286,7 @@ export function Header() {
                     <b>Account & Lists</b>
                   )
                 ) : (
-                  <>
-                    <b>Account & Lists</b>
-                  </>
+                  <>{!responsive587Px && <b>Account & Lists</b>}</>
                 )}
               </p>
             </div>
