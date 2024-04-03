@@ -444,7 +444,6 @@
     height: 40px;
     display: flex;
     align-items: center;
-    overflow: scroll;
     background-color: $tertiary-background-color;
     cursor: pointer;
 
@@ -517,6 +516,7 @@
     .nav-bar {
       height: 52px;
       padding-top: 5px;
+      overflow: scroll;
     }
   }
 

@@ -286,7 +286,9 @@ export function Header() {
                     <b>Account & Lists</b>
                   )
                 ) : (
-                  <></>
+                  <>
+                    <b>Account & Lists</b>
+                  </>
                 )}
               </p>
             </div>
