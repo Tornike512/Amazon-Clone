@@ -1,9 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import CategoryProductsTitle from "@src/views/Home/CategoryProductsTitle.json";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import { ResponsiveContext } from "@src/providers/ResponsiveProvider";
+import { useWindowSize } from "@react-hook/window-size";
 
-import { TGetProducts } from "@src/@types/RequestTypes";
+import CategoryProductsTitle from "@src/views/Home/CategoryProductsTitle.json";
 
 import kitchen1 from "@src/assets/kitchen-1.png";
 import kitchen2 from "@src/assets/kitchen-2.png";
@@ -30,7 +31,6 @@ import leftArrow from "@src/assets/left-arrow.png";
 import rightArrow from "@src/assets/right-arrow.png";
 import computerImage from "@src/assets/computer.jpg";
 
-import axios from "axios";
 import "@src/views/Home/Home.scss";
 
 export function Home() {
@@ -38,8 +38,18 @@ export function Home() {
   const [swipeLeft, setSwipeLeft] = useState<boolean>(false);
   const [stopAutoSwipe, setStopAutoSwipe] = useState<boolean>(false);
   const [swipeRight, setSwipeRight] = useState<boolean>(false);
+  const [width] = useWindowSize();
 
   const { currentCategory, setCurrentCategory } = useContext(GlobalContext);
+  const { responsive587Px, setResponsive587Px } = useContext(ResponsiveContext);
+
+  useEffect(() => {
+    if (width <= 587) {
+      setResponsive587Px(true);
+    } else {
+      setResponsive587Px(false);
+    }
+  }, [width]);
 
   const navigate = useNavigate();
 
@@ -143,17 +153,21 @@ export function Home() {
             alt="Home Background Image"
           />
         )}
-        <button className="left-button" onClick={() => stopAutoSwipeLeft()}>
-          <img src={leftArrow} alt="Left Arrow" />
-        </button>
-        <button
-          className="right-button"
-          onClick={() => {
-            stopAutoSwipeRight();
-          }}
-        >
-          <img src={rightArrow} alt="Right Arrow" />
-        </button>
+        {!responsive587Px && (
+          <button className="left-button" onClick={() => stopAutoSwipeLeft()}>
+            <img src={leftArrow} alt="Left Arrow" />
+          </button>
+        )}
+        {!responsive587Px && (
+          <button
+            className="right-button"
+            onClick={() => {
+              stopAutoSwipeRight();
+            }}
+          >
+            <img src={rightArrow} alt="Right Arrow" />
+          </button>
+        )}
       </a>
       <div className="category-grid">
         <div

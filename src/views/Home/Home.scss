@@ -254,10 +254,26 @@
     }
 
     .background-spacing {
-      width: 705px;
+      width: 100%;
 
-      img {
-        height: auto;
+      .home-background {
+        max-height: 219px;
+      }
+
+      .home-background-left {
+        max-height: 219px;
+      }
+
+      .home-background-right {
+        max-height: 219px;
+      }
+
+      .home-background-left-switch {
+        max-height: 219px;
+      }
+
+      .home-background-right-switch {
+        max-height: 219px;
       }
     }
   }

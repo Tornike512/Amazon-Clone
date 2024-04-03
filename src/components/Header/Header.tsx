@@ -41,7 +41,8 @@ export function Header() {
   const [selectNiche, setSelectNiche] = useState<string>("");
   const [searchModal, setSearchModal] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
-  const [responsive587Px, setResponsive587Px] = useState<boolean>(false);
+
+  const { responsive587Px, setResponsive587Px } = useContext(ResponsiveContext);
 
   const [width] = useWindowSize();
 
