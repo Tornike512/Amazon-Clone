@@ -308,3 +308,21 @@
     opacity: 0;
   }
 }
+
+@media (max-width: 587px) {
+  .sidebar {
+    width: 250px;
+
+    .sidebar-sign-in {
+      width: 250px;
+    }
+  }
+
+  .sidebar-close {
+    width: 250px;
+
+    .sidebar-sign-in {
+      width: 250px;
+    }
+  }
+}
