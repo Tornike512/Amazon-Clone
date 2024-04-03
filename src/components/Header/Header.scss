@@ -220,6 +220,12 @@
     }
   }
 
+  @media (max-width: 587px) {
+    .search-bar {
+      width: 96%;
+    }
+  }
+
   .amazon-tools {
     display: flex;
 
@@ -295,14 +301,6 @@
       }
     }
 
-    @media (max-width: 587px) {
-      .sign-in {
-        position: absolute;
-        top: 0;
-        right: 84px;
-      }
-    }
-
     .sign-in-dropdown {
       width: 15px;
       height: 10px;
@@ -312,6 +310,18 @@
     .sign-in:hover {
       @include outline(1px solid #ffffff);
       @include border-radius(2px);
+    }
+
+    @media (max-width: 587px) {
+      .sign-in {
+        position: absolute;
+        top: 0;
+        right: 84px;
+      }
+
+      .sign-in:hover {
+        outline: none;
+      }
     }
 
     .returns-orders {
@@ -407,17 +417,20 @@
       }
     }
 
+    .cart:hover {
+      @include outline(1px solid #ffffff);
+      @include border-radius(2px);
+    }
+
     @media (max-width: 587px) {
       .cart {
         position: absolute;
         top: 0;
         right: 0;
       }
-    }
-
-    .cart:hover {
-      @include outline(1px solid #ffffff);
-      @include border-radius(2px);
+      .cart:hover {
+        outline: none;
+      }
     }
   }
 
@@ -431,6 +444,7 @@
     height: 40px;
     display: flex;
     align-items: center;
+    overflow: auto;
     background-color: $tertiary-background-color;
     cursor: pointer;
 
@@ -481,6 +495,15 @@
       @include border-radius(2px);
     }
   }
+  @media (max-width: 704px) {
+    .nav-bar {
+      width: max-content;
+    }
+  }
+
+  .nav-bar::-webkit-scrollbar {
+    width: 0;
+  }
 
   .search-modal-background {
     width: 100%;
@@ -510,5 +533,12 @@
   }
   to {
     opacity: 0.8;
+  }
+}
+
+@media (max-width: 587px) {
+  .header {
+    width: auto;
+    max-width: 587px;
   }
 }

@@ -5,6 +5,7 @@ import { LocaleContext } from "@src/providers/LocaleProvider";
 import { FormattedMessage } from "react-intl";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import { useDebounce } from "@src/hooks/useDebounce";
+import { useWindowSize } from "@react-hook/window-size";
 
 import { TCartProducts, TGetProducts } from "@src/@types/RequestTypes";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
@@ -39,6 +40,16 @@ export function Header() {
   const [searchModal, setSearchModal] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
   const [responsive587Px, setResponsive587Px] = useState<boolean>(false);
+
+  const [width] = useWindowSize();
+
+  useEffect(() => {
+    if (width <= 587) {
+      setResponsive587Px(true);
+    } else {
+      setResponsive587Px(false);
+    }
+  }, [width]);
 
   const debounceSearch = useDebounce(searchInput, 500);
 
@@ -77,9 +88,8 @@ export function Header() {
     getCategories();
   }, [debounceSearch]);
 
-  console.log(searchInput);
-
-  console.log(products);
+  console.log(responsive587Px);
+  console.log(width);
 
   const {
     setSideBar,
@@ -99,8 +109,6 @@ export function Header() {
   const { authStatus } = useAuthProvider();
 
   const storedFirstName = localStorage.getItem("firstName");
-
-  const currentCategory = localStorage.getItem("current category");
 
   const storedPurchasedItem = JSON.parse(
     localStorage.getItem("purchased item") || "{}"
@@ -245,7 +253,11 @@ export function Header() {
               setSignInHover(false);
             }}
             onMouseOver={() => {
-              setSignInHover(true);
+              if (responsive587Px) {
+                setSignInHover(false);
+              } else {
+                setSignInHover(true);
+              }
               setSearchModal(false);
             }}
             onMouseLeave={() => setSignInHover(false)}
@@ -262,18 +274,20 @@ export function Header() {
               </span>
               <p className="account-list">
                 {authStatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
-                  !responsive587Px && (
+                  responsive587Px ? (
                     <>
                       <b>{storedFirstName}</b>
                       <img src={userLogo} alt="sign in dropdown icon" />
                     </>
+                  ) : (
+                    <b>Account & Lists</b>
                   )
                 ) : (
-                  <b>Account & Lists</b>
+                  <></>
                 )}
               </p>
             </div>
-            {responsive587Px && (
+            {!responsive587Px && (
               <img
                 className="sign-in-dropdown"
                 src={dropDownIcon}
