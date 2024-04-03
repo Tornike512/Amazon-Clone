@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import { ResponsiveContext } from "@src/providers/ResponsiveProvider";
 import { useNavigate } from "react-router-dom";
 import { LocaleContext } from "@src/providers/LocaleProvider";
 import { FormattedMessage } from "react-intl";
@@ -8,6 +9,7 @@ import { useDebounce } from "@src/hooks/useDebounce";
 import { useWindowSize } from "@react-hook/window-size";
 
 import { TCartProducts, TGetProducts } from "@src/@types/RequestTypes";
+
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
 import userLogo from "@src/assets/user-logo.png";
