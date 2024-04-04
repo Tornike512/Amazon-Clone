@@ -28,10 +28,10 @@ export function OneProductPage() {
     setProducts,
     countCartProducts,
     setCountCartProducts,
-    ca,
     setSubtotal,
     countProducts,
     setCountProducts,
+    currentCategory,
   } = useContext(GlobalContext);
 
   const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
@@ -52,30 +52,49 @@ export function OneProductPage() {
 
   async function getOneProduct() {
     try {
-      const response = await axios.get(
-        `http://localhost:3000/product?pageSize=150`
-      );
+      if (currentCategory !== "Toys & Games") {
+        const response = await axios.get(
+          `http://localhost:3000/product?pageSize=35&categoryName=${currentCategory}`
+        );
+        setProducts(response.data.products);
 
-      setProducts(response.data.products);
-      const products = response.data.products;
+        const products = response.data.products;
 
-      if (products.length > 0) {
-        const randomIndex = Math.floor(Math.random() * products.length - 1);
-        setFirstSponsored(products[randomIndex]);
-        setSecondSponsored(products[randomIndex + 1]);
+        if (products.length > 0) {
+          const randomIndex = Math.floor(Math.random() * products.length - 1);
+          setFirstSponsored(products[randomIndex]);
+          setSecondSponsored(products[randomIndex + 1]);
+        }
+
+        const product = response.data.products.find(
+          (product: TGetProducts) => product.id === id
+        );
+        setOneProduct(product);
+      } else {
+        const response = await axios.get(
+          `http://localhost:3000/product?pageSize=35&categoryName=Toys %26 Games`
+        );
+        setProducts(response.data.products);
+
+        const products = response.data.products;
+
+        if (products.length > 0) {
+          const randomIndex = Math.floor(Math.random() * products.length - 1);
+          setFirstSponsored(products[randomIndex]);
+          setSecondSponsored(products[randomIndex + 1]);
+        }
+
+        const product = response.data.products.find(
+          (product: TGetProducts) => product.id === id
+        );
+        setOneProduct(product);
       }
-
-      const product = response.data.products.find(
-        (product: TGetProducts) => product.id === id
-      );
-      setOneProduct(product);
     } catch (error) {
       console.log("Error Loading Product", error);
     } finally {
       setLoading(false);
     }
   }
-  console.log(countCartProducts);
 
   useEffect(() => {
     if (id) {
