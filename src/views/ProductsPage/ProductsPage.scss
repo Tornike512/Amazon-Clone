@@ -152,13 +152,16 @@
             margin-bottom: 15px;
 
             .top-rated-item {
+              max-width: 74%;
+
               img {
-                max-width: 146px;
-                max-height: 146px;
+                max-width: 90px;
+                max-height: 90px;
               }
             }
 
             .top-rated-info {
+              width: 230px;
               p {
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -323,9 +326,10 @@
 
             .under-25-item {
               height: 200px;
+              max-width: 44%;
 
               img {
-                max-width: 145px;
+                max-width: 115px;
               }
             }
 
