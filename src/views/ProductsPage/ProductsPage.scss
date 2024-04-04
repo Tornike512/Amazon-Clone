@@ -41,6 +41,12 @@
     }
   }
 
+  @media (max-width: 768px) {
+    .filter-products {
+      display: none;
+    }
+  }
+
   .products {
     h1 {
       padding: 0 0 4px 12px;
@@ -139,6 +145,33 @@
             }
           }
         }
+
+        @media (max-width: 587px) {
+          .top-rated-item-spacing {
+            height: 170px;
+            margin-bottom: 15px;
+
+            .top-rated-item {
+              img {
+                max-width: 146px;
+                max-height: 146px;
+              }
+            }
+
+            .top-rated-info {
+              p {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                line-height: 1.5;
+                max-height: 4.5em;
+                position: relative;
+              }
+            }
+          }
+        }
       }
 
       @media (max-width: 1230px) {
@@ -147,13 +180,49 @@
           grid-template-columns: 280px 280px 280px;
         }
       }
+
+      @media (max-width: 1031px) {
+        .top-rated-spacing {
+          display: grid;
+          grid-template-columns: 280px 280px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .top-rated-spacing {
+          grid-template-columns: 250px;
+
+          .top-rated-info {
+            height: auto;
+
+            p {
+              white-space: normal;
+            }
+          }
+
+          .top-rated-item-spacing {
+            display: flex;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 587px) {
+      .top-rated {
+        margin-bottom: 40px;
+
+        .top-rated-spacing {
+          grid-template-columns: 180px;
+        }
+      }
     }
 
     .under-25 {
       margin: 10px 0 0 12px;
 
       .under-25-spacing {
-        display: flex;
+        display: grid;
+        grid-template-columns: 250px 250px 250px 250px;
 
         .under-25-item {
           height: 250px;
@@ -231,6 +300,57 @@
           }
         }
       }
+
+      @media (max-width: 1050px) {
+        .under-25-spacing {
+          grid-template-columns: 250px 250px 250px;
+        }
+      }
+
+      @media (max-width: 804px) {
+        .under-25-spacing {
+          grid-template-columns: 250px 250px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .under-25-spacing {
+          grid-template-columns: 250px;
+
+          .under-25-item-spacing {
+            display: flex;
+            margin-bottom: 15px;
+
+            .under-25-item {
+              height: 200px;
+
+              img {
+                max-width: 145px;
+              }
+            }
+
+            .under-25-info {
+              p {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                line-height: 1.5;
+                max-height: 4.5em;
+                position: relative;
+              }
+            }
+          }
+
+          .under-25-info {
+            height: auto;
+            p {
+              white-space: normal;
+            }
+          }
+        }
+      }
     }
 
     .products-grid {
@@ -297,5 +417,67 @@
         }
       }
     }
+
+    @media (max-width: 990px) {
+      .products-grid {
+        grid-template-columns: 251px 251px;
+      }
+    }
+
+    @media (max-width: 587px) {
+      .products-grid {
+        grid-template-columns: 251px;
+
+        .products-item {
+          height: auto;
+
+          display: flex;
+          margin-bottom: 15px;
+
+          .products-image {
+            width: 90%;
+
+            img {
+              max-width: 145px;
+            }
+          }
+
+          .description {
+            height: auto;
+
+            h3 {
+              font-size: 20px;
+            }
+
+            p {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              line-height: 1.5;
+              max-height: 4.5em;
+              position: relative;
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .product-page-title {
+        display: none;
+      }
+
+      .products-description {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 587px) {
+  .products-page {
+    padding: 14px 0px 18px;
   }
 }

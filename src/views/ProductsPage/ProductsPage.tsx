@@ -27,10 +27,19 @@ export function ProductsPage() {
   const [quickLook, setQuickLook] = useState<number | null>(null);
   const [minSlice, setMinSlice] = useState<number>(0);
   const [maxSlice, setMaxSlice] = useState<number>(4);
+  const { width } = useWindowSize();
 
   const { responsive587Px, setResponsive587Px } = useContext(ResponsiveContext);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (width <= 587) {
+      setResponsive587Px(true);
+    } else {
+      setResponsive587Px(false);
+    }
+  }, [width]);
 
   const currentCategory = JSON.parse(
     localStorage.getItem("current category") || ""
@@ -138,7 +147,7 @@ export function ProductsPage() {
         </div>
       </aside>
       <div className="products">
-        <h1>{handleCategoryTitle()}</h1>
+        <h1 className="product-page-title">{handleCategoryTitle()}</h1>
         <p className="products-description">{handleCategoryDescription()}</p>
         <h2>Top rated</h2>
         <div className="top-rated">
@@ -148,14 +157,26 @@ export function ProductsPage() {
               .map((product, index) => {
                 return (
                   <div
-                    style={{
-                      height: "280px",
-                      marginBottom: "245px",
-                      marginRight: "5px",
-                      borderRadius: "4px",
-                      backgroundColor: "#f7f4f4",
-                      cursor: "pointer",
-                    }}
+                    className="top-rated-item-spacing"
+                    style={
+                      !responsive587Px
+                        ? {
+                            height: "280px",
+                            marginBottom: "245px",
+                            marginRight: "5px",
+                            borderRadius: "4px",
+                            backgroundColor: "#f7f4f4",
+                            cursor: "pointer",
+                          }
+                        : {
+                            height: "180px",
+                            marginBottom: "15px",
+                            marginRight: "5px",
+                            borderRadius: "4px",
+                            backgroundColor: "#f7f4f4",
+                            cursor: "pointer",
+                          }
+                    }
                     key={product.id}
                     onClick={() => {
                       setProductId(product.id);
@@ -168,7 +189,7 @@ export function ProductsPage() {
                       onMouseLeave={() => setQuickLook(null)}
                       className="top-rated-item"
                     >
-                      {quickLook === index && (
+                      {quickLook === index && !responsive587Px && (
                         <button className="quick-look">Quick look</button>
                       )}
                       <img src={product.image} alt="Product Image" />
@@ -211,7 +232,7 @@ export function ProductsPage() {
                     }}
                   >
                     <>
-                      <div>
+                      <div className="under-25-item-spacing">
                         <div
                           onMouseOver={() => setQuickLook(index)}
                           onMouseLeave={() => setQuickLook(null)}
