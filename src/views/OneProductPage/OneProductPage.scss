@@ -34,6 +34,12 @@
       }
     }
 
+    @media (max-width: 1114px) {
+      .back-to-results {
+        display: none;
+      }
+    }
+
     .one-product-info {
       display: flex;
       padding: 14px 18px 18px;
@@ -46,6 +52,20 @@
 
         img {
           width: 364px;
+        }
+      }
+
+      @media (max-width: 1114px) {
+        .product-image {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 450px) {
+        .product-image {
+          img {
+            width: 250px;
+          }
         }
       }
 
@@ -142,6 +162,16 @@
 
         .delivery-time {
           font-size: $font-size-14px;
+        }
+      }
+
+      @media (max-width: 1114px) {
+        .buy {
+          width: 100%;
+          margin-top: 15px;
+          margin: 0;
+          padding: 0;
+          border: none;
         }
       }
 
@@ -249,6 +279,12 @@
       }
     }
 
+    @media (max-width: 1114px) {
+      .one-product-info {
+        display: block;
+      }
+    }
+
     .sponsored-ad {
       display: flex;
       justify-content: space-between;
@@ -305,6 +341,43 @@
           }
         }
       }
+
+      @media (max-width: 618px) {
+        .sponsored-item-spacing {
+          border: none;
+
+          .sponsored-item {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 1365px) {
+      .sponsored-ad {
+        justify-content: space-evenly;
+      }
+    }
+
+    @media (max-width: 1114px) {
+      .sponsored-ad {
+        display: block;
+
+        .sponsored-item-spacing {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1114px) {
+    .one-product-spacing {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-top: 20px;
     }
   }
 }
