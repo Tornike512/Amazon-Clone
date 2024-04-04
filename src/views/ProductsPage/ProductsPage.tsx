@@ -182,6 +182,7 @@ export function ProductsPage() {
                       setProductId(product.id);
                       navigate(`/products/${product.id}`);
                       setLoading(true);
+                      window.location.reload();
                     }}
                   >
                     <div
@@ -229,6 +230,7 @@ export function ProductsPage() {
                     onClick={() => {
                       setProductId(product.id);
                       navigate(`/products/${product.id}`);
+                      window.location.reload();
                     }}
                   >
                     <>
@@ -278,6 +280,7 @@ export function ProductsPage() {
                   onClick={() => {
                     setProductId(product.id);
                     navigate(`/products/${product.id}`);
+                    window.location.reload();
                   }}
                   key={product.id}
                   className="products-item"
