@@ -31,6 +31,12 @@
     }
   }
 
+  @media (max-width: 775px) {
+    .orders-nav {
+      display: none;
+    }
+  }
+
   .search-orders {
     display: flex;
     justify-content: space-between;
@@ -85,6 +91,27 @@
     }
   }
 
+  @media (max-width: 775px) {
+    .search-orders {
+      display: block;
+
+      .search-spacing {
+        display: flex;
+        flex-direction: column;
+
+        .order-search-spacing {
+          img {
+            left: 1%;
+          }
+          .order-search-bar {
+            width: 100%;
+            margin-bottom: 8px;
+          }
+        }
+      }
+    }
+  }
+
   .order-infos {
     height: 29px;
     display: flex;
@@ -112,6 +139,12 @@
       font-weight: bold;
       border-bottom: 2px solid #e47911;
       color: #000000;
+    }
+  }
+
+  @media (max-width: 775px) {
+    .order-infos {
+      display: none;
     }
   }
 
@@ -218,6 +251,12 @@
       }
     }
 
+    @media (max-width: 391px) {
+      .purchased-item {
+        height: auto;
+      }
+    }
+
     a {
       margin-left: 3px;
       color: $secondary-link-text-color;
@@ -261,6 +300,13 @@
       text-decoration: none;
       @include linkHoverEffect;
     }
+  }
+}
+
+@media (max-width: 944px) {
+  .orders {
+    width: 100%;
+    padding: 5px;
   }
 }
 

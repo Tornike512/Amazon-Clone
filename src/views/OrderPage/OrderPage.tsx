@@ -65,7 +65,7 @@ export function OrderPage() {
       </nav>
       <div className="search-orders">
         <h1>Your Orders</h1>
-        <div>
+        <div className="search-spacing">
           <span className="order-search-spacing">
             <img src={searchIcon} alt="Search Icon" />
             <input
