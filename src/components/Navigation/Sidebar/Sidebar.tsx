@@ -33,7 +33,7 @@ export function Sidebar() {
     setCurrentCategory,
   } = useContext(GlobalContext);
 
-  const { authStatus } = useAuthProvider();
+  const { authStatus, signOut } = useAuthProvider();
 
   const storedFirstName = localStorage.getItem("firstName");
 
@@ -117,15 +117,32 @@ export function Sidebar() {
                   />
                   <span>United States</span>
                 </span>
-                <nav
-                  onClick={() => {
-                    navigate("sign-in");
-                    setSideBar(false);
-                  }}
-                  className="sidebar-second-sign-in"
-                >
-                  Sign in
-                </nav>
+                {TAuthorizationStatus_Enum.AUTHORIZED ? (
+                  <>
+                    <nav
+                      onClick={() => {
+                        navigate("sign-in");
+                        setSideBar(false);
+                        signOut();
+                      }}
+                      className="sidebar-second-sign-in"
+                    >
+                      Sign out
+                    </nav>
+                  </>
+                ) : (
+                  <>
+                    <nav
+                      onClick={() => {
+                        navigate("sign-in");
+                        setSideBar(false);
+                      }}
+                      className="sidebar-second-sign-in"
+                    >
+                      Sign in
+                    </nav>
+                  </>
+                )}
               </>
             </aside>
 
