@@ -1,5 +1,3 @@
-import { TCartProducts } from "@src/@types/RequestTypes";
-
 import axios from "axios";
 
 async function cartDeleteRequest({

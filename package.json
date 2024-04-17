@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-hook/window-size": "^3.1.1",
     "@uidotdev/usehooks": "^2.4.1",
+    "antd": "^5.16.2",
     "axios": "^1.6.5",
     "flowbite-react": "^0.7.2",
     "jwt-decode": "^4.0.0",

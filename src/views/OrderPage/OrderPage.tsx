@@ -21,8 +21,6 @@ export function OrderPage() {
   const [searchInput, setSearchInput] = useState<string>("");
   const [search, setSearch] = useState<string>("");
 
-  console.log(search);
-
   const orderInfos: TOrderInfo[] = [
     { id: "orders-id", name: "Orders" },
     { id: "buy-again-id", name: "Buy Again" },

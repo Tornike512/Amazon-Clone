@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { ResponsiveContext } from "@src/providers/ResponsiveProvider";
 import { useWindowSize } from "@react-hook/window-size";
+import { HomeCarousel } from "@src/components/HomeCarousel/HomeCarousel";
 
 import CategoryProductsTitle from "@src/views/Home/CategoryProductsTitle.json";
 
@@ -326,6 +327,7 @@ export function Home() {
           <a href="#">Shop now</a>
         </div>
       </div>
+      <HomeCarousel />
     </div>
   );
 }
