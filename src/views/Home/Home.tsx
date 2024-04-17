@@ -330,7 +330,7 @@ export function Home() {
       <HomeCarousel category="Computers" />
       <HomeCarousel category="Kitchen" />
       <HomeCarousel category="Books" />
-      <HomeCarousel category="Computer Games" />
+      <HomeCarousel category="Video Games" />
     </div>
   );
 }
