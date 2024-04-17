@@ -327,7 +327,10 @@ export function Home() {
           <a href="#">Shop now</a>
         </div>
       </div>
-      <HomeCarousel />
+      <HomeCarousel category="Computers" />
+      <HomeCarousel category="Kitchen" />
+      <HomeCarousel category="Books" />
+      <HomeCarousel category="Computer Games" />
     </div>
   );
 }

@@ -3,26 +3,26 @@ import useGetProducts from "@src/hooks/useGetProducts";
 
 import "./HomeCarousel.scss";
 
-export function HomeCarousel() {
+export function HomeCarousel({ category }: { category: string }) {
   const onChange = (currentSlide: number) => {
     console.log(currentSlide);
   };
 
-  const { purchaseProducts } = usePurchaseProducts();
+  const { products } = useGetProducts({ category });
 
-  console.log(purchaseProducts);
+  console.log(products);
 
   return (
     <Carousel afterChange={onChange}>
       <div>
         <h3 className="content-style">
-          <div className="content-item">1</div>
-          <div className="content-item">2</div>
-          <div className="content-item">3</div>
-          <div className="content-item">4</div>
-          <div className="content-item">5</div>
-          <div className="content-item">6</div>
-          <div className="content-item">7</div>
+          {products?.map((product) => {
+            return (
+              <div key={product.id} className="content-item">
+                <img src={product.image} alt="Product Image" />
+              </div>
+            );
+          })}
         </h3>
       </div>
       <div>

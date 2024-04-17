@@ -13,6 +13,14 @@
   line-height: 160px;
 
   .content-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: black;
+
+    img {
+      max-width: 167px;
+      max-height: 156px;
+    }
   }
 }
