@@ -68,16 +68,6 @@ export function SignInModal() {
                   <>
                     <a
                       onClick={() => {
-                        navigate("/sign-in");
-                        setSignInHover(false);
-                        signOut();
-                      }}
-                      href="#"
-                    >
-                      Sign out
-                    </a>
-                    <a
-                      onClick={() => {
                         setSignInHover(false);
                         navigate("/orders");
                       }}
@@ -91,6 +81,16 @@ export function SignInModal() {
                       }}
                     >
                       Cart
+                    </a>
+                    <a
+                      onClick={() => {
+                        navigate("/sign-in");
+                        setSignInHover(false);
+                        signOut();
+                      }}
+                      href="#"
+                    >
+                      Sign out
                     </a>
                   </>
                 )}

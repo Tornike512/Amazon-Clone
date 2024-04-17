@@ -146,6 +146,31 @@
       }
     }
 
+    @media (max-width: 744px) {
+      .add-card-details {
+        display: block;
+
+        .card-number {
+          label {
+            width: 16%;
+          }
+
+          input {
+            width: 100%;
+          }
+        }
+        .name-on-card {
+          label {
+            width: 16%;
+          }
+
+          input {
+            width: 100%;
+          }
+        }
+      }
+    }
+
     .accepted-cards {
       padding-left: 10px;
       margin-left: 45px;
@@ -153,6 +178,12 @@
 
       img {
         margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 744px) {
+      .accepted-cards {
+        display: none;
       }
     }
 
@@ -192,6 +223,12 @@
       .add-card-button:hover {
         background-color: $primary-button-hover-color;
       }
+    }
+  }
+
+  @media (max-width: 744px) {
+    .add-card {
+      width: 100%;
     }
   }
 

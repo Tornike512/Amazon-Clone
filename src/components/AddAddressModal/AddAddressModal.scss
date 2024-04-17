@@ -156,6 +156,42 @@
         }
       }
 
+      @media (max-width: 586px) {
+        .full-name-input {
+          input {
+            width: auto;
+          }
+        }
+
+        .phone-number-input {
+          input {
+            width: auto;
+          }
+        }
+
+        .address-input {
+          input {
+            width: auto;
+          }
+        }
+
+        .city-zip-spacing {
+          .city-input {
+            width: auto;
+          }
+
+          .city-zip-label {
+            .city-label {
+              margin-right: 100px;
+            }
+          }
+
+          .zip-code-input {
+            width: auto;
+          }
+        }
+      }
+
       .city-input {
         height: 31px;
         width: 250px;
@@ -205,6 +241,13 @@
           background-color: $primary-button-hover-color;
         }
       }
+    }
+  }
+
+  @media (max-width: 738px) {
+    .add-address {
+      width: auto;
+      margin-top: 60px;
     }
   }
 

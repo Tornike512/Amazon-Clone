@@ -40,6 +40,12 @@
         }
       }
 
+      @media (max-width: 416px) {
+        .checkout-text {
+          display: none;
+        }
+      }
+
       .locker-logo {
         width: 16px;
         height: 21px;
@@ -130,6 +136,15 @@
 
           .remove:hover {
             @include linkHoverEffect;
+          }
+        }
+      }
+
+      @media (max-width: 863px) {
+        .address {
+          width: 100%;
+          .remove-edit {
+            display: none;
           }
         }
       }
@@ -257,6 +272,12 @@
           .name-on-card-spacing {
             padding-right: 250px;
           }
+
+          @media (max-width: 524px) {
+            .name-on-card-spacing {
+              padding-right: 25px;
+            }
+          }
         }
 
         .current-card {
@@ -295,6 +316,16 @@
 
           .card-expire-date {
             padding-left: 196px;
+          }
+
+          @media (max-width: 870px) {
+            .card-user {
+              padding-left: 20px;
+            }
+
+            .card-expire-date {
+              padding-left: 20px;
+            }
           }
         }
 
@@ -359,6 +390,11 @@
         }
       }
     }
+    @media (max-width: 863px) {
+      .payment-method-container {
+        width: 100%;
+      }
+    }
 
     .selected-card {
       width: 830px;
@@ -391,6 +427,12 @@
           overflow: hidden;
           white-space: nowrap;
           cursor: pointer;
+        }
+
+        @media (max-width: 448px) {
+          .selected-card-address {
+            width: 150px;
+          }
         }
       }
 
@@ -507,6 +549,12 @@
         .delivery-price {
           margin: 3px 0 0 17px;
           font-size: $font-size-14px;
+        }
+      }
+
+      @media (max-width: 436px) {
+        .choose-delivery-option {
+          display: none;
         }
       }
     }
