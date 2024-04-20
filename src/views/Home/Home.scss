@@ -12,15 +12,7 @@
 
   .slick-list {
     width: 1435px;
-  }
-
-  .slick-dots slick-dots-bottom {
-    .slick-active {
-      background-color: blue;
-      button {
-        opacity: 1;
-      }
-    }
+    position: relative;
   }
 
   .background-spacing {
