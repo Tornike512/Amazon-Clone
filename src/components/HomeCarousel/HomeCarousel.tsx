@@ -1,10 +1,13 @@
-import { Carousel } from "antd";
+import { Carousel, Button } from "antd";
+import { useRef } from "react";
 
 import useGetProducts from "@src/hooks/useGetProducts";
 
 import "./HomeCarousel.scss";
 
 export function HomeCarousel({ category }: { category: string }) {
+  const reft = useRef();
+
   const onChange = (currentSlide: number) => {
     console.log(currentSlide, "hello");
   };
@@ -25,6 +28,8 @@ export function HomeCarousel({ category }: { category: string }) {
             );
           })}
         </h3>
+        <Button className="switch-button">prev</Button>
+        <Button>next</Button>
       </div>
       <div>
         <h3 className="content-style">

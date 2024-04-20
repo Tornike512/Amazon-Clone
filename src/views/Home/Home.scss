@@ -14,6 +14,15 @@
     width: 1435px;
   }
 
+  .slick-dots slick-dots-bottom {
+    .slick-active {
+      background-color: blue;
+      button {
+        opacity: 1;
+      }
+    }
+  }
+
   .background-spacing {
     width: 1280px;
     position: absolute;

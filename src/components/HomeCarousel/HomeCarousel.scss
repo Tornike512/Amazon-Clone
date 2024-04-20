@@ -3,10 +3,10 @@
 @import "/src/sass/colors.scss";
 
 .content-style {
-  height: 160px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   margin-top: 20px;
+  padding: 10px;
   background: #ffffff;
   color: #fff;
   text-align: center;
@@ -23,4 +23,7 @@
       max-height: 156px;
     }
   }
+}
+
+.switch-button {
 }
