@@ -19,7 +19,7 @@ export function HomeCarousel({ category }: { category: string }) {
   const { products } = useGetProducts({ category });
 
   return (
-    <div>
+    <div className="carousel-spacing">
       <Carousel ref={ref} afterChange={onChange}>
         <div>
           <h3 className="content-style">
@@ -33,12 +33,6 @@ export function HomeCarousel({ category }: { category: string }) {
               );
             })}
           </h3>
-          <Button onClick={() => ref.current.prev()} className="left-switch">
-            <img src={leftArrow} alt="Left Arrow" />
-          </Button>
-          <Button onClick={() => ref.current.next()} className="right-switch">
-            <img src={rightArrow} alt="Right Arrow" />
-          </Button>
         </div>
         <div>
           <h3 className="content-style">
@@ -56,6 +50,12 @@ export function HomeCarousel({ category }: { category: string }) {
           </h3>
         </div>
       </Carousel>
+      <Button onClick={() => ref.current.prev()} className="left-switch">
+        <img src={leftArrow} alt="Left Arrow" />
+      </Button>
+      <Button onClick={() => ref.current.next()} className="right-switch">
+        <img src={rightArrow} alt="Right Arrow" />
+      </Button>
     </div>
   );
 }

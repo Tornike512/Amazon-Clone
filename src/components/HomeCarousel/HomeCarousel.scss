@@ -2,47 +2,52 @@
 @import "/src/sass/variables.scss";
 @import "/src/sass/colors.scss";
 
-.content-style {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  margin-top: 20px;
-  padding: 10px;
-  background: #ffffff;
-  color: #fff;
-  text-align: center;
-  line-height: 160px;
+.carousel-spacing {
+  position: relative;
 
-  .content-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
+  .content-style {
+    height: 185px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-top: 20px;
+    padding: 10px;
+    background: #ffffff;
+    color: #fff;
+    text-align: center;
+    line-height: 160px;
 
-    img {
-      max-width: 167px;
-      max-height: 156px;
+    .content-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+
+      img {
+        max-width: 167px;
+        max-height: 156px;
+      }
     }
   }
-}
 
-.left-switch {
-  height: 100px;
-  position: absolute;
-  top: 32%;
-  left: 20%;
+  .left-switch {
+    height: 100px;
+    position: absolute;
+    top: 32%;
+    left: 0;
 
-  img {
-    width: 20px;
+    img {
+      width: 20px;
+    }
   }
-}
 
-.right-switch {
-  height: 100px;
-  position: absolute;
-  top: 32%;
-  right: 60%;
+  .right-switch {
+    height: 100px;
+    position: absolute;
+    top: 32%;
+    right: 0;
 
-  img {
-    width: 20px;
+    img {
+      width: 20px;
+    }
   }
 }
