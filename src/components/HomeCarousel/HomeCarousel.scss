@@ -5,11 +5,16 @@
 .carousel-container {
   position: relative;
 
+  .carousel-category {
+    margin-top: 20px;
+    padding: 10px 0 0 10px;
+    background-color: #fff;
+  }
+
   .content-style {
     height: 185px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    margin-top: 20px;
     padding: 10px;
     background: #ffffff;
     color: #fff;
@@ -33,7 +38,7 @@
   .left-switch {
     height: 100px;
     position: absolute;
-    top: 32%;
+    top: 41%;
     left: 0;
 
     img {
@@ -44,7 +49,7 @@
   .right-switch {
     height: 100px;
     position: absolute;
-    top: 32%;
+    top: 41%;
     right: 0;
 
     img {

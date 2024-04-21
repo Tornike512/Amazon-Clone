@@ -22,6 +22,7 @@ export function HomeCarousel({ category }: { category: string }) {
 
   return (
     <div className="carousel-container">
+      <h2 className="carousel-category">{category}</h2>
       <Carousel ref={ref} afterChange={onChange}>
         <div>
           <h3 className="content-style">
