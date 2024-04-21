@@ -9,7 +9,7 @@ import leftArrow from "@src/assets/left-arrow.png";
 import "./HomeCarousel.scss";
 
 export function HomeCarousel({ category }: { category: string }) {
-  const ref = useRef();
+  const ref = useRef<any>(null);
   console.log(ref);
 
   const onChange = (currentSlide: number) => {
@@ -50,10 +50,10 @@ export function HomeCarousel({ category }: { category: string }) {
           </h3>
         </div>
       </Carousel>
-      <Button onClick={() => ref.current.prev()} className="left-switch">
+      <Button onClick={() => ref.current?.prev()} className="left-switch">
         <img src={leftArrow} alt="Left Arrow" />
       </Button>
-      <Button onClick={() => ref.current.next()} className="right-switch">
+      <Button onClick={() => ref.current?.next()} className="right-switch">
         <img src={rightArrow} alt="Right Arrow" />
       </Button>
     </div>
