@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="footer">
       <ul className="footer-sign-in">
         <li>See personalized recommendations</li>
-        <button className="footer-sign-in">Sign in</button>
+        <button className="footer-sign-in-button">Sign in</button>
         <li className="new-customer">
           New customer? <a href="#">Start here.</a>
         </li>

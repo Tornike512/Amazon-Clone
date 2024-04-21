@@ -1,0 +1,53 @@
+@import "/src/sass/mixins.scss";
+@import "/src/sass/variables.scss";
+@import "/src/sass/colors.scss";
+
+.footer {
+  margin-top: 20px;
+
+  ul {
+    list-style-type: none;
+  }
+
+  .footer-sign-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0 20px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+
+    li {
+      font-size: $font-size-13px;
+    }
+
+    .footer-sign-in-button {
+      padding: 7px 90px 7px 90px;
+      margin: 5px 0 5px;
+      border-radius: 5px;
+      border: 1px solid #fab700;
+      background-color: $primary-button-color;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .footer-sign-in-button:hover {
+      background-color: $primary-button-hover-color;
+    }
+
+    .new-customer {
+      font-size: 11px;
+
+      a {
+        color: $secondary-link-text-color;
+        text-decoration: none;
+      }
+
+      a:hover {
+        @include linkHoverEffect;
+      }
+    }
+  }
+}
