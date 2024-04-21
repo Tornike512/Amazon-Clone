@@ -2,7 +2,7 @@
 @import "/src/sass/variables.scss";
 @import "/src/sass/colors.scss";
 
-.carousel-spacing {
+.carousel-container {
   position: relative;
 
   .content-style {
@@ -25,6 +25,7 @@
       img {
         max-width: 167px;
         max-height: 156px;
+        cursor: pointer;
       }
     }
   }

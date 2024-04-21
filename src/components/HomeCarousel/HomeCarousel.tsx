@@ -1,5 +1,6 @@
 import { Carousel, Button } from "antd";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import useGetProducts from "@src/hooks/useGetProducts";
 
@@ -10,16 +11,17 @@ import "./HomeCarousel.scss";
 
 export function HomeCarousel({ category }: { category: string }) {
   const ref = useRef<any>(null);
-  console.log(ref);
+
+  const navigate = useNavigate();
 
   const onChange = (currentSlide: number) => {
-    console.log(currentSlide, "hello");
+    console.log(currentSlide);
   };
 
   const { products } = useGetProducts({ category });
 
   return (
-    <div className="carousel-spacing">
+    <div className="carousel-container">
       <Carousel ref={ref} afterChange={onChange}>
         <div>
           <h3 className="content-style">
@@ -27,7 +29,18 @@ export function HomeCarousel({ category }: { category: string }) {
               return (
                 <>
                   <div key={product.id} className="content-item">
-                    <img src={product.image} alt="Product Image" />
+                    <img
+                      onClick={() => {
+                        navigate(`./products/${product.id}`);
+                        localStorage.setItem(
+                          "current category",
+                          JSON.stringify(category)
+                        );
+                        window.location.reload();
+                      }}
+                      src={product.image}
+                      alt="Product Image"
+                    />
                   </div>
                 </>
               );
