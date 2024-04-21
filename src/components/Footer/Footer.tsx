@@ -55,6 +55,22 @@ export function Footer() {
           </li>
         </ul>
       </div>
+      <div className="amazon-currency-container">
+        <div className="amazon-currency">
+          <img src="" alt="Amazon Logo" />
+          <ul>
+            <li>
+              <img src="" alt="Broweser Image" />
+              <p>English</p>
+            </li>
+            <li>$ USD - U. S. Dollar</li>
+            <li>
+              <img src="" alt="Usa Flag" />
+              <p>United States</p>
+            </li>
+          </ul>
+        </div>
+      </div>
     </footer>
   );
 }
