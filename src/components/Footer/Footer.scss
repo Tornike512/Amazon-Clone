@@ -145,4 +145,32 @@
       }
     }
   }
+
+  .footer-secondary-grid-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    background-color: #131a22;
+    font-size: $font-size-12px;
+
+    .footer-secondary-grid {
+      width: 1200px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      row-gap: 40px;
+
+      .footer-secondary-grid-item {
+        width: 100px;
+
+        h6 {
+          font-size: $font-size-12px;
+          color: #dddddd;
+        }
+
+        p {
+          color: #999999;
+        }
+      }
+    }
+  }
 }
