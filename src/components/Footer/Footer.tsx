@@ -1,3 +1,7 @@
+import amazonWhiteLogo from "@src/assets/amazon-logo.png";
+import browserIcon from "@src/assets/browser-icon.png";
+import usaFlag from "@src/assets/usa-flag.jpg";
+
 import "./Footer.scss";
 
 export function Footer() {
@@ -57,15 +61,15 @@ export function Footer() {
       </div>
       <div className="amazon-currency-container">
         <div className="amazon-currency">
-          <img src="" alt="Amazon Logo" />
+          <img src={amazonWhiteLogo} alt="Amazon Logo" />
           <ul>
             <li>
-              <img src="" alt="Broweser Image" />
+              <img src={browserIcon} alt="Broweser Icon" />
               <p>English</p>
             </li>
             <li>$ USD - U. S. Dollar</li>
             <li>
-              <img src="" alt="Usa Flag" />
+              <img src={usaFlag} alt="Usa Flag" />
               <p>United States</p>
             </li>
           </ul>
