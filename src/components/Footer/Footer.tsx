@@ -14,7 +14,7 @@ export function Footer() {
         <li>Back to top</li>
       </ul>
       <div className="footer-main-grid-container">
-        <ul className="footer-=main-grid">
+        <ul className="footer-main-grid">
           <li className="footer-grid-item">
             <h4>Get to Know Us</h4>
             <a href="#">Careers</a>

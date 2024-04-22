@@ -66,4 +66,41 @@
   .back-to-top:hover {
     background-color: #485769;
   }
+
+  .footer-main-grid-container {
+    padding: 40px 0;
+    background-color: #232f3e;
+    border-bottom: 1px solid #3a4553;
+
+    a {
+      text-decoration: none;
+    }
+
+    .footer-main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      padding: 0 20%;
+
+      .footer-grid-item {
+        width: 78%;
+
+        h4 {
+          font-size: $font-size-16px;
+          color: #ffffff;
+        }
+
+        a {
+          display: flex;
+          margin-top: 10px;
+          font-size: $font-size-14px;
+          color: #dddddd;
+          cursor: pointer;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
