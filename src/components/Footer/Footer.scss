@@ -15,6 +15,7 @@
     align-items: center;
     flex-direction: column;
     padding: 20px 0 20px;
+    margin-bottom: 20px;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 
@@ -49,5 +50,20 @@
         @include linkHoverEffect;
       }
     }
+  }
+
+  .back-to-top {
+    height: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #37475a;
+    color: #ffffff;
+    font-size: $font-size-13px;
+    cursor: pointer;
+  }
+
+  .back-to-top:hover {
+    background-color: #485769;
   }
 }
