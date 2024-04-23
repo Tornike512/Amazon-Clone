@@ -187,4 +187,40 @@
       }
     }
   }
+
+  .footer-conditons-of-use {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #131a22;
+    color: #dddddd;
+    font-size: $font-size-12px;
+
+    li {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .made-by {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #131a22;
+    color: #dddddd;
+    font-size: $font-size-12px;
+
+    li:first-child {
+      margin-right: 10px;
+    }
+
+    li:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
 }

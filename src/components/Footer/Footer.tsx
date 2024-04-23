@@ -190,7 +190,8 @@ export function Footer() {
         <li>Your Ads Privacy Choices</li>
       </ul>
       <ul className="made-by">
-        <li>Made By @Tornike Tsagareishvili</li>
+        <li>Made By </li>
+        <li>@Tornike Tsagareishvili</li>
       </ul>
     </footer>
   );
