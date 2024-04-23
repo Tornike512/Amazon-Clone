@@ -78,8 +78,9 @@
 
     .footer-main-grid {
       display: grid;
+      width: 1014px;
+      margin: 0 auto;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      padding: 0 20%;
 
       .footer-grid-item {
         width: 78%;
