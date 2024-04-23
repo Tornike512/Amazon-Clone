@@ -78,7 +78,7 @@
 
     .footer-main-grid {
       display: grid;
-      width: 1014px;
+      width: 1200px;
       margin: 0 auto;
       grid-template-columns: 1fr 1fr 1fr 1fr;
 
@@ -114,14 +114,15 @@
     color: #cccccc;
 
     .amazon-currency {
-      width: 50%;
+      width: 1200px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 0 40px;
+      padding: 0px 40px;
 
       img {
         width: 80px;
+        margin-right: 80px;
       }
 
       ul {
@@ -133,7 +134,7 @@
           align-items: center;
           padding: 5px 10px;
           margin-right: 8px;
-          border: 1px solid #cccccc;
+          border: 1px solid #797979;
           border-radius: 4px;
           font-size: $font-size-13px;
 
