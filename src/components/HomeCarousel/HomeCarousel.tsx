@@ -1,5 +1,5 @@
 import { Carousel, Button } from "antd";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import useGetProducts from "@src/hooks/useGetProducts";
@@ -19,7 +19,6 @@ export function HomeCarousel({ category }: { category: string }) {
   };
 
   const { products } = useGetProducts({ category });
-
   return (
     <div className="carousel-container">
       <h2 className="carousel-category">{category}</h2>
