@@ -1,4 +1,7 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthProvider } from "@src/providers/AuthProvider";
+import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
 import amazonWhiteLogo from "@src/assets/amazon-logo.png";
 import browserIcon from "@src/assets/browser-icon.png";
@@ -7,6 +10,8 @@ import usaFlag from "@src/assets/usa-flag.jpg";
 import "./Footer.scss";
 
 export function Footer() {
+  const { authStatus } = useAuthProvider();
+
   const navigate = useNavigate();
 
   const handleScrollUp = () => {
@@ -22,20 +27,23 @@ export function Footer() {
 
   return (
     <footer className="footer">
-      <ul className="footer-sign-in">
-        <li>See personalized recommendations</li>
-        <button
-          onClick={() => {
-            navigate("/sign-in");
-          }}
-          className="footer-sign-in-button"
-        >
-          Sign in
-        </button>
-        <li className="new-customer">
-          New customer? <a onClick={() => navigate("/register")}>Start here.</a>
-        </li>
-      </ul>
+      {authStatus === TAuthorizationStatus_Enum.UNAUTHORIZED && (
+        <ul className="footer-sign-in">
+          <li>See personalized recommendations</li>
+          <button
+            onClick={() => {
+              navigate("/sign-in");
+            }}
+            className="footer-sign-in-button"
+          >
+            Sign in
+          </button>
+          <li className="new-customer">
+            New customer?{" "}
+            <a onClick={() => navigate("/register")}>Start here.</a>
+          </li>
+        </ul>
+      )}
       <ul onClick={handleScrollUp} className="back-to-top">
         <li>Back to top</li>
       </ul>

@@ -91,9 +91,6 @@ export function Header() {
     getCategories();
   }, [debounceSearch]);
 
-  console.log(responsive587Px);
-  console.log(width);
-
   const {
     setSideBar,
     modal,
