@@ -51,8 +51,22 @@ export function SignInModal() {
             <div className="lists-account">
               <span className="lists">
                 <span>Your Lists</span>
-                <a onClick={() => navigate("/wishlist")}>Create a List</a>
-                <a onClick={() => navigate("/products")}>Find Products</a>
+                <a
+                  onClick={() => {
+                    navigate("/wishlist");
+                    setSignInHover(false);
+                  }}
+                >
+                  Create a List
+                </a>
+                <a
+                  onClick={() => {
+                    navigate("/products");
+                    setSignInHover(false);
+                  }}
+                >
+                  Find Products
+                </a>
               </span>
               <span className="account">
                 <span>Your Account</span>
