@@ -123,6 +123,7 @@
       img {
         width: 80px;
         margin-right: 80px;
+        cursor: pointer;
       }
 
       ul {
@@ -214,11 +215,16 @@
     color: #dddddd;
     font-size: $font-size-12px;
 
-    li:first-child {
+    p {
       margin-right: 10px;
     }
 
-    li:hover {
+    a {
+      text-decoration: none;
+      color: #dddddd;
+    }
+
+    a:hover {
       text-decoration: underline;
       cursor: pointer;
     }

@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import amazonWhiteLogo from "@src/assets/amazon-logo.png";
 import browserIcon from "@src/assets/browser-icon.png";
 import usaFlag from "@src/assets/usa-flag.jpg";
@@ -5,16 +7,36 @@ import usaFlag from "@src/assets/usa-flag.jpg";
 import "./Footer.scss";
 
 export function Footer() {
+  const navigate = useNavigate();
+
+  const handleScrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const handlePageReload = () => {
+    window.location.reload();
+  };
+
   return (
     <footer className="footer">
       <ul className="footer-sign-in">
         <li>See personalized recommendations</li>
-        <button className="footer-sign-in-button">Sign in</button>
+        <button
+          onClick={() => {
+            navigate("/sign-in");
+          }}
+          className="footer-sign-in-button"
+        >
+          Sign in
+        </button>
         <li className="new-customer">
-          New customer? <a href="#">Start here.</a>
+          New customer? <a onClick={() => navigate("/register")}>Start here.</a>
         </li>
       </ul>
-      <ul className="back-to-top">
+      <ul onClick={handleScrollUp} className="back-to-top">
         <li>Back to top</li>
       </ul>
       <div className="footer-main-grid-container">
@@ -61,7 +83,11 @@ export function Footer() {
       </div>
       <div className="amazon-currency-container">
         <div className="amazon-currency">
-          <img src={amazonWhiteLogo} alt="Amazon Logo" />
+          <img
+            onClick={handlePageReload}
+            src={amazonWhiteLogo}
+            alt="Amazon Logo"
+          />
           <ul>
             <li>
               <img src={browserIcon} alt="Broweser Icon" />
@@ -189,10 +215,12 @@ export function Footer() {
         <li>Consumer Health Data Privacy Disclosure</li>
         <li>Your Ads Privacy Choices</li>
       </ul>
-      <ul className="made-by">
-        <li>Made By </li>
-        <li>@Tornike Tsagareishvili</li>
-      </ul>
+      <nav className="made-by">
+        <p>Made By </p>
+        <a target="blank" href="https://github.com/Tornike512/Amazon-Clone">
+          @Tornike Tsagareishvili
+        </a>
+      </nav>
     </footer>
   );
 }
