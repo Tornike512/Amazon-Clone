@@ -230,3 +230,38 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .footer {
+    .footer-main-grid-container {
+      .footer-main-grid {
+        width: auto;
+        max-width: 1200px;
+      }
+    }
+  }
+}
+
+@media (max-width: 754px) {
+  .footer {
+    .amazon-currency-container {
+      display: none;
+    }
+
+    .footer-secondary-grid-container {
+      .footer-secondary-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 525px) {
+  .footer {
+    .footer-secondary-grid-container {
+      .footer-secondary-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  }
+}
