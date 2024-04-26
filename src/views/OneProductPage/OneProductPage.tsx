@@ -3,6 +3,7 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useParams, useNavigate } from "react-router-dom";
 import { ProductsCarousel } from "@src/features/ProductsCarousel";
 import { Loader } from "@src/components/Loader";
+import { WishListModal } from "@src/components/WishListModal";
 import cartPostRequest from "@src/utils/CartPostRequest";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
@@ -288,6 +289,7 @@ export function OneProductPage() {
 
         <ProductsCarousel products={products} />
       </div>
+      <WishListModal />
     </div>
   );
 }
