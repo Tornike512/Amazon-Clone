@@ -1,3 +1,30 @@
 @import "/src/sass/mixins.scss";
 @import "/src/sass/variables.scss";
 @import "/src/sass/colors.scss";
+
+.wishlist-modal-background {
+  width: 100%;
+  height: 226%;
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000000;
+  opacity: 0.5;
+}
+
+.wishlist-modal-container {
+  width: 900px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #000000;
+
+  ul {
+    list-style-type: none;
+  }
+}
