@@ -228,7 +228,12 @@ export function OneProductPage() {
               <span>Sold by</span>
               <span>Amazon.com</span>
             </span>
-            <button className="add-to-list">Add to List</button>
+            <button
+              onClick={() => navigate("/wishlist")}
+              className="add-to-list"
+            >
+              Add to List
+            </button>
           </div>
         </div>
 
