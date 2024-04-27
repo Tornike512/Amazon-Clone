@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
 import closeIcon from "@src/assets/black-close-icon.png";
@@ -9,20 +10,36 @@ import "./WishListModal.scss";
 export function WishListModal() {
   const { wishListModal, setWishListModal } = useContext(GlobalContext);
 
+  const navigate = useNavigate();
+
+  const handleCloseButton = () => {
+    setWishListModal(false);
+  };
+
+  const handleShoppingListNavigation = () => {
+    navigate("/wishlist");
+  };
+
+  const handleViewYourListButton = () => {
+    setWishListModal(false);
+    navigate("/wishlist");
+  };
+
+  const handleContinueShoppingButton = () => {
+    setWishListModal(false);
+  };
+
   return (
     <>
       <div className="wishlist-modal-container">
         <ul className="wishlist-modal-header">
           <li>Add to List</li>
-          <img
-            onClick={() => setWishListModal(false)}
-            src={closeIcon}
-            alt="Close Icon"
-          />
+          <img onClick={handleCloseButton} src={closeIcon} alt="Close Icon" />
         </ul>
         <ul className="wishlist-item-container">
           <h1>
-            1 item added to <a href="#">Shopping List</a>
+            1 item added to{" "}
+            <a onClick={handleShoppingListNavigation}>Shopping List</a>
           </h1>
           <li className="wishlist-modal-item">
             <div className="wishlist-item-wrapper">
@@ -35,8 +52,18 @@ export function WishListModal() {
               </p>
             </div>
             <div className="wishlist-modal-navigation">
-              <button className="view-your-list">View Your List</button>
-              <button className="continue-shopping">Continue shopping</button>
+              <button
+                onClick={handleViewYourListButton}
+                className="view-your-list"
+              >
+                View Your List
+              </button>
+              <button
+                onClick={handleContinueShoppingButton}
+                className="continue-shopping"
+              >
+                Continue shopping
+              </button>
             </div>
           </li>
         </ul>
