@@ -1,4 +1,5 @@
 import closeIcon from "@src/assets/black-close-icon.png";
+import randomitem from "@src/assets/beauty-products.jpg";
 
 import "./WishListModal.scss";
 
@@ -15,13 +16,15 @@ export function WishListModal() {
             1 item added to <a href="#">Shopping List</a>
           </h1>
           <li className="wishlist-modal-item">
-            <img src="" alt="Product Image" />
-            <p>
-              LC406XL Ink Cartridges Compatible for Brother LC406XL LC406 High
-              Yield Work with Brother MFC-J4535DW MFC-J4335DW MFC-J5855DW
-              MFC-J6555DW MFC-J6955DW Printer(Black, Cyan, Magenta, Yellow, 4
-              Pack)
-            </p>
+            <div className="wishlist-item-wrapper">
+              <img src={randomitem} alt="Product Image" />
+              <p>
+                LC406XL Ink Cartridges Compatible for Brother LC406XL LC406 High
+                Yield Work with Brother MFC-J4535DW MFC-J4335DW MFC-J5855DW
+                MFC-J6555DW MFC-J6955DW Printer(Black, Cyan, Magenta, Yellow, 4
+                Pack)
+              </p>
+            </div>
             <div>
               <button className="view-your-list">View Your List</button>
               <button className="continue-shopping">Continue shopping</button>
