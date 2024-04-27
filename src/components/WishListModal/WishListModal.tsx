@@ -1,3 +1,5 @@
+import closeIcon from "@src/assets/black-close-icon.png";
+
 import "./WishListModal.scss";
 
 export function WishListModal() {
@@ -6,7 +8,7 @@ export function WishListModal() {
       <div className="wishlist-modal-container">
         <ul className="wishlist-modal-header">
           <li>Add to List</li>
-          <img src="" alt="Close Icon" />
+          <img src={closeIcon} alt="Close Icon" />
         </ul>
         <ul className="wishlist-item-container">
           <h1>
