@@ -44,4 +44,23 @@
       cursor: pointer;
     }
   }
+
+  .wishlist-item-container {
+    padding: 14px 18px;
+
+    h1 {
+      margin-bottom: 16px;
+      font-size: $font-size-20px;
+      font-weight: 400;
+
+      a {
+        color: $secondary-link-text-color;
+        text-decoration: none;
+      }
+
+      a:hover {
+        @include linkHoverEffect;
+      }
+    }
+  }
 }
