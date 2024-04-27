@@ -108,6 +108,8 @@ interface TGlobalContext {
   setSuccessfulPurchase: React.Dispatch<React.SetStateAction<boolean>>;
   currentCategory: string;
   setCurrentCategory: React.Dispatch<React.SetStateAction<string>>;
+  wishlistModal: boolean;
+  setWishListModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -169,4 +171,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setSuccessfulPurchase: () => {},
   currentCategory: "",
   setCurrentCategory: () => {},
+  wishlistModal: false,
+  setWishListModal: () => {},
 });

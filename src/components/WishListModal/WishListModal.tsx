@@ -1,15 +1,24 @@
+import { useContext } from "react";
+import { GlobalContext } from "@src/providers/GlobalProvider";
+
 import closeIcon from "@src/assets/black-close-icon.png";
 import randomitem from "@src/assets/beauty-products.jpg";
 
 import "./WishListModal.scss";
 
 export function WishListModal() {
+  const { wishListModal, setWishListModal } = useContext(GlobalContext);
+
   return (
     <>
       <div className="wishlist-modal-container">
         <ul className="wishlist-modal-header">
           <li>Add to List</li>
-          <img src={closeIcon} alt="Close Icon" />
+          <img
+            onClick={() => setWishListModal(false)}
+            src={closeIcon}
+            alt="Close Icon"
+          />
         </ul>
         <ul className="wishlist-item-container">
           <h1>
@@ -32,7 +41,10 @@ export function WishListModal() {
           </li>
         </ul>
       </div>
-      <div className="wishlist-modal-background"></div>
+      <div
+        onClick={() => setWishListModal(false)}
+        className="wishlist-modal-background"
+      ></div>
     </>
   );
 }

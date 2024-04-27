@@ -33,6 +33,8 @@ export function OneProductPage() {
     countProducts,
     setCountProducts,
     currentCategory,
+    setWishListModal,
+    wishlistModal,
   } = useContext(GlobalContext);
 
   const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
@@ -230,7 +232,9 @@ export function OneProductPage() {
               <span>Amazon.com</span>
             </span>
             <button
-              onClick={() => navigate("/wishlist")}
+              onClick={() => {
+                setWishListModal(true);
+              }}
               className="add-to-list"
             >
               Add to List
@@ -289,7 +293,7 @@ export function OneProductPage() {
 
         <ProductsCarousel products={products} />
       </div>
-      <WishListModal />
+      {wishlistModal && <WishListModal />}
     </div>
   );
 }

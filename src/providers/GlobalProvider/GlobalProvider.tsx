@@ -74,6 +74,7 @@ export function GlobalProvider({ children }: PropsWithChildren) {
     const storedCurrentCategory = localStorage.getItem("current category");
     return storedCurrentCategory ? JSON.parse(storedCurrentCategory) : "";
   });
+  const [wishlistModal, setWishListModal] = useState<boolean>(false);
 
   return (
     <GlobalContext.Provider
@@ -136,6 +137,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setSuccessfulPurchase,
         currentCategory,
         setCurrentCategory,
+        wishlistModal,
+        setWishListModal,
       }}
     >
       {children}
