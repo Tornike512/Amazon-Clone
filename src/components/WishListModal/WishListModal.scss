@@ -92,5 +92,42 @@
         }
       }
     }
+
+    .wishlist-modal-navigation {
+      display: flex;
+      flex-direction: column;
+      padding: 14px 18px;
+      border: 1px solid #d7d7d7;
+      border-radius: 8px;
+
+      .view-your-list {
+        padding: 5px 40px;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        background-color: #ffffff;
+        border: 1px solid #d7d7d7;
+        font-size: $font-size-12px;
+        box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
+        cursor: pointer;
+      }
+
+      .view-your-list:hover {
+        background-color: #f7fafa;
+      }
+
+      .continue-shopping {
+        padding: 7px 40px;
+        border-radius: 8px;
+        background-color: $primary-button-color;
+        border: none;
+        font-size: $font-size-12px;
+        box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
+        cursor: pointer;
+      }
+
+      .continue-shopping:hover {
+        background-color: $primary-button-hover-color;
+      }
+    }
   }
 }

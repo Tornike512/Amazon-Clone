@@ -25,7 +25,7 @@ export function WishListModal() {
                 Pack)
               </p>
             </div>
-            <div>
+            <div className="wishlist-modal-navigation">
               <button className="view-your-list">View Your List</button>
               <button className="continue-shopping">Continue shopping</button>
             </div>
