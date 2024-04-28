@@ -4,7 +4,7 @@
 
 .wishlist-modal-background {
   width: 100%;
-  height: 226%;
+  height: -webkit-fill-available;
   position: absolute;
   top: -100px;
   left: 50%;
@@ -15,7 +15,7 @@
 
 .wishlist-modal-container {
   width: 900px;
-  position: absolute;
+  position: fixed;
   top: 30%;
   left: 50%;
   transform: translateX(-50%);
