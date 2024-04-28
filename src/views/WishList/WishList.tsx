@@ -3,6 +3,7 @@ import { useAuthProvider } from "@src/providers/AuthProvider";
 
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
+import trashIcon from "@src/assets/trash-icon.png";
 import searchIcon from "@src/assets/search-icon.png";
 import wishListBackground from "@src/assets/wish-list-background.png";
 import wishListBook from "@src/assets/wishlist-book-image.png";
@@ -127,7 +128,9 @@ export function WishList() {
             </ul>
             <ul className="add-wishlist-item">
               <button className="add-to-cart">Add to Cart</button>
-              <img src="" alt="Trash Icon" />
+              <button className="remove-wishlist">
+                <img src={trashIcon} alt="Trash Icon" />
+              </button>
               <li>Add comment, quantity & priority</li>
             </ul>
           </div>

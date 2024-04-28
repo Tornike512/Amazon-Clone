@@ -268,6 +268,48 @@
             @include linkHoverEffect;
           }
         }
+
+        .add-wishlist-item {
+          .add-to-cart {
+            display: block;
+            padding: 7px 91px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background-color: $primary-button-color;
+            border: none;
+            font-size: $font-size-12px;
+            box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
+            cursor: pointer;
+          }
+
+          .add-to-cart:hover {
+            background-color: $primary-button-hover-color;
+          }
+
+          .remove-wishlist {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4px 5px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+          .remove-wishlist:hover {
+            background-color: #f7fafa;
+          }
+
+          li {
+            margin-top: 10px;
+            font-size: $font-size-12px;
+          }
+        }
       }
     }
   }
