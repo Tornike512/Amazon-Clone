@@ -3,6 +3,7 @@ import { useAuthProvider } from "@src/providers/AuthProvider";
 
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
+import searchIcon from "@src/assets/search-icon.png";
 import wishListBackground from "@src/assets/wish-list-background.png";
 import wishListBook from "@src/assets/wishlist-book-image.png";
 import giftImage from "@src/assets/gift-image.png";
@@ -108,7 +109,7 @@ export function WishList() {
           <h2>Shopping List</h2>
           <div className="search-wishlist-item">
             <input type="text" placeholder="Search this list" />
-            <img src="" alt="Search Icon" />
+            <img src={searchIcon} alt="Search Icon" />
           </div>
           <div className="wishlist-item">
             <ul className="wishlist-item-description">
