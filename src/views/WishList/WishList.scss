@@ -174,15 +174,16 @@
       justify-content: space-between;
       align-items: center;
 
-      h2 {
+      li {
         padding: 7px 17px;
         font-size: 24px;
+        font-weight: bold;
         border-bottom: 3px solid #007185;
         color: #007185;
         cursor: pointer;
       }
 
-      h2:hover {
+      li:hover {
         text-decoration: underline;
       }
     }

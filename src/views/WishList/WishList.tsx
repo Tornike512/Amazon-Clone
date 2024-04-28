@@ -102,17 +102,9 @@ export function WishList() {
     <div className="wishlist-page-spacing">
       <div className="wishlist-page">
         <ul className="your-list-text">
-          <h2>Your Lists</h2>
-          <li className="create-list">Create a List</li>
+          <li>Your Lists</li>
         </ul>
         <div className="wishlist-container">
-          <div className="add-shopping-list">
-            <ul className="shopping-list-privacy">
-              <h5>Shopping List</h5>
-              <li>Private</li>
-            </ul>
-            <p>Default List</p>
-          </div>
           <div className="wishlist-item-wrapper">
             <h2>Shopping List</h2>
             <span className="search-wishlist-item">
