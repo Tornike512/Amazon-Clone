@@ -11,6 +11,8 @@ import wishListGift from "@src/assets/wish-list-gift.png";
 import wishListNote from "@src/assets/wish-list-note.png";
 import wishListGraph from "@src/assets/wish-list-graph.png";
 import wishListBell from "@src/assets/wish-list-bell.png";
+import randomitem from "@src/assets/beauty-products.jpg";
+import productRating from "@src/assets/five-stars.png";
 
 import "@src/views/WishList/WishList.scss";
 
@@ -113,13 +115,15 @@ export function WishList() {
           </div>
           <div className="wishlist-item">
             <ul className="wishlist-item-description">
-              <img src="" alt="Wishlist Item Image" />
-              <li>
-                Brother MFC-J4335DW INKvestment Tank All-in-One Printer with
-                Duplex and Wireless Printing Plus Up to 1-Year of Ink in-Box
-              </li>
-              <img src="" alt="Product Rating" />
-              <li className="product-price">$179.99</li>
+              <img src={randomitem} alt="Wishlist Item Image" />
+              <span>
+                <li>
+                  Brother MFC-J4335DW INKvestment Tank All-in-One Printer with
+                  Duplex and Wireless Printing Plus Up to 1-Year of Ink in-Box
+                </li>
+                <img src={productRating} alt="Product Rating" />
+                <p className="product-price">$179.99</p>
+              </span>
             </ul>
             <ul className="add-wishlist-item">
               <button className="add-to-cart">Add to Cart</button>
