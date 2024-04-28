@@ -154,3 +154,37 @@
     }
   }
 }
+
+.wishlist-page-spacing {
+  display: flex;
+  justify-content: center;
+
+  .wishlist-page {
+    max-width: 1330px;
+    width: 80%;
+    flex-direction: column;
+    margin: 20px 0;
+
+    ul {
+      list-style-type: none;
+    }
+
+    .your-list-text {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h2 {
+        padding: 7px 17px;
+        font-size: 24px;
+        border-bottom: 3px solid #007185;
+        color: #007185;
+        cursor: pointer;
+      }
+
+      h2:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
