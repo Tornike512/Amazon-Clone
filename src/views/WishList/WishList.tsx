@@ -105,28 +105,26 @@ export function WishList() {
           <li>Your Lists</li>
         </ul>
         <div className="wishlist-container">
-          <div className="wishlist-item-wrapper">
-            <h2>Shopping List</h2>
-            <span className="search-wishlist-item">
-              <input type="text" placeholder="Search this list" />
-              <img src="" alt="Search Icon" />
-            </span>
-            <div className="wishlist-item">
-              <ul className="wishlist-item-description">
-                <img src="" alt="Wishlist Item Image" />
-                <li>
-                  Brother MFC-J4335DW INKvestment Tank All-in-One Printer with
-                  Duplex and Wireless Printing Plus Up to 1-Year of Ink in-Box
-                </li>
-                <img src="" alt="Product Rating" />
-                <li className="product-price">$179.99</li>
-              </ul>
-              <ul className="add-wishlist-item">
-                <button className="add-to-cart">Add to Cart</button>
-                <img src="" alt="Trash Icon" />
-                <li>Add comment, quantity & priority</li>
-              </ul>
-            </div>
+          <h2>Shopping List</h2>
+          <div className="search-wishlist-item">
+            <input type="text" placeholder="Search this list" />
+            <img src="" alt="Search Icon" />
+          </div>
+          <div className="wishlist-item">
+            <ul className="wishlist-item-description">
+              <img src="" alt="Wishlist Item Image" />
+              <li>
+                Brother MFC-J4335DW INKvestment Tank All-in-One Printer with
+                Duplex and Wireless Printing Plus Up to 1-Year of Ink in-Box
+              </li>
+              <img src="" alt="Product Rating" />
+              <li className="product-price">$179.99</li>
+            </ul>
+            <ul className="add-wishlist-item">
+              <button className="add-to-cart">Add to Cart</button>
+              <img src="" alt="Trash Icon" />
+              <li>Add comment, quantity & priority</li>
+            </ul>
           </div>
         </div>
       </div>

@@ -187,5 +187,22 @@
         text-decoration: underline;
       }
     }
+
+    .wishlist-container {
+      padding: 14px 18px;
+      border: $primary-border-color;
+
+      h2 {
+        padding-bottom: 5px;
+        font-size: $font-size-18px;
+        border-bottom: $primary-border-color;
+      }
+
+      .search-wishlist-item {
+        display: flex;
+        justify-content: flex-end;
+        padding: 12px 0;
+      }
+    }
   }
 }
