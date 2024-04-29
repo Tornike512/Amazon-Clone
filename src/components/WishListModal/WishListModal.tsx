@@ -46,7 +46,7 @@ export function WishListModal() {
           </h1>
           <li className="wishlist-modal-item">
             {wishlist?.map((list) => {
-              console.log(list.likedProduct);
+              console.log(list);
 
               return (
                 <div

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { TGetProducts } from "@src/@types/RequestTypes";
+import { TGetWishlistProducts } from "@src/@types/RequestTypes";
 
 import axios from "axios";
 
 export default function UseGetWishlist() {
-  const [wishlist, setWishList] = useState<TGetProducts[]>([]);
+  const [wishlist, setWishList] = useState<TGetWishlistProducts[]>([]);
 
   const token = localStorage.getItem("access_token");
 

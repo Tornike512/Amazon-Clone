@@ -34,3 +34,14 @@ export interface TCartProducts {
   product_id: string;
   user_id: string;
 }
+
+export interface TGetWishlistProducts {
+  likedProduct: {
+    description: string;
+    title: string;
+    image: string;
+    id: string;
+    price: number;
+    salePrice: number;
+  };
+}
