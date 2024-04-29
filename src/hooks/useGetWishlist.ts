@@ -7,10 +7,16 @@ import axios from "axios";
 export default function UseGetWishlist() {
   const [wishlist, setWishList] = useState<TGetProducts[]>([]);
 
+  const token = localStorage.getItem("access_token");
+
   async function getWishList() {
-    const response = await axios.get("http://localhost:3000/liked-products");
+    const response = await axios.get("http://localhost:3000/liked-products", {
+      headers: { Authorization: `bearer ${token}` },
+    });
 
     setWishList(response.data);
+
+    console.log(wishlist);
 
     try {
     } catch (error) {

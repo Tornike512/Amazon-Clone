@@ -16,7 +16,6 @@ async function UsePostWishlistProducts({
       { headers: { Authorization: `bearer ${token}` } }
     );
 
-    console.log(response);
     return response;
   } catch (error) {
     console.log(error, "Couldn't Load WishList Items");

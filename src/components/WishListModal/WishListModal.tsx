@@ -2,13 +2,14 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 
+import useGetWishlist from "@src/hooks/useGetWishlist";
+
 import closeIcon from "@src/assets/black-close-icon.png";
-import randomitem from "@src/assets/beauty-products.jpg";
 
 import "./WishListModal.scss";
 
 export function WishListModal() {
-  const { wishListModal, setWishListModal } = useContext(GlobalContext);
+  const { setWishListModal } = useContext(GlobalContext);
 
   const navigate = useNavigate();
 
@@ -29,6 +30,8 @@ export function WishListModal() {
     setWishListModal(false);
   };
 
+  const { wishlist } = useGetWishlist();
+
   return (
     <>
       <div className="wishlist-modal-container">
@@ -42,15 +45,19 @@ export function WishListModal() {
             <a onClick={handleShoppingListNavigation}>Shopping List</a>
           </h1>
           <li className="wishlist-modal-item">
-            <div className="wishlist-item-wrapper">
-              <img src={randomitem} alt="Product Image" />
-              <p>
-                LC406XL Ink Cartridges Compatible for Brother LC406XL LC406 High
-                Yield Work with Brother MFC-J4535DW MFC-J4335DW MFC-J5855DW
-                MFC-J6555DW MFC-J6955DW Printer(Black, Cyan, Magenta, Yellow, 4
-                Pack)
-              </p>
-            </div>
+            {wishlist?.map((list) => {
+              console.log(list.likedProduct);
+
+              return (
+                <div
+                  key={list.likedProduct.id}
+                  className="wishlist-item-wrapper"
+                >
+                  <img src={list.likedProduct.image} alt="Product Image" />
+                  <p>{list.likedProduct.title}</p>
+                </div>
+              );
+            })}
             <div className="wishlist-modal-navigation">
               <button
                 onClick={handleViewYourListButton}
