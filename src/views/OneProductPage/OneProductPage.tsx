@@ -120,6 +120,10 @@ export function OneProductPage() {
     }
   }
 
+  async function addToWishlist() {
+    await UsePostWishlistProducts({ productId, token });
+  }
+
   const firstSponsoredNav = () => {
     navigate(`/products/${firstSponsored?.id}`);
     window.location.reload();
@@ -235,7 +239,7 @@ export function OneProductPage() {
             <button
               onClick={() => {
                 setWishListModal(true);
-                UsePostWishlistProducts(oneProduct?.id);
+                addToWishlist();
               }}
               className="add-to-list"
             >
