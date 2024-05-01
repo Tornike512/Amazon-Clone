@@ -7,11 +7,14 @@ import useGetWishlist from "@src/hooks/useGetWishlist";
 import closeIcon from "@src/assets/black-close-icon.png";
 
 import "./WishListModal.scss";
+import WishList from "@src/views/WishList";
 
 export function WishListModal() {
   const { setWishListModal } = useContext(GlobalContext);
 
   const navigate = useNavigate();
+
+  const { wishlist } = useGetWishlist();
 
   const handleCloseButton = () => {
     setWishListModal(false);
@@ -30,7 +33,11 @@ export function WishListModal() {
     setWishListModal(false);
   };
 
-  const { wishlist } = useGetWishlist();
+  const lastWishlistItem = wishlist.find((item, index, array) => {
+    return index === array.length - 1;
+  });
+
+  console.log(lastWishlistItem);
 
   return (
     <>
@@ -45,19 +52,17 @@ export function WishListModal() {
             <a onClick={handleShoppingListNavigation}>Shopping List</a>
           </h1>
           <li className="wishlist-modal-item">
-            {wishlist?.map((list) => {
-              console.log(list);
+            <div
+              key={lastWishlistItem?.likedProduct.id}
+              className="wishlist-item-wrapper"
+            >
+              <img
+                src={lastWishlistItem?.likedProduct.image}
+                alt="Product Image"
+              />
+              <p>{lastWishlistItem?.likedProduct.title}</p>
+            </div>
 
-              return (
-                <div
-                  key={list.likedProduct.id}
-                  className="wishlist-item-wrapper"
-                >
-                  <img src={list.likedProduct.image} alt="Product Image" />
-                  <p>{list.likedProduct.title}</p>
-                </div>
-              );
-            })}
             <div className="wishlist-modal-navigation">
               <button
                 onClick={handleViewYourListButton}
