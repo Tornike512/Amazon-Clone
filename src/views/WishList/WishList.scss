@@ -234,38 +234,44 @@
       .wishlist-item {
         display: flex;
         justify-content: space-between;
+        flex-direction: column;
         padding: 20px 0;
 
-        .wishlist-item-description {
-          width: 42%;
+        .wishlist-item-spacing {
           display: flex;
+          justify-content: space-between;
 
-          img {
-            width: 200px;
-            padding: 20px;
-            object-fit: scale-down;
-            cursor: pointer;
-          }
+          .wishlist-item-description {
+            width: 42%;
+            display: flex;
 
-          span {
             img {
-              width: 80px;
-              padding: 0;
+              width: 200px;
+              padding: 20px;
+              object-fit: scale-down;
+              cursor: pointer;
             }
 
-            p {
-              font-weight: bold;
+            span {
+              img {
+                width: 80px;
+                padding: 0;
+              }
+
+              p {
+                font-weight: bold;
+              }
             }
-          }
 
-          li {
-            font-size: $font-size-12px;
-            color: $secondary-link-text-color;
-            cursor: pointer;
-          }
+            li {
+              font-size: $font-size-12px;
+              color: $secondary-link-text-color;
+              cursor: pointer;
+            }
 
-          li:hover {
-            @include linkHoverEffect;
+            li:hover {
+              @include linkHoverEffect;
+            }
           }
         }
 

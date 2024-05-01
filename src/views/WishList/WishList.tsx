@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuthProvider } from "@src/providers/AuthProvider";
+import UseGetWishlist from "@src/hooks/useGetWishlist";
 
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
@@ -21,6 +22,8 @@ export function WishList() {
   const navigate = useNavigate();
 
   const { authStatus } = useAuthProvider();
+
+  const { wishlist } = UseGetWishlist();
 
   return authStatus === TAuthorizationStatus_Enum.UNAUTHORIZED ? (
     <div className="wish-list-spacing">
@@ -115,24 +118,33 @@ export function WishList() {
             <img src={searchIcon} alt="Search Icon" />
           </div>
           <div className="wishlist-item">
-            <ul className="wishlist-item-description">
-              <img src={randomitem} alt="Wishlist Item Image" />
-              <span>
-                <li>
-                  Brother MFC-J4335DW INKvestment Tank All-in-One Printer with
-                  Duplex and Wireless Printing Plus Up to 1-Year of Ink in-Box
-                </li>
-                <img src={productRating} alt="Product Rating" />
-                <p className="product-price">$179.99</p>
-              </span>
-            </ul>
-            <ul className="add-wishlist-item">
-              <button className="add-to-cart">Add to Cart</button>
-              <button className="remove-wishlist">
-                <img src={trashIcon} alt="Trash Icon" />
-              </button>
-              <li>Add comment, quantity & priority</li>
-            </ul>
+            {wishlist.map((list) => {
+              return (
+                <div className="wishlist-item-spacing">
+                  <ul
+                    key={list.likedProduct.id}
+                    className="wishlist-item-description"
+                  >
+                    <img
+                      src={list.likedProduct.image}
+                      alt="Wishlist Item Image"
+                    />
+                    <span>
+                      <li>{list.likedProduct.title}</li>
+                      <img src={productRating} alt="Product Rating" />
+                      <p className="product-price">{`$${list.likedProduct.salePrice}.99`}</p>
+                    </span>
+                  </ul>
+                  <ul className="add-wishlist-item">
+                    <button className="add-to-cart">Add to Cart</button>
+                    <button className="remove-wishlist">
+                      <img src={trashIcon} alt="Trash Icon" />
+                    </button>
+                    <li>Add comment, quantity & priority</li>
+                  </ul>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
