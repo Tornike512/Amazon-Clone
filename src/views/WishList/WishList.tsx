@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import UseGetWishlist from "@src/hooks/useGetWishlist";
+import wishlitDeleteRequest from "@src/utils/wishlistDeleteRequest";
 
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
@@ -13,7 +14,6 @@ import wishListGift from "@src/assets/wish-list-gift.png";
 import wishListNote from "@src/assets/wish-list-note.png";
 import wishListGraph from "@src/assets/wish-list-graph.png";
 import wishListBell from "@src/assets/wish-list-bell.png";
-import randomitem from "@src/assets/beauty-products.jpg";
 import productRating from "@src/assets/five-stars.png";
 
 import "@src/views/WishList/WishList.scss";
@@ -24,6 +24,10 @@ export function WishList() {
   const { authStatus } = useAuthProvider();
 
   const { wishlist } = UseGetWishlist();
+
+  const removeWishlist = (item: string) => {
+    return wishlitDeleteRequest({ item });
+  };
 
   return authStatus === TAuthorizationStatus_Enum.UNAUTHORIZED ? (
     <div className="wish-list-spacing">
@@ -137,7 +141,10 @@ export function WishList() {
                   </ul>
                   <ul className="add-wishlist-item">
                     <button className="add-to-cart">Add to Cart</button>
-                    <button className="remove-wishlist">
+                    <button
+                      onClick={removeWishlist(list.id)}
+                      className="remove-wishlist"
+                    >
                       <img src={trashIcon} alt="Trash Icon" />
                     </button>
                     <li>Add comment, quantity & priority</li>
