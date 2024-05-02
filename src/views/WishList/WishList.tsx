@@ -5,6 +5,7 @@ import wishlitDeleteRequest from "@src/utils/wishlistDeleteRequest";
 
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
+import wishlistBookImage from "@src/assets/wishlist-book-image.png";
 import trashIcon from "@src/assets/trash-icon.png";
 import searchIcon from "@src/assets/search-icon.png";
 import wishListBackground from "@src/assets/wish-list-background.png";
@@ -121,41 +122,53 @@ export function WishList() {
             <input type="text" placeholder="Search this list" />
             <img src={searchIcon} alt="Search Icon" />
           </div>
-          <div className="wishlist-item">
-            {wishlist.map((list) => {
-              return (
-                <div
-                  key={list.likedProduct.id}
-                  className="wishlist-item-spacing"
-                >
-                  <ul className="wishlist-item-description">
-                    <img
-                      src={list.likedProduct.image}
-                      alt="Wishlist Item Image"
-                    />
-                    <span>
-                      <li>{list.likedProduct.title}</li>
-                      <img src={productRating} alt="Product Rating" />
-                      <p className="product-price">{`$${list.likedProduct.salePrice}.99`}</p>
-                    </span>
-                  </ul>
-                  <ul className="add-wishlist-item">
-                    <button className="add-to-cart">Add to Cart</button>
-                    <button
-                      onClick={() => {
-                        removeWishlist(list.id);
-                        window.location.reload();
-                      }}
-                      className="remove-wishlist"
-                    >
-                      <img src={trashIcon} alt="Trash Icon" />
-                    </button>
-                    <li>Add comment, quantity & priority</li>
-                  </ul>
-                </div>
-              );
-            })}
-          </div>
+          {wishlist.length === 0 ? (
+            <div className="empty-wishlist-container">
+              <ul className="empty-wishlist">
+                <img src={wishlistBookImage} alt="Wishlist Book Image" />
+                <li>
+                  There are no items in this List. Add items you want to shop
+                  for.
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <div className="wishlist-item">
+              {wishlist.map((list) => {
+                return (
+                  <div
+                    key={list.likedProduct.id}
+                    className="wishlist-item-spacing"
+                  >
+                    <ul className="wishlist-item-description">
+                      <img
+                        src={list.likedProduct.image}
+                        alt="Wishlist Item Image"
+                      />
+                      <span>
+                        <li>{list.likedProduct.title}</li>
+                        <img src={productRating} alt="Product Rating" />
+                        <p className="product-price">{`$${list.likedProduct.salePrice}.99`}</p>
+                      </span>
+                    </ul>
+                    <ul className="add-wishlist-item">
+                      <button className="add-to-cart">Add to Cart</button>
+                      <button
+                        onClick={() => {
+                          removeWishlist(list.id);
+                          window.location.reload();
+                        }}
+                        className="remove-wishlist"
+                      >
+                        <img src={trashIcon} alt="Trash Icon" />
+                      </button>
+                      <li>Add comment, quantity & priority</li>
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </div>
