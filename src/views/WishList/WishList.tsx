@@ -124,11 +124,11 @@ export function WishList() {
           <div className="wishlist-item">
             {wishlist.map((list) => {
               return (
-                <div className="wishlist-item-spacing">
-                  <ul
-                    key={list.likedProduct.id}
-                    className="wishlist-item-description"
-                  >
+                <div
+                  key={list.likedProduct.id}
+                  className="wishlist-item-spacing"
+                >
+                  <ul className="wishlist-item-description">
                     <img
                       src={list.likedProduct.image}
                       alt="Wishlist Item Image"
@@ -142,7 +142,10 @@ export function WishList() {
                   <ul className="add-wishlist-item">
                     <button className="add-to-cart">Add to Cart</button>
                     <button
-                      onClick={() => removeWishlist(list.likedProduct.id)}
+                      onClick={() => {
+                        removeWishlist(list.id);
+                        window.location.reload();
+                      }}
                       className="remove-wishlist"
                     >
                       <img src={trashIcon} alt="Trash Icon" />

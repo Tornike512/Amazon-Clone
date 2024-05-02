@@ -7,6 +7,8 @@ async function wishlitDeleteRequest({ item }: { item: string }) {
       `http://localhost:3000/liked-products/${item}`,
       { headers: { Authorization: `bearer ${token}` } }
     );
+    console.log(item);
+
     return response.data;
   } catch (error) {
     console.log(error, "Error Deleting Wishlist Product");

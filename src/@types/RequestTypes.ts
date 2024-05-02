@@ -36,6 +36,7 @@ export interface TCartProducts {
 }
 
 export interface TGetWishlistProducts {
+  id: string;
   likedProduct: {
     description: string;
     title: string;
