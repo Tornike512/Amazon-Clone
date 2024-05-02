@@ -142,7 +142,7 @@ export function WishList() {
                   <ul className="add-wishlist-item">
                     <button className="add-to-cart">Add to Cart</button>
                     <button
-                      onClick={removeWishlist(list.id)}
+                      onClick={() => removeWishlist(list.likedProduct.id)}
                       className="remove-wishlist"
                     >
                       <img src={trashIcon} alt="Trash Icon" />
