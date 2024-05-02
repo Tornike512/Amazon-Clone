@@ -238,7 +238,9 @@ export function OneProductPage() {
             </span>
             <button
               onClick={() => {
-                setWishListModal(true);
+                setTimeout(() => {
+                  setWishListModal(true);
+                }, 500);
                 addToWishlist();
               }}
               className="add-to-list"

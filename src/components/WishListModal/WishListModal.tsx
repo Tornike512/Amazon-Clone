@@ -7,7 +7,6 @@ import useGetWishlist from "@src/hooks/useGetWishlist";
 import closeIcon from "@src/assets/black-close-icon.png";
 
 import "./WishListModal.scss";
-import WishList from "@src/views/WishList";
 
 export function WishListModal() {
   const { setWishListModal } = useContext(GlobalContext);
@@ -15,6 +14,10 @@ export function WishListModal() {
   const navigate = useNavigate();
 
   const { wishlist } = useGetWishlist();
+
+  const lastWishlistItem = wishlist.find((item, index, array) => {
+    return index === array.length - 1;
+  });
 
   const handleCloseButton = () => {
     setWishListModal(false);
@@ -32,12 +35,6 @@ export function WishListModal() {
   const handleContinueShoppingButton = () => {
     setWishListModal(false);
   };
-
-  const lastWishlistItem = wishlist.find((item, index, array) => {
-    return index === array.length - 1;
-  });
-
-  console.log(lastWishlistItem);
 
   return (
     <>
