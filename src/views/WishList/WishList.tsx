@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import UseGetWishlist from "@src/hooks/useGetWishlist";
 import wishlitDeleteRequest from "@src/utils/wishlistDeleteRequest";
+import cartPostRequest from "@src/utils/CartPostRequest";
 
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
@@ -20,6 +21,8 @@ import productRating from "@src/assets/five-stars.png";
 import "@src/views/WishList/WishList.scss";
 
 export function WishList() {
+  const token = localStorage.getItem("access_token");
+
   const navigate = useNavigate();
 
   const { authStatus } = useAuthProvider();
@@ -28,6 +31,10 @@ export function WishList() {
 
   const removeWishlist = (item: string) => {
     return wishlitDeleteRequest({ item });
+  };
+
+  const addToCart = (productId: string, token: string | null) => {
+    return cartPostRequest(productId, token);
   };
 
   return authStatus === TAuthorizationStatus_Enum.UNAUTHORIZED ? (
@@ -152,7 +159,15 @@ export function WishList() {
                       </span>
                     </ul>
                     <ul className="add-wishlist-item">
-                      <button className="add-to-cart">Add to Cart</button>
+                      <button
+                        onClick={() => {
+                          addToCart(list.id, token);
+                          window.location.reload();
+                        }}
+                        className="add-to-cart"
+                      >
+                        Add to Cart
+                      </button>
                       <button
                         onClick={() => {
                           removeWishlist(list.id);
