@@ -33,9 +33,10 @@ export function WishList() {
     return wishlitDeleteRequest({ item });
   };
 
-  const addToCart = (productId: string, token: string | null) => {
-    return cartPostRequest(productId, token);
-  };
+  async function addToCart(productId: string, token: string | null) {
+    await cartPostRequest(productId, token);
+    window.location.reload();
+  }
 
   return authStatus === TAuthorizationStatus_Enum.UNAUTHORIZED ? (
     <div className="wish-list-spacing">
@@ -161,8 +162,7 @@ export function WishList() {
                     <ul className="add-wishlist-item">
                       <button
                         onClick={() => {
-                          addToCart(list.id, token);
-                          window.location.reload();
+                          addToCart(list.likedProduct.id, token);
                         }}
                         className="add-to-cart"
                       >
