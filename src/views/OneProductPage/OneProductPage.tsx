@@ -37,6 +37,8 @@ export function OneProductPage() {
     currentCategory,
     setWishListModal,
     wishlistModal,
+    setAddedWishlist,
+    addedWishlist,
   } = useContext(GlobalContext);
 
   const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
@@ -48,10 +50,6 @@ export function OneProductPage() {
   const [SecondSponsored, setSecondSponsored] = useState<TGetProducts | null>(
     null
   );
-  const [addedWishlist, setAddedWishlist] = useState<boolean>(() => {
-    const storedAddedWishlist = localStorage.getItem("added wishlist");
-    return storedAddedWishlist ? JSON.parse(storedAddedWishlist) : false;
-  });
 
   const { wishlist } = useGetWishlist();
 
@@ -127,24 +125,22 @@ export function OneProductPage() {
     }
   }
 
-  useEffect(() => {
-    localStorage.setItem("added wishlist", JSON.stringify(addedWishlist));
-  }, [addedWishlist]);
-
   async function addToWishlist(id: string) {
     const wishlistId = wishlist.map((list) => {
       return list.likedProduct.id;
     });
-    console.log(wishlistId[1], "wishlistid");
-    console.log(id, "id");
 
     if (wishlistId.includes(id)) {
       setAddedWishlist(true);
     } else {
-      setAddedWishlist(false);
       await UsePostWishlistProducts({ productId, token });
+      setAddedWishlist(false);
     }
   }
+
+  useEffect(() => {
+    localStorage.setItem("added wishlist", JSON.stringify(addedWishlist));
+  }, [addedWishlist]);
 
   const firstSponsoredNav = () => {
     navigate(`/products/${firstSponsored?.id}`);

@@ -75,6 +75,10 @@ export function GlobalProvider({ children }: PropsWithChildren) {
     return storedCurrentCategory ? JSON.parse(storedCurrentCategory) : "";
   });
   const [wishlistModal, setWishListModal] = useState<boolean>(false);
+  const [addedWishlist, setAddedWishlist] = useState<boolean>(() => {
+    const storedAddedWishlist = localStorage.getItem("added wishlist");
+    return storedAddedWishlist ? JSON.parse(storedAddedWishlist) : false;
+  });
 
   return (
     <GlobalContext.Provider
@@ -139,6 +143,8 @@ export function GlobalProvider({ children }: PropsWithChildren) {
         setCurrentCategory,
         wishlistModal,
         setWishListModal,
+        addedWishlist,
+        setAddedWishlist,
       }}
     >
       {children}
