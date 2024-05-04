@@ -135,7 +135,7 @@ export function OneProductPage() {
     const wishlistId = wishlist.map((list) => {
       return list.likedProduct.id;
     });
-    console.log(wishlistId, "wishlistid");
+    console.log(wishlistId[1], "wishlistid");
     console.log(id, "id");
 
     if (wishlistId.includes(id)) {

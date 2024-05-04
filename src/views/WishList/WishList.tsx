@@ -156,11 +156,20 @@ export function WishList() {
                   >
                     <ul className="wishlist-item-description">
                       <img
+                        onClick={() =>
+                          navigate(`/products/${list.likedProduct.id}`)
+                        }
                         src={list.likedProduct.image}
                         alt="Wishlist Item Image"
                       />
                       <span>
-                        <li>{list.likedProduct.title}</li>
+                        <li
+                          onClick={() => {
+                            navigate(`/products/${list.likedProduct.id}`);
+                          }}
+                        >
+                          {list.likedProduct.title}
+                        </li>
                         <img src={productRating} alt="Product Rating" />
                         <p className="product-price">{`$${list.likedProduct.salePrice}.99`}</p>
                       </span>

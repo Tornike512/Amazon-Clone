@@ -15,15 +15,9 @@ export function WishListModal({ one_product }: { one_product: string }) {
 
   const { wishlist } = useGetWishlist();
 
-  const lastWishlistItem = wishlist.find((item, index, array) => {
-    return index === array.length - 1;
-  });
-
   const filterWishlist = wishlist.filter((item) => {
     return item.likedProduct.id === one_product;
   });
-
-  console.log(filterWishlist, "filterviwhli");
 
   const handleCloseButton = () => {
     setWishListModal(false);
