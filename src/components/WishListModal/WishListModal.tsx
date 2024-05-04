@@ -36,6 +36,12 @@ export function WishListModal() {
     setWishListModal(false);
   };
 
+  const addedWishlist = JSON.parse(
+    localStorage.getItem("added wishlist") || "[]"
+  );
+
+  console.log(addedWishlist);
+
   return (
     <>
       <div className="wishlist-modal-container">
@@ -44,10 +50,17 @@ export function WishListModal() {
           <img onClick={handleCloseButton} src={closeIcon} alt="Close Icon" />
         </ul>
         <ul className="wishlist-item-container">
-          <h1>
-            1 item added to{" "}
-            <a onClick={handleShoppingListNavigation}>Shopping List</a>
-          </h1>
+          {addedWishlist ? (
+            <h1>
+              This item was already in{" "}
+              <a onClick={handleShoppingListNavigation}>Shopping List</a>
+            </h1>
+          ) : (
+            <h1>
+              1 item added to{" "}
+              <a onClick={handleShoppingListNavigation}>Shopping List</a>
+            </h1>
+          )}
           <li className="wishlist-modal-item">
             <div
               key={lastWishlistItem?.likedProduct.id}

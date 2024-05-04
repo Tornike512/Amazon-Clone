@@ -48,6 +48,10 @@ export function OneProductPage() {
   const [SecondSponsored, setSecondSponsored] = useState<TGetProducts | null>(
     null
   );
+  const [addedWishlist, setAddedWishlist] = useState<boolean>(() => {
+    const storedAddedWishlist = localStorage.getItem("added wishlist");
+    return storedAddedWishlist ? JSON.parse(storedAddedWishlist) : false;
+  });
 
   const { wishlist } = useGetWishlist();
 
@@ -125,17 +129,14 @@ export function OneProductPage() {
 
   async function addToWishlist(id: string) {
     const wishlistId = wishlist.map((list) => {
-      console.log(list.likedProduct.id);
-
       return list.likedProduct.id;
     });
 
-    for (let i = 0; i < wishlistId.length; i++) {
-      if (wishlistId[i] === id) {
-        return;
-      } else {
-        await UsePostWishlistProducts({ productId, token });
-      }
+    if (wishlistId.includes(id)) {
+      setAddedWishlist(true);
+      localStorage.setItem(JSON.stringify(true), "added wishlist");
+    } else {
+      await UsePostWishlistProducts({ productId, token });
     }
   }
 
