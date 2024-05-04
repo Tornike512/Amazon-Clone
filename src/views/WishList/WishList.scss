@@ -238,8 +238,12 @@
         padding: 20px 0;
 
         .wishlist-item-spacing {
+          height: 200px;
           display: flex;
           justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+          border-bottom: $primary-border-color;
 
           .wishlist-item-description {
             width: 42%;

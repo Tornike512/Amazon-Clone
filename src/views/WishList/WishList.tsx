@@ -33,6 +33,8 @@ export function WishList() {
     return wishlitDeleteRequest({ item });
   };
 
+  console.log(wishlist);
+
   async function addToCart(productId: string, token: string | null) {
     await cartPostRequest(productId, token);
     window.location.reload();

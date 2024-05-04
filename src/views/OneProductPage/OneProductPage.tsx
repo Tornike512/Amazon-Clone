@@ -6,6 +6,7 @@ import { Loader } from "@src/components/Loader";
 import { WishListModal } from "@src/components/WishListModal";
 import UsePostWishlistProducts from "@src/hooks/UsePostWishlist";
 import cartPostRequest from "@src/utils/CartPostRequest";
+import useGetWishlist from "@src/hooks/useGetWishlist";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -47,6 +48,8 @@ export function OneProductPage() {
   const [SecondSponsored, setSecondSponsored] = useState<TGetProducts | null>(
     null
   );
+
+  const { wishlist } = useGetWishlist();
 
   const { id } = useParams();
 
@@ -120,8 +123,20 @@ export function OneProductPage() {
     }
   }
 
-  async function addToWishlist() {
-    await UsePostWishlistProducts({ productId, token });
+  async function addToWishlist(id: string) {
+    const wishlistId = wishlist.map((list) => {
+      console.log(list.likedProduct.id);
+
+      return list.likedProduct.id;
+    });
+
+    for (let i = 0; i < wishlistId.length; i++) {
+      if (wishlistId[i] === id) {
+        return;
+      } else {
+        await UsePostWishlistProducts({ productId, token });
+      }
+    }
   }
 
   const firstSponsoredNav = () => {
@@ -241,7 +256,7 @@ export function OneProductPage() {
                 setTimeout(() => {
                   setWishListModal(true);
                 }, 500);
-                addToWishlist();
+                addToWishlist(oneProduct?.id);
               }}
               className="add-to-list"
             >
