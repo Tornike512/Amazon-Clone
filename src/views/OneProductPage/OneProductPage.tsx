@@ -127,15 +127,21 @@ export function OneProductPage() {
     }
   }
 
+  useEffect(() => {
+    localStorage.setItem("added wishlist", JSON.stringify(addedWishlist));
+  }, [addedWishlist]);
+
   async function addToWishlist(id: string) {
     const wishlistId = wishlist.map((list) => {
       return list.likedProduct.id;
     });
+    console.log(wishlistId, "wishlistid");
+    console.log(id, "id");
 
     if (wishlistId.includes(id)) {
       setAddedWishlist(true);
-      localStorage.setItem(JSON.stringify(true), "added wishlist");
     } else {
+      setAddedWishlist(false);
       await UsePostWishlistProducts({ productId, token });
     }
   }
@@ -317,7 +323,7 @@ export function OneProductPage() {
 
         <ProductsCarousel products={products} />
       </div>
-      {wishlistModal && <WishListModal />}
+      {wishlistModal && <WishListModal one_product={oneProduct.id} />}
     </div>
   );
 }

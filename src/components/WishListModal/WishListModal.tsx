@@ -8,7 +8,7 @@ import closeIcon from "@src/assets/black-close-icon.png";
 
 import "./WishListModal.scss";
 
-export function WishListModal() {
+export function WishListModal({ one_product }: { one_product: string }) {
   const { setWishListModal } = useContext(GlobalContext);
 
   const navigate = useNavigate();
@@ -18,6 +18,12 @@ export function WishListModal() {
   const lastWishlistItem = wishlist.find((item, index, array) => {
     return index === array.length - 1;
   });
+
+  const filterWishlist = wishlist.filter((item) => {
+    return item.likedProduct.id === one_product;
+  });
+
+  console.log(filterWishlist, "filterviwhli");
 
   const handleCloseButton = () => {
     setWishListModal(false);
@@ -61,33 +67,31 @@ export function WishListModal() {
               <a onClick={handleShoppingListNavigation}>Shopping List</a>
             </h1>
           )}
-          <li className="wishlist-modal-item">
-            <div
-              key={lastWishlistItem?.likedProduct.id}
-              className="wishlist-item-wrapper"
-            >
-              <img
-                src={lastWishlistItem?.likedProduct.image}
-                alt="Product Image"
-              />
-              <p>{lastWishlistItem?.likedProduct.title}</p>
-            </div>
+          {filterWishlist.map((list) => {
+            return (
+              <li key={list.likedProduct.id} className="wishlist-modal-item">
+                <div className="wishlist-item-wrapper">
+                  <img src={list.likedProduct.image} alt="Product Image" />
+                  <p>{list.likedProduct.title}</p>
+                </div>
 
-            <div className="wishlist-modal-navigation">
-              <button
-                onClick={handleViewYourListButton}
-                className="view-your-list"
-              >
-                View Your List
-              </button>
-              <button
-                onClick={handleContinueShoppingButton}
-                className="continue-shopping"
-              >
-                Continue shopping
-              </button>
-            </div>
-          </li>
+                <div className="wishlist-modal-navigation">
+                  <button
+                    onClick={handleViewYourListButton}
+                    className="view-your-list"
+                  >
+                    View Your List
+                  </button>
+                  <button
+                    onClick={handleContinueShoppingButton}
+                    className="continue-shopping"
+                  >
+                    Continue shopping
+                  </button>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div
