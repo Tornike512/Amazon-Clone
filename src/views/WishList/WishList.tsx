@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import UseGetWishlist from "@src/hooks/useGetWishlist";
@@ -22,6 +23,8 @@ import productRating from "@src/assets/five-stars.png";
 import "@src/views/WishList/WishList.scss";
 
 export function WishList() {
+  const [addToCartText, setAddToCartText] = useState<Boolean>(false);
+
   const token = localStorage.getItem("access_token");
 
   const navigate = useNavigate();
@@ -36,7 +39,7 @@ export function WishList() {
 
   async function addToCart(productId: string, token: string | null) {
     await cartPostRequest(productId, token);
-    window.location.reload();
+    navigate("/cart");
   }
 
   return authStatus === TAuthorizationStatus_Enum.UNAUTHORIZED ? (
@@ -170,11 +173,6 @@ export function WishList() {
                       </span>
                     </ul>
                     <ul className="add-wishlist-item">
-                      <li className="added-to-cart">
-                        <img src={successIcon} alt="Success Icon" />
-                        <p>Added to Cart</p>
-                      </li>
-
                       <button
                         onClick={() => {
                           addToCart(list.likedProduct.id, token);
