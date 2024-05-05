@@ -17,6 +17,10 @@
       border-bottom: 2px solid $secondary-background-color;
       color: $secondary-link-text-color;
       cursor: pointer;
+
+      @include sm {
+        display: none;
+      }
     }
 
     .your-lists:hover {
@@ -31,6 +35,14 @@
       .wish-list-background {
         padding: 14px;
         margin-bottom: 22px;
+
+        @include sm {
+          width: 480px;
+          height: 236px;
+          object-fit: cover;
+          padding: 0;
+          margin-bottom: 0;
+        }
       }
 
       .lists {
@@ -39,6 +51,12 @@
         left: 45%;
         color: #ffffff;
         font-size: 70px;
+
+        @include sm {
+          left: 44%;
+          top: 8%;
+          font-size: 42px;
+        }
       }
 
       .shopping-needs {
@@ -47,6 +65,11 @@
         left: 32%;
         color: #ffffff;
         font-size: 37px;
+
+        @include sm {
+          left: 17%;
+          font-size: 28px;
+        }
       }
 
       .wish-list-sign-in {
@@ -60,6 +83,12 @@
         background-color: #ffd814;
         box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
         cursor: pointer;
+
+        @include sm {
+          width: 97%;
+          padding: 15px 11px 15px;
+          left: 3%;
+        }
       }
 
       .wish-list-sign-in:hover {
@@ -124,6 +153,10 @@
             font-size: 12px;
           }
         }
+
+        @include sm {
+          display: none;
+        }
       }
 
       .wish-list-benefits {
@@ -150,8 +183,25 @@
             height: 75px;
             margin-right: 10px;
           }
+
+          @include sm {
+            margin: 10px;
+          }
+        }
+
+        @include sm {
+          grid-template-columns: none;
         }
       }
+
+      @include sm {
+        padding: 0;
+        border: none;
+      }
+    }
+
+    @include sm {
+      padding: 0;
     }
   }
 }
