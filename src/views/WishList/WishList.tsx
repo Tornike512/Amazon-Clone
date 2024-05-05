@@ -23,7 +23,7 @@ import productRating from "@src/assets/five-stars.png";
 import "@src/views/WishList/WishList.scss";
 
 export function WishList() {
-  const [addToCartText, setAddToCartText] = useState<Boolean>(false);
+  const [wishlistInput, setWishlistInput] = useState<string>("");
 
   const token = localStorage.getItem("access_token");
 
@@ -32,6 +32,12 @@ export function WishList() {
   const { authStatus } = useAuthProvider();
 
   const { wishlist } = UseGetWishlist();
+
+  const filteredWishlist = wishlist.filter((list) => {
+    const input = wishlistInput.trim().toLowerCase();
+    const title = list.likedProduct.title.trim().toLowerCase();
+    return title.includes(input);
+  });
 
   const removeWishlist = (item: string) => {
     return wishlitDeleteRequest({ item });
@@ -130,10 +136,19 @@ export function WishList() {
         </ul>
         <div className="wishlist-container">
           <h2>Shopping List</h2>
-          <div className="search-wishlist-item">
-            <input type="text" placeholder="Search this list" />
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="search-wishlist-item"
+          >
+            <input
+              onChange={(e) => {
+                setWishlistInput(e.target.value);
+              }}
+              type="text"
+              placeholder="Search this list"
+            />
             <img src={searchIcon} alt="Search Icon" />
-          </div>
+          </form>
           {wishlist.length === 0 ? (
             <div className="empty-wishlist-container">
               <ul className="empty-wishlist">
@@ -146,7 +161,7 @@ export function WishList() {
             </div>
           ) : (
             <div className="wishlist-item">
-              {wishlist.map((list) => {
+              {filteredWishlist.map((list) => {
                 return (
                   <div
                     key={list.likedProduct.id}
