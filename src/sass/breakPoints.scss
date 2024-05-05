@@ -8,37 +8,37 @@ $breakPoints: (
 );
 
 @mixin xs {
-  @media (min-width: map-get($breakPoints,"xs")) {
+  @media (max-width: map-get($breakPoints,"xs")) {
     @content;
   }
 }
 
-@mixin xs {
-  @media (min-width: map-get($breakPoints,"sm")) {
+@mixin sm {
+  @media (max-width: map-get($breakPoints,"sm")) {
     @content;
   }
 }
 
-@mixin xs {
-  @media (min-width: map-get($breakPoints,"md")) {
+@mixin md {
+  @media (max-width: map-get($breakPoints,"md")) {
     @content;
   }
 }
 
-@mixin xs {
-  @media (min-width: map-get($breakPoints,"lg")) {
+@mixin lg {
+  @media (max-width: map-get($breakPoints,"lg")) {
     @content;
   }
 }
 
-@mixin xs {
-  @media (min-width: map-get($breakPoints,"xl")) {
+@mixin xl {
+  @media (max-width: map-get($breakPoints,"xl")) {
     @content;
   }
 }
 
-@mixin xs {
-  @media (min-width: map-get($breakPoints,"xxl")) {
+@mixin xxl {
+  @media (max-width: map-get($breakPoints,"xxl")) {
     @content;
   }
 }
