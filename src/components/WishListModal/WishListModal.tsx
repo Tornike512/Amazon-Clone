@@ -9,7 +9,7 @@ import closeIcon from "@src/assets/black-close-icon.png";
 import "./WishListModal.scss";
 
 export function WishListModal({ one_product }: { one_product: string }) {
-  const { setWishListModal } = useContext(GlobalContext);
+  const { setWishListModal, wishlistModal } = useContext(GlobalContext);
 
   const navigate = useNavigate();
 
@@ -39,8 +39,6 @@ export function WishListModal({ one_product }: { one_product: string }) {
   const addedWishlist = JSON.parse(
     localStorage.getItem("added wishlist") || "[]"
   );
-
-  console.log(addedWishlist);
 
   return (
     <>

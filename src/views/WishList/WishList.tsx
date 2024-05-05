@@ -33,12 +33,6 @@ export function WishList() {
     return wishlitDeleteRequest({ item });
   };
 
-  console.log(
-    wishlist.map((list) => {
-      return list.likedProduct.id;
-    })
-  );
-
   async function addToCart(productId: string, token: string | null) {
     await cartPostRequest(productId, token);
     window.location.reload();
@@ -186,7 +180,9 @@ export function WishList() {
                       <button
                         onClick={() => {
                           removeWishlist(list.id);
-                          window.location.reload();
+                          setTimeout(() => {
+                            window.location.reload();
+                          }, 500);
                         }}
                         className="remove-wishlist"
                       >

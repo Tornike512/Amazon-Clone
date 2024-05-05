@@ -13,7 +13,7 @@ async function UsePostWishlistProducts({
       {
         product_id: productId,
       },
-      { headers: { Authorization: `bearer ${token}` } }
+      { headers: { Authorization: `Bearer ${token}` } }
     );
 
     return response;

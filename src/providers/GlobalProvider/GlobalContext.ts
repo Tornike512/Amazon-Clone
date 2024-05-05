@@ -112,6 +112,8 @@ interface TGlobalContext {
   setWishListModal: React.Dispatch<React.SetStateAction<boolean>>;
   addedWishlist: boolean;
   setAddedWishlist: React.Dispatch<React.SetStateAction<boolean>>;
+  wishlistProduct: string;
+  setWishlistProduct: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const GlobalContext = createContext<TGlobalContext>({
@@ -177,4 +179,6 @@ export const GlobalContext = createContext<TGlobalContext>({
   setWishListModal: () => {},
   addedWishlist: false,
   setAddedWishlist: () => {},
+  wishlistProduct: "",
+  setWishlistProduct: () => {},
 });

@@ -7,6 +7,7 @@ import { WishListModal } from "@src/components/WishListModal";
 import UsePostWishlistProducts from "@src/hooks/UsePostWishlist";
 import cartPostRequest from "@src/utils/CartPostRequest";
 import useGetWishlist from "@src/hooks/useGetWishlist";
+import wishlitDeleteRequest from "@src/utils/wishlistDeleteRequest";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -39,6 +40,7 @@ export function OneProductPage() {
     wishlistModal,
     setAddedWishlist,
     addedWishlist,
+    setWishlistProduct,
   } = useContext(GlobalContext);
 
   const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
@@ -50,8 +52,6 @@ export function OneProductPage() {
   const [SecondSponsored, setSecondSponsored] = useState<TGetProducts | null>(
     null
   );
-
-  const { wishlist } = useGetWishlist();
 
   const { id } = useParams();
 
@@ -125,6 +125,8 @@ export function OneProductPage() {
     }
   }
 
+  const { wishlist } = useGetWishlist();
+
   async function addToWishlist(id: string) {
     const wishlistId = wishlist.map((list) => {
       return list.likedProduct.id;
@@ -133,8 +135,8 @@ export function OneProductPage() {
     if (wishlistId.includes(id)) {
       setAddedWishlist(true);
     } else {
-      await UsePostWishlistProducts({ productId, token });
       setAddedWishlist(false);
+      await UsePostWishlistProducts({ productId: id, token });
     }
   }
 
@@ -260,6 +262,7 @@ export function OneProductPage() {
                   setWishListModal(true);
                 }, 500);
                 addToWishlist(oneProduct?.id);
+                setWishlistProduct(oneProduct?.id);
               }}
               className="add-to-list"
             >
