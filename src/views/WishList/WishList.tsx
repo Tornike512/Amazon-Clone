@@ -6,6 +6,7 @@ import cartPostRequest from "@src/utils/CartPostRequest";
 
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
+import successIcon from "@src/assets/success-icon.png";
 import wishlistBookImage from "@src/assets/wishlist-book-image.png";
 import trashIcon from "@src/assets/trash-icon.png";
 import searchIcon from "@src/assets/search-icon.png";
@@ -169,6 +170,11 @@ export function WishList() {
                       </span>
                     </ul>
                     <ul className="add-wishlist-item">
+                      <li className="added-to-cart">
+                        <img src={successIcon} alt="Success Icon" />
+                        <p>Added to Cart</p>
+                      </li>
+
                       <button
                         onClick={() => {
                           addToCart(list.likedProduct.id, token);

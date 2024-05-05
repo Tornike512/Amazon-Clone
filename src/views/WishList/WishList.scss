@@ -281,6 +281,21 @@
         }
 
         .add-wishlist-item {
+          .added-to-cart {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+
+            img {
+              width: 25px;
+              margin-right: 5px;
+            }
+
+            p {
+              color: #007b05;
+            }
+          }
+
           .add-to-cart {
             display: block;
             padding: 7px 91px;
