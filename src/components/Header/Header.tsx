@@ -26,6 +26,7 @@ import searchIcon from "@src/assets/search-icon.png";
 import axios from "axios";
 
 import "./Header.scss";
+import { Locale_Enum } from "@src/providers/LocaleProvider/LocaleContext";
 
 interface TCategories {
   id: string;
@@ -56,6 +57,8 @@ export function Header() {
   }, [width]);
 
   const debounceSearch = useDebounce(searchInput, 500);
+
+  const currentLanguage = localStorage.getItem("language");
 
   const navigate = useNavigate();
 
@@ -126,8 +129,10 @@ export function Header() {
           className="sign-in-triangle"
           src={triangle}
           alt="Small White Triangle"
+          style={currentLanguage === Locale_Enum.DE ? { right: "314px" } : {}}
         />
       )}
+
       <div className="header-input">
         <div className="logo-spacing">
           <img

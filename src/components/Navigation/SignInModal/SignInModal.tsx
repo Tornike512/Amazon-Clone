@@ -2,7 +2,9 @@ import { useContext } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
 import { useAuthProvider } from "@src/providers/AuthProvider";
+
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
+import { Locale_Enum } from "@src/providers/LocaleProvider/LocaleContext";
 
 export function SignInModal() {
   const navigate = useNavigate();
@@ -10,6 +12,8 @@ export function SignInModal() {
   const { signInHover, setSignInHover } = useContext(GlobalContext);
 
   const { authStatus, setAuthStatus, signOut } = useAuthProvider();
+
+  const currentLanguage = localStorage.getItem("language");
 
   return (
     <>
@@ -19,6 +23,7 @@ export function SignInModal() {
             onMouseOver={() => setSignInHover(true)}
             onMouseOut={() => setSignInHover(false)}
             className="sign-in-bar"
+            style={currentLanguage === Locale_Enum.DE ? { right: "10px" } : {}}
           >
             {authStatus === TAuthorizationStatus_Enum.UNAUTHORIZED && (
               <>
