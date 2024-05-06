@@ -17,5 +17,8 @@
   "returns & orders": "Warenrücksendungen  & Bestellungen",
   "returns": "Warenrücksendungen",
   "orders": "Bestellungen",
-  "cart": "Einkaufswagen"
+  "cart": "Einkaufswagen",
+  "help": "HILFE",
+  "settings": "EINSTELLUNGEN",
+  "your account": "Mein Konto"
 }

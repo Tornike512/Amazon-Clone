@@ -1,10 +1,14 @@
 import { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import { LocaleContext } from "@src/providers/LocaleProvider/LocaleContext";
 import { useNavigate } from "react-router-dom";
 import { useAuthProvider } from "@src/providers/AuthProvider";
+import { FormattedMessage, useIntl } from "react-intl";
 
+import { Locale_Enum } from "@src/providers/LocaleProvider/LocaleContext";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
+import germanyFlag from "@src/assets/germany-flag.png";
 import personLogo from "@src/assets/person-logo.png";
 import closeSidebar from "@src/assets/sidebar-close-button.png";
 import sidebarArrow from "@src/assets/sidebar-arrow.png";
@@ -35,6 +39,10 @@ export function Sidebar() {
 
   const { authStatus, signOut } = useAuthProvider();
 
+  const { formatMessage } = useIntl();
+  const { toggleLocale } = useContext(LocaleContext);
+
+  const currentLanguage = localStorage.getItem("language");
   const storedFirstName = localStorage.getItem("firstName");
 
   const navigate = useNavigate();
@@ -76,11 +84,13 @@ export function Sidebar() {
                 <div className="sign-in-text">
                   <img src={personLogo} alt="Person logo" />
                   <h2>
-                    Hello,{" "}
+                    <FormattedMessage id="hello" />,{" "}
                     {authStatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
                       <>{storedFirstName}</>
                     ) : (
-                      <>sign in</>
+                      <>
+                        <FormattedMessage id="sign in" />
+                      </>
                     )}
                   </h2>
                 </div>
@@ -98,16 +108,30 @@ export function Sidebar() {
                       }}
                       className="sidebar-categories"
                     >
-                      <nav>{category.name}</nav>
+                      <nav>
+                        <FormattedMessage id={category.name} />
+                      </nav>
                       <img src={sidebarArrow} alt="Sidebar Arrow" />
                     </div>
                   );
                 })}
-                <div className="help-settings">Help & Settings</div>
-                <nav className="your-account">Your Account</nav>
-                <span className="sidebar-language">
+                <div className="help-settings">
+                  <FormattedMessage id="help" /> &{" "}
+                  <FormattedMessage id="settings" />
+                </div>
+                <nav className="your-account">
+                  <FormattedMessage id="your account" />
+                </nav>
+                <span
+                  onClick={() => {
+                    toggleLocale();
+                  }}
+                  className="sidebar-language"
+                >
                   <img className="web-logo" src={webLogo} alt="Web Logo" />
-                  <span>English</span>
+                  <span>
+                    {currentLanguage === Locale_Enum.DE ? "Deutsch" : "English"}
+                  </span>
                 </span>
                 <span className="sidebar-country">
                   <img
@@ -115,9 +139,11 @@ export function Sidebar() {
                     src={usaFlag}
                     alt="USA Flag"
                   />
-                  <span>United States</span>
+                  <span>
+                    <FormattedMessage id="united states" />
+                  </span>
                 </span>
-                {TAuthorizationStatus_Enum.AUTHORIZED ? (
+                {authStatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
                   <>
                     <nav
                       onClick={() => {
@@ -139,7 +165,7 @@ export function Sidebar() {
                       }}
                       className="sidebar-second-sign-in"
                     >
-                      Sign in
+                      <FormattedMessage id="sign in" />
                     </nav>
                   </>
                 )}

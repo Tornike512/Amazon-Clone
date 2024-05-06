@@ -5,7 +5,7 @@
 .sidebar {
   width: 365px;
   height: -webkit-fill-available;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: 0;
   left: 20px;
@@ -134,7 +134,7 @@
 .sidebar-close-button {
   width: 21px;
   height: 21px;
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 380px;
   cursor: pointer;
@@ -152,7 +152,7 @@
 .sidebar-close {
   width: 365px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: 0;
   left: -365px;
@@ -293,10 +293,12 @@
 
 .sidebar-modal {
   @include fullscreen-modal(0);
+  position: fixed;
 }
 
 .sidebar-modal-close {
   @include fullscreen-modal(0.8);
+  position: fixed;
   animation: modal-close 0.4s forwards;
 }
 

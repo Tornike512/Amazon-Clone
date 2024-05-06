@@ -395,6 +395,7 @@ export function Header() {
           onClick={() => {
             setSideBar(true);
             setModal(true);
+            setSearchModal(false);
           }}
         >
           <img src={navIcon} alt="nav icon" /> <FormattedMessage id="all" />
