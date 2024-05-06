@@ -9,9 +9,9 @@ import { useDebounce } from "@src/hooks/useDebounce";
 import { useWindowSize } from "@react-hook/window-size";
 
 import { TCartProducts, TGetProducts } from "@src/@types/RequestTypes";
-
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
+import germanyFlag from "@src/assets/germany-flag.png";
 import userLogo from "@src/assets/user-logo.png";
 import navIcon from "@src/assets/nav-icon.png";
 import amazonLogo from "@src/assets/amazon-logo.png";
@@ -250,7 +250,10 @@ export function Header() {
             onMouseLeave={() => setLanguageHover(false)}
             className="change-language"
           >
-            <img src={usaFlag} alt="US Flag" />
+            <img
+              src={currentLanguage === Locale_Enum.DE ? germanyFlag : usaFlag}
+              alt="US Flag"
+            />
             <span>
               <FormattedMessage id="en" />
             </span>
