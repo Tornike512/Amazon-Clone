@@ -50,10 +50,6 @@ export function LanguageChange() {
     localStorage.setItem("de_checkbox", JSON.stringify(deCheckBox));
   }, [deCheckBox]);
 
-  console.log(enCheckBox, "encheckbox");
-  console.log(deCheckBox, "decheckbox");
-  console.log(currentLanguage, "current langauge");
-
   return (
     <>
       {languageHover && (

@@ -147,7 +147,9 @@ export function Header() {
                 <span className="deliver-to">
                   <FormattedMessage id="deliver to" />
                 </span>
-                <span className="usa">United States</span>
+                <span className="usa">
+                  <FormattedMessage id="united states" />
+                </span>
               </div>
             </button>
           </div>
@@ -201,18 +203,20 @@ export function Header() {
                   : undefined
               }
             >
-              <option value="/">All</option>
+              <option value="/">
+                <FormattedMessage id="all" />
+              </option>
               {categories.map((category) => {
                 return (
                   <option value={category.name} key={category.id}>
-                    {category.name}
+                    <FormattedMessage id={category.name} />
                   </option>
                 );
               })}
             </select>
             <input
               type="text"
-              placeholder="Search Amazon"
+              placeholder={formatMessage({ id: "search amazon" })}
               className="search-amazon"
               onClick={() => {
                 setSearchModal(true);
@@ -242,7 +246,9 @@ export function Header() {
             className="change-language"
           >
             <img src={usaFlag} alt="US Flag" />
-            <span>EN</span>
+            <span>
+              <FormattedMessage id="en" />
+            </span>
             <img className="dropdown" src={dropDownIcon} alt="Dropdown Icon" />
           </div>
           <a
@@ -266,7 +272,7 @@ export function Header() {
           >
             <div className="sign-in-spacing">
               <span className="sign-in-text">
-                Hello,
+                <FormattedMessage id="hello" />,
                 {authStatus === TAuthorizationStatus_Enum.AUTHORIZED ? (
                   <span>{storedFirstName}</span>
                 ) : (
@@ -284,7 +290,13 @@ export function Header() {
                     <b>Account & Lists</b>
                   )
                 ) : (
-                  <>{!responsive587Px && <b>Account & Lists</b>}</>
+                  <>
+                    {!responsive587Px && (
+                      <b>
+                        <FormattedMessage id="account & lists" />
+                      </b>
+                    )}
+                  </>
                 )}
               </p>
             </div>
@@ -307,8 +319,12 @@ export function Header() {
             }}
             className="returns-orders"
           >
-            <span>Returns</span>
-            <p>& Orders</p>
+            <span>
+              <FormattedMessage id="returns" />
+            </span>
+            <p>
+              & <FormattedMessage id="orders" />
+            </p>
           </div>
           <div
             onClick={() => {
@@ -359,7 +375,9 @@ export function Header() {
               )}
               <img src={cartLogo} alt="Cart Logo" />
             </div>
-            <span className="cart-text">Cart</span>
+            <span className="cart-text">
+              <FormattedMessage id="cart" />
+            </span>
           </div>
         </nav>
       </div>
@@ -371,7 +389,7 @@ export function Header() {
             setModal(true);
           }}
         >
-          <img src={navIcon} alt="nav icon" /> All
+          <img src={navIcon} alt="nav icon" /> <FormattedMessage id="all" />
         </button>
 
         <a
@@ -383,7 +401,7 @@ export function Header() {
             navigate("/products");
           }}
         >
-          Computers
+          <FormattedMessage id="Computers" />
         </a>
         <a
           onClick={() => {
@@ -391,7 +409,7 @@ export function Header() {
             navigate("/products");
           }}
         >
-          Kitchen
+          <FormattedMessage id="Kitchen" />
         </a>
         <a
           onClick={() => {
@@ -399,7 +417,7 @@ export function Header() {
             navigate("/products");
           }}
         >
-          Books
+          <FormattedMessage id="Books" />
         </a>
         <a
           onClick={() => {
@@ -410,7 +428,7 @@ export function Header() {
             navigate("/products");
           }}
         >
-          Video Games
+          <FormattedMessage id="Video Games" />
         </a>
         <a
           onClick={() => {
@@ -422,18 +440,18 @@ export function Header() {
             navigate("/products");
           }}
         >
-          Toys & Games
+          <FormattedMessage id="Toys & Games" />
         </a>
         <a
           onClick={() => {
             navigate("/cart");
           }}
         >
-          Cart
+          <FormattedMessage id="cart" />
         </a>
         {!responsive587Px && (
           <a onClick={() => navigate("/orders")} href="#">
-            Returns & Orders
+            <FormattedMessage id="returns" /> & <FormattedMessage id="orders" />
           </a>
         )}
       </nav>
