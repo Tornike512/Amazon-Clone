@@ -64,6 +64,7 @@ export function LanguageChange() {
             className="triangle"
             src={triangle}
             alt="White Triangle"
+            style={currentLanguage === Locale_Enum.DE ? { right: "440px" } : {}}
           />
           <div
             onMouseOver={() => {
@@ -73,6 +74,7 @@ export function LanguageChange() {
               setLanguageHover(false);
             }}
             className="language-change"
+            style={currentLanguage === Locale_Enum.DE ? { right: "268px" } : {}}
           >
             <span className="language-change-text">
               <FormattedMessage id="change language" />{" "}
