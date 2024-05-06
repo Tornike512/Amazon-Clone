@@ -29,6 +29,10 @@ export function LanguageChange() {
   const currentLanguage = localStorage.getItem("language");
 
   useEffect(() => {
+    if (currentLanguage === null) {
+      setEnCheckBox(true);
+      setDeCheckBox(false);
+    }
     if (currentLanguage === Locale_Enum.DE) {
       setDeCheckBox(true);
       setEnCheckBox(false);
