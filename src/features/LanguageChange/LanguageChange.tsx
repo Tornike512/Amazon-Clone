@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
+import { useIntl, FormattedMessage } from "react-intl";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import { LocaleContext } from "@src/providers/LocaleProvider";
 
 import triangle from "@src/assets/triangle.png";
 
@@ -13,6 +15,10 @@ export function LanguageChange() {
   const [deCheckBox, setDeCheckBox] = useState<boolean>(false);
   const [modal, setModal] = useState<Modal_Enum>(Modal_Enum.OFF);
   const { setLanguageHover, languageHover } = useContext(GlobalContext);
+  const { formatMessage } = useIntl();
+  const { toggleLocale } = useContext(LocaleContext);
+
+  const currentLanguage = localStorage.getItem("language");
 
   return (
     <>
@@ -39,11 +45,17 @@ export function LanguageChange() {
             className="language-change"
           >
             <span className="language-change-text">
-              Change language <a href="#">Learn more</a>
+              <FormattedMessage id="change language" />{" "}
+              <a href="#">
+                <FormattedMessage id="learn more" />
+              </a>
             </span>
             <div className="en-language-checkbox">
               <div
                 onClick={() => {
+                  if (currentLanguage === "en") {
+                    toggleLocale();
+                  }
                   if (enCheckBox) {
                     setEnCheckBox(true);
                   } else {
@@ -60,6 +72,9 @@ export function LanguageChange() {
             <div className="de-language-checkbox">
               <div
                 onClick={() => {
+                  if (currentLanguage === "de") {
+                    toggleLocale();
+                  }
                   if (deCheckBox) {
                     setDeCheckBox(true);
                   } else {

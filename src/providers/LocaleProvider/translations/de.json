@@ -1,1 +1,4 @@
-{ "hello": "DE" }
+{
+  "change language": "Sprache ändern",
+  "learn more": "Lern mehr"
+}

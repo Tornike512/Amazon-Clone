@@ -69,8 +69,6 @@ export function ProductsPage() {
     getProducts();
   }, [currentCategory]);
 
-  console.log(products);
-
   const topRatedProducts = products.slice(minSlice, maxSlice);
 
   const under25Products = products.slice(minSlice + 4, maxSlice + 4);
@@ -80,9 +78,6 @@ export function ProductsPage() {
     .filter((product) => {
       return product.salePrice;
     });
-
-  console.log(products);
-  console.log(currentCategory);
 
   const handleCategoryTitle = () => {
     switch (currentCategory) {

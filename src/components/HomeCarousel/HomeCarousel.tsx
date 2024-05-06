@@ -50,8 +50,6 @@ export function HomeCarousel({ category }: { category: string }) {
         <div>
           <h3 className="content-style">
             {products?.slice(5, 11).map((product) => {
-              console.log(products);
-
               return (
                 <>
                   <div key={product.id} className="content-item">
