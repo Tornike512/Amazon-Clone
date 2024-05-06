@@ -1,7 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useIntl, FormattedMessage } from "react-intl";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { LocaleContext } from "@src/providers/LocaleProvider";
+
+import { Locale_Enum } from "@src/providers/LocaleProvider/LocaleContext";
 
 import triangle from "@src/assets/triangle.png";
 
@@ -11,14 +13,42 @@ export enum Modal_Enum {
 }
 
 export function LanguageChange() {
-  const [enCheckBox, setEnCheckBox] = useState<boolean>(true);
-  const [deCheckBox, setDeCheckBox] = useState<boolean>(false);
+  const [enCheckBox, setEnCheckBox] = useState<boolean>(() => {
+    const storedEnCheckBox = localStorage.getItem("en_checkbox");
+    return storedEnCheckBox ? JSON.parse(storedEnCheckBox) : false;
+  });
+  const [deCheckBox, setDeCheckBox] = useState<boolean>(() => {
+    const storedDeCheckBox = localStorage.getItem("de_checkbox");
+    return storedDeCheckBox ? JSON.parse(storedDeCheckBox) : false;
+  });
   const [modal, setModal] = useState<Modal_Enum>(Modal_Enum.OFF);
   const { setLanguageHover, languageHover } = useContext(GlobalContext);
   const { formatMessage } = useIntl();
   const { toggleLocale } = useContext(LocaleContext);
 
   const currentLanguage = localStorage.getItem("language");
+
+  useEffect(() => {
+    if (currentLanguage === Locale_Enum.DE) {
+      setDeCheckBox(true);
+      setEnCheckBox(false);
+    } else if (currentLanguage === Locale_Enum.EN) {
+      setEnCheckBox(true);
+      setDeCheckBox(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("en_checkbox", JSON.stringify(enCheckBox));
+  }, [enCheckBox]);
+
+  useEffect(() => {
+    localStorage.setItem("de_checkbox", JSON.stringify(deCheckBox));
+  }, [deCheckBox]);
+
+  console.log(enCheckBox, "encheckbox");
+  console.log(deCheckBox, "decheckbox");
+  console.log(currentLanguage, "current langauge");
 
   return (
     <>
@@ -53,15 +83,18 @@ export function LanguageChange() {
             <div className="en-language-checkbox">
               <div
                 onClick={() => {
-                  if (currentLanguage === "en") {
+                  setEnCheckBox(true);
+                  setDeCheckBox(false);
+                  if (deCheckBox) {
                     toggleLocale();
                   }
-                  if (enCheckBox) {
-                    setEnCheckBox(true);
-                  } else {
-                    setEnCheckBox(true);
-                    setDeCheckBox(false);
-                  }
+
+                  // if (enCheckBox) {
+                  //   setEnCheckBox(true);
+                  // } else {
+                  //   setEnCheckBox(true);
+                  //   setDeCheckBox(false);
+                  // }
                 }}
                 className="en-checkbox-border"
               >
@@ -72,15 +105,17 @@ export function LanguageChange() {
             <div className="de-language-checkbox">
               <div
                 onClick={() => {
-                  if (currentLanguage === "de") {
+                  setDeCheckBox(true);
+                  setEnCheckBox(false);
+                  if (enCheckBox === true) {
                     toggleLocale();
                   }
-                  if (deCheckBox) {
-                    setDeCheckBox(true);
-                  } else {
-                    setDeCheckBox(true);
-                    setEnCheckBox(false);
-                  }
+                  // if (deCheckBox) {
+                  //   setDeCheckBox(true);
+                  // } else {
+                  //   setDeCheckBox(true);
+                  //   setEnCheckBox(false);
+                  // }
                 }}
                 className="de-checkbox-border"
               >

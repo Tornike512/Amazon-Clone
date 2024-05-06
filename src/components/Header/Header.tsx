@@ -3,7 +3,7 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import { ResponsiveContext } from "@src/providers/ResponsiveProvider";
 import { useNavigate } from "react-router-dom";
 import { LocaleContext } from "@src/providers/LocaleProvider";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import { useDebounce } from "@src/hooks/useDebounce";
 import { useWindowSize } from "@react-hook/window-size";
@@ -41,6 +41,7 @@ export function Header() {
   const [selectNiche, setSelectNiche] = useState<string>("");
   const [searchModal, setSearchModal] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
+  const { formatMessage } = useIntl();
 
   const { responsive587Px, setResponsive587Px } = useContext(ResponsiveContext);
 
@@ -104,8 +105,6 @@ export function Header() {
     countCartProducts,
   } = useContext(GlobalContext);
 
-  const { toggleLocale } = useContext(LocaleContext);
-
   const { authStatus } = useAuthProvider();
 
   const storedFirstName = localStorage.getItem("firstName");
@@ -145,7 +144,9 @@ export function Header() {
             />
             <button className="deliver">
               <div>
-                <span className="deliver-to">Deliver to</span>
+                <span className="deliver-to">
+                  <FormattedMessage id="deliver to" />
+                </span>
                 <span className="usa">United States</span>
               </div>
             </button>

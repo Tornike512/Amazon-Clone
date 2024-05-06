@@ -18,10 +18,10 @@ export function LocaleProvider({ children }: PropsWithChildren) {
   const toggleLocale = useCallback(() => {
     if (locale === Locale_Enum.EN) {
       setLocale(Locale_Enum.DE);
-      localStorage.setItem("language", Locale_Enum.EN);
+      localStorage.setItem("language", Locale_Enum.DE);
     } else if (locale === Locale_Enum.DE) {
       setLocale(Locale_Enum.EN);
-      localStorage.setItem("language", Locale_Enum.DE);
+      localStorage.setItem("language", Locale_Enum.EN);
     }
   }, [locale]);
 
