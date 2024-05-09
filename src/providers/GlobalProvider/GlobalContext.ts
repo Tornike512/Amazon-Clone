@@ -137,7 +137,7 @@ export const GlobalContext = createContext<TGlobalContext>({
   setCurrentInfo: () => {},
   products: [],
   setProducts: () => {},
-  deliverTo: TDeliveryTo_enum.UNITED_KINGDOM,
+  deliverTo: TDeliveryTo_enum.UNITED_STATES,
   setDeliverTo: () => {},
   productId: "",
   setProductId: () => {},

@@ -43,7 +43,7 @@ export function SignInModal() {
                 </span>
 
                 <p className="sign-in-bar-register">
-                  <FormattedMessage id="new costumer" />{" "}
+                  <FormattedMessage id="new custumer" />{" "}
                   <a
                     onClick={() => {
                       navigate("/register");

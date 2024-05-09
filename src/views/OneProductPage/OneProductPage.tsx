@@ -8,6 +8,7 @@ import UsePostWishlistProducts from "@src/hooks/UsePostWishlist";
 import cartPostRequest from "@src/utils/CartPostRequest";
 import useGetWishlist from "@src/hooks/useGetWishlist";
 import wishlitDeleteRequest from "@src/utils/wishlistDeleteRequest";
+import { FormattedMessage, useIntl } from "react-intl";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -56,6 +57,8 @@ export function OneProductPage() {
   const { id } = useParams();
 
   const navigate = useNavigate();
+
+  const { formatMessage } = useIntl();
 
   const token = localStorage.getItem("access_token");
 
@@ -165,7 +168,7 @@ export function OneProductPage() {
               setLoading(true);
             }}
           >
-            Back to results
+            <FormattedMessage id="back to results" />
           </a>
         </span>
         <div className="one-product-info">
@@ -177,43 +180,62 @@ export function OneProductPage() {
             <span className="one-product-rating">
               <span>4.5</span>
               <img src={fourAndHalf} alt="Four And Half Stars" />
-              <span>72,274 ratings</span>
+              <span>
+                <FormattedMessage id="72,274 ratings" />
+              </span>
             </span>
             <h2 className="price">
               <span className="sale">{`-${percentage}%`}</span>
               {`$${oneProduct?.salePrice}.99`}
             </h2>
             <span className="typical-price">
-              Typical price <span>{`$${oneProduct?.price}.99`}</span>
+              <FormattedMessage id="typical price" />{" "}
+              <span>{`$${oneProduct?.price}.99`}</span>
             </span>
             <p className="one-product-alert">
               <img src={alertIcon} alt="Alert Icon" />
-              Use Amazon Currency Converter at checkout to pay for this item in
-              your local currency. Terms & Conditions apply.
+              <FormattedMessage id="use amazon currency converter at checkout to pay for this item in your local currency. terms & conditions apply." />
             </p>
             <p className="one-product-note">
-              Available at a lower price from other sellers that may not offer
-              free Prime shipping.
+              <FormattedMessage id="available at a lower price from other sellers that may not offer free prime shipping." />
             </p>
-            <h3 className="about-this-item">About this item</h3>
+            <h3 className="about-this-item">
+              <FormattedMessage id="about this item" />
+            </h3>
             <ul className="description">
               <li>{oneProduct?.description}</li>
             </ul>
           </div>
           <div className="buy">
             <h2 className="buy-price">{`$${oneProduct?.salePrice}.99`}</h2>
-            <p className="delivery-time">Delivery order within 6 hrs 8 min</p>
+            <p className="delivery-time">
+              <FormattedMessage id="delivery order within 6 hrs 8 min" />
+            </p>
             <span className="deliver-to">
               <img src={locationLogoBlack} alt="Location Logo" />
-              <a href="#">{`Deliver to ${deliverTo}`}</a>
+              <a href="#">
+                Deliver to <FormattedMessage id="united states" />
+              </a>
             </span>
-            <h2 className="in-stock">In Stock</h2>
+            <h2 className="in-stock">
+              <FormattedMessage id="in stock" />
+            </h2>
             <select className="select-quantity" name="quantity" id="quantity">
-              <option value="1">Quantity: 1</option>
-              <option value="2">Quantity: 2</option>
-              <option value="3">Quantity: 3</option>
-              <option value="4">Quantity: 4</option>
-              <option value="5">Quantity: 5</option>
+              <option value="1">
+                <FormattedMessage id="quantity:" /> 1
+              </option>
+              <option value="2">
+                <FormattedMessage id="quantity:" /> 2
+              </option>
+              <option value="3">
+                <FormattedMessage id="quantity:" /> 3
+              </option>
+              <option value="4">
+                <FormattedMessage id="quantity:" /> 4
+              </option>
+              <option value="5">
+                <FormattedMessage id="quantity:" /> 5
+              </option>
             </select>
             <button
               onClick={() => {
@@ -226,7 +248,7 @@ export function OneProductPage() {
               }}
               className="add-to-cart"
             >
-              Add to Cart
+              <FormattedMessage id="add to cart" />
             </button>
             {loader && (
               <>
@@ -236,7 +258,9 @@ export function OneProductPage() {
             {cartAdded && (
               <span className="cart-added">
                 <img src={successIcon} alt="Success Icon" />
-                <span>Added to Cart</span>
+                <span>
+                  <FormattedMessage id="added to cart" />
+                </span>
               </span>
             )}
             <button
@@ -246,14 +270,18 @@ export function OneProductPage() {
               }}
               className="buy-now"
             >
-              Buy Now
+              <FormattedMessage id="buy now" />
             </button>
             <span className="ships-from">
-              <span>Ships from</span>
+              <span>
+                <FormattedMessage id="ships from" />
+              </span>
               <span>Amazon.com</span>
             </span>
             <span className="sold-by">
-              <span>Sold by</span>
+              <span>
+                <FormattedMessage id="sold by" />
+              </span>
               <span>Amazon.com</span>
             </span>
             <button
@@ -266,7 +294,7 @@ export function OneProductPage() {
               }}
               className="add-to-list"
             >
-              Add to List
+              <FormattedMessage id="add to list" />
             </button>
           </div>
         </div>

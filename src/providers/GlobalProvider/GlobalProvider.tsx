@@ -16,7 +16,7 @@ export function GlobalProvider({ children }: PropsWithChildren) {
   const [currentInfo, setCurrentInfo] = useState<string>("");
   const [products, setProducts] = useState<TGetProducts[]>([]);
   const [deliverTo, setDeliverTo] = useState<TDeliveryTo_enum>(
-    TDeliveryTo_enum.UNITED_KINGDOM
+    TDeliveryTo_enum.UNITED_STATES
   );
   const [productId, setProductId] = useState<string>("");
   const [subtotal, setSubtotal] = useState<number>(0);
