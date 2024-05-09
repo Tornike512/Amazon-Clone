@@ -1,6 +1,7 @@
 import { useEffect, useContext, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
+import { FormattedMessage, useIntl } from "react-intl";
 
 import cartDeleteRequest from "@src/utils/CartDeleteRequest";
 
@@ -62,6 +63,8 @@ export function CartPage() {
   );
 
   const navigate = useNavigate();
+
+  const { formatMessage } = useIntl();
 
   useEffect(() => {
     localStorage.setItem(
@@ -126,7 +129,11 @@ export function CartPage() {
   });
 
   if (loading) {
-    return <div>loading</div>;
+    return (
+      <div>
+        <FormattedMessage id="loading" />
+      </div>
+    );
   }
 
   return (
@@ -134,8 +141,12 @@ export function CartPage() {
       <div className="cart-page">
         <div className="cart">
           <div className="shopping-cart">
-            <h1>Shopping Cart</h1>
-            <span className="price-text">Price</span>
+            <h1>
+              <FormattedMessage id="shopping cart" />
+            </h1>
+            <span className="price-text">
+              <FormattedMessage id="price" />
+            </span>
             <>
               {cartProducts.map((item) => {
                 return (
@@ -147,9 +158,11 @@ export function CartPage() {
                         }
                         className="saved-product-title"
                       >
-                        {item.cartProduct.title}
+                        <FormattedMessage id={item.cartProduct.title} />
                       </a>
-                      <span> has been moved to Saved for Later.</span>
+                      <span>
+                        <FormattedMessage id="has been moved to saved for later." />
+                      </span>
                     </div>
                   )
                 );
@@ -171,12 +184,14 @@ export function CartPage() {
                       }
                       className="cart-product-title"
                     >
-                      {item.cartProduct.title}
+                      <FormattedMessage id={item.cartProduct.title} />
                     </p>
-                    <span className="in-stock-text">In Stock</span>
+                    <span className="in-stock-text">
+                      <FormattedMessage id="in stock" />
+                    </span>
                     <span className="cart-quantity">
                       <span className="product-quantity">
-                        Quantity: {item.count}
+                        <FormattedMessage id="quantity:" /> {item.count}
                       </span>
                       <span
                         onClick={() => {
@@ -187,7 +202,7 @@ export function CartPage() {
                         }}
                         className="delete-cart-product"
                       >
-                        Delete
+                        <FormattedMessage id="delete" />
                       </span>
                       <span
                         onClick={() => {
@@ -207,7 +222,7 @@ export function CartPage() {
                         }}
                         className="save-for-later"
                       >
-                        Save for later
+                        <FormattedMessage id="save for later" />
                       </span>
                     </span>
                   </div>
@@ -220,16 +235,20 @@ export function CartPage() {
               );
             })}
             <span className="cart-product-subtotal">
-              Subtotal (
+              <FormattedMessage id="subtotal" /> (
               {countProducts -
                 selectSavedProduct.length -
                 Object.keys(storedPurchasedItem).length}{" "}
               {countProducts -
               selectSavedProduct.length -
               Object.keys(storedPurchasedItem).length ? (
-                <>items</>
+                <>
+                  <FormattedMessage id="items" />
+                </>
               ) : (
-                <>item</>
+                <>
+                  <FormattedMessage id="item" />
+                </>
               )}
               ):
               <h5>{`$${storedTotalPrice}${
@@ -240,8 +259,12 @@ export function CartPage() {
         </div>
 
         <div className="save-for-later-list">
-          <h2>Your items</h2>
-          <span className="saved-items">No items saved for later</span>
+          <h2>
+            <FormattedMessage id="your items" />
+          </h2>
+          <span className="saved-items">
+            <FormattedMessage id="no items saved for later" />
+          </span>
           <div className="saved-for-later-grid">
             {cartProducts.map((item) => {
               return selectSavedProduct.includes(item.id) ? (
@@ -262,12 +285,12 @@ export function CartPage() {
                     onClick={() => navigate(`/products/${item.cartProduct.id}`)}
                     className="saved-for-later-title"
                   >
-                    Lenovo IdeaPad 1 – AMD Ryzen5-5500U – 15.6 Full HD
-                    (1920x1080) – 8GB Memory – 512GB SSD Storage – Windows 11 -
-                    Cloud Grey – (2023 Model)
+                    <FormattedMessage id={item.cartProduct.title} />
                   </p>
                   <h5 className="saved-for-later-price">{`$${item.cartProduct.salePrice}.99`}</h5>
-                  <div className="in-stock">In Stock</div>
+                  <div className="in-stock">
+                    <FormattedMessage id="in stock" />
+                  </div>
                   <button
                     onClick={() => {
                       setSaveForLater(true);
@@ -285,7 +308,7 @@ export function CartPage() {
                     }}
                     className="move-to-cart"
                   >
-                    Move to cart
+                    <FormattedMessage id="move to cart" />
                   </button>
                   <p
                     onClick={() => {
@@ -296,9 +319,11 @@ export function CartPage() {
                     }}
                     className="saved-for-later-delete"
                   >
-                    Delete
+                    <FormattedMessage id="delete" />
                   </p>
-                  <p className="saved-for-later-list">Add to list</p>
+                  <p className="saved-for-later-list">
+                    <FormattedMessage id="add to list" />
+                  </p>
                 </div>
               ) : null;
             })}
@@ -308,7 +333,7 @@ export function CartPage() {
 
       <div className="subtotal">
         <span className="subtotal-price">
-          Subtotal (
+          <FormattedMessage id="subtotal" /> (
           {countProducts -
             selectSavedProduct.length -
             Object.keys(storedPurchasedItem).length}{" "}
@@ -316,9 +341,13 @@ export function CartPage() {
             selectSavedProduct.length -
             Object.keys(storedPurchasedItem).length >
           1 ? (
-            <>items</>
+            <>
+              <FormattedMessage id="items" />
+            </>
           ) : (
-            <>item</>
+            <>
+              <FormattedMessage id="item" />
+            </>
           )}
           ):{" "}
           <h3>{`$${storedTotalPrice}${
@@ -336,7 +365,7 @@ export function CartPage() {
           }}
           className="checkout"
         >
-          Proceed to checkout
+          <FormattedMessage id="proceed to checkout" />
         </button>
       </div>
     </div>
