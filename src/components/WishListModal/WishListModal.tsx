@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import { FormattedMessage, useIntl } from "react-intl";
 
 import useGetWishlist from "@src/hooks/useGetWishlist";
 
@@ -12,6 +13,8 @@ export function WishListModal({ one_product }: { one_product: string }) {
   const { setWishListModal, wishlistModal } = useContext(GlobalContext);
 
   const navigate = useNavigate();
+
+  const { formatMessage } = useIntl();
 
   const { wishlist } = useGetWishlist();
 
@@ -44,19 +47,25 @@ export function WishListModal({ one_product }: { one_product: string }) {
     <>
       <div className="wishlist-modal-container">
         <ul className="wishlist-modal-header">
-          <li>Add to List</li>
+          <li>
+            <FormattedMessage id="add to list" />
+          </li>
           <img onClick={handleCloseButton} src={closeIcon} alt="Close Icon" />
         </ul>
         <ul className="wishlist-item-container">
           {addedWishlist ? (
             <h1>
-              This item was already in{" "}
-              <a onClick={handleShoppingListNavigation}>Shopping List</a>
+              <FormattedMessage id="this item was already in" />{" "}
+              <a onClick={handleShoppingListNavigation}>
+                <FormattedMessage id="shopping list" />
+              </a>
             </h1>
           ) : (
             <h1>
-              1 item added to{" "}
-              <a onClick={handleShoppingListNavigation}>Shopping List</a>
+              <FormattedMessage id="1 item added to" />{" "}
+              <a onClick={handleShoppingListNavigation}>
+                <FormattedMessage id="shopping list" />
+              </a>
             </h1>
           )}
           {filterWishlist.map((list) => {
@@ -64,7 +73,9 @@ export function WishListModal({ one_product }: { one_product: string }) {
               <li key={list.likedProduct.id} className="wishlist-modal-item">
                 <div className="wishlist-item-wrapper">
                   <img src={list.likedProduct.image} alt="Product Image" />
-                  <p>{list.likedProduct.title}</p>
+                  <p>
+                    <FormattedMessage id={list.likedProduct.title} />
+                  </p>
                 </div>
 
                 <div className="wishlist-modal-navigation">
@@ -72,13 +83,13 @@ export function WishListModal({ one_product }: { one_product: string }) {
                     onClick={handleViewYourListButton}
                     className="view-your-list"
                   >
-                    View Your List
+                    <FormattedMessage id="view your list" />
                   </button>
                   <button
                     onClick={handleContinueShoppingButton}
                     className="continue-shopping"
                   >
-                    Continue shopping
+                    <FormattedMessage id="continue shopping" />
                   </button>
                 </div>
               </li>
