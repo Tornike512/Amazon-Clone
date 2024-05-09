@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
+import { FormattedMessage, useIntl } from "react-intl";
 
 import amazonWhiteLogo from "@src/assets/amazon-logo.png";
 import browserIcon from "@src/assets/browser-icon.png";
@@ -13,6 +14,8 @@ export function Footer() {
   const { authStatus } = useAuthProvider();
 
   const navigate = useNavigate();
+
+  const { formatMessage } = useIntl();
 
   const handleScrollUp = () => {
     window.scrollTo({
@@ -29,63 +32,129 @@ export function Footer() {
     <footer className="footer">
       {authStatus === TAuthorizationStatus_Enum.UNAUTHORIZED && (
         <ul className="footer-sign-in">
-          <li>See personalized recommendations</li>
+          <li>
+            <FormattedMessage id="see personalized recommendations" />
+          </li>
           <button
             onClick={() => {
               navigate("/sign-in");
             }}
             className="footer-sign-in-button"
           >
-            Sign in
+            <FormattedMessage id="sign in" />
           </button>
           <li className="new-customer">
-            New customer?{" "}
-            <a onClick={() => navigate("/register")}>Start here.</a>
+            <FormattedMessage id="new customer" />?{" "}
+            <a onClick={() => navigate("/register")}>
+              <FormattedMessage id="start here" />.
+            </a>
           </li>
         </ul>
       )}
       <ul onClick={handleScrollUp} className="back-to-top">
-        <li>Back to top</li>
+        <li>
+          <FormattedMessage id="back to top" />
+        </li>
       </ul>
       <div className="footer-main-grid-container">
         <ul className="footer-main-grid">
           <li className="footer-grid-item">
-            <h4>Get to Know Us</h4>
-            <a href="#">Careers</a>
-            <a href="#">Blog</a>
-            <a href="#">About Amazon</a>
-            <a href="#">Investor Relations</a>
-            <a href="#">Amazon Devices</a>
-            <a href="#">Amazon Science</a>
+            <h4>
+              <FormattedMessage id="get to know us" />
+            </h4>
+            <a href="#">
+              <FormattedMessage id="careers" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="blog" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="about amazon" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="investor relations" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="amazon devices" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="amazon science" />
+            </a>
           </li>
           <li className="footer-grid-item">
-            <h4>Make Money with Us</h4>
-            <a href="#">Sell products on Amazon</a>
-            <a href="#">Sell on Amazon Business</a>
-            <a href="#">Sell apps on Amazon</a>
-            <a href="#">Become an Affiliate</a>
-            <a href="#">Advertise Your Products</a>
-            <a href="#">Self-Publish with Us</a>
-            <a href="#">Host an Amazon Hub</a>
-            <a href="#">See More Make Money with Us</a>
+            <h4>
+              <FormattedMessage id="make money with us" />
+            </h4>
+            <a href="#">
+              <FormattedMessage id="sell products on amazon" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="sell on amazon business" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="sell apps on amazon" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="become an affiliate" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="advertise your products" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="self publish with us" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="host on amazon hub" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="see more make money with us" />
+            </a>
           </li>
           <li className="footer-grid-item">
-            <h4>Amazon Payment Products</h4>
-            <a href="#">Amazon Business Card</a>
-            <a href="#">Shop with Points</a>
-            <a href="#">Reload Your Balance</a>
-            <a href="#">Amazon Currency Converter</a>
+            <h4>
+              <FormattedMessage id="amazon payment products" />
+            </h4>
+            <a href="#">
+              <FormattedMessage id="amazon business card" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="shop with points" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="reload your balance" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="amazon currency converter" />
+            </a>
           </li>
           <li className="footer-grid-item">
-            <h4>Let Us Help You</h4>
-            <a href="#">Amazon and COVID-19</a>
-            <a href="#">Your Account</a>
-            <a href="#">Your Orders</a>
-            <a href="#">Shipping Rates & Policies</a>
-            <a href="#">Returns & Replacements</a>
-            <a href="#">Manage Your Content and Devices</a>
-            <a href="#">Amazon Assistant</a>
-            <a href="#">Help</a>
+            <h4>
+              <FormattedMessage id="let us help you" />
+            </h4>
+            <a href="#">
+              <FormattedMessage id="amazon and covid-19" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="your account" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="your orders" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="shipping rated & policies" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="returns & replacements" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="manage your content and devices" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="amazon assistant" />
+            </a>
+            <a href="#">
+              <FormattedMessage id="help" />
+            </a>
           </li>
         </ul>
       </div>
@@ -99,12 +168,16 @@ export function Footer() {
           <ul>
             <li>
               <img src={browserIcon} alt="Broweser Icon" />
-              <p>English</p>
+              <p>
+                <FormattedMessage id="english" />
+              </p>
             </li>
             <li>$ USD - U. S. Dollar</li>
             <li>
               <img src={usaFlag} alt="Usa Flag" />
-              <p>United States</p>
+              <p>
+                <FormattedMessage id="united states" />
+              </p>
             </li>
           </ul>
         </div>
@@ -112,119 +185,219 @@ export function Footer() {
       <div className="footer-secondary-grid-container">
         <ul className="footer-secondary-grid">
           <li className="footer-secondary-grid-item">
-            <h6>Amazon Music</h6>
-            <p>Stream millions of songs</p>
+            <h6>
+              <FormattedMessage id="amazon music" />
+            </h6>
+            <p>
+              <FormattedMessage id="stream millions of songs" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Amazon Ads</h6>
-            <p>Reach customers wherever they spend their time</p>
+            <h6>
+              <FormattedMessage id="amazon ads" />
+            </h6>
+            <p>
+              <FormattedMessage id="reach customers wherever they spend their time" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
             <h6>6pm</h6>
-            <p>Score deals on fashion brands</p>
+            <p>
+              <FormattedMessage id="score deals on fashion brands" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>AbeBooks</h6>
-            <p>Books, art & collectibles</p>
+            <h6>
+              <FormattedMessage id="abebooks" />
+            </h6>
+            <p>
+              <FormattedMessage id="books, art & collectibles" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>ACX</h6>
-            <p>Audiobook Publishing Made Easy</p>
+            <h6>
+              <FormattedMessage id="acx" />
+            </h6>
+            <p>
+              <FormattedMessage id="audiobook publishing made easy" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Sell on Amazon</h6>
-            <p>Start a Selling Account</p>
+            <h6>
+              <FormattedMessage id="sell on amazon" />
+            </h6>
+            <p>
+              <FormattedMessage id="start a selling account" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Amazon Business</h6>
-            <p>Everything For Your Business</p>
+            <h6>
+              <FormattedMessage id="amazon business" />
+            </h6>
+            <p>
+              <FormattedMessage id="everything for your business" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>AmazonGlobal</h6>
-            <p>Ship Orders Internationally</p>
+            <h6>
+              <FormattedMessage id="amazonglobal" />
+            </h6>
+            <p>
+              <FormattedMessage id="ship orders internationally" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Home Services</h6>
-            <p>Experienced Pros Happiness Guarantee</p>
+            <h6>
+              <FormattedMessage id="home services" />
+            </h6>
+            <p>
+              <FormattedMessage id="experienced pros happiness guarantee" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Amazon Web Services</h6>
-            <p>Scalable Cloud Computing Services</p>
+            <h6>
+              <FormattedMessage id="amazon web services" />
+            </h6>
+            <p>
+              <FormattedMessage id="scalable cloud computing services" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Audible</h6>
-            <p>Listen to Books & Original Audio Performances </p>
+            <h6>
+              <FormattedMessage id="audible" />
+            </h6>
+            <p>
+              <FormattedMessage id="listen to books & original audio performances" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Box Office Mojo</h6>
-            <p>Find Movie Box Office Data</p>
+            <h6>
+              <FormattedMessage id="box office mojo" />
+            </h6>
+            <p>
+              <FormattedMessage id="find movie box office data" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Goodreads</h6>
-            <p>Book reviews & recommendations</p>
+            <h6>
+              <FormattedMessage id="goodreads" />
+            </h6>
+            <p>
+              <FormattedMessage id="book reviews & recommendations" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
             <h6>IMDb</h6>
-            <p>Movies, TV & Celebrities</p>
+            <p>
+              <FormattedMessage id="movies, tv & celebrities" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
             <h6>IMDbPro</h6>
-            <p>Get Info Entertainment Professionals Need </p>
+            <p>
+              <FormattedMessage id="get info entertainment professionals need" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Kindle Direct Publishing</h6>
-            <p>Indie Digital & Print Publishing Made Easy </p>
+            <h6>
+              <FormattedMessage id="kindle direct publishing" />
+            </h6>
+            <p>
+              <FormattedMessage id="kindie digital & print bublishing made easy" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Prime Video Direct</h6>
-            <p>Video Distribution Made Easy </p>
+            <h6>
+              <FormattedMessage id="prime video direct" />
+            </h6>
+            <p>
+              <FormattedMessage id="video distribution made easy" />{" "}
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Shopbop</h6>
-            <p>Designer Fashion Brands</p>
+            <h6>
+              <FormattedMessage id="shopbop" />
+            </h6>
+            <p>
+              <FormattedMessage id="designer fashion brands" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
             <h6>Woot!</h6>
-            <p>Deals and Shenanigans</p>
+            <p>
+              <FormattedMessage id="deals and shenanigans" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
             <h6>Zappos</h6>
-            <p>Shoes & Clothing</p>
+            <p>
+              <FormattedMessage id="shoes & clothing" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Ring</h6>
-            <p>Smart Home Security Systems</p>
+            <h6>
+              <FormattedMessage id="ring" />
+            </h6>
+            <p>
+              <FormattedMessage id="smart home security systems" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
             <h6>eero WiFi</h6>
-            <p>Stream 4K Video in Every Room</p>
+            <p>
+              <FormattedMessage id="stream 4k video in every room" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Blink</h6>
-            <p>Smart Security for Every Home</p>
+            <h6>
+              <FormattedMessage id="blink" />
+            </h6>
+            <p>
+              <FormattedMessage id="smart security for every home" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Neighbors App</h6>
-            <p>Real-Time Crime & Safety Alerts </p>
+            <h6>
+              <FormattedMessage id="neightbors app" />
+            </h6>
+            <p>
+              <FormattedMessage id="real-time crime & safety alerts" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
-            <h6>Amazon Subscription Boxes</h6>
-            <p>Top subscription boxes - right to your door </p>
+            <h6>
+              <FormattedMessage id="amazon subscription boxes" />
+            </h6>
+            <p>
+              <FormattedMessage id="top subscription boxes - right to your door" />
+            </p>
           </li>
           <li className="footer-secondary-grid-item">
             <h6>PillPack</h6>
-            <p>Pharmacy Simplified</p>
+            <p>
+              <FormattedMessage id="pharmacy simplified" />
+            </p>
           </li>
         </ul>
       </div>
       <ul className="footer-conditons-of-use">
-        <li>Conditions of Use</li>
-        <li>Privacy Notice</li>
-        <li>Consumer Health Data Privacy Disclosure</li>
-        <li>Your Ads Privacy Choices</li>
+        <li>
+          <FormattedMessage id="conditions of use" />
+        </li>
+        <li>
+          <FormattedMessage id="privacy notice" />
+        </li>
+        <li>
+          <FormattedMessage id="consumer health data privacy disclosure" />
+        </li>
+        <li>
+          <FormattedMessage id="your ads privacy choices" />
+        </li>
       </ul>
       <nav className="made-by">
-        <p>Made By </p>
+        <p>
+          <FormattedMessage id="made by" />
+        </p>
         <a target="blank" href="https://github.com/Tornike512/Amazon-Clone">
           @Tornike Tsagareishvili
         </a>
