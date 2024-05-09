@@ -27,22 +27,20 @@ export function HomeCarousel({ category }: { category: string }) {
           <h3 className="content-style">
             {products?.slice(0, 5).map((product) => {
               return (
-                <>
-                  <div key={product.id} className="content-item">
-                    <img
-                      onClick={() => {
-                        navigate(`./products/${product.id}`);
-                        localStorage.setItem(
-                          "current category",
-                          JSON.stringify(category)
-                        );
-                        window.location.reload();
-                      }}
-                      src={product.image}
-                      alt="Product Image"
-                    />
-                  </div>
-                </>
+                <div key={product.id} className="content-item">
+                  <img
+                    onClick={() => {
+                      navigate(`./products/${product.id}`);
+                      localStorage.setItem(
+                        "current category",
+                        JSON.stringify(category)
+                      );
+                      window.location.reload();
+                    }}
+                    src={product.image}
+                    alt="Product Image"
+                  />
+                </div>
               );
             })}
           </h3>
@@ -51,11 +49,9 @@ export function HomeCarousel({ category }: { category: string }) {
           <h3 className="content-style">
             {products?.slice(5, 11).map((product) => {
               return (
-                <>
-                  <div key={product.id} className="content-item">
-                    <img src={product.image} alt="Product Image" />
-                  </div>
-                </>
+                <div key={product.id} className="content-item">
+                  <img src={product.image} alt="Product Image" />
+                </div>
               );
             })}
           </h3>

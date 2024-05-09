@@ -101,10 +101,10 @@ export function Footer() {
               <FormattedMessage id="advertise your products" />
             </a>
             <a href="#">
-              <FormattedMessage id="self publish with us" />
+              <FormattedMessage id="self-publish with us" />
             </a>
             <a href="#">
-              <FormattedMessage id="host on amazon hub" />
+              <FormattedMessage id="host an amazon hub" />
             </a>
             <a href="#">
               <FormattedMessage id="see more make money with us" />
@@ -141,7 +141,7 @@ export function Footer() {
               <FormattedMessage id="your orders" />
             </a>
             <a href="#">
-              <FormattedMessage id="shipping rated & policies" />
+              <FormattedMessage id="shipping rates & policies" />
             </a>
             <a href="#">
               <FormattedMessage id="returns & replacements" />
@@ -303,7 +303,7 @@ export function Footer() {
               <FormattedMessage id="kindle direct publishing" />
             </h6>
             <p>
-              <FormattedMessage id="kindie digital & print bublishing made easy" />
+              <FormattedMessage id="kindie digital & print publishing made easy" />
             </p>
           </li>
           <li className="footer-secondary-grid-item">
@@ -358,7 +358,7 @@ export function Footer() {
           </li>
           <li className="footer-secondary-grid-item">
             <h6>
-              <FormattedMessage id="neightbors app" />
+              <FormattedMessage id="neighbors app" />
             </h6>
             <p>
               <FormattedMessage id="real-time crime & safety alerts" />
