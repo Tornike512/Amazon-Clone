@@ -2,12 +2,15 @@ import { useContext } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
 import { useAuthProvider } from "@src/providers/AuthProvider";
+import { FormattedMessage, useIntl } from "react-intl";
 
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 import { Locale_Enum } from "@src/providers/LocaleProvider/LocaleContext";
 
 export function SignInModal() {
   const navigate = useNavigate();
+
+  const { formatMessage } = useIntl();
 
   const { signInHover, setSignInHover } = useContext(GlobalContext);
 
@@ -35,12 +38,12 @@ export function SignInModal() {
                     }}
                     className="sign-in-button"
                   >
-                    Sign in
+                    <FormattedMessage id="sign in" />
                   </button>
                 </span>
 
                 <p className="sign-in-bar-register">
-                  New customer?{" "}
+                  <FormattedMessage id="new costumer" />{" "}
                   <a
                     onClick={() => {
                       navigate("/register");
@@ -48,21 +51,23 @@ export function SignInModal() {
                     }}
                   >
                     {" "}
-                    Start here
+                    <FormattedMessage id="start here" />
                   </a>
                 </p>
               </>
             )}
             <div className="lists-account">
               <span className="lists">
-                <span>Your Lists</span>
+                <span>
+                  <FormattedMessage id="your lists" />
+                </span>
                 <a
                   onClick={() => {
                     navigate("/wishlist");
                     setSignInHover(false);
                   }}
                 >
-                  Create a List
+                  <FormattedMessage id="create a list" />
                 </a>
                 <a
                   onClick={() => {
@@ -70,18 +75,20 @@ export function SignInModal() {
                     setSignInHover(false);
                   }}
                 >
-                  Find Products
+                  <FormattedMessage id="find products" />
                 </a>
               </span>
               <span className="account">
-                <span>Your Account</span>
+                <span>
+                  <FormattedMessage id="your account" />
+                </span>
                 <a
                   onClick={() => {
                     navigate("/sign-in");
                     setSignInHover(false);
                   }}
                 >
-                  Account
+                  <FormattedMessage id="account" />
                 </a>
                 {authStatus === TAuthorizationStatus_Enum.AUTHORIZED && (
                   <>
@@ -91,7 +98,7 @@ export function SignInModal() {
                         navigate("/orders");
                       }}
                     >
-                      Returns & Orders
+                      <FormattedMessage id="returns & orders" />
                     </a>
                     <a
                       onClick={() => {
@@ -99,7 +106,7 @@ export function SignInModal() {
                         setSignInHover(false);
                       }}
                     >
-                      Cart
+                      <FormattedMessage id="cart" />
                     </a>
                     <a
                       onClick={() => {
@@ -109,7 +116,7 @@ export function SignInModal() {
                       }}
                       href="#"
                     >
-                      Sign out
+                      <FormattedMessage id="sign out" />
                     </a>
                   </>
                 )}
