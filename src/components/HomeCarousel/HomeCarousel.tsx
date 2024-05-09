@@ -1,6 +1,7 @@
 import { Carousel, Button } from "antd";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { FormattedMessage, useIntl } from "react-intl";
 
 import useGetProducts from "@src/hooks/useGetProducts";
 
@@ -14,6 +15,8 @@ export function HomeCarousel({ category }: { category: string }) {
 
   const navigate = useNavigate();
 
+  const { formatMessage } = useIntl();
+
   const onChange = (currentSlide: number) => {
     console.log(currentSlide);
   };
@@ -21,7 +24,9 @@ export function HomeCarousel({ category }: { category: string }) {
   const { products } = useGetProducts({ category });
   return (
     <div className="carousel-container">
-      <h2 className="carousel-category">{category}</h2>
+      <h2 className="carousel-category">
+        <FormattedMessage id={category} />
+      </h2>
       <Carousel ref={ref} afterChange={onChange}>
         <div>
           <h3 className="content-style">

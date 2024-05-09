@@ -4,6 +4,7 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import { ResponsiveContext } from "@src/providers/ResponsiveProvider";
 import { useWindowSize } from "@react-hook/window-size";
 import { HomeCarousel } from "@src/components/HomeCarousel/HomeCarousel";
+import { FormattedMessage, useIntl } from "react-intl";
 
 import CategoryProductsTitle from "@src/views/Home/CategoryProductsTitle.json";
 
@@ -53,6 +54,8 @@ export function Home() {
   }, [width]);
 
   const navigate = useNavigate();
+
+  const { formatMessage } = useIntl();
 
   useEffect(() => {
     localStorage.setItem("current category", JSON.stringify(currentCategory));
@@ -178,9 +181,13 @@ export function Home() {
           }}
           className="home-page-category"
         >
-          <h2>Computers and Accessories</h2>
+          <h2>
+            <FormattedMessage id="computers and accessories" />
+          </h2>
           <img src={computerImage} alt="Computer Image" />
-          <a href="#">Shop now</a>
+          <a href="#">
+            <FormattedMessage id="shop now" />
+          </a>
         </div>
         <div
           onClick={() => {
@@ -189,7 +196,9 @@ export function Home() {
           }}
           className="home-page-category-grid"
         >
-          <h2>Kitchen</h2>
+          <h2>
+            <FormattedMessage id="Kitchen" />
+          </h2>
           <div className="home-page-category-grid-spacing">
             <div className="image-title">
               <div className="home-page-category-grid-image">
@@ -216,7 +225,9 @@ export function Home() {
               <p>{CategoryProductsTitle.kitchen.title4}</p>
             </div>
           </div>
-          <a href="#">Shop now</a>
+          <a href="#">
+            <FormattedMessage id="shop now" />
+          </a>
         </div>
         <div
           onClick={() => {
@@ -225,7 +236,9 @@ export function Home() {
           }}
           className="home-page-category-grid"
         >
-          <h2>Books</h2>
+          <h2>
+            <FormattedMessage id="Books" />
+          </h2>
           <div className="home-page-category-grid-spacing">
             <div className="image-title">
               <div className="home-page-category-grid-image">
@@ -252,7 +265,9 @@ export function Home() {
               <p>{CategoryProductsTitle.books.title4}</p>
             </div>
           </div>
-          <a href="#">Shop now</a>
+          <a href="#">
+            <FormattedMessage id="shop now" />
+          </a>
         </div>
         <div
           onClick={() => {
@@ -261,7 +276,9 @@ export function Home() {
           }}
           className="home-page-category-grid"
         >
-          <h2>Video Games</h2>
+          <h2>
+            <FormattedMessage id="Video Games" />
+          </h2>
           <div className="home-page-category-grid-spacing">
             <div className="image-title">
               <div className="home-page-category-grid-image">
@@ -288,7 +305,9 @@ export function Home() {
               <p>{CategoryProductsTitle.videoGames.title4}</p>
             </div>
           </div>
-          <a href="#">Shop now</a>
+          <a href="#">
+            <FormattedMessage id="shop now" />
+          </a>
         </div>
         <div
           onClick={() => {
@@ -297,7 +316,9 @@ export function Home() {
           }}
           className="home-page-category-grid"
         >
-          <h2>Toys & Games</h2>
+          <h2>
+            <FormattedMessage id="Toys & Games" />
+          </h2>
           <div className="home-page-category-grid-spacing">
             <div className="image-title">
               <div className="home-page-category-grid-image">
@@ -324,7 +345,9 @@ export function Home() {
               <p>{CategoryProductsTitle.toys.title4}</p>
             </div>
           </div>
-          <a href="#">Shop now</a>
+          <a href="#">
+            <FormattedMessage id="shop now" />
+          </a>
         </div>
       </div>
       <HomeCarousel category="Computers" />
