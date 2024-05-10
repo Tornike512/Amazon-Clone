@@ -21,6 +21,7 @@ import successIcon from "@src/assets/success-icon.png";
 import axios from "axios";
 
 import "./OneProductPage.scss";
+import { Descriptions } from "antd";
 
 export function OneProductPage() {
   const {
@@ -53,6 +54,8 @@ export function OneProductPage() {
   const [SecondSponsored, setSecondSponsored] = useState<TGetProducts | null>(
     null
   );
+  const [oneProductTitle, setOneProductTitle] = useState<any>("");
+  const [oneProductDescription, setOneProductDescription] = useState<any>("");
 
   const { id } = useParams();
 
@@ -82,6 +85,9 @@ export function OneProductPage() {
           (product: TGetProducts) => product.id === id
         );
         setOneProduct(product);
+
+        setOneProductTitle(<FormattedMessage id={product.title} />);
+        setOneProductDescription(<FormattedMessage id={product.description} />);
       } else {
         const response = await axios.get(
           `http://localhost:3000/product?pageSize=35&categoryName=Toys %26 Games`
@@ -176,7 +182,7 @@ export function OneProductPage() {
             <img src={oneProduct?.image} alt="Product Image" />
           </div>
           <div className="product-title">
-            <h1>{oneProduct?.title}</h1>
+            <h1>{oneProductTitle}</h1>
             <span className="one-product-rating">
               <span>4.5</span>
               <img src={fourAndHalf} alt="Four And Half Stars" />
@@ -203,7 +209,7 @@ export function OneProductPage() {
               <FormattedMessage id="about this item" />
             </h3>
             <ul className="description">
-              <li>{oneProduct?.description}</li>
+              <li>{oneProductDescription}</li>
             </ul>
           </div>
           <div className="buy">
