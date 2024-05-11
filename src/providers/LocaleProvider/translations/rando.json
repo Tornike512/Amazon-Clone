@@ -1,204 +1,204 @@
 {
   "products": [
     {
-      "id": "3d722f56-02f6-4ecf-b1de-2a94394d86b5",
-      "created_at": "2024-03-21T13:36:04.205Z",
-      "updated_at": "2024-03-21T13:36:04.205Z",
-      "title": "Dixie Medium Paper Plates, 8.5 Inch, 204 Count, 2X Stronger*, Microwave-Safe, Soak-Proof, Cut Resistant, Great For Everyday Breakfast, Lunch, & Dinner Meals",
-      "description": "NEW LOOK, SAME GREAT PLATE. Dixie Paper Plates have a new design while keeping the same strength to make mealtime hassle-free",
+      "id": "d90bc42d-8654-4436-acce-007eb5bac9da",
+      "created_at": "2024-03-23T13:32:55.949Z",
+      "updated_at": "2024-03-23T13:32:55.949Z",
+      "title": "The Small and the Mighty: Twelve Unsung Americans Who Changed the Course of History, From the Founding to the Civil Rights Movement ",
+      "description": "In The Small and the Mighty, Sharon McMahon proves that the most remarkable Americans are often ordinary people who didn’t make it into the textbooks. Not the presidents, but the telephone operators. Not the aristocrats, but the schoolteachers. Through meticulous research, she discovers history’s unsung characters and brings their rich, riveting stories to light for the first time.",
+      "price": 37,
+      "salePrice": 32,
+      "category_name": "Books"
+    },
+    {
+      "id": "25028ef7-46c6-4265-9d2b-32473f869eff",
+      "created_at": "2024-03-23T13:35:11.385Z",
+      "updated_at": "2024-03-23T13:35:11.385Z",
+      "title": "Dog Man: The Scarlet Shedder: A Graphic Novel (Dog Man #12): From the Creator of Captain Underpants",
+      "description": "P.U.! Dog Man got sprayed by a skunk! After being dunked in tomato juice, the stink is gone but the scarlet red color remains. Now exiled, this spunky superhero must struggle to save the citizens who shunned him! Will the ends justify the means for Petey, who's reluctantly pulled back into a life of crime in order to help Dog Man? And who will step forward when an all-new, never-before-seen villain unleashes an army of A.I. robots?",
+      "price": 14,
+      "salePrice": 10,
+      "category_name": "Books"
+    },
+    {
+      "id": "e31798bd-6be5-4b3c-bd0c-72826d69a17f",
+      "created_at": "2024-03-23T13:36:27.048Z",
+      "updated_at": "2024-03-23T13:36:27.048Z",
+      "title": "The Women: A Novel",
+      "description": "Women can be heroes. When twenty-year-old nursing student Frances “Frankie” McGrath hears these words, it is a revelation. Raised in the sun-drenched, idyllic world of Southern California and sheltered by her conservative parents, she has always prided herself on doing the right thing. But in 1965, the world is changing, and she suddenly dares to imagine a different future for herself. When her brother ships out to serve in Vietnam, she joins the Army Nurse Corps and follows his path.",
+      "price": 30,
+      "salePrice": 18,
+      "category_name": "Books"
+    },
+    {
+      "id": "e281d643-c91e-46b0-b12f-ce75f66920ea",
+      "created_at": "2024-03-23T13:39:52.950Z",
+      "updated_at": "2024-03-23T13:39:52.950Z",
+      "title": "It's Not Easy Being a Bunny: An Easter Book for Kids (Beginner Books(R)) ",
+      "description": "P.J. Funnybunny is tired of cooked carrots and his big ears. It would be way more fun to be a bear, a bird, or a pig...right? Read along as P.J. leaves home and tries to determine who he is—and where he belongs. But this bunny might just learn that all he wants to be is...himself!",
+      "price": 8,
+      "salePrice": 5,
+      "category_name": "Books"
+    },
+    {
+      "id": "a5b47a19-2d46-44cf-bcf6-50b42c719888",
+      "created_at": "2024-03-23T13:41:41.038Z",
+      "updated_at": "2024-03-23T13:41:41.038Z",
+      "title": "Get It Together: Troubling Tales from the Liberal Fringe",
+      "description": "When Jesse Watters set out to interview a few dozen radical activists to find out where their wild ideas came from, he discovered two things that shocked him:First, he liked these people.Second, their political positions were not primarily from books, teachers, or other activists. They originated in personal drama. Most of these people didn’t need legislation. They needed a therapist.",
+      "price": 30,
+      "salePrice": 19,
+      "category_name": "Books"
+    },
+    {
+      "id": "935b0048-b33c-4d45-a21e-72af1db889e2",
+      "created_at": "2024-03-23T13:51:21.106Z",
+      "updated_at": "2024-03-23T13:51:21.106Z",
+      "title": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+      "description": "No matter your goals, Atomic Habits offers a proven framework for improving--every day. James Clear, one of the world's leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.",
+      "price": 27,
+      "salePrice": 13,
+      "category_name": "Books"
+    },
+    {
+      "id": "1524fe00-9e06-4687-813c-419d53f2137a",
+      "created_at": "2024-03-23T13:51:21.106Z",
+      "updated_at": "2024-03-23T13:51:21.106Z",
+      "title": "Hippity, Hoppity, Little Bunny - Finger Puppet Board Book for Easter Basket Gifts or Stuffer Ages 0-3",
+      "description": "Look no further than Hippity, Hoppity, Little Bunny for an adorable nursery rhyme book. Follow the little bunny rabbit and its adorable bird friends in this finger puppet book as they hunt for Easter eggs. Wiggle the puppet to make the bunny in the story come alive! Boys and girls will love this board book surprise this holiday!",
       "price": 8,
       "salePrice": 6,
-      "category_name": "Kitchen"
+      "category_name": "Books"
     },
     {
-      "id": "fb37238e-ff58-4ffc-a662-2287ef244ade",
-      "created_at": "2024-03-21T13:45:00.460Z",
-      "updated_at": "2024-03-21T13:45:00.460Z",
-      "title": "Folex Carpet Spot Remover, 32 oz",
-      "description": "Removes pet accidents, grease, oil, ink, red wine, coffee, blood, rust, food, cosmetics, dirt, and grime",
-      "price": 23,
-      "salePrice": 6,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "ca3dd639-fab5-468f-92d6-86211c9f1480",
-      "created_at": "2024-03-21T13:47:18.305Z",
-      "updated_at": "2024-03-21T13:47:18.305Z",
-      "title": "Scotch-Brite Zero Scratch Scrub Sponges, 6 Kitchen Sponges for Washing Dishes and Cleaning the Kitchen and Bath, Non-Scratch Sponge Safe for Non-Stick Cookware",
-      "description": "AMERICA’S #1 SELLING SCRUB SPONGE BRAND: One package of Scotch-Brite Zero Scratch Non-Scratch Scrub Sponges; one pack contains six sponges",
-      "price": 10,
+      "id": "ebd88050-4010-4270-a968-d9ea637d0eda",
+      "created_at": "2024-03-23T13:51:21.106Z",
+      "updated_at": "2024-03-23T13:51:21.106Z",
+      "title": "Pete the Cat and the Easter Basket Bandit: Includes Poster, Stickers, and Easter Cards!: An Easter And Springtime Book For Kids ",
+      "description": "It’s Easter morning, and Pete's Easter basket is nowhere to be found! Who could’ve taken it?Readers will love helping Pete and his friends find the Easter Basket Bandit and learn that sharing is the sweetest gift of all! Pete the Cat and the Easter Basket Bandit is a must-have gift for Easter baskets!",
+      "price": 8,
       "salePrice": 5,
-      "category_name": "Kitchen"
+      "category_name": "Books"
     },
     {
-      "id": "a5274532-8608-4e1f-b187-c7cd09b54a11",
-      "created_at": "2024-03-21T13:49:40.318Z",
-      "updated_at": "2024-03-21T13:49:40.318Z",
-      "title": "Hefty Party On Disposable Plastic Cups, Assorted, 16 Ounce, 100 Count",
-      "description": "ASSORTED PARTY CUPS: This package includes 100 count 16 ounce Hefty Party on disposable cups in assorted colors.",
-      "price": 10,
+      "id": "2e2a3fa2-0e3a-4bbe-b393-ddfbcae700de",
+      "created_at": "2024-03-23T13:51:21.106Z",
+      "updated_at": "2024-03-23T13:51:21.106Z",
+      "title": "Little Blue Truck's Springtime: An Easter And Springtime Book For Kids",
+      "description": "Beep! Beep! Little Blue Truck is out for a ride with his good friend Toad. The sun is shining and the flowers are blooming—it's a beautiful spring day! Who will they see along the way?",
+      "price": 13,
       "salePrice": 9,
-      "category_name": "Kitchen"
+      "category_name": "Books"
     },
     {
-      "id": "399d2958-d56c-4833-9db5-111118f9fa0e",
-      "created_at": "2024-03-21T13:51:25.519Z",
-      "updated_at": "2024-03-21T13:51:25.519Z",
-      "title": "Swiffer Feather Dusters Multi-Surface Duster Refills, Bamboo, White, 18 count",
-      "description": "Swiffer Dusters TRAP and LOCK dust & allergens* *common inanimate allergens from cat and dog dander & dust mite matter",
+      "id": "c37cb307-b6e5-4464-8681-a16cbe388d60",
+      "created_at": "2024-03-23T13:51:21.106Z",
+      "updated_at": "2024-03-23T13:51:21.106Z",
+      "title": "A Court of Thorns and Roses (A Court of Thorns and Roses, 1)",
+      "description": "When nineteen-year-old huntress Feyre kills a wolf in the woods, a terrifying creature arrives to demand retribution. Dragged to a treacherous magical land she knows about only from legends, Feyre discovers that her captor is not truly a beast, but one of the lethal, immortal faeries who once ruled her world.",
+      "price": 19,
+      "salePrice": 10,
+      "category_name": "Books"
+    },
+    {
+      "id": "8135af8c-0a52-4ad0-91c6-abefbda7d808",
+      "created_at": "2024-03-23T14:15:19.979Z",
+      "updated_at": "2024-03-23T14:15:19.979Z",
+      "title": "I'm Glad My Mom Died",
+      "description": "Jennette McCurdy was six years old when she had her first acting audition. Her mother’s dream was for her only daughter to become a star, and Jennette would do anything to make her mother happy. So she went along with what Mom called “calorie restriction,” eating little and weighing herself five times a day. She endured extensive at-home makeovers while Mom chided, “Your eyelashes are invisible, okay? You think Dakota Fanning doesn’t tint hers?” She was even showered by Mom until age sixteen while sharing her diaries, email, and all her income.",
+      "price": 27,
+      "salePrice": 16,
+      "category_name": "Books"
+    },
+    {
+      "id": "e50f9ef7-1fa2-4d31-ae48-24864d8ae430",
+      "created_at": "2024-03-23T14:15:19.979Z",
+      "updated_at": "2024-03-23T14:15:19.979Z",
+      "title": "The 48 Laws of Power",
+      "description": "In the book that People magazine proclaimed “beguiling” and “fascinating,” Robert Greene and Joost Elffers have distilled three thousand years of the history of power into 48 essential laws by drawing from the philosophies of Machiavelli, Sun Tzu, and Carl Von Clausewitz and also from the lives of figures ranging from Henry Kissinger to P.T. Barnum.",
       "price": 26,
       "salePrice": 14,
-      "category_name": "Kitchen"
+      "category_name": "Books"
     },
     {
-      "id": "5f3ad372-e673-4a74-afb4-e8d6f87f9978",
-      "created_at": "2024-03-21T13:55:46.556Z",
-      "updated_at": "2024-03-21T13:55:46.556Z",
-      "title": "Melitta 4 Cone Coffee Filters, Unbleached Natural Brown, 100 Total Filters Count - Packaging May Vary",
-      "description": "Cone Coffee Filters: Premium cone coffee filters will fit all 8 to 12 cup drip coffee makers with a conical shaped filter; Also fits most pour-over coffeemakers that need #4 coffee filters; Traps more bitter oils for a better cup of coffee",
-      "price": 5,
-      "salePrice": 3,
-      "category_name": "Kitchen"
+      "id": "1250e9d5-9983-41a1-ab20-d6906a340e07",
+      "created_at": "2024-03-23T14:15:19.979Z",
+      "updated_at": "2024-03-23T14:15:19.979Z",
+      "title": "Fourth Wing (The Empyrean, 1)",
+      "description": "A #1 New York Times bestseller • Optioned for TV by Amazon Studios • Amazon Best Books of the Year, #4 • Apple Best Books of the Year 2023 • Barnes & Noble Best Fantasy Book of 2023 • NPR “Books We Love” 2023 • Audible Best Books of 2023 • Hudson Book of the Year • Google Play Best Books of 2023 • Indigo Best Books of 2023 • Waterstones Book of the Year finalist • Goodreads Choice Award, semi-finalist • Newsweek Staffers’ Favorite Books of 2023 • Paste Magazine's Best Books of 2023",
+      "price": 28,
+      "salePrice": 17,
+      "category_name": "Books"
     },
     {
-      "id": "7684d177-53c6-4372-82db-7715ed64063b",
-      "created_at": "2024-03-21T13:57:26.293Z",
-      "updated_at": "2024-03-21T13:57:26.293Z",
-      "title": "Etekcity Food Scale, Digital Kitchen Scale, 304 Stainless Steel, Weight in Grams and Ounces for Baking, Cooking, and Meal Prep, LCD Display, Medium",
-      "description": "Effortless Weighing: Supports 5 units (oz/lb:oz/fl'oz/g/mL), tare function, and includes 2 AAA batteries for hassle-free operation",
-      "price": 40,
-      "salePrice": 33,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "68a7166c-3b2a-41f2-8317-2e8adf78ce1d",
-      "created_at": "2024-03-21T13:58:48.185Z",
-      "updated_at": "2024-03-21T13:58:48.185Z",
-      "title": "Amazon Basics Replacement Water Filters for Pitchers, Compatible with Brita, 3-Pack",
-      "description": "COMPATIBILITY: Replacement water filters for Amazon Basics and all Brita pitchers and dispensers except Brita Stream.",
-      "price": 15,
-      "salePrice": 12,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "ccc44873-0682-44ae-bf6a-9f8f6c2e9d24",
-      "created_at": "2024-03-21T14:00:11.284Z",
-      "updated_at": "2024-03-21T14:00:11.284Z",
-      "title": "Dixie Ultra, Large Paper Plates, 10 Inch, 172 Count, 3X Stronger*, Heavy Duty, Microwave-Safe, Soak-Proof, Cut Resistant, Great For Heavy, Messy Meals",
-      "description": "NEW LOOK, SAME GREAT PLATE. Dixie disposable paper plates have a fresh, new design and the same strength to make mealtime hassle-free. During this product transition, we cannot guarantee which design you will receive; rest assured that it’s the same great plate either way",
-      "price": 35,
-      "salePrice": 26,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "8b2b99aa-451f-44f6-9022-d9ab288de861",
-      "created_at": "2024-03-21T14:03:52.671Z",
-      "updated_at": "2024-03-21T14:03:52.671Z",
-      "title": "LEVOIT Top Fill Humidifiers for Bedroom, 2.5L Tank for Large Room, Easy to Fill & Clean, 26dB Quiet Cool Mist Air Humidifier for Home Baby Nursery & Plants, Auto Shut-off and BPA-Free for Safety, 25H",
-      "description": "𝙁𝙖𝙨𝙩 𝙃𝙪𝙢𝙞𝙙𝙞𝙛𝙞𝙘𝙖𝙩𝙞𝙤𝙣 𝘼𝙡𝙡 𝙉𝙞𝙜𝙝𝙩: Runs for up to 25 hours on low thanks to its SUPER LARGE capacity of 2.5 liters. The soothing moisture helps quickly relief congestion and dry throat.",
-      "price": 39,
-      "salePrice": 29,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "f0e90740-6886-4b9f-8284-025e2ae3313e",
-      "created_at": "2024-03-21T14:08:24.932Z",
-      "updated_at": "2024-03-21T14:08:24.932Z",
-      "title": "Clorox Disinfecting Wipes, Bleach Free Cleaning Wipes, Household Essentials, Fresh Scent, Moisture Seal Lid, 75 Wipes, Pack of 3 (New Packaging)",
-      "description": "3-IN-1 WIPES TO GO: Clorox Disinfecting Wipes kill germs*, clean tough messes and remove more than 99% of allergens**, plus they come in a 75-count pack for easy portability; Package may vary",
-      "price": 15,
-      "salePrice": 13,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "04042efc-d46c-43ca-b215-c8957e16d3bd",
-      "created_at": "2024-03-21T14:10:19.293Z",
-      "updated_at": "2024-03-21T14:10:19.293Z",
-      "title": "BLACK+DECKER dustbuster QuickClean Cordless Handheld Vacuum, White (HNVC215B10)",
-      "description": "STRONG SUCTION – Cordless vacuum delivers up to 2x more suction power for a deeper, more thorough clean.* (*8V MAX* vs. HNV115 4V MAX* based on ASTM F558.)",
-      "price": 55,
-      "salePrice": 29,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "74b196ad-59d5-4055-bf25-cb0e6bffc98d",
-      "created_at": "2024-03-21T15:36:12.665Z",
-      "updated_at": "2024-03-21T15:36:12.665Z",
-      "title": "Mandy's 20pcs White Flowers Artificial Tulip Silk Fake Flowers 13.5 for Mother's Day Easter Valentine’s Day Gifts in Bulk Home Kitchen Wedding Decorations",
-      "description": "Our designers used the color of real tulips as a reference to create variety of colors. hope they looks more like real flowers. In addition, the designers use their imagination to give this tulip more colors, symbolizing a colorful life. We hope to give people who like tulips a good life experience, and more colors are still being continuously updated.",
-      "price": 50,
-      "salePrice": 31,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "27a6eda1-de31-4667-b8ea-9bb1741a1ecd",
-      "created_at": "2024-03-21T15:40:03.237Z",
-      "updated_at": "2024-03-21T15:40:03.237Z",
-      "title": "Brita Elite Water Filter Replacements for Pitchers and Dispensers, Reduces 99% of Lead from Tap Water, Lasts 6 Months, 2 Count",
-      "description": "Get cleaner*, great-tasting, water without the waste^ with Brita Elite water filter replacements; you can save money and replace 1,800 single-use plastic water bottles^ per year; Packaging may vary",
-      "price": 15,
-      "salePrice": 5,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "7865d090-e9d4-4b5a-b5dc-c15e6d81ac38",
-      "created_at": "2024-03-21T15:44:23.477Z",
-      "updated_at": "2024-03-21T15:44:23.477Z",
-      "title": "Keurig 3-Month Brewer Maintenance Kit Includes Descaling Solution, Water Filter Cartridges & Rinse Pods, Compatible Classic/1.0 & 2.0 K-Cup Coffee Makers, 7 Count",
-      "description": "INCLUDES: 4 Keurig Rinse Pods, 1 Descale Solution, and 2 Water Filter Cartridge Refills",
-      "price": 35,
-      "salePrice": 29,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "b9c05bab-0d62-45cb-99fb-34eca7574b74",
-      "created_at": "2024-03-21T15:51:21.046Z",
-      "updated_at": "2024-03-21T15:51:21.046Z",
-      "title": "KitchenAid Classic Multifunction Can Opener / Bottle Opener",
-      "description": "EASY OPENING: the durable, razor-sharp stainless steel cutting wheel easily pierces and smoothly slices through cans",
-      "price": 16,
-      "salePrice": 11,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "e5525411-ebc7-43fb-9e90-15e0bbc7969f",
-      "created_at": "2024-03-21T15:52:38.652Z",
-      "updated_at": "2024-03-21T15:52:38.652Z",
-      "title": "LEVOIT Core 300 Air Purifier Replacement Filter, 3-In-1 Filter, Efficiency Activated Carbon, Core300-RF, 1 Pack, White",
-      "description": "GENUINE REPLACEMENT FILTER: Designed for Levoit Core300-P / Core 300S-P air purifier to maintain its peak performance. With cost-effective price to save much cost for your all-year-round air cleaning need. It is recommended to replace filters every 6-8 months",
-      "price": 38,
-      "salePrice": 29,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "27276ab4-a82f-4be8-9aa3-c39563cb71eb",
-      "created_at": "2024-03-21T15:54:25.912Z",
-      "updated_at": "2024-03-21T15:54:25.912Z",
-      "title": "Amazon Basics Disinfecting Wipes, Lemon & Fresh Scent, Sanitizes/Cleans/Disinfects/Deodorizes, 340 Count (4 Packs of 85)",
-      "description": "Includes two 85-count canisters of Lemon Scent & two 85-count canisters of Fresh Scent for 340 disinfecting wipes in total.",
-      "price": 17,
-      "salePrice": 13,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "915aa733-7935-4dd4-a50b-5658d2825160",
-      "created_at": "2024-03-21T15:56:00.326Z",
-      "updated_at": "2024-03-21T15:56:00.326Z",
-      "title": "Keurig Under Brewer Storage Drawer, Coffee Pod Storage, Holds Upto 35 Keurig K-Cup Pods, Black",
-      "description": "Space Saving: Keep Your Beverages Close to Your Keurig Coffee Maker Without Taking Up Too Much Space, the Keurig Rolling Storage Drawer Is the Ultimate Space Saving Storage Solution",
-      "price": 25,
-      "salePrice": 12,
-      "category_name": "Kitchen"
-    },
-    {
-      "id": "5790236a-bd14-4a6b-a467-eb56f9e9cb93",
-      "created_at": "2024-03-21T16:00:34.285Z",
-      "updated_at": "2024-03-21T16:00:34.285Z",
-      "title": "Aroma Housewares Aroma 6-cup (cooked) 1.5 Qt. One Touch Rice Cooker, White (ARC-363NG), 6 cup cooked/ 3 cup uncook/ 1.5 Qt.",
-      "description": "Perfectly prepares 2 to 6 cups of any variety of cooked rice",
-      "price": 23,
+      "id": "ddd1cc3f-b112-45cb-9aae-81c70c25317a",
+      "created_at": "2024-03-23T14:15:19.979Z",
+      "updated_at": "2024-03-23T14:15:19.979Z",
+      "title": "Supercommunicators: How to Unlock the Secret Language of Connection",
+      "description": "Come inside a jury room as one juror leads a starkly divided room to consensus. Join a young CIA officer as he recruits a reluctant foreign agent. And sit with an accomplished surgeon as he tries, and fails, to convince yet another cancer patient to opt for the less risky course of treatment. In Supercommunicators, Charles Duhigg blends deep research and his trademark storytelling skills to show how we can all learn to identify and leverage the hidden layers that lurk beneath every conversation.",
+      "price": 30,
       "salePrice": 19,
-      "category_name": "Kitchen"
+      "category_name": "Books"
+    },
+    {
+      "id": "3720a602-9a2d-49bb-8eaf-2e5bf8dc3881",
+      "created_at": "2024-03-23T14:15:19.979Z",
+      "updated_at": "2024-03-23T14:15:19.979Z",
+      "title": "Burn Book: A Tech Love Story",
+      "description": "“Swisher, the bad-ass journalist and OG chronicler of Silicon Valley…takes no prisoners in this highly readable look at the evolution of the digital world…Bawdy, brash, and compulsively thought-provoking, just like its author, Burn Book sizzles” (Booklist, starred review).",
+      "price": 36,
+      "salePrice": 27,
+      "category_name": "Books"
+    },
+    {
+      "id": "7c773c47-d93a-4d9b-8629-089e628839bf",
+      "created_at": "2024-03-23T14:26:52.552Z",
+      "updated_at": "2024-03-23T14:26:52.552Z",
+      "title": "The Housemaid",
+      "description": "I try to ignore how Nina makes a mess just to watch me clean it up. How she tells strange lies about her own daughter. And how her husband Andrew seems more broken every day. But as I look into Andrew’s handsome brown eyes, so full of pain, it’s hard not to imagine what it would be like to live Nina’s life. The walk-in closet, the fancy car, the perfect husband.",
+      "price": 13,
+      "salePrice": 8,
+      "category_name": "Books"
+    },
+    {
+      "id": "e90ea0cd-7f06-4bc9-9a73-a1fa2c173dde",
+      "created_at": "2024-03-23T14:26:52.552Z",
+      "updated_at": "2024-03-23T14:26:52.552Z",
+      "title": "Happy Easter, Mouse! (If You Give...)",
+      "description": "This board book with sturdy pages is perfect for toddlers, who will enjoy the simple introduction to colors and counting. Each page has one or two sentences and points out a different color and number of eggs.",
+      "price": 16,
+      "salePrice": 9,
+      "category_name": "Books"
+    },
+    {
+      "id": "9632b087-c1e8-401a-ba49-35627cb9df48",
+      "created_at": "2024-03-23T14:26:52.552Z",
+      "updated_at": "2024-03-23T14:26:52.552Z",
+      "title": "Iron Flame (The Empyrean, 2) ",
+      "description": "Amazon Best Books of the Year, #4 • Apple Best Books of the Year 2023 • Barnes & Noble Best Fantasy Book of 2023 (Fourth Wing and Iron Flame) • NPR “Books We Love” 2023 • Audible Best Books of 2023 • Hudson Book of the Year • Google Play Best Books of 2023 • Indigo Best Books of 2023 • Waterstones Book of the Year finalist • Goodreads Choice Award, semi-finalist • Newsweek Staffers’ Favorite Books of 2023 • Paste Magazine's Best Books of 2023",
+      "price": 29,
+      "salePrice": 19,
+      "category_name": "Books"
+    },
+    {
+      "id": "0aa271eb-f236-4a09-82c4-b23236ffae6e",
+      "created_at": "2024-03-23T14:26:52.552Z",
+      "updated_at": "2024-03-23T14:26:52.552Z",
+      "title": "A Court of Thorns and Roses Paperback Box Set (5 books) (A Court of Thorns and Roses, 9)",
+      "description": "Feyre is a huntress. The skin of a wolf would bring enough gold to feed her sisters for a month. But the life of a magical creature comes at a steep price, and Feyre has just killed the wrong wolf ...",
+      "price": 95,
+      "salePrice": 55,
+      "category_name": "Books"
+    },
+    {
+      "id": "eec86d95-a6c8-499d-8657-1232c3c945a9",
+      "created_at": "2024-03-23T14:26:52.552Z",
+      "updated_at": "2024-03-23T14:26:52.552Z",
+      "title": "Try Not to Laugh Challenge, Easter Joke Book for Kids: Easter Basket Stuffer for Boys, Girls, Teens & Adults, Fun Easter Activity Book with Cute ... Easter Activities for the Whole Family!",
+      "description": "Great Easter Joke Book for all Ages! This Easter Joke Book has over 275 Eggs-tra Funny Jokes, Silly Riddles and Laugh out loud Knock-Knock Jokes along with Comical Art Work! The Easter Gift that will provide hours of Fun for Friends & Family! Perfect for all ages! Best Easter Basket Stuffer for all! The Rules are Simple: Pick your team, or go one on one. Sit across from each other & make eye contact. Take turns reading jokes to each other. You can make silly faces, funny sound effects, etc. When your opponent laughs, you get a point! First team to win 3 points, WINS! If You’re Laughing, You’re Losing!",
+      "price": 12,
+      "salePrice": 8,
+      "category_name": "Books"
     }
   ],
   "total": 20
