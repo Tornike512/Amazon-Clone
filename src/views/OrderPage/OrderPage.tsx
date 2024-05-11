@@ -2,6 +2,9 @@ import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { usePurchaseProducts } from "@src/hooks/usePurchaseProducts";
+import { FormattedMessage, useIntl } from "react-intl";
+
+import { Locale_Enum } from "@src/providers/LocaleProvider/LocaleContext";
 
 import searchIcon from "@src/assets/search-icon.png";
 import successIcon from "@src/assets/success-icon.png";
@@ -39,9 +42,13 @@ export function OrderPage() {
 
   const navigate = useNavigate();
 
+  const { formatMessage } = useIntl();
+
   const storePurchasedItems = JSON.parse(
     localStorage.getItem("purchased item") || "{}"
   );
+
+  const currentLanguage = localStorage.getItem("language") || "{}";
 
   const searchProducts = purchaseProducts?.filter((products) => {
     const lowerSearch = search.trim().toLowerCase();
@@ -51,18 +58,27 @@ export function OrderPage() {
   });
 
   return (
-    <div className="orders">
+    <div
+      style={
+        currentLanguage === Locale_Enum.DE
+          ? { width: "1200px" }
+          : { width: "900px" }
+      }
+      className="orders"
+    >
       <nav className="orders-nav">
         <a href="#" className="your-account">
-          Your Account
+          <FormattedMessage id="your account" />
         </a>
         <span>›</span>
         <a href="#" className="your-orders">
-          Your Orders
+          <FormattedMessage id="your orders" />
         </a>
       </nav>
       <div className="search-orders">
-        <h1>Your Orders</h1>
+        <h1>
+          <FormattedMessage id="your orders" />
+        </h1>
         <div className="search-spacing">
           <span className="order-search-spacing">
             <img src={searchIcon} alt="Search Icon" />
@@ -71,7 +87,7 @@ export function OrderPage() {
               onChange={(e) => setSearchInput(e.target.value)}
               className="order-search-bar"
               type="text"
-              placeholder="Search all orders"
+              placeholder={formatMessage({ id: "search all orders" })}
             />
           </span>
           <button
@@ -81,7 +97,7 @@ export function OrderPage() {
             }}
             className="order-search-button"
           >
-            Search Orders
+            <FormattedMessage id="search orders" />
           </button>
         </div>
       </div>
@@ -97,7 +113,7 @@ export function OrderPage() {
                   : "order-infos-list"
               }
             >
-              {orderInfo.name}
+              {<FormattedMessage id={orderInfo.name} />}
             </li>
           );
         })}
@@ -113,7 +129,7 @@ export function OrderPage() {
                   ? "Order"
                   : "Orders"}
               </span>{" "}
-              placed in 2024
+              <FormattedMessage id="placed in 2024" />
             </label>
           </div>
           <div
@@ -130,18 +146,25 @@ export function OrderPage() {
                     <div className="successful-order">
                       <span className="successful-order-text">
                         <img src={successIcon} alt="Success Icon" />
-                        <h2>Your product has been successfully ordered</h2>
+                        <h2>
+                          <FormattedMessage id="your product has been successfully ordered" />
+                        </h2>
                       </span>
                       <p>
-                        Thank you for shopping with Amazon! Your recent order
-                        has been successfully placed.
+                        <FormattedMessage
+                          id="thank you for shopping with amazon! your recent order
+                        has been successfully placed."
+                        />
                       </p>
                     </div>
                   </>
                 ) : (
                   <>
                     {Object.keys(purchaseProducts).length === 0 && (
-                      <>You have not placed any orders in {`${select}.`}</>
+                      <>
+                        <FormattedMessage id="you have not placed any orders in" />{" "}
+                        {`${select}.`}
+                      </>
                     )}
                   </>
                 )}
@@ -166,7 +189,7 @@ export function OrderPage() {
                             }
                             className="view-your-item"
                           >
-                            View your item
+                            <FormattedMessage id="view your item" />
                           </button>
                         </div>
                       </div>
@@ -179,7 +202,7 @@ export function OrderPage() {
                 style={{ display: "flex", justifyContent: "center" }}
                 className="past-orders"
               >
-                You have not placed any orders in 2021.
+                <FormattedMessage id="you have not placed any orders in 2021." />
               </p>
             )}
           </div>
@@ -187,8 +210,7 @@ export function OrderPage() {
       )}
       {currentInfo === "Buy Again" && (
         <p className="buy-again">
-          There are no recommended items for you to buy again at this time.
-          Check Your Orders for items you previously purchased.
+          <FormattedMessage id="there are no recommended items for you to buy again at this time. check your orders for items you previously purchased." />
         </p>
       )}
       {currentInfo === "Not Yet Shipped" && (
@@ -207,7 +229,7 @@ export function OrderPage() {
                     }
                     className="view-your-item"
                   >
-                    View your item
+                    <FormattedMessage id="view your item" />
                   </button>
                 </div>
               </div>
@@ -216,9 +238,9 @@ export function OrderPage() {
           :{" "}
           {
             <p className="not-yet-shipped">
-              Looking for an order? All of your orders have shipped.{" "}
+              <FormattedMessage id="looking for an order? all of your orders have shipped." />{" "}
               <a onClick={() => setCurrentInfo("Orders")} href="#">
-                View all orders
+                <FormattedMessage id="view all orders" />
               </a>
             </p>
           }
@@ -234,7 +256,7 @@ export function OrderPage() {
                   ? "Order"
                   : "Orders"}
               </span>{" "}
-              placed in 2024
+              <FormattedMessage id="placed in 2024" />
             </label>
           </div>
           <p
@@ -242,10 +264,13 @@ export function OrderPage() {
             className="past-orders"
           >
             {select !== "2021" ? (
-              <>You have not placed any orders in {`${select}.`}</>
+              <>
+                <FormattedMessage id="you have not placed any orders in" />{" "}
+                {`${select}.`}
+              </>
             ) : (
               <p className="past-orders">
-                You have not placed any orders in 2021.
+                <FormattedMessage id="you have not placed any orders in 2021." />
               </p>
             )}
           </p>
@@ -261,7 +286,7 @@ export function OrderPage() {
                   ? "Order"
                   : "Orders"}
               </span>{" "}
-              placed in 2024
+              <FormattedMessage id="placed in 2024" />
             </label>
           </div>
           <p
@@ -269,10 +294,13 @@ export function OrderPage() {
             className="past-orders"
           >
             {select !== "2021" ? (
-              <>You have not placed any orders in {`${select}.`}</>
+              <>
+                <FormattedMessage id="you have not placed any orders in" />{" "}
+                {`${select}.`}
+              </>
             ) : (
               <p className="past-orders">
-                You have not placed any orders in 2021.
+                <FormattedMessage id="you have not placed any orders in 2021." />
               </p>
             )}
           </p>
@@ -280,10 +308,9 @@ export function OrderPage() {
       )}
       {currentInfo === "Cancelled Orders" && (
         <p className="cancelled-orders">
-          We aren't finding any cancelled orders (for orders placed in the last
-          6 months).
+          <FormattedMessage id="we aren't finding any cancelled orders (for orders placed in the last 6 months)" />
           <a onClick={() => setCurrentInfo("Orders")} href="#">
-            View all orders
+            <FormattedMessage id="view all orders" />
           </a>
         </p>
       )}

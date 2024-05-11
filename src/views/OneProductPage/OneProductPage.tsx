@@ -85,7 +85,6 @@ export function OneProductPage() {
           (product: TGetProducts) => product.id === id
         );
         setOneProduct(product);
-
         setOneProductTitle(<FormattedMessage id={product.title} />);
         setOneProductDescription(<FormattedMessage id={product.description} />);
       } else {
@@ -106,6 +105,8 @@ export function OneProductPage() {
           (product: TGetProducts) => product.id === id
         );
         setOneProduct(product);
+        setOneProductTitle(<FormattedMessage id={product.title} />);
+        setOneProductDescription(<FormattedMessage id={product.description} />);
       }
     } catch (error) {
       console.log("Error Loading Product", error);
