@@ -4,6 +4,7 @@
 
 .products-page {
   display: flex;
+  justify-content: center;
   padding: 14px 18px 18px;
   font-size: $font-size-14px;
   color: #0f1111;
@@ -15,11 +16,16 @@
     }
 
     .products-description {
-      padding-left: 12px;
+      padding-left: 13px;
     }
 
-    h2 {
+    .top-rated-header {
       padding-left: 12px;
+      margin-top: 30px;
+    }
+
+    .under-25-header {
+      padding-left: 73px;
       margin-top: 54px;
       font-size: 20px;
     }
@@ -186,6 +192,7 @@
 
       .under-25-spacing {
         display: grid;
+        justify-content: center;
         grid-template-columns: 250px 250px 250px 250px;
 
         .under-25-item {
@@ -318,9 +325,15 @@
       }
     }
 
+    .results-from-header {
+      padding-left: 64px;
+      margin-top: 40px;
+    }
+
     .products-grid {
       display: grid;
-      grid-template-columns: 251px 251px 251px;
+      justify-content: center;
+      grid-template-columns: 251px 251px 251px 251px;
       column-gap: 5px;
       row-gap: 5px;
       margin: 10px 0 0 12px;

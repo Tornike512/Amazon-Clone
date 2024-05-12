@@ -129,7 +129,7 @@ export function ProductsPage() {
       <div className="products">
         <h1 className="product-page-title">{handleCategoryTitle()}</h1>
         <p className="products-description">{handleCategoryDescription()}</p>
-        <h2>Top rated</h2>
+        <h2 className="top-rated-header">Top rated</h2>
         <div className="top-rated">
           <div className="top-rated-spacing">
             {topRatedProducts
@@ -198,7 +198,7 @@ export function ProductsPage() {
           </div>
         </div>
 
-        <h2>Under $25</h2>
+        <h2 className="under-25-header">Under $25</h2>
         <div className="under-25">
           <div className="under-25-spacing">
             {under25Products
@@ -250,7 +250,7 @@ export function ProductsPage() {
           </div>
         </div>
 
-        <h2>Results from {currentCategory}</h2>
+        <h2 className="results-from-header">Results from {currentCategory}</h2>
         <div className="products-grid">
           {categoryProducts
             .filter((product) => product.category_name === currentCategory)
