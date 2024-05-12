@@ -8,45 +8,6 @@
   font-size: $font-size-14px;
   color: #0f1111;
 
-  .filter-products {
-    min-width: 180px;
-    display: flex;
-    flex-direction: column;
-    border-right: 2px solid #ddd;
-
-    span {
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-    .category {
-      margin-left: 12px;
-    }
-
-    .choose-category {
-      display: flex;
-      flex-direction: column;
-      margin-left: 24px;
-
-      a {
-        margin-bottom: 4px;
-        text-decoration: none;
-        color: #0f1111;
-      }
-
-      a:hover {
-        text-decoration: none;
-        @include linkHoverEffect;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    .filter-products {
-      display: none;
-    }
-  }
-
   .products {
     h1 {
       padding: 0 0 4px 12px;

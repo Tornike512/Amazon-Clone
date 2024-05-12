@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useWindowSize } from "@react-hook/window-size";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { ResponsiveContext } from "@src/providers/ResponsiveProvider";
+import { FormattedMessage, useIntl } from "react-intl";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -32,6 +33,8 @@ export function ProductsPage() {
   const { responsive587Px, setResponsive587Px } = useContext(ResponsiveContext);
 
   const navigate = useNavigate();
+
+  const { formatMessage } = useIntl();
 
   useEffect(() => {
     if (width <= 587) {
@@ -123,24 +126,6 @@ export function ProductsPage() {
 
   return (
     <div className="products-page">
-      <aside className="filter-products">
-        <span>Department</span>
-        <span className="category">Computers</span>
-        <div className="choose-category">
-          <a href="#">
-            Computer Accessories &<br /> Peripherals
-          </a>
-          <a href="#">Computer Components</a>
-          <a href="#">Computers & Tablets</a>
-          <a href="#">Data Storage</a>
-          <a href="#">Laptop Accessories</a>
-          <a href="#">Monitors</a>
-          <a href="#">Networking Products</a>
-          <a href="#">Servers</a>
-          <a href="#">Tablet Accessories</a>
-          <a href="#">Tablet Replacement Parts</a>
-        </div>
-      </aside>
       <div className="products">
         <h1 className="product-page-title">{handleCategoryTitle()}</h1>
         <p className="products-description">{handleCategoryDescription()}</p>
