@@ -85,17 +85,19 @@ export function ProductsPage() {
   const handleCategoryTitle = () => {
     switch (currentCategory) {
       case "Computers":
-        return CategoryTitle.ComputersTitle;
+        return <FormattedMessage id={CategoryTitle.ComputersTitle} />;
       case "Kitchen":
-        return CategoryTitle.KitchenTitle;
+        return <FormattedMessage id={CategoryTitle.KitchenTitle} />;
       case "Books":
-        return CategoryTitle.BooksTitle;
+        return <FormattedMessage id={CategoryTitle.BooksTitle} />;
       case "Video Games":
-        return CategoryTitle.VideoGamesTitle;
+        return <FormattedMessage id={CategoryTitle.VideoGamesTitle} />;
       case "Toys & Games":
-        return CategoryTitle.ToysAndGamesTitle;
+        return <FormattedMessage id={CategoryTitle.ToysAndGamesTitle} />;
       case "Beauty & Personal Care":
-        return CategoryTitle.BeautyAndPersonalCareTitle;
+        return (
+          <FormattedMessage id={CategoryTitle.BeautyAndPersonalCareTitle} />
+        );
       default:
         return "";
     }
@@ -104,24 +106,32 @@ export function ProductsPage() {
   const handleCategoryDescription = () => {
     switch (currentCategory) {
       case "Computers":
-        return CategoryTitle.ComputersDescription;
+        return <FormattedMessage id={CategoryTitle.ComputersDescription} />;
       case "Kitchen":
-        return CategoryTitle.KitchenDescription;
+        return <FormattedMessage id={CategoryTitle.KitchenDescription} />;
       case "Books":
-        return CategoryTitle.BooksDescription;
+        return <FormattedMessage id={CategoryTitle.BooksDescription} />;
       case "Video Games":
-        return CategoryTitle.VideoGamesDescription;
+        return <FormattedMessage id={CategoryTitle.VideoGamesDescription} />;
       case "Toys & Games":
-        return CategoryTitle.ToysAndGamesDescription;
+        return <FormattedMessage id={CategoryTitle.ToysAndGamesDescription} />;
       case "Beauty & Personal Care":
-        return CategoryTitle.BeautyAndPersonalCareDescription;
+        return (
+          <FormattedMessage
+            id={CategoryTitle.BeautyAndPersonalCareDescription}
+          />
+        );
       default:
         return "";
     }
   };
 
   if (loading) {
-    return <div className="loading">Loading</div>;
+    return (
+      <div className="loading">
+        <FormattedMessage id="loading" />
+      </div>
+    );
   }
 
   return (
@@ -129,7 +139,9 @@ export function ProductsPage() {
       <div className="products">
         <h1 className="product-page-title">{handleCategoryTitle()}</h1>
         <p className="products-description">{handleCategoryDescription()}</p>
-        <h2 className="top-rated-header">Top rated</h2>
+        <h2 className="top-rated-header">
+          <FormattedMessage id="top rated" />
+        </h2>
         <div className="top-rated">
           <div className="top-rated-spacing">
             {topRatedProducts
@@ -171,7 +183,9 @@ export function ProductsPage() {
                       className="top-rated-item"
                     >
                       {quickLook === index && !responsive587Px && (
-                        <button className="quick-look">Quick look</button>
+                        <button className="quick-look">
+                          <FormattedMessage id="quick look" />
+                        </button>
                       )}
                       <img src={product.image} alt="Product Image" />
                     </div>
@@ -182,7 +196,9 @@ export function ProductsPage() {
                     >
                       <h3>{`$${product.salePrice}.99`}</h3>
                       <h6>{`$${product.price}.99`}</h6>
-                      <p>{product.title}</p>
+                      <p>
+                        <FormattedMessage id={product.title} />
+                      </p>
                       <span className="review-spacing">
                         <img
                           className="review-stars"
@@ -198,7 +214,9 @@ export function ProductsPage() {
           </div>
         </div>
 
-        <h2 className="under-25-header">Under $25</h2>
+        <h2 className="under-25-header">
+          <FormattedMessage id="under $25" />
+        </h2>
         <div className="under-25">
           <div className="under-25-spacing">
             {under25Products
@@ -221,7 +239,9 @@ export function ProductsPage() {
                           className="under-25-item"
                         >
                           {quickLook === index && (
-                            <button className="quick-look">Quick look</button>
+                            <button className="quick-look">
+                              <FormattedMessage id="quick look" />
+                            </button>
                           )}
                           <img src={product.image} alt="Product Image" />
                         </div>
@@ -232,7 +252,9 @@ export function ProductsPage() {
                         >
                           <h3>{`$${product.salePrice}.99`}</h3>
                           <h6>{`$${product.price}.99`}</h6>
-                          <p>{product.title}</p>
+                          <p>
+                            <FormattedMessage id={product.title} />
+                          </p>
                           <span className="review-spacing">
                             <img
                               className="review-stars"
@@ -250,7 +272,10 @@ export function ProductsPage() {
           </div>
         </div>
 
-        <h2 className="results-from-header">Results from {currentCategory}</h2>
+        <h2 className="results-from-header">
+          <FormattedMessage id="results from" />{" "}
+          <FormattedMessage id={currentCategory} />
+        </h2>
         <div className="products-grid">
           {categoryProducts
             .filter((product) => product.category_name === currentCategory)
@@ -269,7 +294,9 @@ export function ProductsPage() {
                     <img src={product.image} alt="Product Image" />
                   </div>
                   <div className="description">
-                    <p>{product.title}</p>
+                    <p>
+                      <FormattedMessage id={product.title} />
+                    </p>
                     <div className="star-spacing">
                       <img
                         src={fourHalfStars}
@@ -279,7 +306,6 @@ export function ProductsPage() {
                     </div>
 
                     <h3>{`$${product.salePrice}.90`}</h3>
-                    <span className="deliver-to">{`Ships to ${deliverTo}`}</span>
                   </div>
                 </div>
               );
