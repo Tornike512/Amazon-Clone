@@ -5,6 +5,7 @@ import { useAuthProvider } from "@src/providers/AuthProvider";
 import { PublicAxios } from "@src/utils/PublicAxios";
 import { TAuthRequest } from "@src/@types/RequestTypes";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
+import { useIntl, FormattedMessage } from "react-intl";
 
 import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
 import exclamationIcon from "@src/assets/exclamation-point-logo.png";
@@ -18,6 +19,8 @@ export interface TSignInFormValue {
 
 export function SignInPage() {
   const navigate = useNavigate();
+
+  const { formatMessage } = useIntl();
 
   const { setAuthData, authStatus, setAuthStatus } = useAuthProvider();
   const { emailInput, passwordInput, setEmailInput, setPasswordInput } =
@@ -56,10 +59,14 @@ export function SignInPage() {
 
       <div className="sign-in-spacing">
         <div className="sign-in-box">
-          <h1>Sign in</h1>
+          <h1>
+            <FormattedMessage id="sign in" />
+          </h1>
           {!enterPassword ? (
             <>
-              <label className="enter-info-text">Email address</label>
+              <label className="enter-info-text">
+                <FormattedMessage id="email address" />
+              </label>
               <div className="enter-email">
                 <input
                   onChange={(e) => {
@@ -77,7 +84,9 @@ export function SignInPage() {
                 {warning && emailInput === "" && (
                   <span className="sign-in-input-warning">
                     <img src={exclamationIcon} alt="Exclafmation Point Icon" />
-                    <p>Enter your email or mobile phone number</p>
+                    <p>
+                      <FormattedMessage id="enter your email or mobile phone number" />
+                    </p>
                   </span>
                 )}
                 <button
@@ -91,21 +100,28 @@ export function SignInPage() {
                     }
                   }}
                 >
-                  Continue
+                  <FormattedMessage id="continue" />
                 </button>
               </div>
               <p className="conditions-of-use">
-                By continuing, you agree to Amazon's{" "}
-                <a href="#">Conditions of Use </a>
-                and <a href="#">Privacy Notice.</a>
+                <FormattedMessage id="By continuing, you agree to amazon's" />{" "}
+                <a href="#">
+                  <FormattedMessage id="conditions of use" />{" "}
+                </a>
+                <FormattedMessage id="and" />{" "}
+                <a href="#">
+                  <FormattedMessage id="privacy notice." />
+                </a>
               </p>
               <div className="help">
                 <a className="forgot-password" href="#">
-                  Forgot your password?
+                  <FormattedMessage id="forgot your password?" />
                 </a>
-                <span className="buying-for-work">Buying for work?</span>
+                <span className="buying-for-work">
+                  <FormattedMessage id="buying your work?" />
+                </span>
                 <a className="amazon-business" href="#">
-                  Shop on Amazon Business
+                  <FormattedMessage id="shop on amazon business" />
                 </a>
               </div>
             </>
@@ -120,11 +136,13 @@ export function SignInPage() {
                   }}
                   className="change-account"
                 >
-                  Change
+                  <FormattedMessage id="change" />
                 </a>
               </div>
 
-              <label className="password-text">Password</label>
+              <label className="password-text">
+                <FormattedMessage id="password" />
+              </label>
               <div>
                 <input
                   onChange={(e) => setPasswordInput(e.target.value)}
@@ -133,23 +151,27 @@ export function SignInPage() {
                 />
               </div>
               <button className="sign-in-button" onClick={() => signIn()}>
-                Sign in
+                <FormattedMessage id="sign in" />
               </button>
               {loggedIn && (
                 <span className="incorrect-data">
-                  Invalid email address or password
+                  <FormattedMessage id="invalid email address or password" />
                 </span>
               )}
               <div className="keep-signed-in">
                 <input type="checkbox" />
-                <p>Keep me signed in.</p>
+                <p>
+                  <FormattedMessage id="keep me signed in." />
+                </p>
               </div>
             </>
           )}
         </div>
       </div>
       <div className="divider-spacing">
-        <div className="new-to-amazon">New to Amazon?</div>
+        <div className="new-to-amazon">
+          <FormattedMessage id="new to amazon?" />
+        </div>
         <div className="divider"></div>
       </div>
       <button
@@ -158,16 +180,22 @@ export function SignInPage() {
         }}
         className="create-account"
       >
-        Create your Amazon account
+        <FormattedMessage id="create your amazon account" />
       </button>
       <div className="sign-in-footer-divider"></div>
       <span className="sign-in-footer-text">
-        <a href="#">Conditions of Use</a>
-        <a href="#">Privacy Notice</a>
-        <a href="#">Help</a>
+        <a href="#">
+          <FormattedMessage id="conditions of use" />
+        </a>
+        <a href="#">
+          <FormattedMessage id="privacy notice." />
+        </a>
+        <a href="#">
+          <FormattedMessage id="help" />
+        </a>
       </span>
       <span className="copyright-notice">
-        © 1996-2024, Amazon.com, Inc. or its affiliates
+        <FormattedMessage id="© 1996-2024, amazon.com, inc. or its affiliates" />
       </span>
     </div>
   );
