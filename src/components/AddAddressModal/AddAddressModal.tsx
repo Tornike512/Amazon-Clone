@@ -1,12 +1,30 @@
 import { useState, useContext, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import exclamationPoint from "@src/assets/exclamation-point-logo.png";
 
 import blackCloseIcon from "@src/assets/black-close-icon.png";
 
 import "./AddAddressModal.scss";
 
+interface TaddressWarning {
+  fullNameWarning: boolean;
+  phoneNumberWarning: boolean;
+  addressWarning: boolean;
+  cityWarning: boolean;
+  zipCodeWarning: boolean;
+}
+
 export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
+  const [addressWarning, setAddressWarning] = useState<TaddressWarning>({
+    fullNameWarning: false,
+    phoneNumberWarning: false,
+    addressWarning: false,
+    cityWarning: false,
+    zipCodeWarning: false,
+  });
+  const [isValid, setIsValid] = useState<boolean>(false);
+
   const {
     infoArray,
     setInfoArray,
@@ -94,6 +112,52 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
   const filterAddress = infoArray.filter((address) => {
     return address.id === editCurrentAddress;
   });
+
+  const showWarnings = () => {
+    let newWarnings = { ...addressWarning };
+    let isValid = true;
+
+    if (fullNameInput === "") {
+      newWarnings = { ...newWarnings, fullNameWarning: true };
+      isValid = false;
+    } else {
+      newWarnings = { ...newWarnings, fullNameWarning: false };
+      isValid = true;
+    }
+    if (phoneNumberInput === "") {
+      newWarnings = { ...newWarnings, phoneNumberWarning: true };
+      isValid = false;
+    } else {
+      newWarnings = { ...newWarnings, phoneNumberWarning: false };
+      isValid = true;
+    }
+    if (addressInput === "") {
+      newWarnings = { ...newWarnings, addressWarning: true };
+      isValid = false;
+    } else {
+      newWarnings = { ...newWarnings, addressWarning: false };
+      isValid = true;
+    }
+    if (cityInput === "") {
+      newWarnings = { ...newWarnings, cityWarning: true };
+      isValid = false;
+    } else {
+      newWarnings = { ...newWarnings, cityWarning: false };
+      isValid = true;
+    }
+    if (zipCodeInput === "") {
+      newWarnings = { ...newWarnings, zipCodeWarning: true };
+      isValid = false;
+    } else {
+      newWarnings = { ...newWarnings, zipCodeWarning: false };
+      isValid = true;
+    }
+
+    setAddressWarning(newWarnings);
+    setIsValid(isValid);
+  };
+
+  console.log(addressWarning, "addresswarning");
 
   return (
     <div className="add-address-modal">
@@ -197,6 +261,12 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                     }}
                     type="text"
                   />
+                  {addressWarning.fullNameWarning && (
+                    <p className="warning">
+                      <img src={exclamationPoint} alt="Exclamation Points" />
+                      Please enter your full name.
+                    </p>
+                  )}
                 </div>
                 <div className="phone-number-input">
                   <label>Phone number</label>
@@ -207,6 +277,12 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                     }}
                     type="text"
                   />
+                  {addressWarning.phoneNumberWarning && (
+                    <p className="warning">
+                      <img src={exclamationPoint} alt="Exclamation Points" />
+                      Please enter your phone number.
+                    </p>
+                  )}
                 </div>
                 <div className="address-input">
                   <label>Address</label>
@@ -218,11 +294,16 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                     type="text"
                     placeholder="Street address or P.O. Box"
                   />
+                  {addressWarning.addressWarning && (
+                    <p className="warning">
+                      <img src={exclamationPoint} alt="Exclamation Points" />
+                      Please enter your address.
+                    </p>
+                  )}
                 </div>
                 <div className="city-zip-spacing">
                   <span className="city-zip-label">
                     <label className="city-label">City</label>
-                    <label>ZIP Code</label>
                   </span>
                   <span>
                     <input
@@ -233,6 +314,14 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                       className="city-input"
                       type="text"
                     />
+
+                    {addressWarning.cityWarning && (
+                      <p className="warning">
+                        <img src={exclamationPoint} alt="Exclamation Points" />
+                        Please enter your city name.
+                      </p>
+                    )}
+                    <p className="zip-code-text">ZIP Code</p>
                     <input
                       defaultValue={zipCodeInput}
                       onChange={(e) => {
@@ -241,11 +330,18 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                       className="zip-code-input"
                       type="text"
                     />
+                    {addressWarning.zipCodeWarning && (
+                      <p className="warning">
+                        <img src={exclamationPoint} alt="Exclamation Points" />
+                        Please enter your Zip code.
+                      </p>
+                    )}
                   </span>
                 </div>
                 <div className="use-address-button">
                   <button
                     onClick={() => {
+                      showWarnings();
                       handleInfo();
                     }}
                   >
