@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
+import exclamationPoint from "@src/assets/exclamation-point-logo.png";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -55,10 +56,18 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
               <label>Card number</label>
               <input onChange={(e) => setCardNumber(e.target.value)} />
             </span>
+            <p className="warning">
+              <img src={exclamationPoint} alt="Exclamation Point" />
+              Please enter card number
+            </p>
             <span className="name-on-card">
               <label>Name on card</label>
               <input onChange={(e) => setNameOnCard(e.target.value)} />
             </span>
+            <p className="warning">
+              <img src={exclamationPoint} alt="Exclamation Point" />
+              Please enter your name
+            </p>
             <span className="expiration-date">
               <label>Expiration date</label>
               <select
