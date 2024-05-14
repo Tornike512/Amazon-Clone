@@ -11,11 +11,21 @@ import supportedCards from "@src/assets/supported-cards.png";
 
 import "./AddCardModal.scss";
 
+interface TaddCard {
+  cardNumberWarning: boolean;
+  nameOnCardWarning: boolean;
+}
+
 export function AddCardModal({ closeModal }: { closeModal: () => void }) {
   const [cardNumber, setCardNumber] = useState<string>("");
   const [nameOnCard, setNameOnCard] = useState<string>("");
   const [months, setMonths] = useState<string>("");
   const [years, setYears] = useState<string>("");
+  const [addCardWarning, setAddCardWarning] = useState<TaddCard>({
+    cardNumberWarning: false,
+    nameOnCardWarning: false,
+  });
+  const [isValid, setIsValid] = useState<boolean>(false);
 
   const { cards, setCards } = useContext(GlobalContext);
 
@@ -41,6 +51,22 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
     }
   }
 
+  const cardWarning = () => {
+    let isValid = true;
+    const newWarning = { ...addCardWarning };
+    if (nameOnCard === "") {
+      setAddCardWarning({ ...newWarning, nameOnCardWarning: true });
+      isValid = false;
+    }
+    if (cardNumber === "") {
+      setAddCardWarning({ ...newWarning, cardNumberWarning: true });
+      isValid = false;
+    }
+
+    setIsValid(isValid);
+    setAddCardWarning(newWarning);
+  };
+
   return (
     <div className="add-card-modal">
       <div className="add-card">
@@ -54,20 +80,28 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
           <div className="card-details">
             <span className="card-number">
               <label>Card number</label>
-              <input onChange={(e) => setCardNumber(e.target.value)} />
+              <input
+                onChange={(e) => {
+                  setCardNumber(e.target.value);
+                }}
+              />
             </span>
-            <p className="warning">
-              <img src={exclamationPoint} alt="Exclamation Point" />
-              Please enter card number
-            </p>
+            {addCardWarning.cardNumberWarning && (
+              <p className="warning">
+                <img src={exclamationPoint} alt="Exclamation Point" />
+                Please enter card number
+              </p>
+            )}
             <span className="name-on-card">
               <label>Name on card</label>
               <input onChange={(e) => setNameOnCard(e.target.value)} />
             </span>
-            <p className="warning">
-              <img src={exclamationPoint} alt="Exclamation Point" />
-              Please enter your name
-            </p>
+            {addCardWarning.nameOnCardWarning && (
+              <p className="warning">
+                <img src={exclamationPoint} alt="Exclamation Point" />
+                Please enter your name
+              </p>
+            )}
             <span className="expiration-date">
               <label>Expiration date</label>
               <select
@@ -102,6 +136,7 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
           <button
             onClick={() => {
               addCards();
+              cardWarning();
             }}
             className="add-card-button"
           >
