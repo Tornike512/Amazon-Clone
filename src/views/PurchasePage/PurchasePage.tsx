@@ -2,7 +2,6 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { usePurchaseProducts } from "@src/hooks/usePurchaseProducts";
-import { v4 as uuidv4 } from "uuid";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -257,10 +256,17 @@ export function PurchasePage() {
                     <div className="use-this-address">
                       <button
                         onClick={() => {
-                          setTimeout(() => {
+                          if (selectedAddress.length === 0) {
+                            setTimeout(() => {
+                              setChooseAddress(false);
+                            }, 100);
+                            setChooseAddress(false);
+                          } else {
+                            setTimeout(() => {
+                              setChooseAddress(true);
+                            }, 100);
                             setChooseAddress(true);
-                          }, 100);
-                          setChooseAddress(true);
+                          }
                         }}
                       >
                         Use this address
