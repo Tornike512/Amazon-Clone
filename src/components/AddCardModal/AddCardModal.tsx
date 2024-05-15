@@ -19,8 +19,8 @@ interface TaddCard {
 export function AddCardModal({ closeModal }: { closeModal: () => void }) {
   const [cardNumber, setCardNumber] = useState<string>("");
   const [nameOnCard, setNameOnCard] = useState<string>("");
-  const [months, setMonths] = useState<string>("");
-  const [years, setYears] = useState<string>("");
+  const [months, setMonths] = useState<string>("01");
+  const [years, setYears] = useState<string>("2024");
   const [addCardWarning, setAddCardWarning] = useState<TaddCard>({
     cardNumberWarning: false,
     nameOnCardWarning: false,
@@ -31,9 +31,9 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
 
   function addCards() {
     if (
-      cardNumber !== "" ||
-      nameOnCard !== "" ||
-      months !== "" ||
+      cardNumber !== "" &&
+      nameOnCard !== "" &&
+      months !== "" &&
       years !== ""
     ) {
       setCards((card) => [
