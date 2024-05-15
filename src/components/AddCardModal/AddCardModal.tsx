@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
-import exclamationPoint from "@src/assets/exclamation-point-logo.png";
+import { useIntl, FormattedMessage } from "react-intl";
 
 import { v4 as uuidv4 } from "uuid";
 
 import dates from "./date.json";
 
+import exclamationPoint from "@src/assets/exclamation-point-logo.png";
 import blackCloseIcon from "@src/assets/black-close-icon.png";
 import supportedCards from "@src/assets/supported-cards.png";
 
@@ -28,6 +29,8 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
   const [isValid, setIsValid] = useState<boolean>(false);
 
   const { cards, setCards } = useContext(GlobalContext);
+
+  const { formatMessage } = useIntl();
 
   function addCards() {
     if (
@@ -73,7 +76,9 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
     <div className="add-card-modal">
       <div className="add-card">
         <div className="card-modal-header">
-          <span>Add a credit or debit card</span>
+          <span>
+            <FormattedMessage id="add a credit or debit card" />
+          </span>
           <button onClick={closeModal} className="close-modal">
             <img src={blackCloseIcon} alt="Close Image" />
           </button>
@@ -81,7 +86,9 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
         <div className="add-card-details">
           <div className="card-details">
             <span className="card-number">
-              <label>Card number</label>
+              <label>
+                <FormattedMessage id="card number" />
+              </label>
               <input
                 onChange={(e) => {
                   setCardNumber(e.target.value);
@@ -91,21 +98,25 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
             {addCardWarning.cardNumberWarning && (
               <p className="warning">
                 <img src={exclamationPoint} alt="Exclamation Point" />
-                Please enter card number
+                <FormattedMessage id="please enter card number" />
               </p>
             )}
             <span className="name-on-card">
-              <label>Name on card</label>
+              <label>
+                <FormattedMessage id="name on card" />
+              </label>
               <input onChange={(e) => setNameOnCard(e.target.value)} />
             </span>
             {addCardWarning.nameOnCardWarning && (
               <p className="warning">
                 <img src={exclamationPoint} alt="Exclamation Point" />
-                Please enter your name
+                <FormattedMessage id="please enter your name" />
               </p>
             )}
             <span className="expiration-date">
-              <label>Expiration date</label>
+              <label>
+                <FormattedMessage id="expiration date" />
+              </label>
               <select
                 onChange={(e) => setMonths(e.target.value)}
                 className="select-month"
@@ -127,13 +138,15 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
             </span>
           </div>
           <div className="accepted-cards">
-            <p>Amazon accepts all major credit and debit cards:</p>
+            <p>
+              <FormattedMessage id="amazon accepts all major credit and debit cards:" />
+            </p>
             <img src={supportedCards} alt="Supported Cardss" />
           </div>
         </div>
         <span className="cancel-or-add">
           <button onClick={closeModal} className="cancel-button">
-            Cancel
+            <FormattedMessage id="cancel" />
           </button>
           <button
             onClick={() => {
@@ -142,7 +155,7 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
             }}
             className="add-card-button"
           >
-            Add your card
+            <FormattedMessage id="add your card" />
           </button>
         </span>
       </div>
