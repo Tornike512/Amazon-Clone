@@ -52,20 +52,22 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
   }
 
   const cardWarning = () => {
-    let isValid = true;
-    const newWarning = { ...addCardWarning };
+    let newWarning = { ...addCardWarning };
     if (nameOnCard === "") {
-      setAddCardWarning({ ...newWarning, nameOnCardWarning: true });
-      isValid = false;
+      newWarning = { ...newWarning, nameOnCardWarning: true };
+    } else {
+      newWarning = { ...newWarning, nameOnCardWarning: false };
     }
     if (cardNumber === "") {
-      setAddCardWarning({ ...newWarning, cardNumberWarning: true });
-      isValid = false;
+      newWarning = { ...newWarning, cardNumberWarning: true };
+    } else {
+      newWarning = { ...newWarning, cardNumberWarning: false };
     }
 
-    setIsValid(isValid);
     setAddCardWarning(newWarning);
   };
+
+  console.log(addCardWarning);
 
   return (
     <div className="add-card-modal">
