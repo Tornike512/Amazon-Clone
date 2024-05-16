@@ -1,8 +1,9 @@
 import { useState, useContext, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { GlobalContext } from "@src/providers/GlobalProvider";
-import exclamationPoint from "@src/assets/exclamation-point-logo.png";
+import { useIntl, FormattedMessage } from "react-intl";
 
+import exclamationPoint from "@src/assets/exclamation-point-logo.png";
 import blackCloseIcon from "@src/assets/black-close-icon.png";
 
 import "./AddAddressModal.scss";
@@ -46,6 +47,8 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
   } = useContext(GlobalContext);
 
   const uniqueId = uuidv4();
+
+  const { formatMessage } = useIntl();
 
   useEffect(() => {
     if (isEditMode) {
@@ -157,26 +160,30 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
     setIsValid(isValid);
   };
 
-  console.log(addressWarning, "addresswarning");
-
   return (
     <div className="add-address-modal">
       <div className="add-address">
         <div className="address-modal-header">
-          <span>Enter a new shipping address</span>
+          <span>
+            <FormattedMessage id="enter a new shipping address" />
+          </span>
           <button onClick={closeModal} className="close-modal">
             <img src={blackCloseIcon} alt="Close Image" />
           </button>
         </div>
         <div className="address-modal-info">
-          <h1 className="add-address-text">Add a new address</h1>
+          <h1 className="add-address-text">
+            <FormattedMessage id="add a new address" />
+          </h1>
           {isEditMode ? (
             <>
               {filterAddress.map((address) => {
                 return (
                   <form key={address.id} onSubmit={(e) => e.preventDefault()}>
                     <div className="full-name-input">
-                      <label>Full name (First and Last name)</label>
+                      <label>
+                        <FormattedMessage id="full name (first and last name)" />
+                      </label>
                       <input
                         defaultValue={address.fullNameInput}
                         onChange={(e) => {
@@ -186,7 +193,9 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                       />
                     </div>
                     <div className="phone-number-input">
-                      <label>Phone number</label>
+                      <label>
+                        <FormattedMessage id="phone number" />
+                      </label>
                       <input
                         defaultValue={address.phoneNumberInput}
                         onChange={(e) => {
@@ -203,13 +212,19 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                           setAddressInput(e.target.value);
                         }}
                         type="text"
-                        placeholder="Street address or P.O. Box"
+                        placeholder={formatMessage({
+                          id: "street address or p.o. box",
+                        })}
                       />
                     </div>
                     <div className="city-zip-spacing">
                       <span className="city-zip-label">
-                        <label className="city-label">City</label>
-                        <label>ZIP Code</label>
+                        <label className="city-label">
+                          <FormattedMessage id="city" />
+                        </label>
+                        <label>
+                          <FormattedMessage id="zip code" />
+                        </label>
                       </span>
                       <span>
                         <input
@@ -242,7 +257,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                           );
                         }}
                       >
-                        Use this address
+                        <FormattedMessage id="use this address" />
                       </button>
                     </div>
                   </form>
@@ -253,7 +268,9 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
             <>
               <form onSubmit={(e) => e.preventDefault()}>
                 <div className="full-name-input">
-                  <label>Full name (First and Last name)</label>
+                  <label>
+                    <FormattedMessage id="full name (first and last name)" />
+                  </label>
                   <input
                     defaultValue={fullNameInput}
                     onChange={(e) => {
@@ -264,12 +281,14 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                   {addressWarning.fullNameWarning && (
                     <p className="warning">
                       <img src={exclamationPoint} alt="Exclamation Points" />
-                      Please enter your full name.
+                      <FormattedMessage id="please enter your full name." />
                     </p>
                   )}
                 </div>
                 <div className="phone-number-input">
-                  <label>Phone number</label>
+                  <label>
+                    <FormattedMessage id="phone number" />
+                  </label>
                   <input
                     defaultValue={phoneNumberInput}
                     onChange={(e) => {
@@ -280,30 +299,36 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                   {addressWarning.phoneNumberWarning && (
                     <p className="warning">
                       <img src={exclamationPoint} alt="Exclamation Points" />
-                      Please enter your phone number.
+                      <FormattedMessage id="please enter your phone number." />
                     </p>
                   )}
                 </div>
                 <div className="address-input">
-                  <label>Address</label>
+                  <label>
+                    <FormattedMessage id="address" />
+                  </label>
                   <input
                     defaultValue={addressInput}
                     onChange={(e) => {
                       setAddressInput(e.target.value);
                     }}
                     type="text"
-                    placeholder="Street address or P.O. Box"
+                    placeholder={formatMessage({
+                      id: "street address or p.o. box",
+                    })}
                   />
                   {addressWarning.addressWarning && (
                     <p className="warning">
                       <img src={exclamationPoint} alt="Exclamation Points" />
-                      Please enter your address.
+                      <FormattedMessage id="please enter your address" />
                     </p>
                   )}
                 </div>
                 <div className="city-zip-spacing">
                   <span className="city-zip-label">
-                    <label className="city-label">City</label>
+                    <label className="city-label">
+                      <FormattedMessage id="city" />
+                    </label>
                   </span>
                   <span>
                     <input
@@ -318,10 +343,12 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                     {addressWarning.cityWarning && (
                       <p className="warning">
                         <img src={exclamationPoint} alt="Exclamation Points" />
-                        Please enter your city name.
+                        <FormattedMessage id="please enter your city name." />
                       </p>
                     )}
-                    <p className="zip-code-text">ZIP Code</p>
+                    <p className="zip-code-text">
+                      <FormattedMessage id="zip code" />
+                    </p>
                     <input
                       defaultValue={zipCodeInput}
                       onChange={(e) => {
@@ -333,7 +360,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                     {addressWarning.zipCodeWarning && (
                       <p className="warning">
                         <img src={exclamationPoint} alt="Exclamation Points" />
-                        Please enter your Zip code.
+                        <FormattedMessage id="please enter your zip code." />
                       </p>
                     )}
                   </span>
@@ -345,7 +372,7 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
                       handleInfo();
                     }}
                   >
-                    Use this address
+                    <FormattedMessage id="use this address" />
                   </button>
                 </div>
               </form>
