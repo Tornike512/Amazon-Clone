@@ -42,12 +42,11 @@ export function CartPage() {
       setCartProducts(response.data);
       setLoading(false);
       const subTotal = response.data.reduce(
-        (total: number, item: any) =>
-          total + (item.cartProduct.salePrice * item.count ?? 0),
+        (total: number, item: TCartProducts) =>
+          total + (item.cartProduct.salePrice ?? 0) * item.count,
         0
       );
       setSubtotal(subTotal);
-
       setCountProducts(Object.keys(response.data).length);
     } catch (error) {
       console.log("Error Requesting Cart Products", error);
@@ -213,7 +212,7 @@ export function CartPage() {
                           setSubtraction(
                             (prevSubtraction) =>
                               prevSubtraction -
-                              item.cartProduct.salePrice * item.count
+                              (item.cartProduct.salePrice ?? 0) * item.count
                           );
                         }}
                         className="save-for-later"
@@ -223,7 +222,7 @@ export function CartPage() {
                     </span>
                   </div>
                   <span className="cart-product-price">{`$${
-                    item.cartProduct.salePrice * item.count
+                    (item.cartProduct.salePrice ?? 0) * item.count
                   }.99`}</span>
                 </div>
               ) : (
@@ -297,7 +296,7 @@ export function CartPage() {
                       setSubtraction(
                         (prevSubtraction) =>
                           prevSubtraction +
-                          item.cartProduct.salePrice * item.count
+                          (item.cartProduct.salePrice ?? 0) * item.count
                       );
                     }}
                     className="move-to-cart"

@@ -1,6 +1,5 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 
-import { GlobalContext } from "@src/providers/GlobalProvider";
 import { TGetWishlistProducts } from "@src/@types/RequestTypes";
 
 import axios from "axios";

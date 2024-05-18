@@ -38,7 +38,7 @@ export function OneProductPage() {
     setWishlistProduct,
   } = useContext(GlobalContext);
 
-  const [oneProduct, setOneProduct] = useState<TGetProducts | null>(null);
+  const [oneProduct, setOneProduct] = useState<TGetProducts | any>(null);
   const [cartAdded, setCartAdded] = useState<boolean>(false);
   const [loader, setLoader] = useState<boolean>(false);
   const [firstSponsored, setFirstSponsored] = useState<TGetProducts | null>(

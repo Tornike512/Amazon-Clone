@@ -20,7 +20,7 @@ export function ProductsPage() {
   const [quickLook, setQuickLook] = useState<number | null>(null);
   const [minSlice] = useState<number>(0);
   const [maxSlice] = useState<number>(4);
-  const { width } = useWindowSize();
+  const [width] = useWindowSize();
 
   const { responsive587Px, setResponsive587Px } = useContext(ResponsiveContext);
 

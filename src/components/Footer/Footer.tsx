@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 import amazonWhiteLogo from "@src/assets/amazon-logo.png";
 import browserIcon from "@src/assets/browser-icon.png";
