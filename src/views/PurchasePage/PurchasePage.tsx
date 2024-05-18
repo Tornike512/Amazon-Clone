@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { usePurchaseProducts } from "@src/hooks/usePurchaseProducts";
-import { useIntl, FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -46,14 +46,11 @@ export function PurchasePage() {
     setCards,
     purchasedItem,
     setPurchasedItem,
-    successfulPurchase,
     setSuccessfulPurchase,
     setCountCartProducts,
   } = useContext(GlobalContext);
 
   const navigate = useNavigate();
-
-  const { formatMessage } = useIntl();
 
   const { purchaseProducts } = usePurchaseProducts();
 

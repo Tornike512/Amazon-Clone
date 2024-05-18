@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
 import { useAuthProvider } from "@src/providers/AuthProvider";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 import { Locale_Enum } from "@src/providers/LocaleProvider/LocaleContext";
@@ -10,11 +10,9 @@ import { Locale_Enum } from "@src/providers/LocaleProvider/LocaleContext";
 export function SignInModal() {
   const navigate = useNavigate();
 
-  const { formatMessage } = useIntl();
-
   const { signInHover, setSignInHover } = useContext(GlobalContext);
 
-  const { authStatus, setAuthStatus, signOut } = useAuthProvider();
+  const { authStatus, signOut } = useAuthProvider();
 
   const currentLanguage = localStorage.getItem("language");
 

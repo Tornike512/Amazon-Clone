@@ -1,7 +1,7 @@
 import { useEffect, useContext, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useNavigate } from "react-router-dom";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 import cartDeleteRequest from "@src/utils/CartDeleteRequest";
 
@@ -13,7 +13,6 @@ import "./CartPage.scss";
 
 export function CartPage() {
   const [cartProducts, setCartProducts] = useState<TCartProducts[]>([]);
-  const [saveForLater, setSaveForLater] = useState<boolean>(false);
   const [selectSavedProduct, setSelectSavedProduct] = useState<string[]>([]);
   const [productId, setProductId] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -63,8 +62,6 @@ export function CartPage() {
   );
 
   const navigate = useNavigate();
-
-  const { formatMessage } = useIntl();
 
   useEffect(() => {
     localStorage.setItem(
@@ -212,7 +209,6 @@ export function CartPage() {
                             item.cartProduct.id,
                           ]);
                           if (selectSavedProduct.includes(item.id)) {
-                            setSaveForLater(true);
                           }
                           setSubtraction(
                             (prevSubtraction) =>
@@ -293,8 +289,6 @@ export function CartPage() {
                   </div>
                   <button
                     onClick={() => {
-                      setSaveForLater(true);
-
                       if (selectSavedProduct.includes(item.id)) {
                         setSelectSavedProduct((prev) =>
                           prev.filter((productId) => productId !== item.id)

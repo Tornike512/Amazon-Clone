@@ -3,12 +3,11 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import { LocaleContext } from "@src/providers/LocaleProvider/LocaleContext";
 import { useNavigate } from "react-router-dom";
 import { useAuthProvider } from "@src/providers/AuthProvider";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 import { Locale_Enum } from "@src/providers/LocaleProvider/LocaleContext";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
-import germanyFlag from "@src/assets/germany-flag.png";
 import personLogo from "@src/assets/person-logo.png";
 import closeSidebar from "@src/assets/sidebar-close-button.png";
 import sidebarArrow from "@src/assets/sidebar-arrow.png";
@@ -32,14 +31,12 @@ export function Sidebar() {
     setSideBar,
     modal,
     setModal,
-    setLoading,
     currentCategory,
     setCurrentCategory,
   } = useContext(GlobalContext);
 
   const { authStatus, signOut } = useAuthProvider();
 
-  const { formatMessage } = useIntl();
   const { toggleLocale } = useContext(LocaleContext);
 
   const currentLanguage = localStorage.getItem("language");

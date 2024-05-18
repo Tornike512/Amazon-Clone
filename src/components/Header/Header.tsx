@@ -2,13 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { ResponsiveContext } from "@src/providers/ResponsiveProvider";
 import { useNavigate } from "react-router-dom";
-import { LocaleContext } from "@src/providers/LocaleProvider";
 import { FormattedMessage, useIntl } from "react-intl";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import { useDebounce } from "@src/hooks/useDebounce";
 import { useWindowSize } from "@react-hook/window-size";
 
-import { TCartProducts, TGetProducts } from "@src/@types/RequestTypes";
+import { TGetProducts } from "@src/@types/RequestTypes";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
 import germanyFlag from "@src/assets/germany-flag.png";
@@ -97,13 +96,10 @@ export function Header() {
 
   const {
     setSideBar,
-    modal,
     setModal,
     setSignInHover,
     signInHover,
     setLanguageHover,
-    languageHover,
-    nameInput,
     setCurrentInfo,
     countCartProducts,
   } = useContext(GlobalContext);

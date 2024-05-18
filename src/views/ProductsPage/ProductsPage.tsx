@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useWindowSize } from "@react-hook/window-size";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { ResponsiveContext } from "@src/providers/ResponsiveProvider";
-import { FormattedMessage, useIntl } from "react-intl";
-
-import { TGetProducts } from "@src/@types/RequestTypes";
+import { FormattedMessage } from "react-intl";
 
 import CategoryTitle from "@src/views/ProductsPage/CategoryTitle.json";
 
@@ -16,25 +14,17 @@ import axios from "axios";
 import "./ProductsPage.scss";
 
 export function ProductsPage() {
-  const {
-    products,
-    setProducts,
-    deliverTo,
-    setProductId,
-    loading,
-    setLoading,
-  } = useContext(GlobalContext);
+  const { products, setProducts, setProductId, loading, setLoading } =
+    useContext(GlobalContext);
 
   const [quickLook, setQuickLook] = useState<number | null>(null);
-  const [minSlice, setMinSlice] = useState<number>(0);
-  const [maxSlice, setMaxSlice] = useState<number>(4);
+  const [minSlice] = useState<number>(0);
+  const [maxSlice] = useState<number>(4);
   const { width } = useWindowSize();
 
   const { responsive587Px, setResponsive587Px } = useContext(ResponsiveContext);
 
   const navigate = useNavigate();
-
-  const { formatMessage } = useIntl();
 
   useEffect(() => {
     if (width <= 587) {

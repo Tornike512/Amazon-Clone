@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
-import { useIntl, FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 import { v4 as uuidv4 } from "uuid";
 

@@ -4,7 +4,7 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import { ResponsiveContext } from "@src/providers/ResponsiveProvider";
 import { useWindowSize } from "@react-hook/window-size";
 import { HomeCarousel } from "@src/components/HomeCarousel/HomeCarousel";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 import CategoryProductsTitle from "@src/views/Home/CategoryProductsTitle.json";
 
@@ -54,8 +54,6 @@ export function Home() {
   }, [width]);
 
   const navigate = useNavigate();
-
-  const { formatMessage } = useIntl();
 
   useEffect(() => {
     localStorage.setItem("current category", JSON.stringify(currentCategory));

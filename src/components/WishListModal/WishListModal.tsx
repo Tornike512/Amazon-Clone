@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 import useGetWishlist from "@src/hooks/useGetWishlist";
 
@@ -10,11 +10,9 @@ import closeIcon from "@src/assets/black-close-icon.png";
 import "./WishListModal.scss";
 
 export function WishListModal({ one_product }: { one_product: string }) {
-  const { setWishListModal, wishlistModal } = useContext(GlobalContext);
+  const { setWishListModal } = useContext(GlobalContext);
 
   const navigate = useNavigate();
-
-  const { formatMessage } = useIntl();
 
   const { wishlist } = useGetWishlist();
 

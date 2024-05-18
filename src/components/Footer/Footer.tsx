@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
@@ -14,8 +13,6 @@ export function Footer() {
   const { authStatus } = useAuthProvider();
 
   const navigate = useNavigate();
-
-  const { formatMessage } = useIntl();
 
   const handleScrollUp = () => {
     window.scrollTo({

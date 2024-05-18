@@ -7,7 +7,6 @@ import cartPostRequest from "@src/utils/CartPostRequest";
 
 import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
 
-import successIcon from "@src/assets/success-icon.png";
 import wishlistBookImage from "@src/assets/wishlist-book-image.png";
 import trashIcon from "@src/assets/trash-icon.png";
 import searchIcon from "@src/assets/search-icon.png";

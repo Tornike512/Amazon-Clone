@@ -7,8 +7,7 @@ import { WishListModal } from "@src/components/WishListModal";
 import UsePostWishlistProducts from "@src/hooks/UsePostWishlist";
 import cartPostRequest from "@src/utils/CartPostRequest";
 import useGetWishlist from "@src/hooks/useGetWishlist";
-import wishlitDeleteRequest from "@src/utils/wishlistDeleteRequest";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -21,22 +20,16 @@ import successIcon from "@src/assets/success-icon.png";
 import axios from "axios";
 
 import "./OneProductPage.scss";
-import { Descriptions } from "antd";
 
 export function OneProductPage() {
   const {
     productId,
     setProductId,
-    deliverTo,
-    loading,
     setLoading,
     products,
     setProducts,
     countCartProducts,
     setCountCartProducts,
-    setSubtotal,
-    countProducts,
-    setCountProducts,
     currentCategory,
     setWishListModal,
     wishlistModal,
@@ -60,8 +53,6 @@ export function OneProductPage() {
   const { id } = useParams();
 
   const navigate = useNavigate();
-
-  const { formatMessage } = useIntl();
 
   const token = localStorage.getItem("access_token");
 

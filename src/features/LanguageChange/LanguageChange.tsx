@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { useIntl, FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { LocaleContext } from "@src/providers/LocaleProvider";
 
@@ -21,9 +21,8 @@ export function LanguageChange() {
     const storedDeCheckBox = localStorage.getItem("de_checkbox");
     return storedDeCheckBox ? JSON.parse(storedDeCheckBox) : false;
   });
-  const [modal, setModal] = useState<Modal_Enum>(Modal_Enum.OFF);
+  const [modal] = useState<Modal_Enum>(Modal_Enum.OFF);
   const { setLanguageHover, languageHover } = useContext(GlobalContext);
-  const { formatMessage } = useIntl();
   const { toggleLocale } = useContext(LocaleContext);
 
   const currentLanguage = localStorage.getItem("language");

@@ -14,9 +14,9 @@ import "./ProductsCarousel.scss";
 
 export function ProductsCarousel({ products }: { products: TGetProducts[] }) {
   const [XTranslate, setXTranslate] = useState<number>(-1);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading] = useState<boolean>(false);
 
-  const { productId, setProductId } = useContext(GlobalContext);
+  const { setProductId } = useContext(GlobalContext);
 
   const navigate = useNavigate();
 

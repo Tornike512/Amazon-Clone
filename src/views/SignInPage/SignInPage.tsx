@@ -4,8 +4,7 @@ import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useAuthProvider } from "@src/providers/AuthProvider";
 import { PublicAxios } from "@src/utils/PublicAxios";
 import { TAuthRequest } from "@src/@types/RequestTypes";
-import { TAuthorizationStatus_Enum } from "@src/providers/AuthProvider/AuthContext";
-import { useIntl, FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 import amazonLogoBlack from "@src/assets/amazon-logo-black.png";
 import exclamationIcon from "@src/assets/exclamation-point-logo.png";
@@ -20,14 +19,11 @@ export interface TSignInFormValue {
 export function SignInPage() {
   const navigate = useNavigate();
 
-  const { formatMessage } = useIntl();
-
-  const { setAuthData, authStatus, setAuthStatus } = useAuthProvider();
+  const { setAuthData } = useAuthProvider();
   const { emailInput, passwordInput, setEmailInput, setPasswordInput } =
     useContext(GlobalContext);
 
   const [warning, setWarning] = useState<boolean>(false);
-  const [signInInput, setSignInInput] = useState<string>("");
   const [enterPassword, setEnterPassword] = useState<boolean>(false);
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
@@ -132,7 +128,6 @@ export function SignInPage() {
                 <a
                   onClick={() => {
                     setEnterPassword(false);
-                    setSignInInput("");
                   }}
                   className="change-account"
                 >
