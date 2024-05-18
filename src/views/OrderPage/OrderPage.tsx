@@ -91,7 +91,7 @@ export function OrderPage() {
             />
           </span>
           <button
-            onClick={(e) => {
+            onClick={() => {
               setSearch(searchInput);
               setSearchInput("");
             }}
