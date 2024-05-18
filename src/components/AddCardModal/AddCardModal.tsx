@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { useIntl, FormattedMessage } from "react-intl";
 
@@ -26,11 +26,8 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
     cardNumberWarning: false,
     nameOnCardWarning: false,
   });
-  const [isValid, setIsValid] = useState<boolean>(false);
 
-  const { cards, setCards } = useContext(GlobalContext);
-
-  const { formatMessage } = useIntl();
+  const { setCards } = useContext(GlobalContext);
 
   function addCards() {
     if (
@@ -69,8 +66,6 @@ export function AddCardModal({ closeModal }: { closeModal: () => void }) {
 
     setAddCardWarning(newWarning);
   };
-
-  console.log(addCardWarning);
 
   return (
     <div className="add-card-modal">
