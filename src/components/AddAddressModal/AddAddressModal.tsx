@@ -24,16 +24,12 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
     cityWarning: false,
     zipCodeWarning: false,
   });
-  const [isValid, setIsValid] = useState<boolean>(false);
 
   const {
     infoArray,
     setInfoArray,
     isEditMode,
-    setIsEditMode,
     editCurrentAddress,
-    chooseAddress,
-    setChooseAddress,
     fullNameInput,
     setFullNameInput,
     cityInput,
@@ -118,46 +114,34 @@ export function AddAddressModal({ closeModal }: { closeModal: () => void }) {
 
   const showWarnings = () => {
     let newWarnings = { ...addressWarning };
-    let isValid = true;
 
     if (fullNameInput === "") {
       newWarnings = { ...newWarnings, fullNameWarning: true };
-      isValid = false;
     } else {
       newWarnings = { ...newWarnings, fullNameWarning: false };
-      isValid = true;
     }
     if (phoneNumberInput === "") {
       newWarnings = { ...newWarnings, phoneNumberWarning: true };
-      isValid = false;
     } else {
       newWarnings = { ...newWarnings, phoneNumberWarning: false };
-      isValid = true;
     }
     if (addressInput === "") {
       newWarnings = { ...newWarnings, addressWarning: true };
-      isValid = false;
     } else {
       newWarnings = { ...newWarnings, addressWarning: false };
-      isValid = true;
     }
     if (cityInput === "") {
       newWarnings = { ...newWarnings, cityWarning: true };
-      isValid = false;
     } else {
       newWarnings = { ...newWarnings, cityWarning: false };
-      isValid = true;
     }
     if (zipCodeInput === "") {
       newWarnings = { ...newWarnings, zipCodeWarning: true };
-      isValid = false;
     } else {
       newWarnings = { ...newWarnings, zipCodeWarning: false };
-      isValid = true;
     }
 
     setAddressWarning(newWarnings);
-    setIsValid(isValid);
   };
 
   return (
