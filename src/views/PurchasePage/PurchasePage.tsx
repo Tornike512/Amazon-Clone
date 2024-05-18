@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "@src/providers/GlobalProvider";
 import { usePurchaseProducts } from "@src/hooks/usePurchaseProducts";
+import { useIntl, FormattedMessage } from "react-intl";
 
 import { TGetProducts } from "@src/@types/RequestTypes";
 
@@ -51,6 +52,8 @@ export function PurchasePage() {
   } = useContext(GlobalContext);
 
   const navigate = useNavigate();
+
+  const { formatMessage } = useIntl();
 
   const { purchaseProducts } = usePurchaseProducts();
 
@@ -132,8 +135,6 @@ export function PurchasePage() {
   }, [deliveryOption]);
 
   const filterPurchaseProducts = purchaseProducts.filter((purchaseProduct) => {
-    console.log(purchaseProduct);
-
     return !savedProducts.includes(purchaseProduct.cartProduct.id);
   });
 
@@ -142,8 +143,6 @@ export function PurchasePage() {
       .map((stored: any) => stored.id)
       .includes(item.cartProduct.id);
   });
-
-  console.log(filterByPurchasedProducts);
 
   const totalPrice = localStorage.getItem("total price");
 
@@ -165,14 +164,18 @@ export function PurchasePage() {
               alt="Amazon Logo"
             />
             <span className="checkout-text">
-              Checkout{" "}
+              <FormattedMessage id="checkout" />{" "}
               <a onClick={() => navigate("/cart")}>
                 ({itemCount - Object.keys(storedPurchasedItem).length}{" "}
                 {itemCount - Object.keys(storedPurchasedItem).length === 0 ||
                 itemCount - Object.keys(storedPurchasedItem).length === 1 ? (
-                  <>item</>
+                  <>
+                    <FormattedMessage id="item" />
+                  </>
                 ) : (
-                  <>items</>
+                  <>
+                    <FormattedMessage id="items" />
+                  </>
                 )}
                 )
               </a>
@@ -186,10 +189,13 @@ export function PurchasePage() {
               <>
                 <div>
                   <h2 className="shipping-address-text">
-                    <label>1</label> Choose a shipping address
+                    <label>1</label>{" "}
+                    <FormattedMessage id="choose a shipping address" />
                   </h2>
                   <div className="shipping-address">
-                    <h3>Your Addresses</h3>
+                    <h3>
+                      <FormattedMessage id="your addresses" />
+                    </h3>
                     <div>
                       {infoArray.map((info) => {
                         return (
@@ -229,7 +235,7 @@ export function PurchasePage() {
                                 onClick={() => removeAddress(info.id)}
                                 className="remove"
                               >
-                                Remove
+                                <FormattedMessage id="remove" />
                               </span>
                               <span
                                 onClick={() => {
@@ -238,7 +244,7 @@ export function PurchasePage() {
                                 }}
                                 className="edit"
                               >
-                                Edit
+                                <FormattedMessage id="edit" />
                               </span>
                             </div>
                           </span>
@@ -249,7 +255,9 @@ export function PurchasePage() {
                         className="add-new-address"
                       >
                         <img src={plusIcon} alt="Plus Icon" />
-                        <a href="#">Add a new address</a>
+                        <a href="#">
+                          <FormattedMessage id="add a new address" />
+                        </a>
                       </span>
                     </div>
 
@@ -269,7 +277,7 @@ export function PurchasePage() {
                           }
                         }}
                       >
-                        Use this address
+                        <FormattedMessage id="use this address" />
                       </button>
                     </div>
                   </div>
@@ -281,7 +289,8 @@ export function PurchasePage() {
                   return (
                     <div key={info.id} className="chosen-address-spacing">
                       <h2 className="chosen-address-text">
-                        <label>1</label> Shipping address
+                        <label>1</label>{" "}
+                        <FormattedMessage id="shipping address" />
                       </h2>
                       <ul className="person-info">
                         <li>{info.fullNameInput}</li>
@@ -302,7 +311,7 @@ export function PurchasePage() {
                         className="change-chosen-address"
                         href="#"
                       >
-                        Change
+                        <FormattedMessage id="change" />
                       </a>
                     </div>
                   );
@@ -314,13 +323,19 @@ export function PurchasePage() {
                 <div className="payment-method-container">
                   <h2 className="payment-method-text">
                     <label>2</label>
-                    Choose a payment method
+                    <FormattedMessage id="choose a payment method" />
                   </h2>
                   <div className="payment">
-                    <h3>Your credit and debit cards</h3>
+                    <h3>
+                      <FormattedMessage id="your credit and debit cards" />
+                    </h3>
                     <div className="payment-definition">
-                      <span className="name-on-card-spacing">Name on card</span>
-                      <span>Expires on</span>
+                      <span className="name-on-card-spacing">
+                        <FormattedMessage id="name on card" />
+                      </span>
+                      <span>
+                        <FormattedMessage id="expires on" />
+                      </span>
                     </div>
                     {cards.map((card) => {
                       return (
@@ -351,7 +366,10 @@ export function PurchasePage() {
                             <img src={redCardImage} alt="Card Image" />
                           </div>
                           <span className="card-info">
-                            <span>Visa Gold</span> ending in{" "}
+                            <span>
+                              <FormattedMessage id="visa gold" />
+                            </span>{" "}
+                            <FormattedMessage id="ending in" />{" "}
                             {card.cardNumber.slice(card.cardNumber.length - 4)}
                           </span>
                           <span className="card-user">{card.nameOnCard}</span>
@@ -374,9 +392,11 @@ export function PurchasePage() {
                         alt="Card Image"
                       />
                       <span>
-                        <a href="#">Add a credit or debit card</a>
+                        <a href="#">
+                          <FormattedMessage id="add a credit or debit card" />
+                        </a>
                         <span className="amazon-accepts">
-                          Amazon accepts all major credit cards.
+                          <FormattedMessage id="amazon accepts all major credit cards." />
                         </span>
                       </span>
                     </div>
@@ -388,7 +408,7 @@ export function PurchasePage() {
                           }, 100);
                         }}
                       >
-                        Use this payment method
+                        <FormattedMessage id="use this payment method" />
                       </button>
                     </div>
                   </div>
@@ -398,7 +418,7 @@ export function PurchasePage() {
               <div className="selected-card">
                 <h2 className="selected-card-text">
                   <label>2</label>
-                  Payment method
+                  <FormattedMessage id="payment method" />
                 </h2>
 
                 {selectedCard?.map((card) => (
@@ -426,19 +446,21 @@ export function PurchasePage() {
                   className="change-selected-card"
                   href="#"
                 >
-                  Change
+                  <FormattedMessage id="change" />
                 </a>
               </div>
             )}
             <div className="purchase-page-products">
               <h2 className="purchase-page-products-text">
                 <label>3</label>
-                Review items and shipping
+                <FormattedMessage id="review items and shipping" />
               </h2>
               <div className="current-products">
-                <h2 className="arrival-time">Arriving Mar 26, 2024</h2>
+                <h2 className="arrival-time">
+                  <FormattedMessage id="arriving mar 26 2024" />
+                </h2>
                 <p className="current-products-paragraph">
-                  Items shipped from Amazon.com
+                  <FormattedMessage id="items shipped from amazon com" />
                 </p>
                 <div className="current-products-list">
                   <div className="list">
@@ -460,10 +482,11 @@ export function PurchasePage() {
                             </span>
                             <h4 className="product-price">{`$ ${purchaseProduct.cartProduct.salePrice}.99`}</h4>
                             <span className="purchase-page-quantity">
-                              Quantity: {`${purchaseProduct.count}`}
+                              <FormattedMessage id="quantity:" />{" "}
+                              {`${purchaseProduct.count}`}
                             </span>
                             <p className="sold-by-amazon">
-                              Sold by:Amazon.com Services, Inc.
+                              <FormattedMessage id="sold by:amazon.com services, Inc." />
                             </p>
                           </div>
                         </div>
@@ -471,16 +494,22 @@ export function PurchasePage() {
                     })}
                   </div>
                   <div className="choose-delivery-option">
-                    <label>Choose a delivery option:</label>
+                    <label>
+                      <FormattedMessage id="choose a delivery option" />:
+                    </label>
                     <span className="delivery-time">
                       <input
                         checked={true}
                         onClick={() => setDeliveryOption(true)}
                         type="radio"
                       />
-                      <span>Tuesday, Mar 26</span>
+                      <span>
+                        <FormattedMessage id="tuesday mar 26" />
+                      </span>
                     </span>
-                    <span className="delivery-price">$13.39 - Delivery</span>
+                    <span className="delivery-price">
+                      <FormattedMessage id="$13.39 - delivery" />
+                    </span>
                   </div>
                 </div>
               </div>
@@ -501,29 +530,37 @@ export function PurchasePage() {
               }}
               className="buy-button"
             >
-              Place your order in USD
+              <FormattedMessage id="place your order in usd" />
             </button>
             <p className="choose-payment-text">
-              By placing your order, you agree to Amazon's privacy notice and
-              conditions of use.
+              <FormattedMessage id="by placing your order you agree to amazons privacy notice and conditions of use" />
             </p>
-            <h3>Order summary</h3>
+            <h3>
+              <FormattedMessage id="order summary" />
+            </h3>
             <span className="order-items">
               <span>
-                Subtotal ({itemCount} {itemCount < 2 ? "item" : "items"}):{" "}
+                <FormattedMessage id="subtotal" /> ({itemCount}{" "}
+                {itemCount < 2 ? "item" : "items"}):{" "}
               </span>
               <span>{`$${totalPrice}.99`}</span>
             </span>
             <span className="shipping-handling">
-              <span>Shipping & handling:</span>
+              <span>
+                <FormattedMessage id="shipping and handling" />:
+              </span>
               <span>$13.39</span>
             </span>
             <span className="total-tax">
-              <span>Total before tax:</span>
+              <span>
+                <FormattedMessage id="total before tax" />:
+              </span>
               <span>$27.83</span>
             </span>
             <span className="order-total">
-              <span>Order Total:</span>
+              <span>
+                <FormattedMessage id="order total" />:
+              </span>
               <span>{`$${orderTotal.toFixed(2)}`}</span>
             </span>
           </section>
