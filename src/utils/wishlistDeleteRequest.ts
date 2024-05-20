@@ -4,7 +4,7 @@ async function wishlitDeleteRequest({ item }: { item: string }) {
   const token = localStorage.getItem("access_token");
   try {
     const response = await axios.delete(
-      `http://localhost:3000/liked-products/${item}`,
+      `https://amazon-clone-api-8bme.onrender.com/liked-products/${item}`,
       { headers: { Authorization: `bearer ${token}` } }
     );
     console.log(item);

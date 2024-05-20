@@ -11,11 +11,14 @@ export function usePurchaseProducts() {
   useEffect(() => {
     async function purchaseItems() {
       try {
-        const response = await axios.get("http://localhost:3000/cart", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          "https://amazon-clone-api-8bme.onrender.com/cart",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setPurchaseProducts(response.data);
       } catch (error) {
         console.log("Error Loading Products To Purchase", error);

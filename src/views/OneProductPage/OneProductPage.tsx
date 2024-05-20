@@ -60,7 +60,7 @@ export function OneProductPage() {
     try {
       if (currentCategory !== "Toys & Games") {
         const response = await axios.get(
-          `http://localhost:3000/product?pageSize=35&categoryName=${currentCategory}`
+          `https://amazon-clone-api-8bme.onrender.com/product?pageSize=35&categoryName=${currentCategory}`
         );
         setProducts(response.data.products);
 
@@ -80,7 +80,7 @@ export function OneProductPage() {
         setOneProductDescription(<FormattedMessage id={product.description} />);
       } else {
         const response = await axios.get(
-          `http://localhost:3000/product?pageSize=35&categoryName=Toys %26 Games`
+          `https://amazon-clone-api-8bme.onrender.com/product?pageSize=35&categoryName=Toys %26 Games`
         );
         setProducts(response.data.products);
 

@@ -9,7 +9,7 @@ async function cartDeleteRequest({
 }) {
   try {
     const response = await axios.delete(
-      `http://localhost:3000/cart/${cartProductId}?removeAll=true`,
+      `https://amazon-clone-api-8bme.onrender.com/cart/${cartProductId}?removeAll=true`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

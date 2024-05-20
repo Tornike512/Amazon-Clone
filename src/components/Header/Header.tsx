@@ -64,11 +64,11 @@ export function Header() {
   async function getCategories() {
     try {
       const response = await axios.get(
-        "http://localhost:3000/product-category"
+        "https://amazon-clone-api-8bme.onrender.com/product-category"
       );
 
       const productResponse = await axios.get(
-        `http://localhost:3000/product?pageSize=50`
+        `https://amazon-clone-api-8bme.onrender.com/product?pageSize=50`
       );
 
       const filteredProducts = productResponse.data.products.filter(

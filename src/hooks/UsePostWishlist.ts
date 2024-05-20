@@ -9,7 +9,7 @@ async function UsePostWishlistProducts({
 }) {
   try {
     const response = await axios.post(
-      "http://localhost:3000/liked-products",
+      "https://amazon-clone-api-8bme.onrender.com/liked-products",
       {
         product_id: productId,
       },

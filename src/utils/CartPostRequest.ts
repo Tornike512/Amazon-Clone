@@ -3,7 +3,7 @@ import axios from "axios";
 async function cartPostRequest(productId: string, token: string | null) {
   try {
     const response = await axios.post(
-      `http://localhost:3000/cart`,
+      `https://amazon-clone-api-8bme.onrender.com/cart`,
       {
         product_id: productId,
       },

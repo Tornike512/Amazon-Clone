@@ -1,3 +1,5 @@
 import axios from "axios";
 
-export const PublicAxios = axios.create({ baseURL: "http://localhost:3000" });
+export const PublicAxios = axios.create({
+  baseURL: "https://amazon-clone-api-8bme.onrender.com",
+});

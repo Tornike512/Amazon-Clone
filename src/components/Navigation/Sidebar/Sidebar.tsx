@@ -49,7 +49,7 @@ export function Sidebar() {
   async function getCategories() {
     try {
       const response = await axios.get(
-        "http://localhost:3000/product-category"
+        "https://amazon-clone-api-8bme.onrender.com/product-category"
       );
       setCategories(response.data);
     } catch (error) {

@@ -42,12 +42,12 @@ export function ProductsPage() {
     try {
       if (currentCategory === "Toys & Games") {
         const response = await axios.get(
-          `http://localhost:3000/product?pageSize=30&categoryName=Toys%20%26%20Games`
+          `https://amazon-clone-api-8bme.onrender.com/product?pageSize=30&categoryName=Toys%20%26%20Games`
         );
         setProducts(response.data.products);
       } else if (currentCategory !== "Toys & Games") {
         const response = await axios.get(
-          `http://localhost:3000/product?pageSize=20&categoryName=${currentCategory}`
+          `https://amazon-clone-api-8bme.onrender.com/product?pageSize=20&categoryName=${currentCategory}`
         );
         setProducts(response.data.products);
       }

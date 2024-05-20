@@ -11,9 +11,12 @@ export default function UseGetWishlist() {
 
   async function getWishList() {
     try {
-      const response = await axios.get("http://localhost:3000/liked-products", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.get(
+        "https://amazon-clone-api-8bme.onrender.com/liked-products",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
       setWishList(response.data);
     } catch (error) {

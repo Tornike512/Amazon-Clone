@@ -34,11 +34,14 @@ export function CartPage() {
   async function getCartProducts() {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:3000/cart", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        "https://amazon-clone-api-8bme.onrender.com/cart",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setCartProducts(response.data);
       setLoading(false);
       const subTotal = response.data.reduce(

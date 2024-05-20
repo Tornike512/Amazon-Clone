@@ -10,7 +10,7 @@ export default function useGetProducts({ category }: { category: string }) {
   async function getProducts() {
     try {
       const response = await axios.get(
-        `http://localhost:3000/product?categoryName=${category}`
+        `https://amazon-clone-api-8bme.onrender.com/product?categoryName=${category}`
       );
 
       setProducts(response.data.products);
