@@ -260,7 +260,24 @@
 
   @media (max-width: 575px) {
     .category-grid {
-      grid-template-columns: 270px;
+      grid-template-columns: auto;
+
+      .home-page-category {
+        height: auto;
+        margin: 0px 43px;
+
+        img {
+          max-height: max-content;
+        }
+      }
+
+      .home-page-category-grid {
+        margin: 0 43px;
+
+        h2 {
+          margin-bottom: 24px;
+        }
+      }
     }
 
     .background-spacing {
