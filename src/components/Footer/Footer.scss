@@ -150,7 +150,7 @@
   .footer-secondary-grid-container {
     display: flex;
     justify-content: center;
-    padding: 40px 0;
+    padding: 40px 14px;
     background-color: #131a22;
     font-size: $font-size-12px;
 
@@ -209,6 +209,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
     background-color: #131a22;
     color: #dddddd;
     font-size: $font-size-12px;
@@ -235,6 +236,7 @@
       .footer-main-grid {
         width: auto;
         max-width: 1200px;
+        padding-left: 36px;
       }
     }
   }
@@ -249,6 +251,22 @@
     .footer-secondary-grid-container {
       .footer-secondary-grid {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 525px) {
+  .footer {
+    .footer-secondary-grid-container {
+      padding: 40px 14px;
+    }
+
+    .footer-main-grid-container {
+      .footer-main-grid {
+        width: auto;
+        max-width: 1200px;
+        padding-left: 36px;
       }
     }
   }
