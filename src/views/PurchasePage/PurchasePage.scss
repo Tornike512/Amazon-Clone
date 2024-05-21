@@ -521,6 +521,18 @@
             }
           }
         }
+
+        @media (max-width: 580px) {
+          .current-products-list {
+            .list {
+              width: 100%;
+
+              .current-product {
+                width: 100%;
+              }
+            }
+          }
+        }
       }
 
       .choose-delivery-option {
@@ -552,7 +564,7 @@
         }
       }
 
-      @media (max-width: 436px) {
+      @media (max-width: 580px) {
         .choose-delivery-option {
           display: none;
         }
