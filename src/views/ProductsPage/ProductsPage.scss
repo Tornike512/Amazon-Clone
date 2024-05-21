@@ -289,14 +289,17 @@
       @media (max-width: 768px) {
         .under-25-spacing {
           grid-template-columns: 250px;
+          justify-content: flex-start;
 
           .under-25-item-spacing {
+            width: 396px;
             display: flex;
             margin-bottom: 15px;
 
             .under-25-item {
-              height: 200px;
               max-width: 44%;
+              height: 200px;
+              width: 396px;
 
               img {
                 max-width: 115px;
@@ -407,10 +410,11 @@
     @media (max-width: 587px) {
       .products-grid {
         grid-template-columns: 251px;
+        justify-content: flex-start;
 
         .products-item {
           height: auto;
-
+          width: 396px;
           display: flex;
           margin-bottom: 15px;
 
@@ -462,5 +466,15 @@
     padding: 0;
     font-size: $font-size-14px;
     color: #0f1111;
+
+    .products {
+      .under-25-header {
+        padding-left: 12px;
+      }
+
+      .results-from-header {
+        padding-left: 12px;
+      }
+    }
   }
 }
