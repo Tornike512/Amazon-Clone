@@ -274,7 +274,9 @@
       }
 
       .home-page-category-grid {
-        margin: 0 43px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
 
         h2 {
           margin-bottom: 24px;
