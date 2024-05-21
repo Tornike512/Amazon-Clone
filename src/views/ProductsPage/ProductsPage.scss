@@ -117,14 +117,15 @@
         @media (max-width: 587px) {
           .top-rated-item-spacing {
             height: 170px;
+            width: 396px;
             margin-bottom: 15px;
 
             .top-rated-item {
               max-width: 74%;
 
               img {
-                max-width: 90px;
-                max-height: 90px;
+                max-width: 120px;
+                max-height: 120px;
               }
             }
 
@@ -457,6 +458,9 @@
 
 @media (max-width: 587px) {
   .products-page {
-    padding: 14px 0px 18px;
+    display: block;
+    padding: 0;
+    font-size: $font-size-14px;
+    color: #0f1111;
   }
 }
