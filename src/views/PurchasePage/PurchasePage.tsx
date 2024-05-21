@@ -63,9 +63,7 @@ export function PurchasePage() {
     localStorage.getItem("total price") || "{}"
   );
 
-  const savedProducts = JSON.parse(
-    localStorage.getItem("saved products") || ""
-  );
+  const savedProducts = localStorage.getItem("saved products") || "";
 
   const storedPurchasedItem = JSON.parse(
     localStorage.getItem("purchased item") || "{}"
