@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { PublicLayout } from "./layouts/PublicLayout";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Sidebar } from "./components/Navigation/Sidebar/Sidebar";
 import { SignInModal } from "./components/Navigation/SignInModal/SignInModal";
@@ -59,6 +60,7 @@ function App() {
       <Sidebar />
       <SignInModal />
       <LanguageChange />
+      <Analytics />
     </>
   );
 }
