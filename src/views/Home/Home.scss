@@ -264,7 +264,9 @@
 
       .home-page-category {
         height: auto;
-        margin: 0px 43px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
 
         img {
           max-height: max-content;
