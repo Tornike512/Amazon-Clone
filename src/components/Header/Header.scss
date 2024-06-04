@@ -458,6 +458,7 @@
       background-color: $tertiary-background-color;
       color: $primary-text-color;
       border: none;
+      white-space: nowrap;
       cursor: pointer;
 
       img {
